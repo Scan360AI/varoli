@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sintesi - SCAN360 Dashboard</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/img/logo_scan.png" alt="SCAN360" class="sidebar-logo">
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="index.html" class="nav-item active">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Sintesi</span>
+                </a>
+                <a href="pages/economica.html" class="nav-item">
+                    <i data-lucide="trending-up"></i>
+                    <span>Analisi Economica</span>
+                </a>
+                <a href="pages/patrimoniale.html" class="nav-item">
+                    <i data-lucide="pie-chart"></i>
+                    <span>Analisi Patrimoniale</span>
+                </a>
+                <a href="pages/bancabilita.html" class="nav-item">
+                    <i data-lucide="building"></i>
+                    <span>Bancabilità</span>
+                </a>
+                <a href="pages/circolante.html" class="nav-item">
+                    <i data-lucide="repeat"></i>
+                    <span>Capitale Circolante</span>
+                </a>
+                <a href="pages/rischi.html" class="nav-item">
+                    <i data-lucide="alert-triangle"></i>
+                    <span>Rischi & Piano d'Azione</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="company-info">
+                    <div class="company-name">VAROLI</div>
+                    <div class="company-detail">Anno fiscale 2024</div>
+                </div>
+                <div style="font-size: 11px; color: #9ca3af; margin-top: 12px;">
+                    Powered by <a href="http://www.kitzanos.com" target="_blank" style="color: #667eea;">Kitzanos Lab</a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="header-title">
+                    <h1>Sintesi Esecutiva</h1>
+                    <div class="header-subtitle">Panoramica completa della situazione economico-finanziaria</div>
+                </div>
+                <div class="header-actions">
+                    <button id="exportPdfBtn" class="btn-export">
+                        <i data-lucide="download"></i>
+                        Esporta PDF
+                    </button>
+                    <div class="user-menu" id="userMenu">
+                        <div class="user-avatar">AD</div>
+                        <div class="user-info">
+                            <div class="user-name">Admin</div>
+                            <div class="user-role">Amministratore</div>
+                        </div>
+                    </div>
+                    <button id="logoutBtn" class="btn btn-secondary btn-sm">
+                        <i data-lucide="log-out"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <div class="content-wrapper">
+                <!-- Hero Section - IRP Score -->
+                <div class="content-section">
+                    <div id="irpHeroSection"></div>
+                </div>
+
+                <!-- KPI Grid -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Indicatori Chiave di Performance</h2>
+                        <p class="section-description">Panoramica degli indicatori principali rispetto all'anno precedente</p>
+                    </div>
+                    <div id="kpiGrid"></div>
+                </div>
+
+                <!-- CCII Alert -->
+                <div class="content-section">
+                    <div id="cciiAlert"></div>
+                </div>
+
+                <!-- Trend Chart -->
+                <div class="content-section">
+                    <div id="trendChart"></div>
+                </div>
+
+                <!-- SWOT Analysis -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Analisi SWOT</h2>
+                        <p class="section-description">Punti di forza, debolezze, opportunità e minacce</p>
+                    </div>
+                    <div id="swotGrid"></div>
+                </div>
+
+                <!-- Priority Actions -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Azioni Prioritarie</h2>
+                        <p class="section-description">Piano d'azione con interventi raccomandati per priorità</p>
+                    </div>
+                    <div id="priorityActionsTable"></div>
+                </div>
+
+                <!-- Business Model -->
+                <div class="content-section">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Modello di Business</h3>
+                        </div>
+                        <div class="card-body">
+                            <div id="businessModelContent"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.95); z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+        <div class="loading" style="width: 48px; height: 48px; border-width: 4px;"></div>
+        <div style="margin-top: 16px; font-size: 14px; color: #6b7280;">Caricamento dati...</div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/export.js"></script>
+    <script src="js/components/kpi-card.js"></script>
+    <script src="js/components/chart.js"></script>
+    <script src="js/components/table.js"></script>
+
+    <!-- Page Script -->
+    <script>
+        // Initialize page when data is loaded
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Wait for data to load
+            await App.init();
+
+            const data = App.getData();
+            const kpis = data.kpis;
+            const content = data.content.parte1_sintesi;
+            const tables = data.tables.parte1_sintesi;
+            const charts = data.charts.dashboard;
+
+            // Render IRP Hero Section
+            renderIRPHero(kpis.irp, content);
+
+            // Render KPI Grid
+            const kpiKeys = ['revenue', 'ebitda', 'ebitdaMargin', 'netIncome', 'equity', 'liquidity', 'pfnEbitda', 'leverageDE'];
+            KPICard.renderMultiple(document.getElementById('kpiGrid'), kpiKeys, kpis);
+
+            // Render CCII Alert
+            renderCCIIAlert(content.cciiAlert);
+
+            // Render Trend Chart
+            ChartComponent.render(
+                document.getElementById('trendChart'),
+                charts.trendChart,
+                charts.trendChart.title
+            );
+
+            // Render SWOT
+            renderSWOT(tables.swot);
+
+            // Render Priority Actions Table
+            renderPriorityActions(tables.priorityActions);
+
+            // Render Business Model
+            document.getElementById('businessModelContent').innerHTML = `<p>${content.businessModel}</p>`;
+        });
+
+        // Render IRP Hero
+        function renderIRPHero(irpData, content) {
+            const container = document.getElementById('irpHeroSection');
+
+            const html = `
+                <div class="card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none;">
+                    <div class="card-body" style="padding: 48px;">
+                        <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: center;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 14px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.9; margin-bottom: 16px;">
+                                    Indice di Rischio Ponderato
+                                </div>
+                                <div style="font-size: 72px; font-weight: 700; line-height: 1;">
+                                    ${irpData.displayValue}
+                                </div>
+                                <div style="font-size: 18px; font-weight: 600; margin-top: 16px; padding: 8px 24px; background: rgba(255,255,255,0.2); border-radius: 24px; display: inline-block;">
+                                    ${irpData.category}
+                                </div>
+                                <div style="font-size: 14px; margin-top: 12px; opacity: 0.9;">
+                                    ${irpData.categoryLabel}
+                                </div>
+                            </div>
+                            <div>
+                                <h2 style="font-size: 24px; margin-bottom: 16px; color: white;">Profilo di Rischio</h2>
+                                <p style="font-size: 15px; line-height: 1.7; opacity: 0.95;">
+                                    ${content.irpDescription}
+                                </p>
+                                <div style="margin-top: 24px; padding: 16px; background: rgba(255,255,255,0.1); border-radius: 8px; border-left: 4px solid #FFC107;">
+                                    <div style="font-weight: 600; margin-bottom: 8px;">
+                                        ${content.cciiAlert.title}
+                                    </div>
+                                    <div style="font-size: 14px; opacity: 0.9;">
+                                        ${content.cciiAlert.description}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        // Render CCII Alert
+        function renderCCIIAlert(alert) {
+            const container = document.getElementById('cciiAlert');
+
+            const html = `
+                <div class="alert alert-warning">
+                    <div class="alert-title">${alert.title}</div>
+                    <div>${alert.description}</div>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        // Render SWOT
+        function renderSWOT(swot) {
+            const container = document.getElementById('swotGrid');
+            container.className = 'swot-grid';
+
+            const sections = [
+                { key: 'strengths', title: 'Punti di Forza', icon: 'check-circle', class: 'strengths' },
+                { key: 'weaknesses', title: 'Debolezze', icon: 'x-circle', class: 'weaknesses' },
+                { key: 'opportunities', title: 'Opportunità', icon: 'trending-up', class: 'opportunities' },
+                { key: 'threats', title: 'Minacce', icon: 'alert-circle', class: 'threats' }
+            ];
+
+            sections.forEach(section => {
+                const card = document.createElement('div');
+                card.className = `swot-card ${section.class}`;
+
+                const items = swot[section.key].map(item => `<li>${item}</li>`).join('');
+
+                card.innerHTML = `
+                    <div class="swot-title">
+                        <i data-lucide="${section.icon}"></i>
+                        ${section.title}
+                    </div>
+                    <ul class="swot-list">
+                        ${items}
+                    </ul>
+                `;
+
+                container.appendChild(card);
+            });
+
+            lucide.createIcons();
+        }
+
+        // Render Priority Actions
+        function renderPriorityActions(tableData) {
+            const container = document.getElementById('priorityActionsTable');
+
+            const table = document.createElement('div');
+            table.className = 'table-wrapper';
+
+            const html = `
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            ${tableData.headers.map(h => `<th>${h}</th>`).join('')}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${tableData.rows.map(row => `
+                            <tr>
+                                <td>
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <div class="${row.iconColor}" style="width: 36px; height: 36px; border-radius: 6px; display: flex; align-items: center; justify-content: center;">
+                                            <i data-lucide="${row.icon}" style="width: 18px; height: 18px; color: white;"></i>
+                                        </div>
+                                        <strong>${row.area}</strong>
+                                    </div>
+                                </td>
+                                <td>${row.action}</td>
+                                <td>${row.impact}</td>
+                                <td>
+                                    <span class="badge ${row.badgeClass}">${row.priority}</span>
+                                </td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+
+            table.innerHTML = html;
+            container.appendChild(table);
+
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisi Patrimoniale - SCAN360 Dashboard</title>
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/img/logo_scan.png" alt="SCAN360" class="sidebar-logo">
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="../index.html" class="nav-item">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Sintesi</span>
+                </a>
+                <a href="economica.html" class="nav-item">
+                    <i data-lucide="trending-up"></i>
+                    <span>Analisi Economica</span>
+                </a>
+                <a href="patrimoniale.html" class="nav-item active">
+                    <i data-lucide="pie-chart"></i>
+                    <span>Analisi Patrimoniale</span>
+                </a>
+                <a href="bancabilita.html" class="nav-item">
+                    <i data-lucide="building"></i>
+                    <span>Bancabilità</span>
+                </a>
+                <a href="circolante.html" class="nav-item">
+                    <i data-lucide="repeat"></i>
+                    <span>Capitale Circolante</span>
+                </a>
+                <a href="rischi.html" class="nav-item">
+                    <i data-lucide="alert-triangle"></i>
+                    <span>Rischi & Piano d'Azione</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="company-info">
+                    <div class="company-name">VAROLI</div>
+                    <div class="company-detail">Anno fiscale 2024</div>
+                </div>
+                <div style="font-size: 11px; color: #9ca3af; margin-top: 12px;">
+                    Powered by <a href="http://www.kitzanos.com" target="_blank" style="color: #667eea;">Kitzanos Lab</a>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-title">
+                    <h1>Analisi Patrimoniale e Finanziaria</h1>
+                    <div class="header-subtitle">Struttura patrimoniale, indebitamento e solidità finanziaria</div>
+                </div>
+                <div class="header-actions">
+                    <button id="exportPdfBtn" class="btn-export">
+                        <i data-lucide="download"></i>
+                        Esporta PDF
+                    </button>
+                    <div class="user-menu">
+                        <div class="user-avatar">AD</div>
+                        <div class="user-info">
+                            <div class="user-name">Admin</div>
+                            <div class="user-role">Amministratore</div>
+                        </div>
+                    </div>
+                    <button id="logoutBtn" class="btn btn-secondary btn-sm">
+                        <i data-lucide="log-out"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="content-section">
+                    <div class="card">
+                        <div class="card-body">
+                            <p id="sectionIntro"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Indicatori Patrimoniali</h2>
+                    </div>
+                    <div id="kpiPatrimoniali"></div>
+                </div>
+
+                <div class="content-section">
+                    <div id="chartsContainer"></div>
+                </div>
+
+                <div class="content-section">
+                    <div id="tablesContainer"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="loadingOverlay" style="display: flex; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.95); z-index: 9999; align-items: center; justify-content: center; flex-direction: column;">
+        <div class="loading" style="width: 48px; height: 48px; border-width: 4px;"></div>
+        <div style="margin-top: 16px; font-size: 14px; color: #6b7280;">Caricamento dati...</div>
+    </div>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/export.js"></script>
+    <script src="../js/components/kpi-card.js"></script>
+    <script src="../js/components/chart.js"></script>
+    <script src="../js/components/table.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            await App.init();
+
+            const data = App.getData();
+            const content = data.content.parte3_patrimoniale;
+            const tables = data.tables.parte3_patrimoniale;
+            const charts = data.charts.reports.parte3;
+
+            document.getElementById('sectionIntro').innerHTML = content.sectionIntro;
+
+            const kpiKeys = ['equity', 'liquidity', 'leverageDE', 'pfnEbitda'];
+            KPICard.renderMultiple(document.getElementById('kpiPatrimoniali'), kpiKeys, data.kpis);
+
+            const chartsDiv = document.getElementById('chartsContainer');
+            const chartsToRender = [
+                { data: charts.assetsChart, title: charts.assetsChart.title },
+                { data: charts.liabilitiesChart, title: charts.liabilitiesChart.title },
+                { data: charts.pfnTrendChart, title: charts.pfnTrendChart.title },
+                { data: charts.financialDebtSourcesChart, title: charts.financialDebtSourcesChart.title }
+            ];
+
+            chartsToRender.forEach(chart => {
+                ChartComponent.render(chartsDiv, chart.data, chart.title);
+            });
+
+            const tablesDiv = document.getElementById('tablesContainer');
+            TableComponent.render(tablesDiv, tables.statoPatrimonialeImpieghi, 'Stato Patrimoniale - Impieghi');
+            TableComponent.render(tablesDiv, tables.statoPatrimonialeFonti, 'Stato Patrimoniale - Fonti');
+            TableComponent.render(tablesDiv, tables.pfn, 'Posizione Finanziaria Netta');
+            TableComponent.render(tablesDiv, tables.indiciSolidita, 'Indici di Solidità');
+        });
+    </script>
+</body>
+</html>

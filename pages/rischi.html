@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rischi & Piano d'Azione - SCAN360 Dashboard</title>
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../assets/img/logo_scan.png" alt="SCAN360" class="sidebar-logo">
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="../index.html" class="nav-item">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Sintesi</span>
+                </a>
+                <a href="economica.html" class="nav-item">
+                    <i data-lucide="trending-up"></i>
+                    <span>Analisi Economica</span>
+                </a>
+                <a href="patrimoniale.html" class="nav-item">
+                    <i data-lucide="pie-chart"></i>
+                    <span>Analisi Patrimoniale</span>
+                </a>
+                <a href="bancabilita.html" class="nav-item">
+                    <i data-lucide="building"></i>
+                    <span>Bancabilità</span>
+                </a>
+                <a href="circolante.html" class="nav-item">
+                    <i data-lucide="repeat"></i>
+                    <span>Capitale Circolante</span>
+                </a>
+                <a href="rischi.html" class="nav-item active">
+                    <i data-lucide="alert-triangle"></i>
+                    <span>Rischi & Piano d'Azione</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="company-info">
+                    <div class="company-name">VAROLI</div>
+                    <div class="company-detail">Anno fiscale 2024</div>
+                </div>
+                <div style="font-size: 11px; color: #9ca3af; margin-top: 12px;">
+                    Powered by <a href="http://www.kitzanos.com" target="_blank" style="color: #667eea;">Kitzanos Lab</a>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-title">
+                    <h1>Rischi & Piano d'Azione</h1>
+                    <div class="header-subtitle">Analisi dei rischi e raccomandazioni strategiche</div>
+                </div>
+                <div class="header-actions">
+                    <button id="exportPdfBtn" class="btn-export">
+                        <i data-lucide="download"></i>
+                        Esporta PDF
+                    </button>
+                    <div class="user-menu">
+                        <div class="user-avatar">AD</div>
+                        <div class="user-info">
+                            <div class="user-name">Admin</div>
+                            <div class="user-role">Amministratore</div>
+                        </div>
+                    </div>
+                    <button id="logoutBtn" class="btn btn-secondary btn-sm">
+                        <i data-lucide="log-out"></i>
+                    </button>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="content-section">
+                    <div class="card">
+                        <div class="card-body">
+                            <p id="sectionIntro"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Profilo di Rischio</h2>
+                    </div>
+                    <div id="rischiGrid"></div>
+                </div>
+
+                <div class="content-section">
+                    <div id="chartsContainer"></div>
+                </div>
+
+                <div class="content-section">
+                    <div id="tablesContainer"></div>
+                </div>
+
+                <div class="content-section">
+                    <div class="alert alert-warning">
+                        <div class="alert-title">Raccomandazione</div>
+                        <div id="continuityNote"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="loadingOverlay" style="display: flex; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.95); z-index: 9999; align-items: center; justify-content: center; flex-direction: column;">
+        <div class="loading" style="width: 48px; height: 48px; border-width: 4px;"></div>
+        <div style="margin-top: 16px; font-size: 14px; color: #6b7280;">Caricamento dati...</div>
+    </div>
+
+    <script src="../js/utils.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/export.js"></script>
+    <script src="../js/components/kpi-card.js"></script>
+    <script src="../js/components/chart.js"></script>
+    <script src="../js/components/table.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            await App.init();
+
+            const data = App.getData();
+            const content = data.content.parte6_rischi_raccomandazioni;
+            const tables = data.tables.parte6_rischi;
+            const charts = data.charts.reports.parte6;
+
+            document.getElementById('sectionIntro').innerHTML = content.sectionIntro;
+            document.getElementById('continuityNote').innerHTML = content.continuityNote;
+
+            // Render risk cards
+            renderRiskCards(content);
+
+            const chartsDiv = document.getElementById('chartsContainer');
+            const chartsToRender = [
+                { data: charts.zScoreChart, title: charts.zScoreChart.title },
+                { data: charts.riskIndicatorsChart, title: charts.riskIndicatorsChart.title },
+                { data: charts.sensitivityChart, title: charts.sensitivityChart.title }
+            ];
+
+            chartsToRender.forEach(chart => {
+                ChartComponent.render(chartsDiv, chart.data, chart.title);
+            });
+
+            const tablesDiv = document.getElementById('tablesContainer');
+            TableComponent.render(tablesDiv, tables.redFlags, 'Segnali di Allarme (Red Flags)');
+            TableComponent.render(tablesDiv, tables.pianoAzione, 'Piano d\'Azione Raccomandato');
+            TableComponent.render(tablesDiv, tables.dashboardKPI, 'KPI di Monitoraggio');
+        });
+
+        function renderRiskCards(content) {
+            const container = document.getElementById('rischiGrid');
+            container.className = 'grid-2';
+
+            const risks = [
+                { key: 'financialRisk', title: 'Rischio Finanziario', icon: 'dollar-sign', color: 'danger' },
+                { key: 'operationalRisk', title: 'Rischio Operativo', icon: 'settings', color: 'danger' },
+                { key: 'liquidityRisk', title: 'Rischio Liquidità', icon: 'droplet', color: 'warning' },
+                { key: 'marketRisk', title: 'Rischio Mercato', icon: 'trending-down', color: 'warning' }
+            ];
+
+            risks.forEach(risk => {
+                const data = content[risk.key];
+                const card = document.createElement('div');
+                card.className = `card border-${risk.color}`;
+                card.style.borderLeft = `4px solid var(--color-${risk.color})`;
+
+                card.innerHTML = `
+                    <div class="card-body">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                            <div style="width: 40px; height: 40px; border-radius: 8px; background: var(--color-${risk.color}-light); display: flex; align-items: center; justify-content: center;">
+                                <i data-lucide="${risk.icon}" style="width: 20px; height: 20px; color: var(--color-${risk.color});"></i>
+                            </div>
+                            <h3 style="margin: 0; font-size: 16px;">${risk.title}</h3>
+                        </div>
+                        <p style="font-size: 14px; line-height: 1.6; margin-bottom: 12px;">${data.description}</p>
+                        <div style="display: flex; gap: 16px; font-size: 13px;">
+                            <div>
+                                <strong>Impatto:</strong> <span class="text-${risk.color}">${data.impact}</span>
+                            </div>
+                            <div>
+                                <strong>Probabilità:</strong> <span class="text-${risk.color}">${data.probability}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+
+            lucide.createIcons();
+        }
+    </script>
+</body>
+</html>
