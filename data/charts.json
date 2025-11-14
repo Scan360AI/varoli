@@ -1,0 +1,441 @@
+{
+  "dashboard": {
+    "trendChart": {
+      "title": "Trend Ricavi, EBITDA e Margine",
+      "type": "mixed",
+      "labels": ["2022", "2023", "2024"],
+      "datasets": {
+        "revenue": {
+          "label": "Ricavi (€)",
+          "data": [3722214, 3324256, 2849913],
+          "type": "line"
+        },
+        "ebitda": {
+          "label": "EBITDA (€)",
+          "data": [196510, 213142, -43535],
+          "type": "bar"
+        },
+        "ebitdaMargin": {
+          "label": "EBITDA Margin (%)",
+          "data": [5.3, 6.4, -1.53],
+          "type": "line"
+        }
+      }
+    },
+    "pfnChart": {
+      "title": "Sostenibilità Debito (PFN/EBITDA)",
+      "type": "bar",
+      "labels": ["2022", "2023", "2024"],
+      "datasets": {
+        "pfnEbitda": {
+          "label": "PFN/EBITDA",
+          "data": [4.98, 3.82, null]
+        },
+        "threshold": {
+          "label": "Soglia Attenzione (<3x)",
+          "data": [3, 3, 3]
+        }
+      }
+    }
+  },
+  "reports": {
+    "parte1": {
+      "mainMetricsChart": {
+        "title": "Evoluzione Ricavi, EBITDA e Patrimonio Netto",
+        "type": "bar",
+        "labels": ["2022", "2023", "2024"],
+        "datasets": {
+          "revenue": {
+            "label": "Ricavi (€000)",
+            "data": [3722, 3324, 2850]
+          },
+          "ebitda": {
+            "label": "EBITDA (€000)",
+            "data": [197, 213, -44]
+          },
+          "equity": {
+            "label": "Patrimonio Netto (€000)",
+            "data": [584, 650, 480]
+          }
+        }
+      },
+      "currentAssetsLiabilitiesChart": {
+        "title": "Andamento Attivo e Passivo Corrente",
+        "type": "bar",
+        "labels": ["2023", "2024"],
+        "datasets": {
+          "currentAssets": {
+            "label": "Attivo Corrente",
+            "data": [1995911, 1828448]
+          },
+          "currentLiabilities": {
+            "label": "Passivo Corrente",
+            "data": [663045, 529214]
+          },
+          "workingCapital": {
+            "label": "Capitale Circolante Netto",
+            "data": [1332866, 1299234]
+          }
+        }
+      }
+    },
+    "parte2": {
+      "economicTrendChart": {
+        "title": "Andamento Ricavi ed EBITDA 2022-2024",
+        "type": "mixed",
+        "labels": ["2022", "2023", "2024"],
+        "datasets": {
+          "revenue": {
+            "label": "Ricavi (€000)",
+            "data": [3722, 3324, 2850],
+            "type": "bar"
+          },
+          "ebitda": {
+            "label": "EBITDA (€000)",
+            "data": [197, 213, -44],
+            "type": "bar"
+          },
+          "ebitdaMarginPercent": {
+            "label": "EBITDA %",
+            "data": [5.3, 6.4, -1.53],
+            "type": "line",
+            "yAxisID": "y1"
+          }
+        }
+      },
+      "marginalityChart": {
+        "title": "Evoluzione delle Marginalità",
+        "type": "line",
+        "labels": ["2022", "2023", "2024"],
+        "datasets": {
+          "valueAdded": {
+            "label": "Valore Aggiunto %",
+            "data": [23.7, 27.1, 23.0]
+          },
+          "contributionMargin": {
+            "label": "Margine di Contribuzione %",
+            "data": [13.6, 16.3, 8.6]
+          },
+          "ebitdaPercent": {
+            "label": "EBITDA %",
+            "data": [5.3, 6.4, -1.53]
+          },
+          "ebitPercent": {
+            "label": "EBIT %",
+            "data": [3.9, 5.2, -3.26]
+          }
+        }
+      },
+      "profitabilityIndicesChart": {
+        "title": "Andamento Indici di Redditività",
+        "type": "line",
+        "labels": ["2022", "2023", "2024"],
+        "datasets": {
+          "roe": {
+            "label": "ROE %",
+            "data": [19.18, 17.65, -31.10]
+          },
+          "roi": {
+            "label": "ROI %",
+            "data": [14.96, 17.52, -6.65]
+          },
+          "ros": {
+            "label": "ROS %",
+            "data": [3.9, 5.2, -3.26]
+          }
+        }
+      },
+      "leverageChart": {
+        "title": "Confronto ROI vs ROE",
+        "type": "bar",
+        "labels": ["2023", "2024"],
+        "datasets": {
+          "roi": {
+            "label": "ROI (%)",
+            "data": [17.52, -6.65]
+          },
+          "roe": {
+            "label": "ROE (%)",
+            "data": [17.65, -31.10]
+          }
+        }
+      },
+      "benchmarkRadarChart": {
+        "title": "Posizionamento Competitivo",
+        "type": "radar",
+        "labels": ["Crescita Ricavi", "EBITDA Margin", "ROI", "Turnover", "Ciclo Circolante", "PFN/EBITDA", "D/E"],
+        "datasets": {
+          "company": {
+            "label": "VAROLI GUIDO E FIGLIO S.R.L.",
+            "data": [19, 0, 0, 100, 32, 0, 28]
+          },
+          "sector": {
+            "label": "Media Settore",
+            "data": [100, 100, 100, 100, 100, 100, 100]
+          }
+        }
+      }
+    },
+    "parte3": {
+      "assetsChart": {
+        "title": "Composizione dell'Attivo 2024",
+        "type": "pie",
+        "labels": ["Immob. Materiali", "Immob. Finanziarie", "Immob. Immateriali", "Magazzino", "Crediti", "Liquidità"],
+        "datasets": {
+          "values": {
+            "data": [454485, 0, 0, 1067842, 323921, 355443]
+          }
+        }
+      },
+      "liabilitiesChart": {
+        "title": "Composizione del Passivo 2024",
+        "type": "pie",
+        "labels": ["Patrimonio Netto", "Debiti Fin. MLT", "Debiti Fin. BT", "Debiti Comm.", "Fondi"],
+        "datasets": {
+          "values": {
+            "data": [479666, 616361, 658692, 480162, 78839]
+          }
+        }
+      },
+      "investmentsStructureChart": {
+        "title": "Evoluzione Struttura Investimenti",
+        "type": "bar",
+        "stacked": true,
+        "labels": ["2022", "2023", "2024"],
+        "datasets": {
+          "fixedAssets": {
+            "label": "Immobilizzazioni",
+            "data": [562981, 542153, 454485]
+          },
+          "receivables": {
+            "label": "Crediti commerciali",
+            "data": [403423, 422112, 323921]
+          },
+          "inventory": {
+            "label": "Rimanenze",
+            "data": [1051763, 1081429, 1067842]
+          },
+          "cash": {
+            "label": "Liquidità",
+            "data": [331275, 424881, 355443]
+          }
+        }
+      },
+      "equityCompositionChart": {
+        "title": "Composizione Patrimonio Netto 2024",
+        "type": "doughnut",
+        "labels": ["Capitale Sociale", "Riserve", "Utile Esercizio", "Utili a Nuovo"],
+        "datasets": {
+          "values": {
+            "data": [247539, 381304, -149177, 0]
+          }
+        }
+      },
+      "financialDebtSourcesChart": {
+        "title": "Evoluzione Indebitamento e Leva Finanziaria",
+        "type": "mixed",
+        "labels": ["2022", "2023", "2024"],
+        "datasets": {
+          "financialDebt": {
+            "label": "Debiti Finanziari",
+            "data": [1140362, 1163776, 1275053],
+            "type": "bar"
+          },
+          "equity": {
+            "label": "Patrimonio Netto",
+            "data": [583657, 650404, 479666],
+            "type": "bar"
+          },
+          "debtToEquity": {
+            "label": "Rapporto D/E",
+            "data": [1.95, 1.79, 2.66],
+            "type": "line",
+            "yAxisID": "y1"
+          }
+        }
+      },
+      "pfnTrendChart": {
+        "title": "Evoluzione PFN",
+        "type": "mixed",
+        "labels": ["2022", "2023", "2024"],
+        "datasets": {
+          "totalDebt": {
+            "label": "Debiti Finanziari Tot.",
+            "data": [1140362, 1163776, 1275053],
+            "type": "bar"
+          },
+          "cash": {
+            "label": "Liquidità",
+            "data": [331275, 424881, 355443],
+            "type": "bar"
+          },
+          "pfn": {
+            "label": "PFN",
+            "data": [809087, 738895, 919610],
+            "type": "line"
+          }
+        }
+      }
+    },
+    "parte4": {
+      "debtSustainabilityChart": {
+        "title": "Sostenibilità del Debito - Radar",
+        "type": "radar",
+        "labels": ["PFN/EBITDA", "D/E", "DSCR", "Oneri Fin./Ricavi", "Cash Flow Op./Ricavi", "Leanus Score"],
+        "datasets": {
+          "company": {
+            "label": "VAROLI GUIDO E FIGLIO S.R.L.",
+            "data": [0, 28, 56, 0, 74, 35]
+          },
+          "target": {
+            "label": "Target/Benchmark",
+            "data": [100, 67, 100, 100, 100, 75]
+          }
+        }
+      },
+      "debtCostChart": {
+        "title": "Capacità di Indebitamento",
+        "type": "mixed",
+        "labels": ["2022", "2023", "2024"],
+        "datasets": {
+          "ebitda": {
+            "label": "EBITDA (€000)",
+            "data": [197, 213, -44],
+            "type": "bar"
+          },
+          "debtCapacity": {
+            "label": "Capacità Teorica Indeb. (€000)",
+            "data": [0, 0, 0],
+            "type": "line"
+          }
+        }
+      },
+      "financialDebtChart": {
+        "title": "Composizione Debito Finanziario 2024",
+        "type": "doughnut",
+        "labels": ["Debiti Finanziari BT", "Debiti Finanziari MLT"],
+        "datasets": {
+          "values": {
+            "data": [658692, 616361]
+          }
+        }
+      }
+    },
+    "parte5": {
+      "workingCapitalCycleChart": {
+        "title": "Ciclo del Capitale Circolante",
+        "type": "bar",
+        "labels": ["Crediti Clienti (DSO)", "Magazzino (DIO)", "Debiti Fornitori (DPO)", "Ciclo Circolante"],
+        "datasets": {
+          "company": {
+            "label": "VAROLI GUIDO E FIGLIO S.R.L. (Giorni)",
+            "data": [41, 194, 68, 167]
+          },
+          "benchmark": {
+            "label": "Benchmark Settore (Giorni)",
+            "data": [55, 61, 64, 51]
+          }
+        }
+      },
+      "cashFlowWaterfallChart": {
+        "title": "Analisi Cash Flow 2024 - Cascata",
+        "type": "bar",
+        "labels": ["EBITDA", "Imposte", "+Δ Circ.", "=CF Op.", "-Invest.", "=FCF", "+Δ Debt", "-Divid.", "=Δ Cassa"],
+        "datasets": {
+          "values": {
+            "data": [-43535, -5720, 108427, 211345, -774136, -562791, 746599, 0, 183808]
+          }
+        }
+      },
+      "cashFlowTrendChart": {
+        "title": "Trend Cash Flow 2022-2024",
+        "type": "line",
+        "labels": ["2022", "2023", "2024"],
+        "datasets": {
+          "operating": {
+            "label": "Cash Flow Operativo",
+            "data": [-125524, 96543, 211345]
+          },
+          "investing": {
+            "label": "Cash Flow Investimenti",
+            "data": [-10955, -761, -774136]
+          },
+          "netChange": {
+            "label": "Variazione Netta di Cassa",
+            "data": [33976, -132863, 183808]
+          }
+        }
+      },
+      "cashFlowProjectionChart": {
+        "title": "Proiezioni Cash Flow 2025-2028",
+        "type": "mixed",
+        "labels": ["2024", "2025E", "2026E", "2027E", "2028E"],
+        "datasets": {
+          "operating": {
+            "label": "Cash Flow Operativo",
+            "data": [211345, 62112, 232102, 145173, 149909],
+            "type": "bar"
+          },
+          "debtVariation": {
+            "label": "Variazione Debiti Fin.",
+            "data": [746599, 213256, -75473, -64691, -55449],
+            "type": "bar"
+          },
+          "cashBalance": {
+            "label": "Liquidità Finale",
+            "data": [355443, 304780, 331409, 411891, 506351],
+            "type": "line",
+            "yAxisID": "y1"
+          }
+        }
+      }
+    },
+    "parte6": {
+      "zScoreChart": {
+        "title": "Z-Score Altman",
+        "type": "line",
+        "labels": ["2022", "2023", "2024"],
+        "datasets": {
+          "zScore": {
+            "label": "Z-Score",
+            "data": [null, null, 2.22]
+          },
+          "safeThreshold": {
+            "label": "Soglia Sicurezza",
+            "data": [2.99, 2.99, 2.99]
+          },
+          "riskThreshold": {
+            "label": "Soglia Rischio",
+            "data": [1.81, 1.81, 1.81]
+          }
+        }
+      },
+      "riskIndicatorsChart": {
+        "title": "Indicatori di Rischio - Radar",
+        "type": "radar",
+        "labels": ["ROI", "ROS", "D/E", "Cop. Immob.", "DSO", "DPO"],
+        "datasets": {
+          "company": {
+            "label": "VAROLI GUIDO E FIGLIO S.R.L.",
+            "data": [0, 0, 28, 56, 134, 106]
+          },
+          "target": {
+            "label": "Target/Benchmark",
+            "data": [100, 100, 67, 100, 100, 100]
+          }
+        }
+      },
+      "sensitivityChart": {
+        "title": "Analisi di Sensitività",
+        "type": "bar",
+        "labels": ["Ricavi", "Costi Fissi", "Crediti Clienti (gg)", "Debiti Fornitori (gg)"],
+        "datasets": {
+          "criticalVariation": {
+            "label": "Variazione Critica",
+            "data": [-8.56, 9.52, 35, -15]
+          }
+        }
+      }
+    }
+  }
+}

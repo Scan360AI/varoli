@@ -1,0 +1,304 @@
+{
+  "irp": {
+    "title": "IRP - Indice Rischio",
+    "value": 51.42,
+    "displayValue": "51,42",
+    "category": "D+",
+    "categoryLabel": "Rischio elevato",
+    "status": "danger",
+    "borderClass": "border-left-danger",
+    "icon": "fa-shield-alt",
+    "description": "Significative vulnerabilità finanziarie.",
+    "trend": {
+      "direction": "none",
+      "value": null,
+      "label": null,
+      "iconClass": null
+    },
+    "metadata": {
+      "min": 0,
+      "max": 100,
+      "unit": "points"
+    }
+  },
+  "revenue": {
+    "title": "Ricavi",
+    "value": 2850000,
+    "displayValue": "€ 2,85 M",
+    "status": "success",
+    "borderClass": "border-left-success",
+    "icon": "fa-chart-bar",
+    "description": "Contrazione significativa.",
+    "trend": {
+      "direction": "down",
+      "value": -14.27,
+      "displayValue": "-14,27%",
+      "label": "vs 2023",
+      "iconClass": "fa-arrow-down",
+      "cssClass": "trend-up"
+    },
+    "metadata": {
+      "currency": "EUR",
+      "unit": "M",
+      "decimals": 2
+    }
+  },
+  "ebitdaMargin": {
+    "title": "EBITDA Margin",
+    "value": -1.53,
+    "displayValue": "-1,53%",
+    "status": "success",
+    "borderClass": "border-left-success",
+    "icon": "fa-percent",
+    "description": "Critico (benchmark >2,5%).",
+    "trend": {
+      "direction": "down",
+      "value": -7.93,
+      "displayValue": "-7,93 p.p.",
+      "label": "vs 2023",
+      "iconClass": "fa-arrow-down",
+      "cssClass": "trend-up"
+    },
+    "metadata": {
+      "unit": "%",
+      "benchmark": 2.5
+    }
+  },
+  "pfnEbitda": {
+    "title": "PFN / EBITDA",
+    "value": null,
+    "displayValue": "N/A",
+    "status": "success",
+    "borderClass": "border-left-success",
+    "icon": "fa-balance-scale",
+    "description": "Critico (EBITDA negativo).",
+    "trend": {
+      "direction": "down",
+      "value": null,
+      "displayValue": "NOK",
+      "label": "vs 2023",
+      "iconClass": "fa-arrow-down",
+      "cssClass": "trend-down"
+    },
+    "metadata": {
+      "unit": "x",
+      "benchmark": 3.0,
+      "note": "Non calcolabile per EBITDA negativo"
+    }
+  },
+  "dso": {
+    "title": "Giorni Incasso Clienti",
+    "value": 41,
+    "displayValue": "41 gg",
+    "status": "warning",
+    "borderClass": "border-left-warning",
+    "icon": "fa-file-invoice-dollar",
+    "description": "Ottimo (benchmark 50-60 gg).",
+    "trend": {
+      "direction": "down",
+      "value": -14,
+      "displayValue": "-14 gg",
+      "label": "vs 2023",
+      "iconClass": "fa-arrow-down",
+      "cssClass": "trend-down"
+    },
+    "metadata": {
+      "unit": "gg",
+      "benchmark": 55,
+      "benchmarkRange": "50-60"
+    }
+  },
+  "cashFlowOperativo": {
+    "title": "Cash Flow Operativo",
+    "value": 211345,
+    "displayValue": "€ 211,35 K",
+    "status": "warning",
+    "borderClass": "border-left-warning",
+    "icon": "fa-coins",
+    "description": "Adeguato (benchmark >5%).",
+    "trend": {
+      "direction": "up",
+      "value": 7.42,
+      "displayValue": "7,42%",
+      "label": "dei Ricavi",
+      "iconClass": "fa-arrow-up",
+      "cssClass": "trend-down"
+    },
+    "metadata": {
+      "currency": "EUR",
+      "unit": "K",
+      "benchmark": 5.0,
+      "percentOfRevenue": 7.42
+    }
+  },
+  "leanusScore": {
+    "title": "Leanus Score / Categoria",
+    "value": 3.47,
+    "displayValue": "3,47",
+    "status": "warning",
+    "borderClass": "border-left-warning",
+    "icon": "fa-user-shield",
+    "description": "Fragilità moderata con rischi elevati.",
+    "trend": {
+      "direction": "none",
+      "value": null,
+      "label": null,
+      "badges": [
+        {
+          "text": "Discreto (3)",
+          "class": "bg-warning"
+        },
+        {
+          "text": "TRADER",
+          "class": "bg-info"
+        }
+      ]
+    },
+    "metadata": {
+      "min": 1,
+      "max": 10,
+      "category": "TRADER",
+      "rating": "Discreto"
+    }
+  },
+  "azionePrioritaria": {
+    "title": "Azione Prioritaria",
+    "value": "Ottimizzazione Magazzino",
+    "displayValue": "Ottimizzazione Magazzino",
+    "status": "warning",
+    "borderClass": "border-left-warning",
+    "icon": "fa-tasks",
+    "description": "Ridurre rotazione (194 giorni).",
+    "trend": {
+      "direction": "none",
+      "value": null,
+      "label": null,
+      "badges": [
+        {
+          "text": "Critica",
+          "class": "bg-warning"
+        }
+      ]
+    },
+    "action": {
+      "enabled": true,
+      "buttonText": "Vedi Piano",
+      "buttonClass": "btn btn-outline-primary btn-sm btn-pill mt-2",
+      "link": "report/parte6_rischi-raccomandazioni.html#table_7_1_1"
+    },
+    "metadata": {
+      "priority": "Alta",
+      "impact": "268000",
+      "impactUnit": "EUR"
+    }
+  },
+  "ebitda": {
+    "title": "EBITDA",
+    "value": -43535,
+    "displayValue": "€ -43.535",
+    "status": "danger",
+    "borderClass": "border-left-danger",
+    "icon": "fa-chart-line",
+    "description": "Redditività operativa negativa.",
+    "trend": {
+      "direction": "down",
+      "value": -120.43,
+      "displayValue": "-120,43%",
+      "label": "YoY",
+      "iconClass": "fa-arrow-down",
+      "cssClass": "trend-down"
+    },
+    "metadata": {
+      "currency": "EUR",
+      "unit": "K",
+      "decimals": 0
+    }
+  },
+  "netIncome": {
+    "title": "Utile Netto",
+    "value": -149177,
+    "displayValue": "€ -149.177",
+    "status": "danger",
+    "borderClass": "border-left-danger",
+    "icon": "fa-coins",
+    "description": "Perdita significativa.",
+    "trend": {
+      "direction": "down",
+      "value": -230.23,
+      "displayValue": "-230,23%",
+      "label": "YoY",
+      "iconClass": "fa-arrow-down",
+      "cssClass": "trend-down"
+    },
+    "metadata": {
+      "currency": "EUR",
+      "unit": "K",
+      "decimals": 0
+    }
+  },
+  "equity": {
+    "title": "Patrimonio Netto",
+    "value": 479666,
+    "displayValue": "€ 479.666",
+    "status": "warning",
+    "borderClass": "border-left-warning",
+    "icon": "fa-landmark",
+    "description": "In erosione.",
+    "trend": {
+      "direction": "down",
+      "value": -26.08,
+      "displayValue": "-26,08%",
+      "label": "YoY",
+      "iconClass": "fa-arrow-down",
+      "cssClass": "trend-down"
+    },
+    "metadata": {
+      "currency": "EUR",
+      "unit": "K",
+      "decimals": 0
+    }
+  },
+  "liquidity": {
+    "title": "Liquidità",
+    "value": 355443,
+    "displayValue": "€ 355.443",
+    "status": "success",
+    "borderClass": "border-left-success",
+    "icon": "fa-tint",
+    "description": "Buona liquidità disponibile.",
+    "trend": {
+      "direction": "up",
+      "value": 107.1,
+      "displayValue": "+107,1%",
+      "label": "YoY",
+      "iconClass": "fa-arrow-up",
+      "cssClass": "trend-up"
+    },
+    "metadata": {
+      "currency": "EUR",
+      "unit": "K",
+      "decimals": 0
+    }
+  },
+  "leverageDE": {
+    "title": "Leva Finanziaria (D/E)",
+    "value": 2.66,
+    "displayValue": "2,66",
+    "status": "danger",
+    "borderClass": "border-left-danger",
+    "icon": "fa-money-bill-wave",
+    "description": "Elevato indebitamento.",
+    "trend": {
+      "direction": "none",
+      "value": null,
+      "displayValue": "Elevata",
+      "label": null,
+      "iconClass": "fa-minus",
+      "cssClass": "trend-neutral"
+    },
+    "metadata": {
+      "unit": "x",
+      "decimals": 2
+    }
+  }
+}

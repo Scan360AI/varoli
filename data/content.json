@@ -1,0 +1,105 @@
+{
+  "parte1_sintesi": {
+    "irpDescription": "Profilo di rischio <strong>elevato con criticità significative</strong>. L'azienda presenta una redditività operativa negativa e una posizione finanziaria deteriorata, con criticità nella generazione di cassa operativa e nello squilibrio del ciclo del circolante.",
+    "crisisButton": "Verifica Crisi d'Impresa (2 su 6)",
+    "businessModel": "VAROLI GUIDO E FIGLIO S.R.L. opera dal 1985 nel settore del commercio all'ingrosso di legname, con un modello di business focalizzato sulla commercializzazione B2B. L'azienda presenta una struttura patrimoniale compromessa, caratterizzata da un elevato indebitamento finanziario (€1.275.053, pari al 44,74% dei ricavi) e un rapporto PFN/Patrimonio Netto di 1,92x. L'esercizio 2024 ha evidenziato un significativo calo dei ricavi (-14,27%) e un deterioramento dell'EBITDA (passato da positivo a negativo), segnalando criticità nel modello di business. L'indicatore di resilienza, che misura la capacità dell'impresa di reagire a condizioni di mercato avverse, è classificato come \"Basso\", a causa della fragile posizione finanziaria e della redditività operativa negativa.",
+    "cciiAlert": {
+      "title": "Indicatori CCII: <strong>In linea con 2 su 6 indicatori</strong>",
+      "description": "L'analisi degli indicatori della crisi calcolati sullo schema civilistico mostra che l'impresa non è conforme a 4 dei 6 indicatori previsti dal CCII. Diversi parametri risultano al di sotto delle soglie minime, segnalando la presenza di segnali di allerta secondo il framework normativo."
+    },
+    "normativeContext": [
+      "<strong>D.Lgs. 14/2019 (CCII)</strong> - Richiede implementazione di adeguati assetti organizzativi e monitoraggio continuativo degli indicatori di crisi",
+      "<strong>Art. 2086 c.c.</strong> - Obbligo di adeguati assetti per piccole imprese con 9 dipendenti",
+      "<strong>Normative settore commercio all'ingrosso di legname</strong> - Requisiti specifici per la commercializzazione, incluse normative sulla tracciabilità dei prodotti forestali",
+      "<strong>Principi OIC</strong> per la predisposizione del bilancio",
+      "<strong>Normativa fiscale</strong> applicabile alle società commerciali"
+    ],
+    "dscrNote": "L'azienda presenta un DSCR teorico insufficiente (0,67) a causa dell'elevato indebitamento finanziario, che conferma la difficoltà nel far fronte agli impegni finanziari. Questo valore, significativamente inferiore alla soglia minima (1,0), rappresenta un punto di debolezza che limita la flessibilità finanziaria e aumenta la vulnerabilità a potenziali shock esterni."
+  },
+  "parte2_economico": {
+    "sectionIntro": "L'analisi economica di VAROLI GUIDO E FIGLIO S.R.L. evidenzia un deterioramento significativo della performance operativa nel 2024, con particolare criticità nella generazione di margini e nella redditività.",
+    "revenueAnalysis": "I ricavi hanno subito una <strong>contrazione del 14,27%</strong>, passando da €3.722.214 nel 2023 a €2.850.000 nel 2024. Questa riduzione significativa riflette difficoltà nel mantenere i volumi di vendita in un contesto di mercato sfavorevole.",
+    "ebitdaAlert": {
+      "title": "EBITDA Negativo: <strong>Criticità Operativa</strong>",
+      "description": "L'EBITDA è passato da €213.175 (5,73% dei ricavi) nel 2023 a <strong>-€43.535</strong> (-1,53% dei ricavi) nel 2024, segnando un peggioramento del 120,43%. Questo rappresenta una criticità grave nella capacità dell'azienda di generare cassa dalle operazioni ordinarie."
+    },
+    "marginAnalysis": "La <strong>marginalità operativa</strong> mostra un deterioramento progressivo: il Margine Operativo Lordo (MOL) è diventato negativo a -1,53%, mentre il Margine Operativo Netto (MON) si attesta a -4,66%. Questi valori indicano che l'azienda sta operando in perdita a livello operativo.",
+    "profitabilityNote": "Il ROE (Return on Equity) è sceso a <strong>-31,09%</strong>, mentre il ROI (Return on Investment) è a -7,88%. L'effetto leva finanziaria risulta negativo a causa dei costi finanziari elevati rispetto alla redditività operativa insufficiente.",
+    "benchmarkNote": "Nel confronto con il settore, VAROLI evidenzia un gap negativo su tutti gli indicatori chiave: EBITDA margin inferiore di -6,53 p.p. rispetto alla media settoriale, ROE inferiore di -36,09 p.p., e giorni di magazzino superiori di +144 giorni."
+  },
+  "parte3_patrimoniale": {
+    "sectionIntro": "L'analisi patrimoniale evidenzia una <strong>struttura finanziaria squilibrata</strong> con significativi segnali di deterioramento, caratterizzata da un elevato indebitamento e da una progressiva erosione del patrimonio netto.",
+    "equityAlert": {
+      "title": "Erosione Patrimonio Netto: <strong>-26,08%</strong>",
+      "description": "Il patrimonio netto è sceso da €649.083 nel 2023 a €479.666 nel 2024, con una riduzione del 26,08%. Questa erosione è dovuta alle perdite operative accumulate e compromette la solidità patrimoniale dell'azienda."
+    },
+    "pfnAnalysis": "La Posizione Finanziaria Netta (PFN) è <strong>negativa per €919.610</strong>, con un peggioramento del 173,03% rispetto al 2023 (€336.722). Il rapporto PFN/Patrimonio Netto è salito a 1,92x, segnalando un elevato livello di indebitamento rispetto alla base patrimoniale.",
+    "debtAnalysis": "I debiti finanziari totali ammontano a €1.275.053 (44,74% dei ricavi), in aumento del 150,77% rispetto all'anno precedente. Questo incremento evidenzia una crescente dipendenza dal credito bancario per finanziare il circolante.",
+    "solidityNote": "Il rapporto di indebitamento (D/E) è salito a <strong>2,66</strong>, significativamente superiore alla soglia ottimale di 1,0. L'indice di copertura dell'attivo fisso è 1,28, indicando che il patrimonio netto copre solo parzialmente gli investimenti a lungo termine.",
+    "liquidityNote": "La liquidità disponibile è di €355.443, pari al 12,47% dei ricavi. Nonostante questo sia un elemento positivo, non compensa lo squilibrio complessivo della struttura finanziaria."
+  },
+  "parte4_bancabilita": {
+    "sectionIntro": "L'analisi di bancabilità valuta la <strong>capacità di accesso al credito</strong> e la sostenibilità del debito dell'azienda, evidenziando criticità significative nella capacità di servizio del debito.",
+    "dscrAlert": {
+      "title": "DSCR Critico: <strong>0,67</strong>",
+      "description": "Il Debt Service Coverage Ratio (DSCR) è pari a 0,67, significativamente inferiore alla soglia minima di 1,0. Questo indica che l'azienda non genera sufficiente cassa operativa per coprire gli impegni finanziari correnti."
+    },
+    "pfnEbitdaNote": "Il rapporto PFN/EBITDA non è calcolabile a causa dell'EBITDA negativo. In condizioni normali, questo rapporto dovrebbe essere inferiore a 3-4x per garantire una sostenibilità del debito accettabile.",
+    "interestCoverageNote": "Il rapporto di copertura degli interessi (Interest Coverage Ratio) è <strong>negativo</strong>, con un EBIT di -€132.964 a fronte di oneri finanziari di €96.361. Questo segnala l'incapacità di coprire i costi del debito con la redditività operativa.",
+    "creditRatingNote": "Il <strong>rating di credito stimato</strong> risulta nella fascia D+ (rischio elevato), con una probabilità di default significativa. Le condizioni di accesso al credito sono compromesse e richiedono interventi strutturali urgenti.",
+    "bankabilityRecommendation": "Si raccomanda: (1) Ristrutturazione del debito bancario, (2) Miglioramento immediato della redditività operativa, (3) Valorizzazione di asset non strategici per ridurre la PFN, (4) Implementazione di un piano industriale credibile per il ripristino della bancabilità."
+  },
+  "parte5_circolante_flussi": {
+    "sectionIntro": "L'analisi del capitale circolante e dei flussi di cassa evidenzia <strong>inefficienze nella gestione operativa</strong> e uno squilibrio nel ciclo finanziario, con particolare criticità nella rotazione del magazzino.",
+    "workingCapitalAnalysis": "Il Capitale Circolante Netto (CCN) è pari a €458.978, con un incremento del 24,62% rispetto al 2023. Tuttavia, questo aumento è dovuto principalmente all'accumulo di rimanenze e non rappresenta un segnale positivo di efficienza operativa.",
+    "cashCycleAlert": {
+      "title": "Ciclo del Circolante: <strong>167 giorni</strong>",
+      "description": "Il ciclo del circolante è pari a 167 giorni, in miglioramento rispetto ai 208 giorni del 2023 ma ancora significativamente superiore agli standard settoriali. Questo indica che l'azienda impiega oltre 5 mesi per convertire gli investimenti in scorte in cassa."
+    },
+    "inventoryNote": "Le rimanenze ruotano con un tempo medio di <strong>194 giorni</strong>, in miglioramento rispetto ai 227 giorni del 2023 ma ancora eccessivo. Il valore delle rimanenze (€1.502.513) è pari al 52,72% dei ricavi annui, segnalando un evidente sovradimensionamento del magazzino.",
+    "receivablesNote": "I crediti commerciali hanno un DSO (Days Sales Outstanding) di 41 giorni, in miglioramento del 25,45% rispetto ai 55 giorni del 2023. Questo rappresenta uno degli elementi positivi della gestione operativa.",
+    "payablesNote": "I debiti verso fornitori hanno un DPO (Days Payables Outstanding) di 68 giorni, in riduzione rispetto ai 94 giorni del 2023. Questa riduzione indica una pressione sui tempi di pagamento, probabilmente legata a difficoltà finanziarie.",
+    "cashFlowNote": "Il Cash Flow operativo è positivo per €211.345 (7,42% dei ricavi), ma questo risultato è influenzato positivamente dall'incremento dei debiti commerciali. Il Free Cash Flow risulta comunque negativo dopo gli investimenti e il servizio del debito."
+  },
+  "parte6_rischi_raccomandazioni": {
+    "sectionIntro": "L'analisi dei rischi identifica le <strong>criticità principali</strong> che minacciano la continuità aziendale e propone azioni prioritarie per il risanamento della situazione finanziaria.",
+    "financialRisk": {
+      "description": "Rischio finanziario <strong>ELEVATO</strong>: L'azienda presenta una situazione di tensione finanziaria critica, con PFN/PN di 1,92x e DSCR di 0,67. L'elevato indebitamento limita la flessibilità finanziaria e aumenta la vulnerabilità a shock esterni.",
+      "impact": "Alto",
+      "probability": "Alta"
+    },
+    "operationalRisk": {
+      "description": "Rischio operativo <strong>CRITICO</strong>: L'EBITDA margin negativo (-1,53%) segnala l'incapacità di generare margini dalle operazioni ordinarie. Il modello di business attuale non è sostenibile senza interventi strutturali.",
+      "impact": "Molto Alto",
+      "probability": "Alta"
+    },
+    "liquidityRisk": {
+      "description": "Rischio liquidità <strong>MEDIO</strong>: Nonostante una liquidità disponibile di €355.443, il cash flow operativo è insufficiente a coprire gli impegni finanziari. Il rischio di tensioni di liquidità è concreto senza azioni correttive.",
+      "impact": "Medio",
+      "probability": "Media"
+    },
+    "marketRisk": {
+      "description": "Rischio mercato <strong>ELEVATO</strong>: La contrazione dei ricavi del 14,27% evidenzia difficoltà nel contesto competitivo. L'alta dipendenza dal settore edilizio espone l'azienda a volatilità ciclica.",
+      "impact": "Alto",
+      "probability": "Media"
+    },
+    "actionPlan": {
+      "urgentActions": "Azioni urgenti (0-3 mesi): (1) Riduzione scorte di magazzino di almeno €250.000, (2) Revisione struttura costi con target di riduzione del 5-7%, (3) Apertura tavolo di rinegoziazione con banche per ristrutturazione debito.",
+      "shortTerm": "Azioni breve termine (3-6 mesi): (1) Implementazione pricing strategico per recupero marginalità, (2) Dismissione asset non strategici, (3) Formalizzazione adeguati assetti organizzativi ex art. 2086 c.c.",
+      "mediumTerm": "Azioni medio termine (6-12 mesi): (1) Diversificazione offerta con prodotti ad alta marginalità, (2) Digitalizzazione processi operativi, (3) Sviluppo piano strategico triennale con obiettivi di risanamento verificabili."
+    },
+    "continuityNote": "La <strong>continuità aziendale</strong> è a rischio se non vengono implementate tempestivamente le azioni correttive. Si raccomanda la costituzione di un comitato di crisi e il coinvolgimento di advisor esterni per il turnaround."
+  },
+  "irp_dettaglio": {
+    "irpExplanation": "L'<strong>Indice di Rischio Ponderato (IRP)</strong> è un indicatore composito che sintetizza in un unico valore (da 0 a 100) il profilo di rischio complessivo dell'azienda. Un valore superiore a 50 indica un rischio elevato di difficoltà finanziarie.",
+    "scoreInterpretation": "Il punteggio IRP di <strong>51,42</strong> colloca VAROLI nella categoria D+ (Rischio elevato), caratterizzata da significative vulnerabilità finanziarie e operativeness che richiedono interventi urgenti di risanamento.",
+    "componentWeights": "L'IRP è calcolato ponderando diversi fattori: (1) Redditività operativa (25%), (2) Solidità patrimoniale (25%), (3) Sostenibilità del debito (20%), (4) Efficienza operativa (15%), (5) Liquidità (15%).",
+    "redditivityScore": "Punteggio Redditività: <strong>72/100</strong> (Critico) - L'EBITDA margin negativo e il ROE fortemente negativo contribuiscono in modo significativo all'elevato punteggio di rischio complessivo.",
+    "solidityScore": "Punteggio Solidità: <strong>58/100</strong> (Elevato) - L'erosione del patrimonio netto (-26,08%) e l'elevato rapporto D/E (2,66) segnalano una struttura patrimoniale fragile.",
+    "debtScore": "Punteggio Debito: <strong>67/100</strong> (Elevato) - Il DSCR insufficiente (0,67) e l'incremento della PFN (+173,03%) evidenziano criticità nella sostenibilità del debito.",
+    "efficiencyScore": "Punteggio Efficienza: <strong>45/100</strong> (Medio) - Il ciclo del circolante elevato (167 giorni) e la rotazione del magazzino lenta penalizzano l'efficienza operativa.",
+    "liquidityScore": "Punteggio Liquidità: <strong>28/100</strong> (Basso) - La liquidità disponibile (€355.443) rappresenta l'unico elemento positivo del profilo di rischio.",
+    "historicalTrend": "L'IRP è peggiorato da 38,5 nel 2023 a 51,42 nel 2024 (+33,6%), riflettendo il deterioramento generalizzato della situazione economico-finanziaria.",
+    "peerComparison": "Nel confronto con aziende simili del settore, VAROLI si colloca nel <strong>quartile peggiore</strong> (25° percentile), con un IRP significativamente superiore alla mediana settoriale di 35-40 punti."
+  }
+}

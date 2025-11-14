@@ -1,0 +1,44 @@
+{
+  "name": "VAROLI GUIDO E FIGLIO S.R.L.",
+  "shortName": "VAROLI",
+  "logo": "assets/img/logo_scan.png",
+  "fiscalYear": 2024,
+  "lastUpdate": "2025-11-12",
+  "reportDate": "2025-11-01",
+  "profile": {
+    "legalName": "VAROLI GUIDO E FIGLIO S.R.L.",
+    "ateco": "46.83.10",
+    "sector": "Commercio all'ingrosso di legname",
+    "sectorEN": "Timber Wholesale Trade",
+    "founded": 1985,
+    "headquarters": {
+      "city": "San Sperate",
+      "province": "SU",
+      "region": "Sardegna"
+    },
+    "size": "Piccola Impresa",
+    "sizeEN": "Small Enterprise",
+    "employees": 9,
+    "personnelCost": 267333,
+    "personnelCostPercent": 9.38,
+    "businessModel": "Trader",
+    "shareCapital": 247539,
+    "ownership": "Azionariato composto esclusivamente da persone fisiche (3 soci)",
+    "ownershipEN": "100% individual shareholders - 3 partners"
+  },
+  "authentication": {
+    "username": "Admin",
+    "password": "Admin2025"
+  },
+  "branding": {
+    "companyLogoKitzanos": "assets/img/logo_kitzanos.png",
+    "scanLogo": "assets/img/logo_scan.png",
+    "copyright": "SCAN360",
+    "poweredBy": "Kitzanos Lab",
+    "website": "http://www.kitzanos.com"
+  },
+  "chatbot": {
+    "enabled": true,
+    "botId": "a944ec72-81f6-4a0a-84da-a8ced9377979"
+  }
+}

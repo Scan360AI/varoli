@@ -1,0 +1,106 @@
+{
+  "theme": {
+    "colors": {
+      "primary": {
+        "main": "rgb(25, 25, 112)",
+        "light": "rgba(25, 25, 112, 0.1)",
+        "medium": "rgba(25, 25, 112, 0.3)",
+        "dark": "rgba(25, 25, 112, 0.7)"
+      },
+      "secondary": {
+        "main": "rgb(77, 140, 87)",
+        "light": "rgba(77, 140, 87, 0.1)",
+        "medium": "rgba(77, 140, 87, 0.3)",
+        "dark": "rgba(77, 140, 87, 0.7)"
+      },
+      "tertiary": {
+        "main": "rgb(217, 140, 0)",
+        "light": "rgba(217, 140, 0, 0.1)",
+        "medium": "rgba(217, 140, 0, 0.3)",
+        "dark": "rgba(217, 140, 0, 0.7)"
+      },
+      "danger": {
+        "main": "rgb(214, 34, 70)",
+        "light": "rgba(214, 34, 70, 0.1)",
+        "medium": "rgba(214, 34, 70, 0.3)",
+        "dark": "rgba(214, 34, 70, 0.7)"
+      },
+      "neutral": {
+        "main": "rgb(79, 109, 122)",
+        "light": "rgba(79, 109, 122, 0.1)",
+        "medium": "rgba(79, 109, 122, 0.3)",
+        "dark": "rgba(79, 109, 122, 0.7)"
+      },
+      "status": {
+        "positive": "#4CAF50",
+        "negative": "#F44336",
+        "warning": "#FFC107",
+        "neutral": "#6c757d",
+        "info": "#4a69bd"
+      }
+    }
+  },
+  "benchmarks": {
+    "ebitdaMargin": 2.5,
+    "ebitdaMarginSector": 0.93,
+    "roi": 8.0,
+    "roiSector": -3.16,
+    "roe": 8.0,
+    "roeSector": 3.22,
+    "ros": 4.0,
+    "dso": 55,
+    "dsoSector": 54,
+    "dio": 61,
+    "dpo": 64,
+    "dpoSector": 64,
+    "workingCapitalCycle": 51,
+    "pfnEbitda": 3.0,
+    "pfnEbitdaSector": 2.63,
+    "debtToEquity": 1.0,
+    "debtToEquitySector": 0.8,
+    "cashFlowToRevenue": 8.0,
+    "turnover": 1.5,
+    "turnoverSector": 2.0,
+    "revenueGrowth": 3.33
+  },
+  "thresholds": {
+    "irp": {
+      "excellent": 70,
+      "good": 60,
+      "fair": 50,
+      "poor": 40,
+      "critical": 30
+    },
+    "zScore": {
+      "safe": 2.99,
+      "greyZone": 1.81,
+      "distress": 1.81
+    },
+    "dscr": {
+      "healthy": 1.25,
+      "adequate": 1.0,
+      "insufficient": 0.8
+    }
+  },
+  "chartOptions": {
+    "animation": {
+      "duration": 400
+    },
+    "responsive": true,
+    "maintainAspectRatio": false,
+    "legend": {
+      "position": "bottom",
+      "boxWidth": 12,
+      "padding": 15,
+      "fontSize": 11
+    },
+    "tooltip": {
+      "backgroundColor": "rgba(0, 0, 0, 0.8)",
+      "titleFontWeight": "bold",
+      "titleFontSize": 13,
+      "bodyFontSize": 12,
+      "padding": 10,
+      "cornerRadius": 4
+    }
+  }
+}

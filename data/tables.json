@@ -1,0 +1,449 @@
+{
+  "parte1_sintesi": {
+    "irpSummary": {
+      "score": 51.42,
+      "max": 100,
+      "category": "D+",
+      "status": "Rischio elevato con criticità significative",
+      "ebitdaMargin": -1.53,
+      "pfn": 919610
+    },
+    "kpiOverview": {
+      "headers": ["KPI", "Value", "YoY Change"],
+      "rows": [
+        {"kpi": "Ricavi (Revenue)", "value": "€2,85 M", "change": "-14.27%"},
+        {"kpi": "EBITDA", "value": "€-43.535", "change": "-120.43%"},
+        {"kpi": "EBITDA Margin", "value": "-1.53%", "change": "-7.93 p.p."},
+        {"kpi": "Utile Netto (Net Income)", "value": "€-149.177", "change": "-230.23%"},
+        {"kpi": "Patrimonio Netto (Equity)", "value": "€479.666", "change": "-26.08%"},
+        {"kpi": "Liquidità (Liquidity)", "value": "€355.443", "change": "+107.1%"},
+        {"kpi": "PFN/EBITDA", "value": "n.a.", "change": "Critico"},
+        {"kpi": "Leva Finanziaria (D/E)", "value": "2.66", "change": "Elevata"}
+      ]
+    },
+    "supportIndicators": {
+      "headers": ["Indicator", "Value", "Assessment"],
+      "rows": [
+        {"indicator": "Leanus Score", "value": "3", "assessment": "Discreto (Fair)", "icon": "fa-chart-bar", "iconColor": "warning", "badgeColor": "warning"},
+        {"indicator": "Business Category", "value": "TRADER", "assessment": "", "icon": "fa-building", "iconColor": "info", "badgeColor": "info"},
+        {"indicator": "Rating MCC", "value": "n.d.", "assessment": "Elevato (High)", "icon": "fa-university", "iconColor": "danger", "badgeColor": "danger"},
+        {"indicator": "Z-Score", "value": "n.d.", "assessment": "Critico (Critical)", "icon": "fa-calculator", "iconColor": "danger", "badgeColor": "danger"}
+      ]
+    },
+    "swot": {
+      "strengths": [
+        "Longevità aziendale: Presenza sul mercato dal 1985",
+        "Discreta liquidità disponibile: €355.443, pari al 12.47% dei ricavi",
+        "Buona capacità di copertura degli investimenti a lungo termine: Rapporto di copertura dell'attivo fisso pari a 1.28",
+        "Miglioramento nella gestione dei crediti commerciali: Riduzione dei giorni clienti da 55 a 41 giorni (-25.45%)",
+        "Cash Flow operativo positivo: €211.345, pari al 7.42% dei ricavi"
+      ],
+      "weaknesses": [
+        "Redditività operativa negativa: EBITDA margin del -1.53%, in netto peggioramento",
+        "Utile netto fortemente negativo: -€149.177, con un calo del 230.23%",
+        "Elevato indebitamento finanziario: Debiti finanziari per €1.275.053, in aumento del 150.77%",
+        "Ciclo del circolante inefficiente: 167 giorni, sebbene in miglioramento",
+        "Incapacità di coprire gli oneri finanziari: Rapporto EBIT/Oneri finanziari di -1.38"
+      ],
+      "opportunities": [
+        "Ottimizzazione del magazzino: Le rimanenze ruotano con un tempo medio di 194 giorni",
+        "Rinegoziazione delle condizioni con i fornitori: I tempi di pagamento sono diminuiti a 68 giorni",
+        "Diversificazione dell'offerta: Possibilità di ampliare la gamma prodotti",
+        "Digitalizzazione dei processi: Potenziale miglioramento dell'efficienza operativa",
+        "Espansione territoriale: Possibilità di sviluppare nuovi mercati geografici"
+      ],
+      "threats": [
+        "Contrazione significativa dei ricavi: -14.27% rispetto al 2023",
+        "Deterioramento della redditività: Passaggio da un EBITDA positivo ad un EBITDA negativo",
+        "Aumento significativo dell'indebitamento: Incremento PFN del 173.03%",
+        "Dipendenza dal settore edilizio: Vulnerabilità alle fluttuazioni cicliche",
+        "Rating di rischio elevato: La classificazione D+ nell'IRP segnala una probabilità di default significativa"
+      ]
+    },
+    "priorityActions": {
+      "headers": ["Area", "Priority Action", "Expected Impact", "Priority Level"],
+      "rows": [
+        {
+          "area": "Redditività Operativa",
+          "action": "Revisione struttura dei costi e pricing strategico",
+          "impact": "Miglioramento EBITDA di circa €120.000-€150.000",
+          "priority": "Alta",
+          "icon": "fa-chart-line",
+          "iconColor": "bg-icon-danger",
+          "badgeClass": "bg-danger"
+        },
+        {
+          "area": "Gestione Magazzino",
+          "action": "Implementare sistema di gestione scorte con modello EOQ",
+          "impact": "Liberazione di circa €250.000 di capitale circolante",
+          "priority": "Alta",
+          "icon": "fa-sync-alt",
+          "iconColor": "bg-icon-danger",
+          "badgeClass": "bg-danger"
+        },
+        {
+          "area": "Indebitamento Finanziario",
+          "action": "Ristrutturazione debito e valorizzazione asset non strategici",
+          "impact": "Riduzione PFN a €700.000",
+          "priority": "Alta",
+          "icon": "fa-money-bill-wave",
+          "iconColor": "bg-icon-danger",
+          "badgeClass": "bg-danger"
+        },
+        {
+          "area": "Diversificazione",
+          "action": "Espansione gamma con prodotti complementari ad alta marginalità",
+          "impact": "Investimento di €70.000-€100.000 con ROI >15%",
+          "priority": "Media",
+          "icon": "fa-store",
+          "iconColor": "bg-icon-warning",
+          "badgeClass": "bg-warning text-dark"
+        },
+        {
+          "area": "Governance",
+          "action": "Formalizzare \"adeguati assetti\" e sistema di monitoraggio",
+          "impact": "Mitigazione rischi e conformità normativa",
+          "priority": "Media",
+          "icon": "fa-gavel",
+          "iconColor": "bg-icon-warning",
+          "badgeClass": "bg-warning text-dark"
+        }
+      ]
+    }
+  },
+  "parte2_economico": {
+    "contoEconomicoRiclassificato": {
+      "headers": ["Voce", "2022", "% Ricavi 22", "2023", "% Ricavi 23", "2024", "% Ricavi 24", "Var % 23-24"],
+      "rows": [
+        {"voce": "Ricavi", "2022": 3722214, "pct2022": 100.0, "2023": 3324256, "pct2023": 100.0, "2024": 2849913, "pct2024": 100.0, "var": -14.27, "highlight": false},
+        {"voce": "Valore Aggiunto su Consumi", "2022": 882787, "pct2022": 23.7, "2023": 900716, "pct2023": 27.1, "2024": 654316, "pct2024": 23.0, "var": -27.35, "highlight": false},
+        {"voce": "Margine di Contribuzione", "2022": 506486, "pct2022": 13.6, "2023": 541132, "pct2023": 16.3, "2024": 243892, "pct2024": 8.6, "var": -54.93, "highlight": false},
+        {"voce": "EBITDA", "2022": 196510, "pct2022": 5.3, "2023": 213142, "pct2023": 6.4, "2024": -43535, "pct2024": -1.5, "var": -120.43, "highlight": true},
+        {"voce": "EBIT (Reddito Operativo)", "2022": 144694, "pct2022": 3.9, "2023": 172671, "pct2023": 5.2, "2024": -92982, "pct2024": -3.3, "var": -153.85, "highlight": false},
+        {"voce": "Margine Ante Gestione Fin.", "2022": 144694, "pct2022": 3.9, "2023": 172671, "pct2023": 5.2, "2024": -92982, "pct2024": -3.3, "var": -153.85, "highlight": false},
+        {"voce": "Margine Corrente", "2022": 116186, "pct2022": 3.1, "2023": 133278, "pct2023": 4.0, "2024": -158485, "pct2024": -5.6, "var": -218.91, "highlight": false},
+        {"voce": "Risultato Ante Imposte", "2022": 116186, "pct2022": 3.1, "2023": 133278, "pct2023": 4.0, "2024": -158485, "pct2024": -5.6, "var": -218.91, "highlight": false},
+        {"voce": "Utile/Perdita d'esercizio", "2022": 106304, "pct2022": 2.9, "2023": 114552, "pct2023": 3.4, "2024": -149177, "pct2024": -5.2, "var": -230.23, "highlight": true}
+      ]
+    },
+    "composizioneCosti": {
+      "headers": ["Categoria di costo", "2022", "% Ricavi 22", "2023", "% Ricavi 23", "2024", "% Ricavi 24", "Var% 23-24", "Valutazione"],
+      "rows": [
+        {"categoria": "Acquisti", "2022": null, "pct2022": null, "2023": null, "pct2023": null, "2024": -2195597, "pct2024": -77.0, "var": null, "valutazione": "Critico"},
+        {"categoria": "Costi variabili di produzione", "2022": null, "pct2022": null, "2023": null, "pct2023": null, "2024": -410424, "pct2024": -14.4, "var": null, "valutazione": "Critico"},
+        {"categoria": "Costi fissi", "2022": null, "pct2022": null, "2023": null, "pct2023": null, "2024": -287427, "pct2024": -10.1, "var": null, "valutazione": "Elevato"},
+        {"categoria": "Costo del Personale", "2022": null, "pct2022": null, "2023": 308000, "pct2023": 9.3, "2024": -267333, "pct2024": -9.4, "var": -13.2, "valutazione": "In linea"},
+        {"categoria": "Ammortamenti", "2022": -51816, "pct2022": -1.4, "2023": -40471, "pct2023": -1.2, "2024": -49447, "pct2024": -1.7, "var": 22.18, "valutazione": "In aumento"},
+        {"categoria": "Oneri finanziari", "2022": -28508, "pct2022": -0.8, "2023": -39393, "pct2023": -1.2, "2024": -65503, "pct2024": -2.3, "var": 66.28, "valutazione": "Critico"},
+        {"categoria": "Imposte", "2022": -9882, "pct2022": -0.3, "2023": -18726, "pct2023": -0.6, "2024": 9308, "pct2024": 0.3, "var": -149.71, "valutazione": "Beneficio"}
+      ]
+    },
+    "indiciMarginalita": {
+      "headers": ["Indicatore", "2022", "2023", "2024", "Trend"],
+      "rows": [
+        {"indicatore": "Valore Aggiunto/Ricavi", "2022": 23.7, "2023": 27.1, "2024": 23.0, "trend": "Peggioramento"},
+        {"indicatore": "MdC/Ricavi", "2022": 13.6, "2023": 16.3, "2024": 8.6, "trend": "Peggioramento"},
+        {"indicatore": "EBITDA/Ricavi", "2022": 5.3, "2023": 6.4, "2024": -1.5, "trend": "Peggioramento"},
+        {"indicatore": "ROS (EBIT/Ricavi)", "2022": 3.9, "2023": 5.2, "2024": -3.3, "trend": "Peggioramento"},
+        {"indicatore": "Utile Netto/Ricavi", "2022": 2.9, "2023": 3.4, "2024": -5.2, "trend": "Peggioramento"},
+        {"indicatore": "Break-Even Point (€)", "2022": null, "2023": null, "2024": 3936421, "trend": "Critico"},
+        {"indicatore": "Margine Sicurezza", "2022": null, "2023": null, "2024": -38.12, "trend": "Critico"}
+      ]
+    },
+    "indiciRedditività": {
+      "headers": ["Indice", "Formula", "2022", "2023", "2024", "Soglia", "Valutazione"],
+      "rows": [
+        {"indice": "ROE", "formula": "Utile/PN", "2022": 19.18, "2023": 17.65, "2024": -31.10, "soglia": 8.0, "valutazione": "Critico"},
+        {"indice": "ROI", "formula": "EBIT/CIN", "2022": 14.96, "2023": 17.52, "2024": -6.65, "soglia": 8.0, "valutazione": "Critico"},
+        {"indice": "ROS", "formula": "EBIT/Ricavi", "2022": 3.9, "2023": 5.2, "2024": -3.3, "soglia": 4.0, "valutazione": "Critico"},
+        {"indice": "EBITDA Margin", "formula": "EBITDA/Ricavi", "2022": 5.3, "2023": 6.4, "2024": -1.5, "soglia": 8.0, "valutazione": "Critico"},
+        {"indice": "Redditività Netta", "formula": "Utile/Ricavi", "2022": 2.9, "2023": 3.4, "2024": -5.2, "soglia": 2.0, "valutazione": "Critico"},
+        {"indice": "Turnover", "formula": "Ricavi/CIN", "2022": null, "2023": null, "2024": 2.04, "soglia": 1.5, "valutazione": "Ottimo"},
+        {"indice": "Cash Flow / Ricavi", "formula": "CF Op./Ricavi", "2022": null, "2023": null, "2024": 7.42, "soglia": 8.0, "valutazione": "Sotto benchmark"}
+      ]
+    },
+    "effettoLeva": {
+      "headers": ["Parametro", "Formula", "2022", "2023", "2024", "Variazione 23-24"],
+      "rows": [
+        {"parametro": "ROI", "formula": "EBIT/CIN", "2022": 14.96, "2023": 17.52, "2024": -6.65, "var": -24.17},
+        {"parametro": "Costo medio del debito (i)", "formula": "Oneri Fin./Debiti Fin.", "2022": 5.62, "2023": 7.75, "2024": 5.14, "var": -2.61},
+        {"parametro": "Spread (ROI - i)", "formula": "ROI - i", "2022": 9.34, "2023": 9.77, "2024": -11.79, "var": -21.56},
+        {"parametro": "Rapporto D/E", "formula": "Debiti Fin./PN", "2022": 0.92, "2023": 0.78, "2024": 2.66, "var": 1.88},
+        {"parametro": "Effetto leva", "formula": "(ROI - i) × D/E", "2022": 8.59, "2023": 7.62, "2024": -31.36, "var": -38.98},
+        {"parametro": "ROE teorico", "formula": "ROI + effetto leva", "2022": 23.55, "2023": 25.14, "2024": -38.01, "var": -63.15},
+        {"parametro": "ROE effettivo", "formula": "Utile Netto/PN", "2022": 19.18, "2023": 17.65, "2024": -31.10, "var": -48.75},
+        {"parametro": "Differenza", "formula": "ROE - ROE teorico", "2022": -4.37, "2023": -7.49, "2024": 6.91, "var": 14.40}
+      ]
+    },
+    "benchmarkSettoriale": {
+      "headers": ["Indicatore", "VAROLI", "Media Sett.", "Gap", "Valutazione"],
+      "rows": [
+        {"indicatore": "Crescita ricavi", "varoli": -14.27, "settore": 3.33, "gap": -17.60, "valutazione": "Critico"},
+        {"indicatore": "EBITDA Margin", "varoli": -1.53, "settore": 0.93, "gap": -2.46, "valutazione": "Critico"},
+        {"indicatore": "ROI", "varoli": -6.65, "settore": -3.16, "gap": -3.49, "valutazione": "Sotto benchmark"},
+        {"indicatore": "ROE", "varoli": -31.10, "settore": 3.22, "gap": -34.32, "valutazione": "Critico"},
+        {"indicatore": "Turnover", "varoli": 2.04, "settore": 2.0, "gap": 0.04, "valutazione": "In linea"},
+        {"indicatore": "PFN/EBITDA", "varoli": -29.29, "settore": 3.0, "gap": -32.29, "valutazione": "Critico"},
+        {"indicatore": "Leva D/E", "varoli": 2.66, "settore": 0.8, "gap": 1.86, "valutazione": "Critico"},
+        {"indicatore": "Giorni Crediti Clienti", "varoli": 41, "settore": 54, "gap": -13, "valutazione": "Ottimo"},
+        {"indicatore": "Ciclo Circolante", "varoli": 167, "settore": 51, "gap": 116, "valutazione": "Critico"}
+      ]
+    }
+  },
+  "parte3_patrimoniale": {
+    "statoPatrimonialeImpieghi": {
+      "headers": ["Categoria", "12/2022", "%", "12/2023", "%", "12/2024", "%", "Δ 2023-24"],
+      "rows": [
+        {"categoria": "Liquidità", "2022": 331275, "pct2022": 13.6, "2023": 424881, "pct2023": 16.7, "2024": 355443, "pct2024": 15.6, "var": -16.3, "highlight": false},
+        {"categoria": "Crediti Clienti", "2022": 403423, "pct2022": 16.6, "2023": 422112, "pct2023": 16.6, "2024": 323921, "pct2024": 14.2, "var": -23.3, "highlight": false},
+        {"categoria": "Rimanenze", "2022": 1051763, "pct2022": 43.2, "2023": 1081429, "pct2023": 42.6, "2024": 1067842, "pct2024": 46.8, "var": -1.3, "highlight": false},
+        {"categoria": "Altri Crediti", "2022": 83265, "pct2022": 3.4, "2023": 67489, "pct2023": 2.7, "2024": 81242, "pct2024": 3.6, "var": 20.4, "highlight": false},
+        {"categoria": "Totale Attivo Circolante", "2022": 1869726, "pct2022": 76.8, "2023": 1995911, "pct2023": 78.6, "2024": 1828448, "pct2024": 80.2, "var": -8.4, "highlight": true},
+        {"categoria": "Immobilizzazioni Nette", "2022": 562981, "pct2022": 23.2, "2023": 542153, "pct2023": 21.4, "2024": 454485, "pct2024": 19.8, "var": -16.2, "highlight": false},
+        {"categoria": "TOTALE IMPIEGHI", "2022": 2432707, "pct2022": 100.0, "2023": 2538064, "pct2023": 100.0, "2024": 2282933, "pct2024": 100.0, "var": -10.1, "highlight": true}
+      ]
+    },
+    "statoPatrimonialeFonti": {
+      "headers": ["Categoria", "12/2022", "%", "12/2023", "%", "12/2024", "%", "Δ 2023-24"],
+      "rows": [
+        {"categoria": "Debiti Fornitori", "2022": 418943, "pct2022": 17.2, "2023": 410754, "pct2023": 16.2, "2024": 388221, "pct2024": 17.0, "var": -5.5, "highlight": false},
+        {"categoria": "Altri Debiti", "2022": 231526, "pct2022": 9.5, "2023": 252291, "pct2023": 9.9, "2024": 140993, "pct2024": 6.2, "var": -44.1, "highlight": false},
+        {"categoria": "Passività Correnti", "2022": 650469, "pct2022": 26.7, "2023": 663045, "pct2023": 26.1, "2024": 529214, "pct2024": 23.2, "var": -20.2, "highlight": true},
+        {"categoria": "Fondi", "2022": 58219, "pct2022": 2.4, "2023": 60839, "pct2023": 2.4, "2024": 78839, "pct2024": 3.5, "var": 29.6, "highlight": false},
+        {"categoria": "Debiti Finanziari", "2022": 1140362, "pct2022": 46.9, "2023": 1163776, "pct2023": 45.9, "2024": 1275053, "pct2024": 55.8, "var": 9.6, "highlight": true},
+        {"categoria": "di cui a M/L termine", "2022": 584221, "pct2022": 24.0, "2023": 588742, "pct2023": 23.2, "2024": 616361, "pct2024": 27.0, "var": 4.7, "highlight": false},
+        {"categoria": "di cui a Breve termine", "2022": 556141, "pct2022": 22.9, "2023": 575034, "pct2023": 22.7, "2024": 658692, "pct2024": 28.8, "var": 14.5, "highlight": false},
+        {"categoria": "Patrimonio Netto", "2022": 583657, "pct2022": 24.0, "2023": 650404, "pct2023": 25.6, "2024": 479666, "pct2024": 17.5, "var": -26.3, "highlight": true},
+        {"categoria": "TOTALE FONTI", "2022": 2432707, "pct2022": 100.0, "2023": 2538064, "pct2023": 100.0, "2024": 2282933, "pct2024": 100.0, "var": -10.1, "highlight": true}
+      ]
+    },
+    "pfn": {
+      "headers": ["Componente", "12/2022", "12/2023", "12/2024", "Var% 23-24"],
+      "rows": [
+        {"componente": "Debiti finanziari a breve", "2022": 556141, "2023": 575034, "2024": 658692, "var": 14.5},
+        {"componente": "Debiti finanziari a M/L termine", "2022": 584221, "2023": 588742, "2024": 616361, "var": 4.7},
+        {"componente": "Totale Debiti Finanziari", "2022": 1140362, "2023": 1163776, "2024": 1275053, "var": 9.6, "highlight": true},
+        {"componente": "(-) Liquidità", "2022": 331275, "2023": 424881, "2024": 355443, "var": -16.3},
+        {"componente": "Posizione Finanziaria Netta (PFN)", "2022": 809087, "2023": 738895, "2024": 919610, "var": 24.5, "highlight": true},
+        {"componente": "EBITDA", "2022": 162467, "2023": 193166, "2024": -43535, "var": -122.5},
+        {"componente": "PFN/EBITDA (x)", "2022": 4.98, "2023": 3.82, "2024": null, "var": null},
+        {"componente": "PFN/PN (x)", "2022": 1.39, "2023": 1.14, "2024": 1.92, "var": 68.4}
+      ]
+    },
+    "indiciSolidita": {
+      "headers": ["Indice", "2022", "2023", "2024", "Valutazione 2024"],
+      "rows": [
+        {"indice": "Copertura Immobilizzazioni", "2022": 1.04, "2023": 1.20, "2024": 0.56, "valutazione": "Insufficiente"},
+        {"indice": "Indice Autonomia Finanziaria", "2022": 24.0, "2023": 25.6, "2024": 17.5, "valutazione": "Insufficiente"},
+        {"indice": "Leva Finanziaria (D/E)", "2022": 1.95, "2023": 1.79, "2024": 2.66, "valutazione": "Critico"},
+        {"indice": "Turnover (Ricavi/CIN)", "2022": 1.89, "2023": 1.92, "2024": 2.04, "valutazione": "Ottimo"},
+        {"indice": "Indice Struttura Secondario", "2022": 2.17, "2023": 2.40, "2024": 1.37, "valutazione": "Sufficiente"},
+        {"indice": "PFN/EBITDA", "2022": 4.98, "2023": 3.82, "2024": null, "valutazione": "Critico"}
+      ]
+    }
+  },
+  "parte4_bancabilita": {
+    "valutazioneBancabilita": {
+      "headers": ["Indicatore", "Valore", "Valutazione"],
+      "rows": [
+        {"indicatore": "Leanus Score", "valore": "3.47 (\"3 - Discreto\")", "valutazione": "Stabile rispetto al periodo precedente"},
+        {"indicatore": "Indice di Rischio Ponderato (IRP)", "valore": "51.42/100", "valutazione": "Classe di rischio ELEVATO"},
+        {"indicatore": "Rating Fondo Garanzia MCC", "valore": "FASCIA \"4\"", "valutazione": "Probabilità di default 8.45%"},
+        {"indicatore": "Debiti Finanziari", "valore": "€1.275.053", "valutazione": "44.74% dei ricavi"},
+        {"indicatore": "PFN", "valore": "€919.610", "valutazione": "32.3% dei ricavi"},
+        {"indicatore": "DSCR", "valore": "2.463", "valutazione": "Sufficiente"}
+      ]
+    },
+    "sostenibilitaDebito": {
+      "headers": ["Indicatore", "Valore", "Valutazione"],
+      "rows": [
+        {"indicatore": "PFN/EBITDA", "valore": "NOK (EBITDA negativo)", "valutazione": "Critico"},
+        {"indicatore": "Leva Finanziaria (D/E)", "valore": "2.66", "valutazione": "Area di attenzione"},
+        {"indicatore": "EBITDA/Oneri Finanziari", "valore": "-0.65", "valutazione": "Critico"},
+        {"indicatore": "DSCR", "valore": "2.463", "valutazione": "Sufficiente"},
+        {"indicatore": "Cash Flow Operativo/Debiti Finanziari", "valore": "0.166", "valutazione": "Insufficiente"},
+        {"indicatore": "Liquidità/Ricavi", "valore": "12.47%", "valutazione": "Buono"}
+      ]
+    },
+    "cciiIndicators": {
+      "headers": ["Indicatore", "Formula", "Valore stimato", "Soglia di Allarme TRADER", "Valutazione"],
+      "rows": [
+        {"indicatore": "Oneri Finanziari/Ricavi", "formula": "Tot. Oneri Fin./Ricavi", "valore": 2.36, "soglia": 8.0, "valutazione": "In linea"},
+        {"indicatore": "Patrimonio Netto/Debiti Totali", "formula": "PN/(Tot. Debiti)", "valore": 34.25, "soglia": 8.0, "valutazione": "In linea"},
+        {"indicatore": "Attività a Breve/Passività a Breve", "formula": "Attivo Circolante/Passivo Corrente", "valore": 109.00, "soglia": 90.0, "valutazione": "In linea"},
+        {"indicatore": "Cash Flow/Totale Attivo", "formula": "Cash Flow/Tot. Attivo", "valore": 10.96, "soglia": 0.4, "valutazione": "Ampiamente in linea"},
+        {"indicatore": "Indebitamento Prev. e Trib./Totale Attivo", "formula": "(Debiti prev. + Debiti trib.)/Tot. Attivo", "valore": null, "soglia": 5.5, "valutazione": "N/D"}
+      ]
+    }
+  },
+  "parte5_circolante": {
+    "cicloCircolanteSintesi": {
+      "dso": 41,
+      "dio": 194,
+      "dpo": 68,
+      "cicloCircolante": 167
+    },
+    "trendCicloCircolante": {
+      "headers": ["Componente", "12/2022", "12/2023", "12/2024", "Trend"],
+      "rows": [
+        {"componente": "DSO (giorni)", "2022": 59, "2023": 55, "2024": 41, "trend": "Miglioramento"},
+        {"componente": "DIO (giorni)", "2022": 159, "2023": 186, "2024": 194, "trend": "Peggioramento"},
+        {"componente": "DPO (giorni)", "2022": 73, "2023": 67, "2024": 68, "trend": "Miglioramento"},
+        {"componente": "Ciclo Circolante", "2022": 145, "2023": 174, "2024": 167, "trend": "Miglioramento"}
+      ]
+    },
+    "flussiCassa2024": {
+      "headers": ["Voce", "Valore (€)", "% Ricavi"],
+      "rows": [
+        {"voce": "EBITDA", "valore": -43535, "pctRicavi": -1.53},
+        {"voce": "(-) Imposte", "valore": -5720, "pctRicavi": -0.20},
+        {"voce": "(+) Variazione CCN", "valore": 108427, "pctRicavi": 3.80},
+        {"voce": "Cash Flow Operativo", "valore": 211345, "pctRicavi": 7.42, "highlight": true},
+        {"voce": "(-) Investimenti", "valore": -774136, "pctRicavi": -27.16},
+        {"voce": "Free Cash Flow (FCF)", "valore": -562791, "pctRicavi": -19.75, "highlight": true},
+        {"voce": "(+) Operazioni finanziarie", "valore": 746599, "pctRicavi": 26.20},
+        {"voce": "Variazione Netta Cassa", "valore": 183808, "pctRicavi": 6.45, "highlight": true}
+      ]
+    },
+    "proiezioniFinanziarie": {
+      "headers": ["Metrica", "2024", "2025", "2026", "2027", "2028"],
+      "rows": [
+        {"metrica": "Liquidità Prevista", "2024": 183808, "2025": 304780, "2026": 331409, "2027": 411891, "2028": 506351},
+        {"metrica": "Debiti Finanziari", "2024": 919610, "2025": 1132866, "2026": 1057393, "2027": 992702, "2028": 937253}
+      ]
+    },
+    "miglioramentoCircolante": {
+      "headers": ["Area", "Strategie", "Impatto"],
+      "rows": [
+        {"area": "Crediti Clienti", "strategie": "Mantenere l'efficiente politica di incasso; Monitoraggio proattivo scadenze", "impatto": "+€0 (Target DSO 41gg)"},
+        {"area": "Gestione Magazzino", "strategie": "Implementare sistema ABC classificazione scorte; Rivedere livelli riordino", "impatto": "+€268.356 (Target DIO 150gg)"},
+        {"area": "Debiti Fornitori", "strategie": "Rinegoziazione termini pagamento; Centralizzazione gestione pagamenti", "impatto": "+€23.170 (Target DPO 75gg)"}
+      ]
+    }
+  },
+  "parte6_rischi": {
+    "indicatoriRischio": {
+      "headers": ["Indicatore", "12/2022", "12/2023", "12/2024", "Trend", "Valutazione"],
+      "rows": [
+        {"indicatore": "Variazione Ricavi", "2022": null, "2023": -10.69, "2024": -14.27, "trend": "Peggioramento", "valutazione": "Forte contrazione del fatturato"},
+        {"indicatore": "EBITDA Margin", "2022": 5.28, "2023": 6.41, "2024": -1.53, "trend": "Peggioramento", "valutazione": "Redditività operativa negativa"},
+        {"indicatore": "PFN/EBITDA", "2022": 2.10, "2023": 1.58, "2024": null, "trend": "Critico", "valutazione": "Non sostenibile (EBITDA negativo)"},
+        {"indicatore": "Leva Finanziaria (D/E)", "2022": 0.66, "2023": 0.54, "2024": 1.92, "trend": "Peggioramento", "valutazione": "Forte incremento dell'indebitamento"},
+        {"indicatore": "Liquidità/Ricavi", "2022": 9.23, "2023": 10.71, "2024": 12.47, "trend": "Miglioramento", "valutazione": "Liquidità sufficiente ma in contesto critico"},
+        {"indicatore": "Cash Flow Operativo/Ricavi", "2022": 5.3, "2023": 6.4, "2024": 7.4, "trend": "Miglioramento", "valutazione": "Generazione di cassa positiva ma insufficiente"}
+      ]
+    },
+    "zScoreRating": {
+      "headers": ["Indicatore", "Valore", "Interpretazione"],
+      "rows": [
+        {"indicatore": "Z-Score di Altman", "valore": "2.22", "interpretazione": "Zona grigia (rischio moderato di default)"},
+        {"indicatore": "Probabilità di Default (MCC)", "valore": "Elevata", "interpretazione": "Rischio default elevato"},
+        {"indicatore": "Classe di Valutazione", "valore": "D+", "interpretazione": "Rischio elevato"},
+        {"indicatore": "Rating", "valore": "8", "interpretazione": "Default probabile"},
+        {"indicatore": "Leanus Score", "valore": "54.70", "interpretazione": "Fragilità moderata"},
+        {"indicatore": "IRP (Indice di Rischio Ponderato)", "valore": "51.42", "interpretazione": "Classe di rischio \"ELEVATO\""}
+      ]
+    },
+    "redFlags": {
+      "headers": ["Area", "Segnale di allarme", "Valore/Trend", "Rischio potenziale"],
+      "rows": [
+        {"area": "Redditività", "segnale": "EBITDA negativo", "valore": "-1.53% dei ricavi", "rischio": "Incapacità di generare margini operativi"},
+        {"area": "Capitale Circolante", "segnale": "Ciclo circolante anomalo", "valore": "167 giorni", "rischio": "Elevato assorbimento di liquidità"},
+        {"area": "Magazzino", "segnale": "Rotazione molto lenta", "valore": "194 giorni", "rischio": "Rischio obsolescenza e immobilizzazione risorse"},
+        {"area": "Indebitamento", "segnale": "PFN/PN elevato", "valore": "1.92x", "rischio": "Struttura finanziaria squilibrata"},
+        {"area": "Sostenibilità debito", "segnale": "DSCR insufficiente", "valore": "0.67", "rischio": "Rischio concreto di insolvenza"},
+        {"area": "Redditività", "segnale": "ROE fortemente negativo", "valore": "-31.10%", "rischio": "Erosione del capitale proprio"},
+        {"area": "Fatturato", "segnale": "Contrazione significativa", "valore": "-14.27%", "rischio": "Perdita di competitività sul mercato"},
+        {"area": "Patrimonio", "segnale": "Erosione in corso", "valore": "-23.72%", "rischio": "Rischio di sottocapitalizzazione"}
+      ]
+    },
+    "pianoAzione": {
+      "headers": ["Area", "Situazione Attuale", "Azione Raccomandata", "Effetti Previsti", "Priorità"],
+      "rows": [
+        {"area": "Ristrutturazione debito", "situazione": "PFN: €919.610, DSCR: 0.67", "azione": "Rinegoziare scadenze finanziamenti a medio-lungo termine", "effetti": "Miglioramento sostenibilità debito; DSCR target >1.0", "priorita": "Alta"},
+        {"area": "Gestione Magazzino", "situazione": "Rotazione: 194 giorni", "azione": "Revisione politiche di gestione scorte e svalutazione prodotti a lenta rotazione", "effetti": "Riduzione magazzino del 30%; +€250.000-300.000 liquidità", "priorita": "Alta"},
+        {"area": "Marginalità", "situazione": "EBITDA: -1.53%", "azione": "Revisione politiche di pricing e mix prodotti", "effetti": "Incremento margine contribuzione; EBITDA target >3%", "priorita": "Alta"},
+        {"area": "Crediti Clienti", "situazione": "DSO: 89 giorni", "azione": "Rafforzamento procedure credit management", "effetti": "Riduzione DSO a 70 giorni; +€100.000 liquidità", "priorita": "Alta"},
+        {"area": "Costi Operativi", "situazione": "Costi operativi elevati", "azione": "Analisi ABC costi e implementazione piano di riduzione", "effetti": "Riduzione costi 8-10%; +€80.000-100.000 EBITDA", "priorita": "Alta"},
+        {"area": "Rafforzamento patrimoniale", "situazione": "PN/Totale Attivo: 17%", "azione": "Valutare aumento di capitale o ingresso partner", "effetti": "Miglioramento equilibrio patrimoniale; Riduzione PFN/PN a <1.0", "priorita": "Media"}
+      ]
+    },
+    "dashboardKPI": {
+      "headers": ["Categoria", "KPI", "Frequenza", "Target", "Ultimo valore", "Alert"],
+      "rows": [
+        {"categoria": "Redditività", "kpi": "EBITDA margin", "frequenza": "Mensile", "target": ">3%", "valore": "-1.53%", "alert": "< 0%"},
+        {"categoria": "Redditività", "kpi": "Margine contribuzione", "frequenza": "Mensile", "target": ">10%", "valore": "8.56%", "alert": "< 7%"},
+        {"categoria": "Redditività", "kpi": "ROI", "frequenza": "Trimestrale", "target": ">5%", "valore": "-6.65%", "alert": "< 0%"},
+        {"categoria": "Liquidità", "kpi": "Cash Flow Operativo/Ricavi", "frequenza": "Mensile", "target": ">7%", "valore": "7.4%", "alert": "< 5%"},
+        {"categoria": "Liquidità", "kpi": "DSCR", "frequenza": "Mensile", "target": ">1.0", "valore": "0.67", "alert": "< 0.8"},
+        {"categoria": "Capitale Circolante", "kpi": "DSO (giorni crediti)", "frequenza": "Mensile", "target": "< 70 gg", "valore": "89 gg", "alert": "> 90 gg"},
+        {"categoria": "Capitale Circolante", "kpi": "DIO (giorni magazzino)", "frequenza": "Mensile", "target": "< 150 gg", "valore": "194 gg", "alert": "> 200 gg"},
+        {"categoria": "Capitale Circolante", "kpi": "Ciclo del circolante", "frequenza": "Mensile", "target": "< 120 gg", "valore": "167 gg", "alert": "> 180 gg"},
+        {"categoria": "Solidità", "kpi": "PFN/PN", "frequenza": "Trimestrale", "target": "< 1.5x", "valore": "1.92x", "alert": "> 2.0x"},
+        {"categoria": "Solidità", "kpi": "Patrimonio Netto/Totale Attivo", "frequenza": "Trimestrale", "target": "> 20%", "valore": "17.0%", "alert": "< 15%"}
+      ]
+    }
+  },
+  "irp_dettaglio": {
+    "irpOverall": {
+      "score": 51.42,
+      "max": 100,
+      "category": "D+",
+      "riskLevel": "Elevato/High",
+      "position": 51.42,
+      "profile": "Rischio elevato con problematica solidità finanziaria"
+    },
+    "irpComponents": {
+      "headers": ["Componente", "Valore Originale", "Punteggio Normalizzato", "Peso", "Punteggio Ponderato"],
+      "rows": [
+        {"componente": "Coefficiente di Ponderazione (CP)", "valoreOriginale": "-", "punteggioNorm": 43.00, "peso": 30, "ponderato": 12.90},
+        {"componente": "Leanus Score", "valoreOriginale": "-", "punteggioNorm": 54.70, "peso": 30, "ponderato": 16.41},
+        {"componente": "MCC Rating", "valoreOriginale": "-", "punteggioNorm": 46.20, "peso": 25, "ponderato": 11.55},
+        {"componente": "Z-Score di Altman", "valoreOriginale": "-", "punteggioNorm": 70.40, "peso": 15, "ponderato": 10.56},
+        {"componente": "IRP Finale", "valoreOriginale": "-", "punteggioNorm": "-", "peso": 100, "ponderato": 51.42}
+      ]
+    },
+    "coefficientePonderazione": {
+      "score": 43.00,
+      "riskLevel": "Rischio Elevato",
+      "headers": ["Indicatore", "Valore", "Punteggio", "Peso", "Ponderato"],
+      "rows": [
+        {"indicatore": "PFN/EBITDA", "valore": -21.12, "punteggio": 100.00, "peso": 25, "ponderato": 25.00},
+        {"indicatore": "EBIT/OF (Oneri Finanziari)", "valore": -1.38, "punteggio": 10.00, "peso": 20, "ponderato": 2.00},
+        {"indicatore": "Ciclo Circolante", "valore": 167, "punteggio": 10.00, "peso": 15, "ponderato": 1.50},
+        {"indicatore": "EBITDA/Ricavi", "valore": -1.53, "punteggio": 10.00, "peso": 15, "ponderato": 1.50},
+        {"indicatore": "Copertura Attivo Fisso", "valore": 1.28, "punteggio": 80.00, "peso": 15, "ponderato": 12.00},
+        {"indicatore": "DSCR", "valore": 0.67, "punteggio": 10.00, "peso": 10, "ponderato": 1.00}
+      ]
+    },
+    "leanusScore": {
+      "scoreOriginale": -5.3,
+      "scala": "(-40/+40)",
+      "normalizzato": 54.70,
+      "assessment": "Indicativo di fragilità moderata; conferma elevata probabilità di default",
+      "riskLevel": "Rischio Moderato"
+    },
+    "mccRating": {
+      "pd": "Elevata",
+      "category": "Elevato",
+      "normalizzato": 46.20,
+      "assessment": "Punteggio alto riflette redditività finanziaria problematica e performance aziendale critica",
+      "riskLevel": "Rischio Elevato"
+    },
+    "zScore": {
+      "scoreOriginale": 2.45,
+      "posizione": "Zona Grigia (1.81-2.99)",
+      "normalizzato": 70.40,
+      "assessment": "Certa resilienza strutturale; tuttavia, marginalità operativa negativa rimane la criticità più pressante",
+      "riskLevel": "Rischio Moderato"
+    },
+    "targetImprovement": {
+      "headers": ["Orizzonte temporale", "Target IRP", "Categoria target", "Azioni chiave"],
+      "rows": [
+        {"orizzonte": "6 mesi", "targetIRP": 60.0, "categoria": "C", "azioni": "Riduzione costi operativi e miglioramento marginalità"},
+        {"orizzonte": "12 mesi", "targetIRP": 65.0, "categoria": "C+", "azioni": "Ottimizzazione capitale circolante e ristrutturazione debito"},
+        {"orizzonte": "24 mesi", "targetIRP": 75.0, "categoria": "B", "azioni": "Consolidamento redditività e rafforzamento struttura finanziaria"}
+      ]
+    }
+  }
+}
