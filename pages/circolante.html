@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/modern.css">
     <link rel="stylesheet" href="../css/responsive.css">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -83,27 +84,106 @@
             </header>
 
             <div class="content-wrapper">
+                <!-- Intro -->
                 <div class="content-section">
-                    <div class="card">
-                        <div class="card-body">
-                            <p id="sectionIntro"></p>
+                    <div class="alert-modern alert-info">
+                        <div class="alert-modern-title">
+                            <i data-lucide="info"></i>
+                            Panoramica Capitale Circolante
                         </div>
+                        <div id="sectionIntro"></div>
                     </div>
                 </div>
 
+                <!-- Cash Cycle Alert -->
+                <div class="content-section">
+                    <div id="cashCycleAlert"></div>
+                </div>
+
+                <!-- KPI Circolante -->
                 <div class="content-section">
                     <div class="section-header">
-                        <h2 class="section-title">Indicatori Circolante</h2>
+                        <h2 class="section-title">
+                            <i data-lucide="bar-chart-3" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Indicatori Principali Circolante
+                        </h2>
                     </div>
-                    <div id="kpiCircolante"></div>
+                    <div id="kpiCircolante" class="kpi-grid"></div>
                 </div>
 
+                <!-- Charts -->
                 <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="line-chart" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Andamento Capitale Circolante e Cash Flow
+                        </h2>
+                    </div>
                     <div id="chartsContainer"></div>
                 </div>
 
+                <!-- Trend Ciclo Circolante -->
                 <div class="content-section">
-                    <div id="tablesContainer"></div>
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="repeat" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Trend Ciclo Circolante
+                        </h2>
+                    </div>
+                    <div id="trendCicloCircolante"></div>
+                </div>
+
+                <!-- Flussi di Cassa -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="dollar-sign" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Flussi di Cassa 2024
+                        </h2>
+                    </div>
+                    <div id="flussiCassa2024"></div>
+                </div>
+
+                <!-- Proiezioni Finanziarie -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="trending-up" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Proiezioni Finanziarie 2025-2028
+                        </h2>
+                    </div>
+                    <div id="proiezioniFinanziarie"></div>
+                </div>
+
+                <!-- Piano Miglioramento -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="target" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Piano Miglioramento Circolante
+                        </h2>
+                    </div>
+                    <div id="miglioramentoCircolante"></div>
+                </div>
+
+                <!-- Additional Notes -->
+                <div class="content-section">
+                    <div class="grid-2">
+                        <div class="info-box">
+                            <div class="info-box-title">
+                                <i data-lucide="info"></i>
+                                Gestione Magazzino
+                            </div>
+                            <div class="info-box-content" id="inventoryNote"></div>
+                        </div>
+                        <div class="info-box">
+                            <div class="info-box-title">
+                                <i data-lucide="trending-up"></i>
+                                Cash Flow e Liquidità
+                            </div>
+                            <div class="info-box-content" id="cashFlowNote"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
@@ -130,11 +210,30 @@
             const tables = data.tables.parte5_circolante;
             const charts = data.charts.reports.parte5;
 
+            // Intro
             document.getElementById('sectionIntro').innerHTML = content.sectionIntro;
 
-            const kpiKeys = ['dso', 'cashFlowOperativo', 'liquidity'];
-            KPICard.renderMultiple(document.getElementById('kpiCircolante'), kpiKeys, data.kpis);
+            // Cash Cycle Alert
+            document.getElementById('cashCycleAlert').innerHTML = `
+                <div class="alert-modern alert-warning">
+                    <div class="alert-modern-title">
+                        <i data-lucide="alert-triangle"></i>
+                        ${content.cashCycleAlert.title}
+                    </div>
+                    <div>${content.cashCycleAlert.description}</div>
+                </div>
+            `;
 
+            // KPI using modern cards
+            const kpiKeys = ['dso', 'cashFlowOperativo', 'liquidity'];
+            const kpiContainer = document.getElementById('kpiCircolante');
+            kpiKeys.forEach(key => {
+                const kpiData = data.kpis[key];
+                const card = createModernKPICard(kpiData);
+                kpiContainer.appendChild(card);
+            });
+
+            // Charts
             const chartsDiv = document.getElementById('chartsContainer');
             const chartsToRender = [
                 { data: charts.workingCapitalCycleChart, title: charts.workingCapitalCycleChart.title },
@@ -147,11 +246,118 @@
                 ChartComponent.render(chartsDiv, chart.data, chart.title);
             });
 
-            const tablesDiv = document.getElementById('tablesContainer');
-            TableComponent.render(tablesDiv, tables.flussiCassa2024, 'Flussi di Cassa 2024');
-            TableComponent.render(tablesDiv, tables.proiezioniFinanziarie, 'Proiezioni Finanziarie 2025-2028');
-            TableComponent.render(tablesDiv, tables.miglioramentoCircolante, 'Piano Miglioramento Circolante');
+            // Tables
+            renderTable('trendCicloCircolante', tables.trendCicloCircolante);
+            renderTable('flussiCassa2024', tables.flussiCassa2024);
+            renderTable('proiezioniFinanziarie', tables.proiezioniFinanziarie);
+            renderTable('miglioramentoCircolante', tables.miglioramentoCircolante);
+
+            // Additional notes
+            document.getElementById('inventoryNote').innerHTML = content.inventoryNote;
+            document.getElementById('cashFlowNote').innerHTML = content.cashFlowNote + '<br><br>' + content.receivablesNote + '<br><br>' + content.payablesNote;
+
+            lucide.createIcons();
         });
+
+        function createModernKPICard(kpiData) {
+            const card = document.createElement('div');
+            card.className = 'kpi-card-modern';
+
+            const colorMap = {
+                'success': '#4CAF50',
+                'warning': '#FFC107',
+                'danger': '#F44336',
+                'info': '#4a69bd'
+            };
+            const accentColor = colorMap[kpiData.status] || '#667eea';
+            card.style.setProperty('--accent-color', accentColor);
+            card.style.setProperty('--accent-color-light', accentColor + '20');
+
+            let trendHTML = '';
+            if (kpiData.trend && kpiData.trend.displayValue) {
+                const trendClass = kpiData.trend.direction === 'up' ? 'trend-up' :
+                                 kpiData.trend.direction === 'down' ? 'trend-down' : 'trend-neutral';
+                trendHTML = `
+                    <div class="kpi-trend-modern ${trendClass}">
+                        <i data-lucide="${Utils.getTrendIcon(kpiData.trend.direction)}" style="width: 14px; height: 14px;"></i>
+                        <span>${kpiData.trend.displayValue} ${kpiData.trend.label || ''}</span>
+                    </div>
+                `;
+            }
+
+            card.innerHTML = `
+                <div class="kpi-icon-modern">
+                    <i data-lucide="${kpiData.icon}"></i>
+                </div>
+                <div class="kpi-label">${kpiData.title}</div>
+                <div class="kpi-value-modern">${kpiData.displayValue}</div>
+                ${kpiData.description ? `<div style="font-size: 13px; color: var(--color-gray-600); margin-bottom: 12px;">${kpiData.description}</div>` : ''}
+                ${trendHTML}
+            `;
+
+            return card;
+        }
+
+        function renderTable(containerId, tableData) {
+            const container = document.getElementById(containerId);
+
+            const html = `
+                <div class="chart-card-modern">
+                    <div class="table-wrapper" style="border: none; box-shadow: none;">
+                        <table class="table-modern">
+                            <thead>
+                                <tr>
+                                    ${tableData.headers.map(h => `<th>${h}</th>`).join('')}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${tableData.rows.map(row => {
+                                    const isHighlight = row.highlight || false;
+                                    const rowClass = isHighlight ? 'style="background: var(--color-primary-light); font-weight: 600;"' : '';
+
+                                    const values = Object.keys(row).filter(k => k !== 'highlight').map(key => {
+                                        const value = row[key];
+
+                                        if (key.includes('pct') || key === 'var') {
+                                            if (value === null) return '<td style="text-align: right;">-</td>';
+                                            const formatted = Utils.formatPercent(value);
+                                            const colorClass = value < 0 ? 'text-danger' : value > 0 ? 'text-success' : '';
+                                            return `<td style="text-align: right;"><span class="${colorClass}">${formatted}</span></td>`;
+                                        }
+
+                                        if (key.includes('trend')) {
+                                            const colorMap = {
+                                                'Miglioramento': 'text-success',
+                                                'Peggioramento': 'text-danger',
+                                                'Stabile': 'text-info'
+                                            };
+                                            let colorClass = '';
+                                            for (const [keyword, cls] of Object.entries(colorMap)) {
+                                                if (value && value.includes(keyword)) {
+                                                    colorClass = cls;
+                                                    break;
+                                                }
+                                            }
+                                            return `<td><span class="${colorClass}">${value || '-'}</span></td>`;
+                                        }
+
+                                        if (typeof value === 'number') {
+                                            return `<td style="text-align: right;">${Utils.formatNumber(value, 0)}</td>`;
+                                        }
+
+                                        return `<td>${value !== null && value !== undefined ? value : '-'}</td>`;
+                                    });
+
+                                    return `<tr ${rowClass}>${values.join('')}</tr>`;
+                                }).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
     </script>
 </body>
 </html>

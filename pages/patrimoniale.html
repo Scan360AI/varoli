@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/modern.css">
     <link rel="stylesheet" href="../css/responsive.css">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -83,27 +84,106 @@
             </header>
 
             <div class="content-wrapper">
+                <!-- Intro -->
                 <div class="content-section">
-                    <div class="card">
-                        <div class="card-body">
-                            <p id="sectionIntro"></p>
+                    <div class="alert-modern alert-info">
+                        <div class="alert-modern-title">
+                            <i data-lucide="info"></i>
+                            Panoramica Patrimoniale
                         </div>
+                        <div id="sectionIntro"></div>
                     </div>
                 </div>
 
+                <!-- Equity Alert -->
+                <div class="content-section">
+                    <div id="equityAlert"></div>
+                </div>
+
+                <!-- KPI Patrimoniali -->
                 <div class="content-section">
                     <div class="section-header">
-                        <h2 class="section-title">Indicatori Patrimoniali</h2>
+                        <h2 class="section-title">
+                            <i data-lucide="bar-chart-3" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Indicatori Patrimoniali Principali
+                        </h2>
                     </div>
-                    <div id="kpiPatrimoniali"></div>
+                    <div id="kpiPatrimoniali" class="kpi-grid"></div>
                 </div>
 
+                <!-- Charts -->
                 <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="line-chart" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Andamento Patrimoniale e Finanziario
+                        </h2>
+                    </div>
                     <div id="chartsContainer"></div>
                 </div>
 
+                <!-- Stato Patrimoniale Impieghi -->
                 <div class="content-section">
-                    <div id="tablesContainer"></div>
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="file-text" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Stato Patrimoniale - Impieghi
+                        </h2>
+                    </div>
+                    <div id="statoPatrimonialeImpieghi"></div>
+                </div>
+
+                <!-- Stato Patrimoniale Fonti -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="file-text" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Stato Patrimoniale - Fonti
+                        </h2>
+                    </div>
+                    <div id="statoPatrimonialeFonti"></div>
+                </div>
+
+                <!-- PFN -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="dollar-sign" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Posizione Finanziaria Netta (PFN)
+                        </h2>
+                    </div>
+                    <div id="pfn"></div>
+                </div>
+
+                <!-- Indici Solidità -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="shield" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Indici di Solidità
+                        </h2>
+                    </div>
+                    <div id="indiciSolidita"></div>
+                </div>
+
+                <!-- Additional Notes -->
+                <div class="content-section">
+                    <div class="grid-2">
+                        <div class="info-box">
+                            <div class="info-box-title">
+                                <i data-lucide="info"></i>
+                                Analisi PFN
+                            </div>
+                            <div class="info-box-content" id="pfnAnalysis"></div>
+                        </div>
+                        <div class="info-box">
+                            <div class="info-box-title">
+                                <i data-lucide="shield-alert"></i>
+                                Solidità e Liquidità
+                            </div>
+                            <div class="info-box-content" id="solidityNote"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
@@ -130,11 +210,30 @@
             const tables = data.tables.parte3_patrimoniale;
             const charts = data.charts.reports.parte3;
 
+            // Intro
             document.getElementById('sectionIntro').innerHTML = content.sectionIntro;
 
-            const kpiKeys = ['equity', 'liquidity', 'leverageDE', 'pfnEbitda'];
-            KPICard.renderMultiple(document.getElementById('kpiPatrimoniali'), kpiKeys, data.kpis);
+            // Equity Alert
+            document.getElementById('equityAlert').innerHTML = `
+                <div class="alert-modern alert-danger">
+                    <div class="alert-modern-title">
+                        <i data-lucide="alert-triangle"></i>
+                        ${content.equityAlert.title}
+                    </div>
+                    <div>${content.equityAlert.description}</div>
+                </div>
+            `;
 
+            // KPI using modern cards
+            const kpiKeys = ['equity', 'liquidity', 'leverageDE', 'pfnEbitda'];
+            const kpiContainer = document.getElementById('kpiPatrimoniali');
+            kpiKeys.forEach(key => {
+                const kpiData = data.kpis[key];
+                const card = createModernKPICard(kpiData);
+                kpiContainer.appendChild(card);
+            });
+
+            // Charts
             const chartsDiv = document.getElementById('chartsContainer');
             const chartsToRender = [
                 { data: charts.assetsChart, title: charts.assetsChart.title },
@@ -147,12 +246,120 @@
                 ChartComponent.render(chartsDiv, chart.data, chart.title);
             });
 
-            const tablesDiv = document.getElementById('tablesContainer');
-            TableComponent.render(tablesDiv, tables.statoPatrimonialeImpieghi, 'Stato Patrimoniale - Impieghi');
-            TableComponent.render(tablesDiv, tables.statoPatrimonialeFonti, 'Stato Patrimoniale - Fonti');
-            TableComponent.render(tablesDiv, tables.pfn, 'Posizione Finanziaria Netta');
-            TableComponent.render(tablesDiv, tables.indiciSolidita, 'Indici di Solidità');
+            // Tables
+            renderTable('statoPatrimonialeImpieghi', tables.statoPatrimonialeImpieghi);
+            renderTable('statoPatrimonialeFonti', tables.statoPatrimonialeFonti);
+            renderTable('pfn', tables.pfn);
+            renderTable('indiciSolidita', tables.indiciSolidita);
+
+            // Additional notes
+            document.getElementById('pfnAnalysis').innerHTML = content.pfnAnalysis;
+            document.getElementById('solidityNote').innerHTML = content.solidityNote + '<br><br>' + content.liquidityNote;
+
+            lucide.createIcons();
         });
+
+        function createModernKPICard(kpiData) {
+            const card = document.createElement('div');
+            card.className = 'kpi-card-modern';
+
+            const colorMap = {
+                'success': '#4CAF50',
+                'warning': '#FFC107',
+                'danger': '#F44336',
+                'info': '#4a69bd'
+            };
+            const accentColor = colorMap[kpiData.status] || '#667eea';
+            card.style.setProperty('--accent-color', accentColor);
+            card.style.setProperty('--accent-color-light', accentColor + '20');
+
+            let trendHTML = '';
+            if (kpiData.trend && kpiData.trend.displayValue) {
+                const trendClass = kpiData.trend.direction === 'up' ? 'trend-up' :
+                                 kpiData.trend.direction === 'down' ? 'trend-down' : 'trend-neutral';
+                trendHTML = `
+                    <div class="kpi-trend-modern ${trendClass}">
+                        <i data-lucide="${Utils.getTrendIcon(kpiData.trend.direction)}" style="width: 14px; height: 14px;"></i>
+                        <span>${kpiData.trend.displayValue} ${kpiData.trend.label || ''}</span>
+                    </div>
+                `;
+            }
+
+            card.innerHTML = `
+                <div class="kpi-icon-modern">
+                    <i data-lucide="${kpiData.icon}"></i>
+                </div>
+                <div class="kpi-label">${kpiData.title}</div>
+                <div class="kpi-value-modern">${kpiData.displayValue}</div>
+                ${kpiData.description ? `<div style="font-size: 13px; color: var(--color-gray-600); margin-bottom: 12px;">${kpiData.description}</div>` : ''}
+                ${trendHTML}
+            `;
+
+            return card;
+        }
+
+        function renderTable(containerId, tableData) {
+            const container = document.getElementById(containerId);
+
+            const html = `
+                <div class="chart-card-modern">
+                    <div class="table-wrapper" style="border: none; box-shadow: none;">
+                        <table class="table-modern">
+                            <thead>
+                                <tr>
+                                    ${tableData.headers.map(h => `<th>${h}</th>`).join('')}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${tableData.rows.map(row => {
+                                    const isHighlight = row.highlight || false;
+                                    const rowClass = isHighlight ? 'style="background: var(--color-primary-light); font-weight: 600;"' : '';
+
+                                    const values = Object.keys(row).filter(k => k !== 'highlight').map(key => {
+                                        const value = row[key];
+
+                                        if (key.includes('pct') || key === 'var') {
+                                            if (value === null) return '<td style="text-align: right;">-</td>';
+                                            const formatted = Utils.formatPercent(value);
+                                            const colorClass = value < 0 ? 'text-danger' : value > 0 ? 'text-success' : '';
+                                            return `<td style="text-align: right;"><span class="${colorClass}">${formatted}</span></td>`;
+                                        }
+
+                                        if (typeof value === 'number' && !key.includes('categoria') && !key.includes('componente') && !key.includes('indice')) {
+                                            return `<td style="text-align: right;">${Utils.formatNumber(value, 0)}</td>`;
+                                        }
+
+                                        if (key.includes('valutazione')) {
+                                            const colorMap = {
+                                                'Critico': 'text-danger',
+                                                'Insufficiente': 'text-danger',
+                                                'Sufficiente': 'text-warning',
+                                                'Ottimo': 'text-success',
+                                                'In linea': 'text-success'
+                                            };
+                                            let colorClass = '';
+                                            for (const [keyword, cls] of Object.entries(colorMap)) {
+                                                if (value && value.includes(keyword)) {
+                                                    colorClass = cls;
+                                                    break;
+                                                }
+                                            }
+                                            return `<td><span class="${colorClass}">${value || '-'}</span></td>`;
+                                        }
+
+                                        return `<td>${value !== null && value !== undefined ? value : '-'}</td>`;
+                                    });
+
+                                    return `<tr ${rowClass}>${values.join('')}</tr>`;
+                                }).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
     </script>
 </body>
 </html>

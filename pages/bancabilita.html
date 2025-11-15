@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/modern.css">
     <link rel="stylesheet" href="../css/responsive.css">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -83,27 +84,95 @@
             </header>
 
             <div class="content-wrapper">
+                <!-- Intro -->
                 <div class="content-section">
-                    <div class="card">
-                        <div class="card-body">
-                            <p id="sectionIntro"></p>
+                    <div class="alert-modern alert-info">
+                        <div class="alert-modern-title">
+                            <i data-lucide="info"></i>
+                            Panoramica Bancabilità
                         </div>
+                        <div id="sectionIntro"></div>
                     </div>
                 </div>
 
+                <!-- DSCR Alert -->
+                <div class="content-section">
+                    <div id="dscrAlert"></div>
+                </div>
+
+                <!-- KPI Bancabilità -->
                 <div class="content-section">
                     <div class="section-header">
-                        <h2 class="section-title">Score e Rating</h2>
+                        <h2 class="section-title">
+                            <i data-lucide="bar-chart-3" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Score e Rating Creditizio
+                        </h2>
                     </div>
-                    <div id="kpiBancabilita"></div>
+                    <div id="kpiBancabilita" class="kpi-grid"></div>
                 </div>
 
+                <!-- Charts -->
                 <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="line-chart" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Andamento Bancabilità
+                        </h2>
+                    </div>
                     <div id="chartsContainer"></div>
                 </div>
 
+                <!-- Valutazione Bancabilità -->
                 <div class="content-section">
-                    <div id="tablesContainer"></div>
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="building" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Valutazione Bancabilità
+                        </h2>
+                    </div>
+                    <div id="valutazioneBancabilita"></div>
+                </div>
+
+                <!-- Sostenibilità Debito -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="dollar-sign" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Sostenibilità del Debito
+                        </h2>
+                    </div>
+                    <div id="sostenibilitaDebito"></div>
+                </div>
+
+                <!-- Indicatori CCII -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="shield-check" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Indicatori CCII
+                        </h2>
+                    </div>
+                    <div id="cciiIndicators"></div>
+                </div>
+
+                <!-- Additional Notes -->
+                <div class="content-section">
+                    <div class="grid-2">
+                        <div class="info-box">
+                            <div class="info-box-title">
+                                <i data-lucide="info"></i>
+                                PFN/EBITDA
+                            </div>
+                            <div class="info-box-content" id="pfnEbitdaNote"></div>
+                        </div>
+                        <div class="info-box">
+                            <div class="info-box-title">
+                                <i data-lucide="trending-up"></i>
+                                Raccomandazioni
+                            </div>
+                            <div class="info-box-content" id="bankabilityRecommendation"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
@@ -130,11 +199,30 @@
             const tables = data.tables.parte4_bancabilita;
             const charts = data.charts.reports.parte4;
 
+            // Intro
             document.getElementById('sectionIntro').innerHTML = content.sectionIntro;
 
-            const kpiKeys = ['leanusScore', 'irp', 'leverageDE', 'pfnEbitda'];
-            KPICard.renderMultiple(document.getElementById('kpiBancabilita'), kpiKeys, data.kpis);
+            // DSCR Alert
+            document.getElementById('dscrAlert').innerHTML = `
+                <div class="alert-modern alert-danger">
+                    <div class="alert-modern-title">
+                        <i data-lucide="alert-octagon"></i>
+                        ${content.dscrAlert.title}
+                    </div>
+                    <div>${content.dscrAlert.description}</div>
+                </div>
+            `;
 
+            // KPI using modern cards
+            const kpiKeys = ['leanusScore', 'irp', 'leverageDE', 'pfnEbitda'];
+            const kpiContainer = document.getElementById('kpiBancabilita');
+            kpiKeys.forEach(key => {
+                const kpiData = data.kpis[key];
+                const card = createModernKPICard(kpiData);
+                kpiContainer.appendChild(card);
+            });
+
+            // Charts
             const chartsDiv = document.getElementById('chartsContainer');
             const chartsToRender = [
                 { data: charts.debtSustainabilityChart, title: charts.debtSustainabilityChart.title },
@@ -145,11 +233,114 @@
                 ChartComponent.render(chartsDiv, chart.data, chart.title);
             });
 
-            const tablesDiv = document.getElementById('tablesContainer');
-            TableComponent.render(tablesDiv, tables.valutazioneBancabilita, 'Valutazione Bancabilità');
-            TableComponent.render(tablesDiv, tables.sostenibilitaDebito, 'Sostenibilità del Debito');
-            TableComponent.render(tablesDiv, tables.cciiIndicators, 'Indicatori CCII');
+            // Tables
+            renderTable('valutazioneBancabilita', tables.valutazioneBancabilita);
+            renderTable('sostenibilitaDebito', tables.sostenibilitaDebito);
+            renderTable('cciiIndicators', tables.cciiIndicators);
+
+            // Additional notes
+            document.getElementById('pfnEbitdaNote').innerHTML = content.pfnEbitdaNote + '<br><br>' + content.interestCoverageNote + '<br><br>' + content.creditRatingNote;
+            document.getElementById('bankabilityRecommendation').innerHTML = content.bankabilityRecommendation;
+
+            lucide.createIcons();
         });
+
+        function createModernKPICard(kpiData) {
+            const card = document.createElement('div');
+            card.className = 'kpi-card-modern';
+
+            const colorMap = {
+                'success': '#4CAF50',
+                'warning': '#FFC107',
+                'danger': '#F44336',
+                'info': '#4a69bd'
+            };
+            const accentColor = colorMap[kpiData.status] || '#667eea';
+            card.style.setProperty('--accent-color', accentColor);
+            card.style.setProperty('--accent-color-light', accentColor + '20');
+
+            let trendHTML = '';
+            if (kpiData.trend && kpiData.trend.displayValue) {
+                const trendClass = kpiData.trend.direction === 'up' ? 'trend-up' :
+                                 kpiData.trend.direction === 'down' ? 'trend-down' : 'trend-neutral';
+                trendHTML = `
+                    <div class="kpi-trend-modern ${trendClass}">
+                        <i data-lucide="${Utils.getTrendIcon(kpiData.trend.direction)}" style="width: 14px; height: 14px;"></i>
+                        <span>${kpiData.trend.displayValue} ${kpiData.trend.label || ''}</span>
+                    </div>
+                `;
+            }
+
+            card.innerHTML = `
+                <div class="kpi-icon-modern">
+                    <i data-lucide="${kpiData.icon}"></i>
+                </div>
+                <div class="kpi-label">${kpiData.title}</div>
+                <div class="kpi-value-modern">${kpiData.displayValue}</div>
+                ${kpiData.description ? `<div style="font-size: 13px; color: var(--color-gray-600); margin-bottom: 12px;">${kpiData.description}</div>` : ''}
+                ${trendHTML}
+            `;
+
+            return card;
+        }
+
+        function renderTable(containerId, tableData) {
+            const container = document.getElementById(containerId);
+
+            const html = `
+                <div class="chart-card-modern">
+                    <div class="table-wrapper" style="border: none; box-shadow: none;">
+                        <table class="table-modern">
+                            <thead>
+                                <tr>
+                                    ${tableData.headers.map(h => `<th>${h}</th>`).join('')}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${tableData.rows.map(row => {
+                                    const isHighlight = row.highlight || false;
+                                    const rowClass = isHighlight ? 'style="background: var(--color-primary-light); font-weight: 600;"' : '';
+
+                                    const values = Object.keys(row).filter(k => k !== 'highlight').map(key => {
+                                        const value = row[key];
+
+                                        if (key.includes('valutazione')) {
+                                            const colorMap = {
+                                                'Critico': 'text-danger',
+                                                'Insufficiente': 'text-danger',
+                                                'Sufficiente': 'text-warning',
+                                                'Buono': 'text-success',
+                                                'In linea': 'text-success',
+                                                'Ampiamente in linea': 'text-success',
+                                                'Area di attenzione': 'text-warning'
+                                            };
+                                            let colorClass = '';
+                                            for (const [keyword, cls] of Object.entries(colorMap)) {
+                                                if (value && value.includes(keyword)) {
+                                                    colorClass = cls;
+                                                    break;
+                                                }
+                                            }
+                                            return `<td><span class="${colorClass}">${value || '-'}</span></td>`;
+                                        }
+
+                                        if (typeof value === 'number') {
+                                            return `<td style="text-align: right;">${Utils.formatNumber(value, 2)}</td>`;
+                                        }
+
+                                        return `<td>${value !== null && value !== undefined ? value : '-'}</td>`;
+                                    });
+
+                                    return `<tr ${rowClass}>${values.join('')}</tr>`;
+                                }).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
     </script>
 </body>
 </html>

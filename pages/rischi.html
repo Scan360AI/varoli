@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/modern.css">
     <link rel="stylesheet" href="../css/responsive.css">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -83,32 +84,121 @@
             </header>
 
             <div class="content-wrapper">
+                <!-- Intro -->
                 <div class="content-section">
-                    <div class="card">
-                        <div class="card-body">
-                            <p id="sectionIntro"></p>
+                    <div class="alert-modern alert-info">
+                        <div class="alert-modern-title">
+                            <i data-lucide="info"></i>
+                            Panoramica Rischi
                         </div>
+                        <div id="sectionIntro"></div>
                     </div>
                 </div>
 
+                <!-- Risk Cards -->
                 <div class="content-section">
                     <div class="section-header">
-                        <h2 class="section-title">Profilo di Rischio</h2>
+                        <h2 class="section-title">
+                            <i data-lucide="alert-triangle" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Profilo di Rischio
+                        </h2>
                     </div>
                     <div id="rischiGrid"></div>
                 </div>
 
+                <!-- Charts -->
                 <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="line-chart" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Analisi del Rischio
+                        </h2>
+                    </div>
                     <div id="chartsContainer"></div>
                 </div>
 
+                <!-- Indicatori Rischio -->
                 <div class="content-section">
-                    <div id="tablesContainer"></div>
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="trending-down" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Indicatori di Rischio
+                        </h2>
+                    </div>
+                    <div id="indicatoriRischio"></div>
                 </div>
 
+                <!-- Z-Score e Rating -->
                 <div class="content-section">
-                    <div class="alert alert-warning">
-                        <div class="alert-title">Raccomandazione</div>
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="shield-alert" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Z-Score e Rating
+                        </h2>
+                    </div>
+                    <div id="zScoreRating"></div>
+                </div>
+
+                <!-- Red Flags -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="alert-octagon" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Segnali di Allarme (Red Flags)
+                        </h2>
+                    </div>
+                    <div id="redFlags"></div>
+                </div>
+
+                <!-- Piano Azione -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="target" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Piano d'Azione Raccomandato
+                        </h2>
+                    </div>
+                    <div id="pianoAzione"></div>
+                </div>
+
+                <!-- Dashboard KPI -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="activity" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            KPI di Monitoraggio
+                        </h2>
+                    </div>
+                    <div id="dashboardKPI"></div>
+                </div>
+
+                <!-- Action Plan Sections -->
+                <div class="content-section">
+                    <div class="grid-2">
+                        <div class="info-box">
+                            <div class="info-box-title">
+                                <i data-lucide="zap"></i>
+                                Azioni Urgenti
+                            </div>
+                            <div class="info-box-content" id="urgentActions"></div>
+                        </div>
+                        <div class="info-box">
+                            <div class="info-box-title">
+                                <i data-lucide="calendar"></i>
+                                Azioni Medio Termine
+                            </div>
+                            <div class="info-box-content" id="mediumTermActions"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Continuity Note -->
+                <div class="content-section">
+                    <div class="alert-modern alert-warning">
+                        <div class="alert-modern-title">
+                            <i data-lucide="alert-circle"></i>
+                            Continuità Aziendale
+                        </div>
                         <div id="continuityNote"></div>
                     </div>
                 </div>
@@ -137,12 +227,13 @@
             const tables = data.tables.parte6_rischi;
             const charts = data.charts.reports.parte6;
 
+            // Intro
             document.getElementById('sectionIntro').innerHTML = content.sectionIntro;
-            document.getElementById('continuityNote').innerHTML = content.continuityNote;
 
-            // Render risk cards
+            // Risk cards
             renderRiskCards(content);
 
+            // Charts
             const chartsDiv = document.getElementById('chartsContainer');
             const chartsToRender = [
                 { data: charts.zScoreChart, title: charts.zScoreChart.title },
@@ -154,10 +245,21 @@
                 ChartComponent.render(chartsDiv, chart.data, chart.title);
             });
 
-            const tablesDiv = document.getElementById('tablesContainer');
-            TableComponent.render(tablesDiv, tables.redFlags, 'Segnali di Allarme (Red Flags)');
-            TableComponent.render(tablesDiv, tables.pianoAzione, 'Piano d\'Azione Raccomandato');
-            TableComponent.render(tablesDiv, tables.dashboardKPI, 'KPI di Monitoraggio');
+            // Tables - ALL tables including missing ones
+            renderTable('indicatoriRischio', tables.indicatoriRischio);
+            renderTable('zScoreRating', tables.zScoreRating);
+            renderTable('redFlags', tables.redFlags);
+            renderTable('pianoAzione', tables.pianoAzione);
+            renderTable('dashboardKPI', tables.dashboardKPI);
+
+            // Action plan sections
+            document.getElementById('urgentActions').innerHTML = content.actionPlan.urgentActions + '<br><br>' + content.actionPlan.shortTerm;
+            document.getElementById('mediumTermActions').innerHTML = content.actionPlan.mediumTerm;
+
+            // Continuity note
+            document.getElementById('continuityNote').innerHTML = content.continuityNote;
+
+            lucide.createIcons();
         });
 
         function renderRiskCards(content) {
@@ -201,6 +303,79 @@
             });
 
             lucide.createIcons();
+        }
+
+        function renderTable(containerId, tableData) {
+            const container = document.getElementById(containerId);
+
+            const html = `
+                <div class="chart-card-modern">
+                    <div class="table-wrapper" style="border: none; box-shadow: none;">
+                        <table class="table-modern">
+                            <thead>
+                                <tr>
+                                    ${tableData.headers.map(h => `<th>${h}</th>`).join('')}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${tableData.rows.map(row => {
+                                    const isHighlight = row.highlight || false;
+                                    const rowClass = isHighlight ? 'style="background: var(--color-primary-light); font-weight: 600;"' : '';
+
+                                    const values = Object.keys(row).filter(k => k !== 'highlight').map(key => {
+                                        const value = row[key];
+
+                                        if (key.includes('pct') || key === 'var') {
+                                            if (value === null) return '<td style="text-align: right;">-</td>';
+                                            const formatted = Utils.formatPercent(value);
+                                            const colorClass = value < 0 ? 'text-danger' : value > 0 ? 'text-success' : '';
+                                            return `<td style="text-align: right;"><span class="${colorClass}">${formatted}</span></td>`;
+                                        }
+
+                                        if (key.includes('trend') || key.includes('valutazione') || key.includes('interpretazione') || key.includes('alert')) {
+                                            const colorMap = {
+                                                'Critico': 'text-danger',
+                                                'Peggioramento': 'text-danger',
+                                                'Miglioramento': 'text-success',
+                                                'Elevato': 'text-danger',
+                                                'Molto Alto': 'text-danger',
+                                                'Alto': 'text-warning',
+                                                'Medio': 'text-warning',
+                                                'Basso': 'text-success',
+                                                'Default': 'text-danger',
+                                                'Zona grigia': 'text-warning'
+                                            };
+                                            let colorClass = '';
+                                            for (const [keyword, cls] of Object.entries(colorMap)) {
+                                                if (value && value.includes(keyword)) {
+                                                    colorClass = cls;
+                                                    break;
+                                                }
+                                            }
+                                            return `<td><span class="${colorClass}">${value || '-'}</span></td>`;
+                                        }
+
+                                        if (key.includes('priorita')) {
+                                            const colorClass = value === 'Alta' ? 'text-danger' : value === 'Media' ? 'text-warning' : 'text-info';
+                                            return `<td><span class="${colorClass}"><strong>${value}</strong></span></td>`;
+                                        }
+
+                                        if (typeof value === 'number') {
+                                            return `<td style="text-align: right;">${Utils.formatNumber(value, 2)}</td>`;
+                                        }
+
+                                        return `<td>${value !== null && value !== undefined ? value : '-'}</td>`;
+                                    });
+
+                                    return `<tr ${rowClass}>${values.join('')}</tr>`;
+                                }).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = html;
         }
     </script>
 </body>
