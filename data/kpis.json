@@ -150,7 +150,7 @@
         },
         {
           "text": "TRADER",
-          "class": "bg-info"
+          "class": "bg-primary"
         }
       ]
     },

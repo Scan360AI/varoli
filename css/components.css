@@ -774,7 +774,12 @@ td.text-center {
 }
 
 .status-badge.bg-info {
-    background-color: var(--info);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.status-badge.bg-primary {
+    background-color: var(--primary-color);
     color: white;
 }
 
