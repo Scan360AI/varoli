@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/modern.css">
     <link rel="stylesheet" href="../css/responsive.css">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -15,7 +16,6 @@
 </head>
 <body>
     <div class="app-container">
-        <!-- Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-header">
                 <img src="../assets/img/logo_scan.png" alt="SCAN360" class="sidebar-logo">
@@ -46,6 +46,10 @@
                     <i data-lucide="alert-triangle"></i>
                     <span>Rischi & Piano d'Azione</span>
                 </a>
+                <a href="irp-dettaglio.html" class="nav-item">
+                    <i data-lucide="shield-alert"></i>
+                    <span>Dettaglio IRP</span>
+                </a>
             </nav>
 
             <div class="sidebar-footer">
@@ -59,7 +63,6 @@
             </div>
         </aside>
 
-        <!-- Main Content -->
         <main class="main-content">
             <header class="main-header">
                 <div class="header-title">
@@ -87,29 +90,131 @@
             <div class="content-wrapper">
                 <!-- Intro -->
                 <div class="content-section">
-                    <div class="card">
-                        <div class="card-body">
-                            <p id="sectionIntro"></p>
+                    <div class="alert-modern alert-info">
+                        <div class="alert-modern-title">
+                            <i data-lucide="info"></i>
+                            Panoramica Economica
                         </div>
+                        <div id="sectionIntro"></div>
                     </div>
+                </div>
+
+                <!-- Revenue Alert -->
+                <div class="content-section">
+                    <div id="revenueAlert"></div>
+                </div>
+
+                <!-- EBITDA Alert -->
+                <div class="content-section">
+                    <div id="ebitdaAlert"></div>
                 </div>
 
                 <!-- KPI Economici -->
                 <div class="content-section">
                     <div class="section-header">
-                        <h2 class="section-title">Indicatori Economici Principali</h2>
+                        <h2 class="section-title">
+                            <i data-lucide="bar-chart-3" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Indicatori Economici Principali
+                        </h2>
                     </div>
-                    <div id="kpiEconomici"></div>
+                    <div id="kpiEconomici" class="kpi-grid"></div>
                 </div>
 
-                <!-- Grafici -->
+                <!-- Charts -->
                 <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="line-chart" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Andamento Economico
+                        </h2>
+                    </div>
                     <div id="chartsContainer"></div>
                 </div>
 
-                <!-- Tabelle -->
+                <!-- Conto Economico -->
                 <div class="content-section">
-                    <div id="tablesContainer"></div>
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="file-text" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Conto Economico Riclassificato
+                        </h2>
+                    </div>
+                    <div id="contoEconomico"></div>
+                </div>
+
+                <!-- Composizione Costi -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="pie-chart" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Composizione dei Costi
+                        </h2>
+                    </div>
+                    <div id="composizioneCosti"></div>
+                </div>
+
+                <!-- Indici Marginalità -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="percent" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Indici di Marginalità
+                        </h2>
+                    </div>
+                    <div id="indiciMarginalita"></div>
+                </div>
+
+                <!-- Indici Redditività -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="trending-up" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Indici di Redditività
+                        </h2>
+                    </div>
+                    <div id="indiciRedditivita"></div>
+                </div>
+
+                <!-- Effetto Leva -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="git-branch" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Analisi dell'Effetto Leva Finanziaria
+                        </h2>
+                    </div>
+                    <div id="effettoLeva"></div>
+                </div>
+
+                <!-- Benchmark Settoriale -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i data-lucide="users" style="width: 24px; height: 24px; vertical-align: middle; margin-right: 8px;"></i>
+                            Confronto con il Settore
+                        </h2>
+                    </div>
+                    <div id="benchmarkSettoriale"></div>
+                </div>
+
+                <!-- Additional Notes -->
+                <div class="content-section">
+                    <div class="grid-2">
+                        <div class="info-box">
+                            <div class="info-box-title">
+                                <i data-lucide="info"></i>
+                                Marginalità Operativa
+                            </div>
+                            <div class="info-box-content" id="marginAnalysis"></div>
+                        </div>
+                        <div class="info-box">
+                            <div class="info-box-title">
+                                <i data-lucide="trending-down"></i>
+                                Redditività e Benchmark
+                            </div>
+                            <div class="info-box-content" id="profitabilityNote"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>
@@ -139,9 +244,36 @@
             // Intro
             document.getElementById('sectionIntro').innerHTML = content.sectionIntro;
 
+            // Revenue Alert
+            document.getElementById('revenueAlert').innerHTML = `
+                <div class="alert-modern alert-warning">
+                    <div class="alert-modern-title">
+                        <i data-lucide="alert-triangle"></i>
+                        Contrazione dei Ricavi
+                    </div>
+                    <div>${content.revenueAnalysis}</div>
+                </div>
+            `;
+
+            // EBITDA Alert
+            document.getElementById('ebitdaAlert').innerHTML = `
+                <div class="alert-modern alert-danger">
+                    <div class="alert-modern-title">
+                        <i data-lucide="alert-octagon"></i>
+                        ${content.ebitdaAlert.title}
+                    </div>
+                    <div>${content.ebitdaAlert.description}</div>
+                </div>
+            `;
+
             // KPI
             const kpiKeys = ['revenue', 'ebitda', 'ebitdaMargin', 'netIncome'];
-            KPICard.renderMultiple(document.getElementById('kpiEconomici'), kpiKeys, data.kpis);
+            const kpiContainer = document.getElementById('kpiEconomici');
+            kpiKeys.forEach(key => {
+                const kpiData = data.kpis[key];
+                const card = createModernKPICard(kpiData);
+                kpiContainer.appendChild(card);
+            });
 
             // Charts
             const chartsDiv = document.getElementById('chartsContainer');
@@ -149,6 +281,7 @@
                 { data: charts.economicTrendChart, title: charts.economicTrendChart.title },
                 { data: charts.marginalityChart, title: charts.marginalityChart.title },
                 { data: charts.profitabilityIndicesChart, title: charts.profitabilityIndicesChart.title },
+                { data: charts.leverageChart, title: charts.leverageChart.title },
                 { data: charts.benchmarkRadarChart, title: charts.benchmarkRadarChart.title }
             ];
 
@@ -157,11 +290,124 @@
             });
 
             // Tables
-            const tablesDiv = document.getElementById('tablesContainer');
-            TableComponent.render(tablesDiv, tables.contoEconomicoRiclassificato, 'Conto Economico Riclassificato');
-            TableComponent.render(tablesDiv, tables.indiciRedditività, 'Indici di Redditività');
-            TableComponent.render(tablesDiv, tables.benchmarkSettoriale, 'Confronto Settoriale');
+            renderTable('contoEconomico', tables.contoEconomicoRiclassificato);
+            renderTable('composizioneCosti', tables.composizioneCosti);
+            renderTable('indiciMarginalita', tables.indiciMarginalita);
+            renderTable('indiciRedditivita', tables.indiciRedditività);
+            renderTable('effettoLeva', tables.effettoLeva);
+            renderTable('benchmarkSettoriale', tables.benchmarkSettoriale);
+
+            // Additional notes
+            document.getElementById('marginAnalysis').innerHTML = content.marginAnalysis;
+            document.getElementById('profitabilityNote').innerHTML = content.profitabilityNote;
+
+            lucide.createIcons();
         });
+
+        function createModernKPICard(kpiData) {
+            const card = document.createElement('div');
+            card.className = 'kpi-card-modern';
+
+            const colorMap = {
+                'success': '#4CAF50',
+                'warning': '#FFC107',
+                'danger': '#F44336',
+                'info': '#4a69bd'
+            };
+            const accentColor = colorMap[kpiData.status] || '#667eea';
+            card.style.setProperty('--accent-color', accentColor);
+            card.style.setProperty('--accent-color-light', accentColor + '20');
+
+            let trendHTML = '';
+            if (kpiData.trend && kpiData.trend.displayValue) {
+                const trendClass = kpiData.trend.direction === 'up' ? 'trend-up' :
+                                 kpiData.trend.direction === 'down' ? 'trend-down' : 'trend-neutral';
+                trendHTML = `
+                    <div class="kpi-trend-modern ${trendClass}">
+                        <i data-lucide="${Utils.getTrendIcon(kpiData.trend.direction)}" style="width: 14px; height: 14px;"></i>
+                        <span>${kpiData.trend.displayValue} ${kpiData.trend.label || ''}</span>
+                    </div>
+                `;
+            }
+
+            card.innerHTML = `
+                <div class="kpi-icon-modern">
+                    <i data-lucide="${kpiData.icon}"></i>
+                </div>
+                <div class="kpi-label">${kpiData.title}</div>
+                <div class="kpi-value-modern">${kpiData.displayValue}</div>
+                ${kpiData.description ? `<div style="font-size: 13px; color: var(--color-gray-600); margin-bottom: 12px;">${kpiData.description}</div>` : ''}
+                ${trendHTML}
+            `;
+
+            return card;
+        }
+
+        function renderTable(containerId, tableData) {
+            const container = document.getElementById(containerId);
+
+            const html = `
+                <div class="chart-card-modern">
+                    <div class="table-wrapper" style="border: none; box-shadow: none;">
+                        <table class="table-modern">
+                            <thead>
+                                <tr>
+                                    ${tableData.headers.map(h => `<th>${h}</th>`).join('')}
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${tableData.rows.map(row => {
+                                    const isHighlight = row.highlight || false;
+                                    const rowClass = isHighlight ? 'style="background: var(--color-primary-light); font-weight: 600;"' : '';
+
+                                    // Get all row values dynamically
+                                    const values = Object.keys(row).filter(k => k !== 'highlight').map(key => {
+                                        const value = row[key];
+
+                                        // Format based on key type
+                                        if (key.includes('pct') || key === 'var') {
+                                            if (value === null) return '<td style="text-align: right;">-</td>';
+                                            const formatted = Utils.formatPercent(value);
+                                            const colorClass = value < 0 ? 'text-danger' : value > 0 ? 'text-success' : '';
+                                            return `<td style="text-align: right;"><span class="${colorClass}">${formatted}</span></td>`;
+                                        }
+
+                                        if (typeof value === 'number' && !key.includes('voce') && !key.includes('categoria') && !key.includes('indicatore') && !key.includes('parametro') && !key.includes('indice')) {
+                                            return `<td style="text-align: right;">${Utils.formatNumber(value, 0)}</td>`;
+                                        }
+
+                                        if (key.includes('trend') || key.includes('valutazione')) {
+                                            const colorMap = {
+                                                'Critico': 'text-danger',
+                                                'Elevato': 'text-warning',
+                                                'Ottimo': 'text-success',
+                                                'In linea': 'text-success',
+                                                'Peggioramento': 'text-danger',
+                                                'Miglioramento': 'text-success'
+                                            };
+                                            let colorClass = '';
+                                            for (const [keyword, cls] of Object.entries(colorMap)) {
+                                                if (value && value.includes(keyword)) {
+                                                    colorClass = cls;
+                                                    break;
+                                                }
+                                            }
+                                            return `<td><span class="${colorClass}">${value || '-'}</span></td>`;
+                                        }
+
+                                        return `<td>${value !== null && value !== undefined ? value : '-'}</td>`;
+                                    });
+
+                                    return `<tr ${rowClass}>${values.join('')}</tr>`;
+                                }).join('')}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
     </script>
 </body>
 </html>
