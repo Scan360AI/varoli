@@ -12,6 +12,8 @@ const Parte1Sintesi = {
             this.renderCCIIAlert();
             this.renderNormativeContext();
             this.renderProfileCards();
+            this.renderKPIOverviewTable();
+            this.renderSupportIndicatorsTable();
             this.renderSWOTCards();
             this.renderPriorityActionsTable();
         } catch (error) {
@@ -195,6 +197,28 @@ const Parte1Sintesi = {
             { type: 'threats', title: 'Minacce', icon: 'fa-exclamation-triangle', items: swotData.threats || ['Dati non disponibili'] }
         ];
         container.innerHTML = swotCards.map(card => `<div class="swot-card-restored"><div class="swot-card-header ${card.type}"><i class="fas ${card.icon}"></i><span>${card.title}</span></div><div class="swot-card-body"><ul>${card.items.map(item => '<li>' + item + '</li>').join('')}</ul></div></div>`).join('');
+    },
+    renderKPIOverviewTable() {
+        const container = document.getElementById('kpiOverviewTable');
+        if (!container) return;
+        const data = this.data.tables?.parte1_sintesi?.kpiOverview;
+        if (!data) return;
+        const thead = '<thead><tr>' + data.headers.map(h => '<th>' + h + '</th>').join('') + '</tr></thead>';
+        const tbody = '<tbody>' + data.rows.map(row =>
+            '<tr><td class="fw-semibold">' + row.kpi + '</td><td class="text-right">' + row.value + '</td><td class="text-right ' + (row.change.includes('-') ? 'text-danger' : 'text-success') + '">' + row.change + '</td></tr>'
+        ).join('') + '</tbody>';
+        container.innerHTML = thead + tbody;
+    },
+    renderSupportIndicatorsTable() {
+        const container = document.getElementById('supportIndicatorsTable');
+        if (!container) return;
+        const data = this.data.tables?.parte1_sintesi?.supportIndicators;
+        if (!data) return;
+        const thead = '<thead><tr>' + data.headers.map(h => '<th>' + h + '</th>').join('') + '</tr></thead>';
+        const tbody = '<tbody>' + data.rows.map(row =>
+            '<tr><td><i class="fas ' + row.icon + ' text-' + row.iconColor + ' me-2"></i>' + row.indicator + '</td><td class="text-center"><span class="badge bg-' + row.badgeColor + '">' + row.value + '</span></td><td>' + row.assessment + '</td></tr>'
+        ).join('') + '</tbody>';
+        container.innerHTML = thead + tbody;
     },
     renderPriorityActionsTable() {
         const container = document.getElementById('priorityActionsTable');

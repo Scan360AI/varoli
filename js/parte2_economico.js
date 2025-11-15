@@ -10,9 +10,14 @@ const Parte2Economico = {
             this.renderContoEconomico();
             this.renderCostAnalysis();
             this.renderMarginalita();
+            this.renderMarginalitaTable();
             this.renderRedditabilita();
+            this.renderRedditabilitaTable();
+            this.renderComposizioneCostiTable();
+            this.renderEffettoLevaTable();
             this.renderLeverageAnalysis();
             this.renderBenchmark();
+            this.renderBenchmarkTable();
         } catch (error) {
             console.error('Error initializing Parte 2:', error);
         }
@@ -164,6 +169,54 @@ const Parte2Economico = {
                 <div class="alert alert-danger">${text}</div>
             </div>`;
     },
+    renderMarginalitaTable() {
+        const container = document.getElementById('marginalitaTable');
+        if (!container) return;
+        const data = this.data.tables?.parte2_economico?.indiciMarginalita;
+        if (!data) return;
+        const thead = '<thead><tr>' + data.headers.map(h => '<th>' + h + '</th>').join('') + '</tr></thead>';
+        const tbody = '<tbody>' + data.rows.map(row => {
+            const cls = row.highlight ? 'table-primary fw-bold' : '';
+            return '<tr class="' + cls + '"><td>' + row.indicatore + '</td><td class="text-right">' + (row['2022'] !== undefined ? row['2022'].toFixed(1) + '%' : '-') + '</td><td class="text-right">' + (row['2023'] !== undefined ? row['2023'].toFixed(1) + '%' : '-') + '</td><td class="text-right">' + (row['2024'] !== undefined ? row['2024'].toFixed(1) + '%' : '-') + '</td><td class="text-right">' + (row.benchmark !== undefined ? row.benchmark.toFixed(1) + '%' : '-') + '</td><td class="text-right ' + (row.gap < 0 ? 'text-danger' : 'text-success') + '">' + (row.gap !== undefined ? (row.gap > 0 ? '+' : '') + row.gap.toFixed(1) + ' p.p.' : '-') + '</td></tr>';
+        }).join('') + '</tbody>';
+        container.innerHTML = thead + tbody;
+    },
+    renderRedditabilitaTable() {
+        const container = document.getElementById('redditabilitaTable');
+        if (!container) return;
+        const data = this.data.tables?.parte2_economico?.indiciRedditività;
+        if (!data) return;
+        const thead = '<thead><tr>' + data.headers.map(h => '<th>' + h + '</th>').join('') + '</tr></thead>';
+        const tbody = '<tbody>' + data.rows.map(row => {
+            const valutazioneClass = row.valutazione === 'Critico' ? 'text-danger' : row.valutazione === 'Ottimo' ? 'text-success' : 'text-warning';
+            return '<tr><td>' + row.indice + '</td><td class="text-right">' + (row['2022'] !== undefined ? row['2022'].toFixed(1) + '%' : '-') + '</td><td class="text-right">' + (row['2023'] !== undefined ? row['2023'].toFixed(1) + '%' : '-') + '</td><td class="text-right">' + (row['2024'] !== undefined ? row['2024'].toFixed(1) + '%' : '-') + '</td><td class="text-right">' + (row.benchmark !== undefined ? row.benchmark.toFixed(1) + '%' : '-') + '</td><td class="text-right ' + (row.gap < 0 ? 'text-danger' : 'text-success') + '">' + (row.gap !== undefined ? (row.gap > 0 ? '+' : '') + row.gap.toFixed(1) + ' p.p.' : '-') + '</td><td class="text-center"><span class="badge bg-' + (row.valutazione === 'Critico' ? 'danger' : row.valutazione === 'Ottimo' ? 'success' : 'warning') + '">' + row.valutazione + '</span></td></tr>';
+        }).join('') + '</tbody>';
+        container.innerHTML = thead + tbody;
+    },
+    renderComposizioneCostiTable() {
+        const container = document.getElementById('composizioneCostiTable');
+        if (!container) return;
+        const data = this.data.tables?.parte2_economico?.composizioneCosti;
+        if (!data) return;
+        const thead = '<thead><tr>' + data.headers.map(h => '<th>' + h + '</th>').join('') + '</tr></thead>';
+        const tbody = '<tbody>' + data.rows.map(row => {
+            const cls = row.highlight ? 'table-primary fw-bold' : '';
+            return '<tr class="' + cls + '"><td>' + row.voce + '</td><td class="text-right">' + Utils.formatCurrency(row['2024']) + '</td><td class="text-right">' + row.pctRicavi.toFixed(1) + '%</td><td class="text-right">' + row.pctCostiTotali.toFixed(1) + '%</td><td class="text-right ' + (row.varPct < 0 ? 'text-success' : 'text-danger') + '">' + (row.varPct > 0 ? '+' : '') + row.varPct.toFixed(1) + '%</td></tr>';
+        }).join('') + '</tbody>';
+        container.innerHTML = thead + tbody;
+    },
+    renderEffettoLevaTable() {
+        const container = document.getElementById('effettoLevaTable');
+        if (!container) return;
+        const data = this.data.tables?.parte2_economico?.effettoLeva;
+        if (!data) return;
+        const thead = '<thead><tr>' + data.headers.map(h => '<th>' + h + '</th>').join('') + '</tr></thead>';
+        const tbody = '<tbody>' + data.rows.map(row => {
+            const cls = row.highlight ? 'table-primary fw-bold' : '';
+            return '<tr class="' + cls + '"><td>' + row.componente + '</td><td class="text-right">' + (row['2024'] !== undefined ? row['2024'].toFixed(2) + '%' : '-') + '</td><td>' + row.descrizione + '</td></tr>';
+        }).join('') + '</tbody>';
+        container.innerHTML = thead + tbody;
+    },
     renderBenchmark() {
         const container = document.getElementById('benchmarkIntro');
         if (!container) return;
@@ -171,6 +224,17 @@ const Parte2Economico = {
         const intro = this.data.content?.parte2_economico?.benchmarkIntro || '';
         const note = this.data.content?.parte2_economico?.benchmarkNote || '';
         container.innerHTML = `<h3>${title}</h3><p>${intro}</p><div class="alert alert-warning mt-2">${note}</div>`;
+    },
+    renderBenchmarkTable() {
+        const container = document.getElementById('benchmarkTable');
+        if (!container) return;
+        const data = this.data.tables?.parte2_economico?.benchmarkSettoriale;
+        if (!data) return;
+        const thead = '<thead><tr>' + data.headers.map(h => '<th>' + h + '</th>').join('') + '</tr></thead>';
+        const tbody = '<tbody>' + data.rows.map(row => {
+            return '<tr><td>' + row.indicatore + '</td><td class="text-right">' + (row.azienda !== undefined ? row.azienda.toFixed(1) + (row.unit || '%') : '-') + '</td><td class="text-right">' + (row.settore !== undefined ? row.settore.toFixed(1) + (row.unit || '%') : '-') + '</td><td class="text-right ' + (row.gap < 0 ? 'text-danger' : 'text-success') + '"><strong>' + (row.gap !== undefined ? (row.gap > 0 ? '+' : '') + row.gap.toFixed(1) + (row.unit || '%') : '-') + '</strong></td><td class="text-center"><span class="badge bg-' + (row.performance === 'Sotto media' ? 'danger' : row.performance === 'Sopra media' ? 'success' : 'warning') + '">' + row.performance + '</span></td></tr>';
+        }).join('') + '</tbody>';
+        container.innerHTML = thead + tbody;
     }
 };
 document.addEventListener('DOMContentLoaded', () => { Parte2Economico.init(); });

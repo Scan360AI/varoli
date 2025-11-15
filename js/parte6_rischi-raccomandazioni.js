@@ -6,8 +6,13 @@ const Parte6Rischi = {
             this.data = App.getData();
             this.renderSectionIntro();
             this.renderRiskMatrix();
+            this.renderDashboardKPITable();
+            this.renderIndicatoriRischioTable();
             this.renderRedFlags();
+            this.renderRedFlagsTable();
             this.renderActionPlan();
+            this.renderPianoAzioneTable();
+            this.renderZScoreRatingTable();
             this.renderGovernanceNote();
             this.renderScenarioAnalysis();
         } catch (error) {
@@ -60,6 +65,65 @@ const Parte6Rischi = {
         const continuityNote = this.data.content?.parte6_rischi_raccomandazioni?.continuityNote || '';
         const contContainer = document.getElementById('continuityNote');
         if (contContainer) contContainer.innerHTML = `<div class="alert alert-danger mt-3">${continuityNote}</div>`;
+    },
+    renderDashboardKPITable() {
+        const container = document.getElementById('dashboardKPITable');
+        if (!container) return;
+        const data = this.data.tables?.parte6_rischi?.dashboardKPI;
+        if (!data) return;
+        const thead = '<thead><tr>' + data.headers.map(h => '<th>' + h + '</th>').join('') + '</tr></thead>';
+        const tbody = '<tbody>' + data.rows.map(row => {
+            const badgeColor = row.status === 'Critico' ? 'danger' : row.status === 'Allerta' ? 'warning' : 'success';
+            return '<tr><td><i class="fas ' + row.icon + ' text-' + row.iconColor + ' me-2"></i>' + row.indicatore + '</td><td class="text-center">' + row.valore + '</td><td class="text-center"><span class="badge bg-' + badgeColor + '">' + row.status + '</span></td><td>' + row.impatto + '</td></tr>';
+        }).join('') + '</tbody>';
+        container.innerHTML = thead + tbody;
+    },
+    renderIndicatoriRischioTable() {
+        const container = document.getElementById('indicatoriRischioTable');
+        if (!container) return;
+        const data = this.data.tables?.parte6_rischi?.indicatoriRischio;
+        if (!data) return;
+        const thead = '<thead><tr>' + data.headers.map(h => '<th>' + h + '</th>').join('') + '</tr></thead>';
+        const tbody = '<tbody>' + data.rows.map(row => {
+            const riskClass = row.livelloRischio === 'Alto' ? 'danger' : row.livelloRischio === 'Medio' ? 'warning' : 'success';
+            return '<tr><td>' + row.area + '</td><td>' + row.descrizione + '</td><td class="text-center">' + row.probabilita + '</td><td class="text-center">' + row.impatto + '</td><td class="text-center"><span class="badge bg-' + riskClass + '">' + row.livelloRischio + '</span></td><td>' + row.mitigazione + '</td></tr>';
+        }).join('') + '</tbody>';
+        container.innerHTML = thead + tbody;
+    },
+    renderRedFlagsTable() {
+        const container = document.getElementById('redFlagsTable');
+        if (!container) return;
+        const data = this.data.tables?.parte6_rischi?.redFlags;
+        if (!data) return;
+        const thead = '<thead><tr>' + data.headers.map(h => '<th>' + h + '</th>').join('') + '</tr></thead>';
+        const tbody = '<tbody>' + data.rows.map(row => {
+            return '<tr><td><span class="badge bg-danger">' + row.area + '</span></td><td>' + row.segnale + '</td><td class="text-right">' + row.valore + '</td><td>' + row.rischio + '</td></tr>';
+        }).join('') + '</tbody>';
+        container.innerHTML = thead + tbody;
+    },
+    renderPianoAzioneTable() {
+        const container = document.getElementById('pianoAzioneTable');
+        if (!container) return;
+        const data = this.data.tables?.parte6_rischi?.pianoAzione;
+        if (!data) return;
+        const thead = '<thead><tr>' + data.headers.map(h => '<th>' + h + '</th>').join('') + '</tr></thead>';
+        const tbody = '<tbody>' + data.rows.map(row => {
+            const priorityBadge = row.priorita === 'Urgente' ? 'danger' : row.priorita === 'Alta' ? 'warning' : 'info';
+            return '<tr><td><span class="badge bg-' + priorityBadge + '">' + row.priorita + '</span></td><td>' + row.azione + '</td><td>' + row.responsabile + '</td><td class="text-center">' + row.scadenza + '</td><td class="text-center">' + row.stato + '</td><td>' + row.note + '</td></tr>';
+        }).join('') + '</tbody>';
+        container.innerHTML = thead + tbody;
+    },
+    renderZScoreRatingTable() {
+        const container = document.getElementById('zScoreRatingTable');
+        if (!container) return;
+        const data = this.data.tables?.parte6_rischi?.zScoreRating;
+        if (!data) return;
+        const thead = '<thead><tr>' + data.headers.map(h => '<th>' + h + '</th>').join('') + '</tr></thead>';
+        const tbody = '<tbody>' + data.rows.map(row => {
+            const ratingClass = row.rating === 'D' || row.rating === 'D+' ? 'danger' : row.rating === 'C' || row.rating === 'C+' ? 'warning' : 'info';
+            return '<tr><td>' + row.indicatore + '</td><td class="text-center">' + row['2022'] + '</td><td class="text-center">' + row['2023'] + '</td><td class="text-center">' + row['2024'] + '</td><td class="text-center"><span class="badge bg-' + ratingClass + '">' + row.rating + '</span></td><td>' + row.interpretazione + '</td></tr>';
+        }).join('') + '</tbody>';
+        container.innerHTML = thead + tbody;
     },
     renderGovernanceNote() {
         const container = document.getElementById('governanceNote');

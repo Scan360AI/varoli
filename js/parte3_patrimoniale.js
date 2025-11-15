@@ -11,6 +11,8 @@ const Parte3Patrimoniale = {
             this.renderDebtAnalysis();
             this.renderBalanceSheetIntro();
             this.renderStatoPatrimoniale();
+            this.renderPFNTable();
+            this.renderIndiciSoliditaTable();
             this.renderSolidityAnalysis();
             this.renderLiquidityNote();
         } catch (error) {
@@ -72,6 +74,31 @@ const Parte3Patrimoniale = {
             }).join('') + '</tbody>';
             fontiTable.innerHTML = thead + tbody;
         }
+    },
+    renderPFNTable() {
+        const container = document.getElementById('pfnTable');
+        if (!container) return;
+        const data = this.data.tables?.parte3_patrimoniale?.pfn;
+        if (!data) return;
+        const thead = '<thead><tr>' + data.headers.map(h => '<th>' + h + '</th>').join('') + '</tr></thead>';
+        const tbody = '<tbody>' + data.rows.map(row => {
+            const cls = row.highlight ? 'fw-bold table-primary' : '';
+            const valueClass = row.voce.includes('Totale') ? 'fw-bold' : '';
+            return '<tr class="' + cls + '"><td class="' + valueClass + '">' + row.voce + '</td><td class="text-right ' + valueClass + '">' + Utils.formatCurrency(row['2022']) + '</td><td class="text-right ' + valueClass + '">' + Utils.formatCurrency(row['2023']) + '</td><td class="text-right ' + valueClass + '">' + Utils.formatCurrency(row['2024']) + '</td><td class="text-right ' + (row.var > 0 ? 'text-danger' : 'text-success') + '">' + row.var.toFixed(1) + '%</td></tr>';
+        }).join('') + '</tbody>';
+        container.innerHTML = thead + tbody;
+    },
+    renderIndiciSoliditaTable() {
+        const container = document.getElementById('indiciSoliditaTable');
+        if (!container) return;
+        const data = this.data.tables?.parte3_patrimoniale?.indiciSolidita;
+        if (!data) return;
+        const thead = '<thead><tr>' + data.headers.map(h => '<th>' + h + '</th>').join('') + '</tr></thead>';
+        const tbody = '<tbody>' + data.rows.map(row => {
+            const badgeColor = row.valutazione === 'Critico' ? 'danger' : row.valutazione === 'Allerta' ? 'warning' : row.valutazione === 'Ottimo' ? 'success' : 'info';
+            return '<tr><td><i class="fas ' + row.icon + ' text-' + row.iconColor + ' me-2"></i>' + row.indicatore + '</td><td class="text-center">' + row['2022'] + '</td><td class="text-center">' + row['2023'] + '</td><td class="text-center">' + row['2024'] + '</td><td class="text-center"><span class="badge bg-' + badgeColor + '">' + row.valutazione + '</span></td><td>' + row.note + '</td></tr>';
+        }).join('') + '</tbody>';
+        container.innerHTML = thead + tbody;
     },
     renderSolidityAnalysis() {
         const container = document.getElementById('solidityAnalysis');

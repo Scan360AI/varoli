@@ -7,8 +7,11 @@ const Parte4Bancabilita = {
             this.renderSectionIntro();
             this.renderDSCRAlert();
             this.renderSustainabilityAnalysis();
+            this.renderSostenibilitaDebitoTable();
             this.renderCCIIAnalysis();
+            this.renderCCIIIndicatorsTable();
             this.renderBankabilityRecommendation();
+            this.renderValutazioneBancabilitaTable();
             this.renderRatingCards();
         } catch (error) {
             console.error('Error initializing Parte 4:', error);
@@ -50,6 +53,42 @@ const Parte4Bancabilita = {
         const ratingNote = this.data.content?.parte4_bancabilita?.creditRatingNote || '';
         const actionPlan = this.data.content?.parte4_bancabilita?.actionPlanBankability || '';
         container.innerHTML = `<div class="content-section"><h3>${title}</h3><p>${intro}</p><div class="alert alert-danger mt-2">${ratingNote}</div><div class="alert alert-info mt-3"><strong>Raccomandazioni:</strong> ${actionPlan}</div></div>`;
+    },
+    renderSostenibilitaDebitoTable() {
+        const container = document.getElementById('sostenibilitaDebitoTable');
+        if (!container) return;
+        const data = this.data.tables?.parte4_bancabilita?.sostenibilitaDebito;
+        if (!data) return;
+        const thead = '<thead><tr>' + data.headers.map(h => '<th>' + h + '</th>').join('') + '</tr></thead>';
+        const tbody = '<tbody>' + data.rows.map(row => {
+            const badgeColor = row.valutazione === 'Critico' ? 'danger' : row.valutazione === 'Allerta' ? 'warning' : row.valutazione === 'Buono' ? 'success' : 'info';
+            return '<tr><td>' + row.indicatore + '</td><td class="text-center">' + row['2022'] + '</td><td class="text-center">' + row['2023'] + '</td><td class="text-center">' + row['2024'] + '</td><td class="text-center">' + row.benchmark + '</td><td class="text-center"><span class="badge bg-' + badgeColor + '">' + row.valutazione + '</span></td><td>' + row.note + '</td></tr>';
+        }).join('') + '</tbody>';
+        container.innerHTML = thead + tbody;
+    },
+    renderCCIIIndicatorsTable() {
+        const container = document.getElementById('cciiIndicatorsTable');
+        if (!container) return;
+        const data = this.data.tables?.parte4_bancabilita?.cciiIndicators;
+        if (!data) return;
+        const thead = '<thead><tr>' + data.headers.map(h => '<th>' + h + '</th>').join('') + '</tr></thead>';
+        const tbody = '<tbody>' + data.rows.map(row => {
+            const badgeColor = row.status === 'Critico' ? 'danger' : row.status === 'Allerta' ? 'warning' : 'success';
+            return '<tr><td><i class="fas ' + row.icon + ' text-' + row.iconColor + ' me-2"></i>' + row.indicatore + '</td><td class="text-center">' + row.valore + '</td><td class="text-center">' + row.soglia + '</td><td class="text-center"><span class="badge bg-' + badgeColor + '">' + row.status + '</span></td><td>' + row.note + '</td></tr>';
+        }).join('') + '</tbody>';
+        container.innerHTML = thead + tbody;
+    },
+    renderValutazioneBancabilitaTable() {
+        const container = document.getElementById('valutazioneBancabilitaTable');
+        if (!container) return;
+        const data = this.data.tables?.parte4_bancabilita?.valutazioneBancabilita;
+        if (!data) return;
+        const thead = '<thead><tr>' + data.headers.map(h => '<th>' + h + '</th>').join('') + '</tr></thead>';
+        const tbody = '<tbody>' + data.rows.map(row => {
+            const scoreClass = row.score < 50 ? 'text-danger' : row.score < 70 ? 'text-warning' : 'text-success';
+            return '<tr><td>' + row.criterio + '</td><td class="text-center">' + row.peso + '%</td><td class="text-center ' + scoreClass + '">' + row.score + '</td><td class="text-center">' + (row.peso * row.score / 100).toFixed(1) + '</td><td>' + row.note + '</td></tr>';
+        }).join('') + '</tbody>';
+        container.innerHTML = thead + tbody;
     },
     renderRatingCards() {
         const container = document.getElementById('ratingCardsGrid');
