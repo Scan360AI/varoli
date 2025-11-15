@@ -1,8 +1,10 @@
 {
   "parte1_sintesi": {
+    "pageIntro": "Questa sezione fornisce una <strong>panoramica completa</strong> della situazione finanziaria dell'azienda, integrando i principali indicatori di performance (KPI), l'analisi del rischio attraverso l'Indice di Rischio Ponderato (IRP), il profilo aziendale dettagliato e l'analisi SWOT con il piano d'azione prioritario.",
     "irpDescription": "Profilo di rischio <strong>elevato con criticità significative</strong>. L'azienda presenta una redditività operativa negativa e una posizione finanziaria deteriorata, con criticità nella generazione di cassa operativa e nello squilibrio del ciclo del circolante.",
     "crisisButton": "Verifica Crisi d'Impresa (2 su 6)",
     "businessModel": "VAROLI GUIDO E FIGLIO S.R.L. opera dal 1985 nel settore del commercio all'ingrosso di legname, con un modello di business focalizzato sulla commercializzazione B2B. L'azienda presenta una struttura patrimoniale compromessa, caratterizzata da un elevato indebitamento finanziario (€1.275.053, pari al 44,74% dei ricavi) e un rapporto PFN/Patrimonio Netto di 1,92x. L'esercizio 2024 ha evidenziato un significativo calo dei ricavi (-14,27%) e un deterioramento dell'EBITDA (passato da positivo a negativo), segnalando criticità nel modello di business. L'indicatore di resilienza, che misura la capacità dell'impresa di reagire a condizioni di mercato avverse, è classificato come \"Basso\", a causa della fragile posizione finanziaria e della redditività operativa negativa.",
+    "businessModelTitle": "Modello di Business e Contesto Operativo",
     "cciiAlert": {
       "title": "Indicatori CCII: <strong>In linea con 2 su 6 indicatori</strong>",
       "description": "L'analisi degli indicatori della crisi calcolati sullo schema civilistico mostra che l'impresa non è conforme a 4 dei 6 indicatori previsti dal CCII. Diversi parametri risultano al di sotto delle soglie minime, segnalando la presenza di segnali di allerta secondo il framework normativo."
@@ -14,18 +16,33 @@
       "<strong>Principi OIC</strong> per la predisposizione del bilancio",
       "<strong>Normativa fiscale</strong> applicabile alle società commerciali"
     ],
-    "dscrNote": "L'azienda presenta un DSCR teorico insufficiente (0,67) a causa dell'elevato indebitamento finanziario, che conferma la difficoltà nel far fronte agli impegni finanziari. Questo valore, significativamente inferiore alla soglia minima (1,0), rappresenta un punto di debolezza che limita la flessibilità finanziaria e aumenta la vulnerabilità a potenziali shock esterni."
+    "normativeTitle": "Quadro Normativo di Riferimento",
+    "dscrNote": "L'azienda presenta un DSCR teorico insufficiente (0,67) a causa dell'elevato indebitamento finanziario, che conferma la difficoltà nel far fronte agli impegni finanziari. Questo valore, significativamente inferiore alla soglia minima (1,0), rappresenta un punto di debolezza che limita la flessibilità finanziaria e aumenta la vulnerabilità a potenziali shock esterni.",
+    "kpiCommentary": "I principali KPI evidenziano una situazione di <strong>criticità operativa significativa</strong>. Il fatturato ha subito una contrazione del 14,27%, passando da €3,72M a €2,85M, mentre l'EBITDA è diventato negativo (-€43.535), segnando un peggioramento del 120,43%. L'utile netto è fortemente negativo (-€149.177), con una perdita che erode il 26% del patrimonio netto. L'unico segnale positivo proviene dalla liquidità, aumentata del 107% grazie all'incremento dei debiti finanziari.",
+    "swotIntro": "L'analisi SWOT identifica i fattori interni ed esterni che influenzano la performance aziendale, fornendo una base strategica per il piano di azione.",
+    "priorityActionsIntro": "Il piano d'azione prioritario identifica le 5 aree critiche di intervento con impatto immediato sulla sostenibilità aziendale. Le azioni sono classificate per priorità (Alta/Media) in base all'urgenza e all'impatto atteso sulla situazione finanziaria."
   },
   "parte2_economico": {
     "sectionIntro": "L'analisi economica di VAROLI GUIDO E FIGLIO S.R.L. evidenzia un deterioramento significativo della performance operativa nel 2024, con particolare criticità nella generazione di margini e nella redditività.",
     "revenueAnalysis": "I ricavi hanno subito una <strong>contrazione del 14,27%</strong>, passando da €3.722.214 nel 2023 a €2.850.000 nel 2024. Questa riduzione significativa riflette difficoltà nel mantenere i volumi di vendita in un contesto di mercato sfavorevole.",
+    "revenueTitle": "Analisi Ricavi e Dinamica Commerciale",
     "ebitdaAlert": {
       "title": "EBITDA Negativo: <strong>Criticità Operativa</strong>",
       "description": "L'EBITDA è passato da €213.175 (5,73% dei ricavi) nel 2023 a <strong>-€43.535</strong> (-1,53% dei ricavi) nel 2024, segnando un peggioramento del 120,43%. Questo rappresenta una criticità grave nella capacità dell'azienda di generare cassa dalle operazioni ordinarie."
     },
     "marginAnalysis": "La <strong>marginalità operativa</strong> mostra un deterioramento progressivo: il Margine Operativo Lordo (MOL) è diventato negativo a -1,53%, mentre il Margine Operativo Netto (MON) si attesta a -4,66%. Questi valori indicano che l'azienda sta operando in perdita a livello operativo.",
+    "marginTitle": "Analisi della Marginalità",
     "profitabilityNote": "Il ROE (Return on Equity) è sceso a <strong>-31,09%</strong>, mentre il ROI (Return on Investment) è a -7,88%. L'effetto leva finanziaria risulta negativo a causa dei costi finanziari elevati rispetto alla redditività operativa insufficiente.",
-    "benchmarkNote": "Nel confronto con il settore, VAROLI evidenzia un gap negativo su tutti gli indicatori chiave: EBITDA margin inferiore di -6,53 p.p. rispetto alla media settoriale, ROE inferiore di -36,09 p.p., e giorni di magazzino superiori di +144 giorni."
+    "profitabilityTitle": "Indicatori di Redditività",
+    "profitabilityIntro": "Gli indicatori di redditività mostrano un quadro critico su tutti i fronti. Il ROE negativo indica che l'azienda sta erodendo il capitale proprio, mentre il ROI negativo segnala l'incapacità di generare rendimenti adeguati dagli investimenti operativi.",
+    "benchmarkNote": "Nel confronto con il settore, VAROLI evidenzia un gap negativo su tutti gli indicatori chiave: EBITDA margin inferiore di -6,53 p.p. rispetto alla media settoriale, ROE inferiore di -36,09 p.p., e giorni di magazzino superiori di +144 giorni.",
+    "benchmarkTitle": "Benchmark Settoriale",
+    "benchmarkIntro": "Il confronto con il settore evidenzia gap critici su tutti gli indicatori principali. L'azienda sottoperforma significativamente rispetto ai competitor in termini di marginalità, redditività ed efficienza operativa.",
+    "costAnalysis": "La composizione dei costi evidenzia un peso eccessivo degli acquisti (77% dei ricavi) e dei costi variabili di produzione (14,4%), che comprimono il margine di contribuzione all'8,6%. Gli oneri finanziari sono aumentati del 66%, passando da €39.393 a €65.503, a causa dell'incremento dell'indebitamento.",
+    "costTitle": "Analisi della Struttura dei Costi",
+    "valueAddedNote": "Il valore aggiunto sui consumi è sceso da 27,1% nel 2023 a 23% nel 2024 (-27,35%), segnalando una compressione delle margini lordi dovuta all'aumento del costo delle merci e alla difficoltà di trasferire gli aumenti sui prezzi di vendita.",
+    "leverageNote": "L'effetto leva finanziaria è fortemente negativo (-31,36 punti percentuali) a causa dello spread negativo tra ROI (-6,65%) e costo del debito (5,14%). Questo amplifica le perdite operative, portando il ROE effettivo a -31,10%.",
+    "leverageTitle": "Analisi Effetto Leva Finanziaria"
   },
   "parte3_patrimoniale": {
     "sectionIntro": "L'analisi patrimoniale evidenzia una <strong>struttura finanziaria squilibrata</strong> con significativi segnali di deterioramento, caratterizzata da un elevato indebitamento e da una progressiva erosione del patrimonio netto.",
@@ -34,9 +51,19 @@
       "description": "Il patrimonio netto è sceso da €649.083 nel 2023 a €479.666 nel 2024, con una riduzione del 26,08%. Questa erosione è dovuta alle perdite operative accumulate e compromette la solidità patrimoniale dell'azienda."
     },
     "pfnAnalysis": "La Posizione Finanziaria Netta (PFN) è <strong>negativa per €919.610</strong>, con un peggioramento del 173,03% rispetto al 2023 (€336.722). Il rapporto PFN/Patrimonio Netto è salito a 1,92x, segnalando un elevato livello di indebitamento rispetto alla base patrimoniale.",
+    "pfnTitle": "Posizione Finanziaria Netta (PFN)",
     "debtAnalysis": "I debiti finanziari totali ammontano a €1.275.053 (44,74% dei ricavi), in aumento del 150,77% rispetto all'anno precedente. Questo incremento evidenzia una crescente dipendenza dal credito bancario per finanziare il circolante.",
+    "debtTitle": "Analisi dell'Indebitamento",
     "solidityNote": "Il rapporto di indebitamento (D/E) è salito a <strong>2,66</strong>, significativamente superiore alla soglia ottimale di 1,0. L'indice di copertura dell'attivo fisso è 1,28, indicando che il patrimonio netto copre solo parzialmente gli investimenti a lungo termine.",
-    "liquidityNote": "La liquidità disponibile è di €355.443, pari al 12,47% dei ricavi. Nonostante questo sia un elemento positivo, non compensa lo squilibrio complessivo della struttura finanziaria."
+    "solidityTitle": "Indici di Solidità Patrimoniale",
+    "solidityIntro": "Gli indici di solidità patrimoniale evidenziano uno squilibrio strutturale nella composizione delle fonti di finanziamento, con un'eccessiva dipendenza dal capitale di terzi.",
+    "liquidityNote": "La liquidità disponibile è di €355.443, pari al 12,47% dei ricavi. Nonostante questo sia un elemento positivo, non compensa lo squilibrio complessivo della struttura finanziaria.",
+    "liquidityTitle": "Analisi della Liquidità",
+    "balanceSheetIntro": "Lo stato patrimoniale riclassificato evidenzia le principali voci di attivo e passivo, permettendo di analizzare la composizione degli impieghi e delle fonti di finanziamento.",
+    "assetsComposition": "L'attivo circolante rappresenta l'80,2% del totale impieghi, con una composizione dominata dalle rimanenze (46,8% del totale attivo). Le immobilizzazioni nette pesano per il 19,8%, in riduzione del 16,2% rispetto al 2023.",
+    "liabilitiesComposition": "Le fonti di finanziamento mostrano un'elevata dipendenza dal debito finanziario (55,8% del totale), mentre il patrimonio netto pesa solo per il 17,5%. Questa struttura finanziaria squilibrata espone l'azienda a rischi di sostenibilità del debito.",
+    "workingCapitalNote": "Il capitale circolante netto (CCN) è pari a €1.299.234, in riduzione del 4,8% rispetto al 2023. Il rapporto CCN/Ricavi è del 45,6%, indicando un elevato assorbimento di risorse nel circolante.",
+    "coverageNote": "L'indice di copertura delle immobilizzazioni è sceso a 0,56, segnalando che il patrimonio netto non copre integralmente gli investimenti a lungo termine. Questo rappresenta uno squilibrio finanziario che richiede azioni correttive."
   },
   "parte4_bancabilita": {
     "sectionIntro": "L'analisi di bancabilità valuta la <strong>capacità di accesso al credito</strong> e la sostenibilità del debito dell'azienda, evidenziando criticità significative nella capacità di servizio del debito.",
@@ -47,7 +74,15 @@
     "pfnEbitdaNote": "Il rapporto PFN/EBITDA non è calcolabile a causa dell'EBITDA negativo. In condizioni normali, questo rapporto dovrebbe essere inferiore a 3-4x per garantire una sostenibilità del debito accettabile.",
     "interestCoverageNote": "Il rapporto di copertura degli interessi (Interest Coverage Ratio) è <strong>negativo</strong>, con un EBIT di -€132.964 a fronte di oneri finanziari di €96.361. Questo segnala l'incapacità di coprire i costi del debito con la redditività operativa.",
     "creditRatingNote": "Il <strong>rating di credito stimato</strong> risulta nella fascia D+ (rischio elevato), con una probabilità di default significativa. Le condizioni di accesso al credito sono compromesse e richiedono interventi strutturali urgenti.",
-    "bankabilityRecommendation": "Si raccomanda: (1) Ristrutturazione del debito bancario, (2) Miglioramento immediato della redditività operativa, (3) Valorizzazione di asset non strategici per ridurre la PFN, (4) Implementazione di un piano industriale credibile per il ripristino della bancabilità."
+    "bankabilityRecommendation": "Si raccomanda: (1) Ristrutturazione del debito bancario, (2) Miglioramento immediato della redditività operativa, (3) Valorizzazione di asset non strategici per ridurre la PFN, (4) Implementazione di un piano industriale credibile per il ripristino della bancabilità.",
+    "leanusScoreNote": "Il Leanus Score di 3,47/10 (categoria \"Discreto\") conferma una situazione di fragilità finanziaria, con particolare criticità negli indicatori di redditività e sostenibilità del debito.",
+    "cciiNote": "L'analisi degli indicatori CCII (Codice della Crisi d'Impresa e dell'Insolvenza) evidenzia conformità su 2 dei 6 indicatori previsti. In particolare, il rapporto Patrimonio Netto/Debiti Totali e l'indice di liquidità corrente sono in linea con le soglie, mentre gli indicatori di redditività risultano critici.",
+    "cciiTitle": "Indicatori CCII e Conformità Normativa",
+    "sustainabilityTitle": "Sostenibilità del Debito",
+    "sustainabilityIntro": "L'analisi della sostenibilità del debito evidenzia criticità su tutti gli indicatori principali, con particolare riferimento al DSCR insufficiente e al rapporto PFN/EBITDA non calcolabile.",
+    "bankabilityTitle": "Valutazione Complessiva di Bancabilità",
+    "bankabilityIntro": "La valutazione complessiva di bancabilità evidenzia un profilo di rischio elevato (categoria D+), con accesso al credito compromesso. Le banche potrebbero richiedere garanzie aggiuntive, tassi più elevati o condizioni restrittive per nuovi finanziamenti.",
+    "actionPlanBankability": "Per ripristinare la bancabilità, è necessario: (1) Ridurre il rapporto PFN/PN sotto 1,5x attraverso dismissioni o aumento di capitale, (2) Riportare l'EBITDA margin almeno al 3-5%, (3) Migliorare il DSCR oltre 1,2x, (4) Implementare un piano di turnaround credibile con milestone verificabili."
   },
   "parte5_circolante_flussi": {
     "sectionIntro": "L'analisi del capitale circolante e dei flussi di cassa evidenzia <strong>inefficienze nella gestione operativa</strong> e uno squilibrio nel ciclo finanziario, con particolare criticità nella rotazione del magazzino.",
@@ -57,9 +92,18 @@
       "description": "Il ciclo del circolante è pari a 167 giorni, in miglioramento rispetto ai 208 giorni del 2023 ma ancora significativamente superiore agli standard settoriali. Questo indica che l'azienda impiega oltre 5 mesi per convertire gli investimenti in scorte in cassa."
     },
     "inventoryNote": "Le rimanenze ruotano con un tempo medio di <strong>194 giorni</strong>, in miglioramento rispetto ai 227 giorni del 2023 ma ancora eccessivo. Il valore delle rimanenze (€1.502.513) è pari al 52,72% dei ricavi annui, segnalando un evidente sovradimensionamento del magazzino.",
+    "inventoryTitle": "Analisi del Magazzino (DIO)",
     "receivablesNote": "I crediti commerciali hanno un DSO (Days Sales Outstanding) di 41 giorni, in miglioramento del 25,45% rispetto ai 55 giorni del 2023. Questo rappresenta uno degli elementi positivi della gestione operativa.",
+    "receivablesTitle": "Gestione Crediti Clienti (DSO)",
     "payablesNote": "I debiti verso fornitori hanno un DPO (Days Payables Outstanding) di 68 giorni, in riduzione rispetto ai 94 giorni del 2023. Questa riduzione indica una pressione sui tempi di pagamento, probabilmente legata a difficoltà finanziarie.",
-    "cashFlowNote": "Il Cash Flow operativo è positivo per €211.345 (7,42% dei ricavi), ma questo risultato è influenzato positivamente dall'incremento dei debiti commerciali. Il Free Cash Flow risulta comunque negativo dopo gli investimenti e il servizio del debito."
+    "payablesTitle": "Gestione Debiti Fornitori (DPO)",
+    "cashFlowNote": "Il Cash Flow operativo è positivo per €211.345 (7,42% dei ricavi), ma questo risultato è influenzato positivamente dall'incremento dei debiti commerciali. Il Free Cash Flow risulta comunque negativo dopo gli investimenti e il servizio del debito.",
+    "cashFlowTitle": "Analisi dei Flussi di Cassa",
+    "cashFlowIntro": "Il rendiconto finanziario evidenzia la capacità dell'azienda di generare liquidità dalle operazioni correnti e la destinazione dei flussi di cassa agli investimenti e al servizio del debito.",
+    "cycleOptimization": "L'ottimizzazione del ciclo del circolante rappresenta una priorità strategica. Riducendo il DIO da 194 a 150 giorni e aumentando il DPO da 68 a 75 giorni, l'azienda potrebbe liberare circa €270.000 di liquidità, riducendo la dipendenza dal credito bancario.",
+    "workingCapitalTitle": "Dinamica del Capitale Circolante",
+    "cashProjection": "Le proiezioni finanziarie indicano che, mantenendo l'attuale gestione operativa, la liquidità disponibile potrebbe aumentare gradualmente ma il debito finanziario continuerebbe a crescere, peggiorando ulteriormente il rapporto PFN/PN.",
+    "optimizationStrategies": "Le strategie di ottimizzazione del circolante includono: (1) Implementazione di un sistema ABC per la classificazione delle scorte, (2) Revisione delle politiche di riordino con modello EOQ, (3) Negoziazione di termini di pagamento più favorevoli con i fornitori chiave, (4) Implementazione di sistemi di forecasting della domanda per ridurre le scorte obsolete."
   },
   "parte6_rischi_raccomandazioni": {
     "sectionIntro": "L'analisi dei rischi identifica le <strong>criticità principali</strong> che minacciano la continuità aziendale e propone azioni prioritarie per il risanamento della situazione finanziaria.",
@@ -88,11 +132,21 @@
       "shortTerm": "Azioni breve termine (3-6 mesi): (1) Implementazione pricing strategico per recupero marginalità, (2) Dismissione asset non strategici, (3) Formalizzazione adeguati assetti organizzativi ex art. 2086 c.c.",
       "mediumTerm": "Azioni medio termine (6-12 mesi): (1) Diversificazione offerta con prodotti ad alta marginalità, (2) Digitalizzazione processi operativi, (3) Sviluppo piano strategico triennale con obiettivi di risanamento verificabili."
     },
-    "continuityNote": "La <strong>continuità aziendale</strong> è a rischio se non vengono implementate tempestivamente le azioni correttive. Si raccomanda la costituzione di un comitato di crisi e il coinvolgimento di advisor esterni per il turnaround."
+    "continuityNote": "La <strong>continuità aziendale</strong> è a rischio se non vengono implementate tempestivamente le azioni correttive. Si raccomanda la costituzione di un comitato di crisi e il coinvolgimento di advisor esterni per il turnaround.",
+    "riskMatrixTitle": "Matrice dei Rischi Principali",
+    "riskMatrixIntro": "La matrice dei rischi evidenzia le aree critiche classificate per impatto e probabilità, consentendo di prioritizzare gli interventi di mitigazione.",
+    "redFlagsTitle": "Segnali di Allarme (Red Flags)",
+    "redFlagsIntro": "I segnali di allarme identificano le criticità operative e finanziarie che richiedono attenzione immediata da parte del management.",
+    "actionPlanTitle": "Piano d'Azione Prioritario",
+    "actionPlanIntro": "Il piano d'azione prioritario identifica le aree di intervento con maggiore impatto sulla sostenibilità aziendale, classificate per urgenza e risultati attesi.",
+    "monitoringTitle": "Sistema di Monitoraggio KPI",
+    "monitoringIntro": "È fondamentale implementare un sistema di monitoraggio continuativo dei KPI critici, con frequenza mensile per gli indicatori di liquidità e redditività, trimestrale per quelli patrimoniali.",
+    "scenarioAnalysis": "L'analisi di scenario evidenzia che, nello scenario base (senza interventi correttivi), l'azienda continuerà a generare perdite operative, erodendo ulteriormente il patrimonio netto fino a raggiungere una situazione di insolvenza entro 18-24 mesi. Nello scenario di turnaround (con implementazione del piano d'azione), è possibile riportare l'EBITDA in territorio positivo entro 6-9 mesi e ristabilire la sostenibilità del debito entro 12-18 mesi.",
+    "governanceNote": "È necessario formalizzare gli adeguati assetti organizzativi previsti dall'art. 2086 c.c., implementando: (1) Sistema di controllo di gestione con KPI dashboard, (2) Procedure di pianificazione finanziaria e budgeting, (3) Sistema di early warning per intercettare tempestivamente segnali di crisi, (4) Reporting periodico al CdA con analisi degli scostamenti."
   },
   "irp_dettaglio": {
     "irpExplanation": "L'<strong>Indice di Rischio Ponderato (IRP)</strong> è un indicatore composito che sintetizza in un unico valore (da 0 a 100) il profilo di rischio complessivo dell'azienda. Un valore superiore a 50 indica un rischio elevato di difficoltà finanziarie.",
-    "scoreInterpretation": "Il punteggio IRP di <strong>51,42</strong> colloca VAROLI nella categoria D+ (Rischio elevato), caratterizzata da significative vulnerabilità finanziarie e operativeness che richiedono interventi urgenti di risanamento.",
+    "scoreInterpretation": "Il punteggio IRP di <strong>51,42</strong> colloca VAROLI nella categoria D+ (Rischio elevato), caratterizzata da significative vulnerabilità finanziarie e operative che richiedono interventi urgenti di risanamento.",
     "componentWeights": "L'IRP è calcolato ponderando diversi fattori: (1) Redditività operativa (25%), (2) Solidità patrimoniale (25%), (3) Sostenibilità del debito (20%), (4) Efficienza operativa (15%), (5) Liquidità (15%).",
     "redditivityScore": "Punteggio Redditività: <strong>72/100</strong> (Critico) - L'EBITDA margin negativo e il ROE fortemente negativo contribuiscono in modo significativo all'elevato punteggio di rischio complessivo.",
     "solidityScore": "Punteggio Solidità: <strong>58/100</strong> (Elevato) - L'erosione del patrimonio netto (-26,08%) e l'elevato rapporto D/E (2,66) segnalano una struttura patrimoniale fragile.",
@@ -100,6 +154,24 @@
     "efficiencyScore": "Punteggio Efficienza: <strong>45/100</strong> (Medio) - Il ciclo del circolante elevato (167 giorni) e la rotazione del magazzino lenta penalizzano l'efficienza operativa.",
     "liquidityScore": "Punteggio Liquidità: <strong>28/100</strong> (Basso) - La liquidità disponibile (€355.443) rappresenta l'unico elemento positivo del profilo di rischio.",
     "historicalTrend": "L'IRP è peggiorato da 38,5 nel 2023 a 51,42 nel 2024 (+33,6%), riflettendo il deterioramento generalizzato della situazione economico-finanziaria.",
-    "peerComparison": "Nel confronto con aziende simili del settore, VAROLI si colloca nel <strong>quartile peggiore</strong> (25° percentile), con un IRP significativamente superiore alla mediana settoriale di 35-40 punti."
+    "peerComparison": "Nel confronto con aziende simili del settore, VAROLI si colloca nel <strong>quartile peggiore</strong> (25° percentile), con un IRP significativamente superiore alla mediana settoriale di 35-40 punti.",
+    "componentsTitle": "Componenti dell'IRP",
+    "componentsIntro": "L'IRP è composto da quattro sub-indici principali: Coefficiente di Ponderazione (CP), Leanus Score, Rating MCC e Z-Score di Altman. Ciascun componente pesa in modo diverso sul punteggio finale.",
+    "cpExplanation": "Il Coefficiente di Ponderazione (CP) è un indicatore proprietario che sintetizza 6 indicatori finanziari chiave: PFN/EBITDA (25%), EBIT/Oneri Finanziari (20%), Ciclo Circolante (15%), EBITDA/Ricavi (15%), Copertura Attivo Fisso (15%) e DSCR (10%). Il punteggio di 43/100 indica un rischio elevato.",
+    "leanusExplanation": "Il Leanus Score normalizzato di 54,70/100 (originale -5,3 su scala -40/+40) evidenzia una fragilità moderata dell'azienda, confermando una elevata probabilità di difficoltà finanziarie.",
+    "mccExplanation": "Il Rating MCC (Medio Credito Centrale) colloca l'azienda in fascia \"Elevata\" per probabilità di default, con un punteggio normalizzato di 46,20/100. Questo riflette la problematica situazione reddituale e finanziaria.",
+    "zscoreExplanation": "Lo Z-Score di Altman pari a 2,45 colloca l'azienda nella \"zona grigia\" (1,81-2,99), indicando un rischio moderato di default. Il punteggio normalizzato di 70,40/100 evidenzia comunque una certa resilienza strutturale.",
+    "improvementTitle": "Obiettivi di Miglioramento",
+    "improvementIntro": "Il piano di miglioramento dell'IRP prevede obiettivi graduali su tre orizzonti temporali, con azioni chiave per ciascuna fase.",
+    "sixMonthTarget": "Obiettivo 6 mesi: Portare l'IRP a 60 (categoria C) attraverso: (1) Riduzione costi operativi del 5%, (2) Miglioramento marginalità del 2-3%, (3) Ottimizzazione magazzino con liberazione €200-250K.",
+    "twelveMonthTarget": "Obiettivo 12 mesi: Portare l'IRP a 65 (categoria C+) attraverso: (1) EBITDA margin positivo al 3%, (2) Riduzione PFN/PN sotto 1,5x, (3) DSCR superiore a 1,0.",
+    "twentyFourMonthTarget": "Obiettivo 24 mesi: Portare l'IRP a 75 (categoria B) attraverso: (1) Consolidamento redditività con EBITDA margin >5%, (2) Struttura finanziaria equilibrata con D/E <1,5x, (3) Crescita ricavi stabilizzata."
+  },
+  "dashboard_v2": {
+    "welcomeMessage": "Benvenuto nel <strong>SCAN360 Financial Dashboard</strong>. Questo strumento fornisce una visione completa e integrata della situazione economico-finanziaria dell'azienda, con indicatori in tempo reale e analisi predittive.",
+    "irpSummary": "L'Indice di Rischio Ponderato (IRP) di <strong>51,42/100</strong> classifica l'azienda nella categoria D+ (Rischio Elevato). Questo punteggio riflette criticità significative nella redditività operativa, nella sostenibilità del debito e nella struttura patrimoniale.",
+    "keyHighlights": "Evidenze principali: (1) EBITDA negativo (-€43.535) richiede interventi urgenti sulla marginalità, (2) PFN/PN elevato (1,92x) segnala squilibrio finanziario, (3) Ciclo del circolante inefficiente (167 giorni) con particolare criticità sul magazzino (194 giorni), (4) Liquidità disponibile (€355.443) rappresenta l'unico elemento positivo.",
+    "urgentActions": "Azioni urgenti richieste: (1) Ristrutturazione debito bancario, (2) Riduzione scorte magazzino di €250K, (3) Revisione pricing e mix prodotti per recupero marginalità, (4) Implementazione sistema di monitoraggio KPI settimanale.",
+    "navigationGuide": "Utilizza il menu laterale per navigare tra le diverse sezioni di analisi: Sintesi e Profilo, Analisi Economica, Analisi Patrimoniale, Bancabilità, Circolante e Flussi, Rischi e Azioni, Dettaglio IRP."
   }
 }

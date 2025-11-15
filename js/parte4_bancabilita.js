@@ -4,45 +4,78 @@ const Parte4Bancabilita = {
         try {
             await App.init();
             this.data = App.getData();
-            this.renderMerito();
-            this.renderDSCR();
-            this.renderRating();
+            this.renderSectionIntro();
+            this.renderDSCRAlert();
+            this.renderSustainabilityAnalysis();
+            this.renderCCIIAnalysis();
+            this.renderBankabilityRecommendation();
+            this.renderRatingCards();
         } catch (error) {
             console.error('Error initializing Parte 4:', error);
         }
     },
-    renderMerito() {
-        const container = document.getElementById('meritoGrid');
+    renderSectionIntro() {
+        const container = document.getElementById('sectionIntro');
         if (!container) return;
-        const kpis = this.data.kpis || {};
-        const supportInd = this.data.tables?.parte1_sintesi?.supportIndicators?.rows || [];
-        const kpiConfigs = [
-            { label: kpis.leanusScore?.title || 'Leanus Score', value: kpis.leanusScore?.displayValue || 'N/A', icon: 'fa-star', iconType: kpis.leanusScore?.status || 'warning' },
-            { label: 'Rating MCC', value: supportInd.find(r => r.indicator === 'Rating MCC')?.value || 'n.d.', icon: 'fa-award', iconType: supportInd.find(r => r.indicator === 'Rating MCC')?.badgeColor || 'warning' },
-            { label: 'Business Category', value: kpis.leanusScore?.metadata?.category || 'N/A', icon: 'fa-building', iconType: 'info' },
-            { label: 'IRP', value: kpis.irp?.category || 'N/A', icon: 'fa-shield-alt', iconType: kpis.irp?.status || 'danger' }
-        ];
-        container.innerHTML = kpiConfigs.map(kpi => '<div class="kpi-card-v4"><div class="icon-circle ' + kpi.iconType + '"><i class="fas ' + kpi.icon + '"></i></div><div class="kpi-content"><div class="kpi-label">' + kpi.label + '</div><div class="kpi-value">' + kpi.value + '</div></div></div>').join('');
+        const intro = this.data.content?.parte4_bancabilita?.sectionIntro || '';
+        container.innerHTML = `<div class="alert alert-info"><i class="fas fa-info-circle me-2"></i>${intro}</div>`;
     },
-    renderDSCR() {
-        const container = document.getElementById('dscrTable');
+    renderDSCRAlert() {
+        const container = document.getElementById('dscrAlert');
         if (!container) return;
-        const dscrData = this.data.tables?.parte4_bancabilita?.dscr;
-        if (dscrData) {
-            TableRenderer.renderTable(container, dscrData);
-        } else {
-            container.innerHTML = '<thead><tr><th>Anno</th><th class="text-right">EBITDA</th><th class="text-right">Oneri Finanziari</th><th class="text-right">DSCR</th></tr></thead><tbody><tr><td>2024</td><td class="text-right">€-44K</td><td class="text-right">€66K</td><td class="text-right text-danger"><strong>N/A</strong></td></tr><tr><td>2023</td><td class="text-right">€213K</td><td class="text-right">€39K</td><td class="text-right">5.4x</td></tr></tbody>';
-        }
+        const alert = this.data.content?.parte4_bancabilita?.dscrAlert || {};
+        container.innerHTML = `<div class="alert alert-danger"><h5 class="alert-heading"><i class="fas fa-exclamation-triangle me-2"></i>${alert.title || ''}</h5><p style="margin:0;">${alert.description || ''}</p></div>`;
     },
-    renderRating() {
-        const container = document.getElementById('ratingGrid');
+    renderSustainabilityAnalysis() {
+        const container = document.getElementById('sustainabilityAnalysis');
         if (!container) return;
-        const ratings = [
-            { title: 'Altman Z-Score', score: this.data.tables?.parte1_sintesi?.supportIndicators?.rows?.find(r => r.indicator === 'Z-Score')?.value || 'n.d.', status: 'Zona Grigia', statusClass: 'warning', description: 'Monitoraggio necessario' },
-            { title: 'Rating Cerved', score: 'N/A', status: 'Non disponibile', statusClass: 'warning', description: 'Richiede valutazione' },
-            { title: 'IRP Category', score: this.data.kpis?.irp?.category || 'N/A', status: this.data.kpis?.irp?.categoryLabel || 'N/A', statusClass: this.data.kpis?.irp?.status || 'danger', description: this.data.kpis?.irp?.description || '-' }
-        ];
-        container.innerHTML = ratings.map(rating => '<div class="profile-section-restored"><div class="profile-section-title"><i class="fas fa-certificate"></i>' + rating.title + '</div><div class="profile-item"><div class="profile-label">Score</div><div class="profile-value" style="font-size: 24px; font-weight: 700; color: var(--primary-color);">' + rating.score + '</div></div><div class="profile-item"><div class="profile-label">Stato</div><div class="profile-value"><span class="badge ' + rating.statusClass + '">' + rating.status + '</span></div></div><div class="profile-item"><div class="profile-label">Descrizione</div><div class="profile-value">' + rating.description + '</div></div></div>').join('');
+        const title = this.data.content?.parte4_bancabilita?.sustainabilityTitle || 'Sostenibilità Debito';
+        const intro = this.data.content?.parte4_bancabilita?.sustainabilityIntro || '';
+        const pfnNote = this.data.content?.parte4_bancabilita?.pfnEbitdaNote || '';
+        const intNote = this.data.content?.parte4_bancabilita?.interestCoverageNote || '';
+        container.innerHTML = `<div class="content-section"><h3>${title}</h3><p>${intro}</p><div class="alert alert-danger mt-2"><strong>PFN/EBITDA:</strong> ${pfnNote}</div><div class="alert alert-danger mt-2"><strong>Interest Coverage:</strong> ${intNote}</div></div>`;
+    },
+    renderCCIIAnalysis() {
+        const container = document.getElementById('cciiAnalysis');
+        if (!container) return;
+        const title = this.data.content?.parte4_bancabilita?.cciiTitle || 'CCII';
+        const note = this.data.content?.parte4_bancabilita?.cciiNote || '';
+        container.innerHTML = `<div class="content-section"><h3>${title}</h3><div class="alert alert-warning">${note}</div></div>`;
+    },
+    renderBankabilityRecommendation() {
+        const container = document.getElementById('bankabilityRecommendation');
+        if (!container) return;
+        const title = this.data.content?.parte4_bancabilita?.bankabilityTitle || 'Bancabilità';
+        const intro = this.data.content?.parte4_bancabilita?.bankabilityIntro || '';
+        const ratingNote = this.data.content?.parte4_bancabilita?.creditRatingNote || '';
+        const actionPlan = this.data.content?.parte4_bancabilita?.actionPlanBankability || '';
+        container.innerHTML = `<div class="content-section"><h3>${title}</h3><p>${intro}</p><div class="alert alert-danger mt-2">${ratingNote}</div><div class="alert alert-info mt-3"><strong>Raccomandazioni:</strong> ${actionPlan}</div></div>`;
+    },
+    renderRatingCards() {
+        const container = document.getElementById('ratingCardsGrid');
+        if (!container) return;
+        const leanus = this.data.kpis?.leanusScore || {};
+        const irp = this.data.kpis?.irp || {};
+        const leanusNote = this.data.content?.parte4_bancabilita?.leanusScoreNote || '';
+        container.innerHTML = `
+            <div class="kpi-card-v4">
+                <div class="icon-circle warning"><i class="fas fa-chart-bar"></i></div>
+                <div class="kpi-content">
+                    <div class="kpi-label">Leanus Score</div>
+                    <div class="kpi-value">${leanus.displayValue || 'N/A'}</div>
+                    <div class="kpi-subtitle">${leanus.metadata?.category || ''}</div>
+                </div>
+            </div>
+            <div class="kpi-card-v4">
+                <div class="icon-circle danger"><i class="fas fa-exclamation-triangle"></i></div>
+                <div class="kpi-content">
+                    <div class="kpi-label">IRP</div>
+                    <div class="kpi-value">${irp.value?.toFixed(1) || 'N/A'}/100</div>
+                    <div class="kpi-subtitle">${irp.categoryLabel || ''}</div>
+                </div>
+            </div>`;
+        const noteContainer = document.getElementById('leanusNote');
+        if (noteContainer) noteContainer.innerHTML = `<div class="alert alert-light mt-3">${leanusNote}</div>`;
     }
 };
 document.addEventListener('DOMContentLoaded', () => { Parte4Bancabilita.init(); });

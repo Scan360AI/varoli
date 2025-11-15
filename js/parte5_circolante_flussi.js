@@ -5,61 +5,70 @@ const Parte5Circolante = {
         try {
             await App.init();
             this.data = App.getData();
-            this.renderCiclo();
-            this.renderCCN();
-            this.renderCashFlow();
+            this.renderSectionIntro();
+            this.renderCashCycleAlert();
+            this.renderWorkingCapitalAnalysis();
+            this.renderCycleComponents();
+            this.renderCashFlowAnalysis();
+            this.renderOptimizationStrategies();
         } catch (error) {
             console.error('Error initializing Parte 5:', error);
         }
     },
-    renderCiclo() {
-        const container = document.getElementById('cicloGrid');
+    renderSectionIntro() {
+        const container = document.getElementById('sectionIntro');
         if (!container) return;
-        const kpis = this.data.kpis || {};
-        const dso = kpis.dso?.value || 0;
-        const dio = this.data.tables?.parte5_circolante?.cycleMetrics?.rows?.find(r => r.metric === 'DIO')?.[2024] || 0;
-        const dpo = this.data.tables?.parte5_circolante?.cycleMetrics?.rows?.find(r => r.metric === 'DPO')?.[2024] || 0;
-        const cicli = [
-            { label: 'DSO', value: dso, unit: 'giorni', status: dso > 60 ? 'warning' : 'good', description: 'Giorni medi di incasso' },
-            { label: 'DIO', value: dio, unit: 'giorni', status: dio > 60 ? 'warning' : 'good', description: 'Giorni giacenza magazzino' },
-            { label: 'DPO', value: dpo, unit: 'giorni', status: 'good', description: 'Giorni medi di pagamento' }
-        ];
-        container.innerHTML = cicli.map(ciclo => '<div class="cycle-kpi ' + ciclo.status + '"><div class="cycle-kpi-label">' + ciclo.label + '</div><div class="cycle-kpi-value">' + ciclo.value + '<span class="cycle-kpi-unit">' + ciclo.unit + '</span></div><div style="margin-top: 12px; font-size: 13px; color: var(--text-secondary);">' + ciclo.description + '</div></div>').join('');
+        const intro = this.data.content?.parte5_circolante_flussi?.sectionIntro || '';
+        container.innerHTML = `<div class="alert alert-info"><i class="fas fa-info-circle me-2"></i>${intro}</div>`;
     },
-    renderCCN() {
-        const container = document.getElementById('ccnTable');
+    renderCashCycleAlert() {
+        const container = document.getElementById('cashCycleAlert');
         if (!container) return;
-        const ccnData = this.data.tables?.parte5_circolante?.workingCapital;
-        if (ccnData) {
-            TableRenderer.renderTable(container, ccnData);
-        } else {
-            container.innerHTML = '<thead><tr><th>Componente</th><th class="text-right">2024</th><th class="text-right">2023</th></tr></thead><tbody><tr class="table-primary"><td>Attivo Circolante</td><td class="text-right">€1.828K</td><td class="text-right">€1.996K</td></tr><tr class="table-primary"><td>Passivo Corrente</td><td class="text-right">€529K</td><td class="text-right">€663K</td></tr><tr><td colspan="3"></td></tr><tr class="table-success"><td><strong>CCN</strong></td><td class="text-right"><strong>€1.299K</strong></td><td class="text-right"><strong>€1.333K</strong></td></tr></tbody>';
-        }
+        const alert = this.data.content?.parte5_circolante_flussi?.cashCycleAlert || {};
+        container.innerHTML = `<div class="alert alert-warning"><h5 class="alert-heading"><i class="fas fa-sync-alt me-2"></i>${alert.title || ''}</h5><p style="margin:0;">${alert.description || ''}</p></div>`;
     },
-    renderCashFlow() {
-        const ctx = document.getElementById('cashFlowChart');
-        if (!ctx) return;
-        const cfData = this.data.tables?.parte5_circolante?.cashFlow?.rows || [];
-        const labels = cfData.length > 0 ? cfData.map(r => r.item) : ['Liquidità Iniziale', 'CF Operativo', 'CF Investimenti', 'CF Finanziario', 'Liquidità Finale'];
-        const values = cfData.length > 0 ? cfData.map(r => r.value / 1000) : [425, 211, -50, -230, 355];
-        if (this.charts.cashFlow) this.charts.cashFlow.destroy();
-        this.charts.cashFlow = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Cash Flow (€K)',
-                    data: values,
-                    backgroundColor: values.map(v => v >= 0 ? '#24b47e' : '#F44336')
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
-                scales: { y: { ticks: { callback: v => '€' + v + 'K' } } }
-            }
-        });
+    renderWorkingCapitalAnalysis() {
+        const container = document.getElementById('workingCapitalAnalysis');
+        if (!container) return;
+        const title = this.data.content?.parte5_circolante_flussi?.workingCapitalTitle || 'Capitale Circolante';
+        const text = this.data.content?.parte5_circolante_flussi?.workingCapitalAnalysis || '';
+        const cycleOpt = this.data.content?.parte5_circolante_flussi?.cycleOptimization || '';
+        container.innerHTML = `<div class="content-section"><h3>${title}</h3><p>${text}</p><div class="alert alert-info mt-2"><strong>Ottimizzazione:</strong> ${cycleOpt}</div></div>`;
+    },
+    renderCycleComponents() {
+        const container = document.getElementById('cycleComponentsGrid');
+        if (!container) return;
+        const dso = this.data.kpis?.dso || {};
+        const inventoryNote = this.data.content?.parte5_circolante_flussi?.inventoryNote || '';
+        const receivablesNote = this.data.content?.parte5_circolante_flussi?.receivablesNote || '';
+        const payablesNote = this.data.content?.parte5_circolante_flussi?.payablesNote || '';
+        container.innerHTML = `
+            <div class="kpi-card-v4">
+                <div class="icon-circle success"><i class="fas fa-calendar-check"></i></div>
+                <div class="kpi-content">
+                    <div class="kpi-label">DSO (Crediti Clienti)</div>
+                    <div class="kpi-value">${dso.value || 'N/A'} giorni</div>
+                    <div class="kpi-subtitle">${receivablesNote.substring(0, 50) || ''}</div>
+                </div>
+            </div>`;
+        const inventoryContainer = document.getElementById('inventoryAnalysis');
+        if (inventoryContainer) inventoryContainer.innerHTML = `<div class="alert alert-danger">${inventoryNote}</div>`;
+        const payablesContainer = document.getElementById('payablesAnalysis');
+        if (payablesContainer) payablesContainer.innerHTML = `<div class="alert alert-warning">${payablesNote}</div>`;
+    },
+    renderCashFlowAnalysis() {
+        const container = document.getElementById('cashFlowAnalysis');
+        if (!container) return;
+        const title = this.data.content?.parte5_circolante_flussi?.cashFlowTitle || 'Cash Flow';
+        const intro = this.data.content?.parte5_circolante_flussi?.cashFlowIntro || '';
+        const note = this.data.content?.parte5_circolante_flussi?.cashFlowNote || '';
+        container.innerHTML = `<div class="content-section"><h3>${title}</h3><p>${intro}</p><div class="alert alert-warning mt-2">${note}</div></div>`;
+    },
+    renderOptimizationStrategies() {
+        const container = document.getElementById('optimizationStrategies');
+        if (!container) return;
+        const strategies = this.data.content?.parte5_circolante_flussi?.optimizationStrategies || '';
+        container.innerHTML = `<div class="alert alert-light"><strong>Strategie di Ottimizzazione:</strong> ${strategies}</div>`;
     }
 };
 document.addEventListener('DOMContentLoaded', () => { Parte5Circolante.init(); });

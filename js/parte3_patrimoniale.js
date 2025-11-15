@@ -5,110 +5,89 @@ const Parte3Patrimoniale = {
         try {
             await App.init();
             this.data = App.getData();
+            this.renderSectionIntro();
+            this.renderEquityAlert();
+            this.renderPFNAnalysis();
+            this.renderDebtAnalysis();
+            this.renderBalanceSheetIntro();
             this.renderStatoPatrimoniale();
-            this.renderIndiciPatrimoniali();
-            this.renderComposizioneAttivo();
-            this.renderComposizionePassivo();
-            this.renderPatrimonioNettoEvolution();
+            this.renderSolidityAnalysis();
+            this.renderLiquidityNote();
         } catch (error) {
             console.error('Error initializing Parte 3:', error);
         }
     },
-    renderStatoPatrimoniale() {
-        const container = document.getElementById('statoPatrimonialeTable');
+    renderSectionIntro() {
+        const container = document.getElementById('sectionIntro');
         if (!container) return;
+        const intro = this.data.content?.parte3_patrimoniale?.sectionIntro || '';
+        container.innerHTML = `<div class="alert alert-info"><i class="fas fa-info-circle me-2"></i>${intro}</div>`;
+    },
+    renderEquityAlert() {
+        const container = document.getElementById('equityAlert');
+        if (!container) return;
+        const alert = this.data.content?.parte3_patrimoniale?.equityAlert || {};
+        container.innerHTML = `<div class="alert alert-danger"><h5 class="alert-heading"><i class="fas fa-exclamation-triangle me-2"></i>${alert.title || ''}</h5><p style="margin:0;">${alert.description || ''}</p></div>`;
+    },
+    renderPFNAnalysis() {
+        const container = document.getElementById('pfnAnalysis');
+        if (!container) return;
+        const title = this.data.content?.parte3_patrimoniale?.pfnTitle || 'PFN';
+        const text = this.data.content?.parte3_patrimoniale?.pfnAnalysis || '';
+        container.innerHTML = `<div class="content-section"><h3>${title}</h3><div class="alert alert-warning">${text}</div></div>`;
+    },
+    renderDebtAnalysis() {
+        const container = document.getElementById('debtAnalysis');
+        if (!container) return;
+        const title = this.data.content?.parte3_patrimoniale?.debtTitle || 'Indebitamento';
+        const text = this.data.content?.parte3_patrimoniale?.debtAnalysis || '';
+        container.innerHTML = `<div class="content-section"><h3>${title}</h3><p>${text}</p></div>`;
+    },
+    renderBalanceSheetIntro() {
+        const container = document.getElementById('balanceSheetIntro');
+        if (!container) return;
+        const intro = this.data.content?.parte3_patrimoniale?.balanceSheetIntro || '';
+        const assetsComp = this.data.content?.parte3_patrimoniale?.assetsComposition || '';
+        const liabComp = this.data.content?.parte3_patrimoniale?.liabilitiesComposition || '';
+        container.innerHTML = `<p>${intro}</p><div class="row"><div class="col-md-6"><div class="alert alert-light"><strong>Impieghi:</strong> ${assetsComp}</div></div><div class="col-md-6"><div class="alert alert-light"><strong>Fonti:</strong> ${liabComp}</div></div></div>`;
+    },
+    renderStatoPatrimoniale() {
+        const impieghiTable = document.getElementById('impieghiTable');
+        const fontiTable = document.getElementById('fontiTable');
         const impieghi = this.data.tables?.parte3_patrimoniale?.statoPatrimonialeImpieghi;
         const fonti = this.data.tables?.parte3_patrimoniale?.statoPatrimonialeFonti;
-        if (!impieghi && !fonti) {
-            container.innerHTML = '<tr><td>Dati non disponibili</td></tr>';
-            return;
+        if (impieghiTable && impieghi) {
+            const thead = '<thead><tr>' + impieghi.headers.map(h => '<th>' + h + '</th>').join('') + '</tr></thead>';
+            const tbody = '<tbody>' + impieghi.rows.map(row => {
+                const cls = row.highlight ? 'table-primary' : '';
+                return '<tr class="' + cls + '"><td>' + row.categoria + '</td><td class="text-right">' + Utils.formatCurrency(row['2022']) + '</td><td class="text-right">' + row.pct2022.toFixed(1) + '%</td><td class="text-right">' + Utils.formatCurrency(row['2023']) + '</td><td class="text-right">' + row.pct2023.toFixed(1) + '%</td><td class="text-right">' + Utils.formatCurrency(row['2024']) + '</td><td class="text-right">' + row.pct2024.toFixed(1) + '%</td><td class="text-right">' + row.var.toFixed(1) + '%</td></tr>';
+            }).join('') + '</tbody>';
+            impieghiTable.innerHTML = thead + tbody;
         }
-        let html = '<thead><tr><th>Voce</th><th class="text-right">2022</th><th class="text-right">2023</th><th class="text-right">2024</th></tr></thead><tbody>';
-        html += '<tr class="table-primary"><td colspan="4"><strong>ATTIVO</strong></td></tr>';
-        if (impieghi) {
-            (impieghi.rows || []).forEach(row => {
-                html += '<tr' + (row.highlight ? ' class="table-success"' : '') + '><td>' + row.categoria + '</td><td class="text-right">' + Utils.formatCurrency(row[2022]) + '</td><td class="text-right">' + Utils.formatCurrency(row[2023]) + '</td><td class="text-right">' + Utils.formatCurrency(row[2024]) + '</td></tr>';
-            });
+        if (fontiTable && fonti) {
+            const thead = '<thead><tr>' + fonti.headers.map(h => '<th>' + h + '</th>').join('') + '</tr></thead>';
+            const tbody = '<tbody>' + fonti.rows.map(row => {
+                const cls = row.highlight ? 'table-primary' : '';
+                return '<tr class="' + cls + '"><td>' + row.categoria + '</td><td class="text-right">' + Utils.formatCurrency(row['2022']) + '</td><td class="text-right">' + row.pct2022.toFixed(1) + '%</td><td class="text-right">' + Utils.formatCurrency(row['2023']) + '</td><td class="text-right">' + row.pct2023.toFixed(1) + '%</td><td class="text-right">' + Utils.formatCurrency(row['2024']) + '</td><td class="text-right">' + row.pct2024.toFixed(1) + '%</td><td class="text-right">' + row.var.toFixed(1) + '%</td></tr>';
+            }).join('') + '</tbody>';
+            fontiTable.innerHTML = thead + tbody;
         }
-        html += '<tr style="height:24px"><td colspan="4"></td></tr>';
-        html += '<tr class="table-primary"><td colspan="4"><strong>PASSIVO E PATRIMONIO NETTO</strong></td></tr>';
-        if (fonti) {
-            (fonti.rows || []).forEach(row => {
-                html += '<tr' + (row.highlight ? ' class="table-success"' : '') + '><td>' + row.categoria + '</td><td class="text-right">' + Utils.formatCurrency(row[2022]) + '</td><td class="text-right">' + Utils.formatCurrency(row[2023]) + '</td><td class="text-right">' + Utils.formatCurrency(row[2024]) + '</td></tr>';
-            });
-        }
-        html += '</tbody>';
-        container.innerHTML = html;
     },
-    renderIndiciPatrimoniali() {
-        const container = document.getElementById('indiciPatrimonialiGrid');
+    renderSolidityAnalysis() {
+        const container = document.getElementById('solidityAnalysis');
         if (!container) return;
-        const indici = this.data.tables?.parte3_patrimoniale?.indiciPatrimoniali?.rows || [];
-        container.innerHTML = indici.slice(0, 4).map(idx => '<div class="kpi-card-v4"><div class="icon-circle ' + (idx.valutazione === 'Critico' ? 'danger' : idx.valutazione === 'Ottimo' ? 'success' : 'warning') + '"><i class="fas fa-shield-alt"></i></div><div class="kpi-content"><div class="kpi-label">' + idx.indice + '</div><div class="kpi-value">' + (idx['2024'] !== null ? idx['2024'].toFixed(2) : 'N/A') + '</div><div class="kpi-subtitle">' + idx.formula + '</div></div></div>').join('');
+        const title = this.data.content?.parte3_patrimoniale?.solidityTitle || 'Solidità';
+        const intro = this.data.content?.parte3_patrimoniale?.solidityIntro || '';
+        const note = this.data.content?.parte3_patrimoniale?.solidityNote || '';
+        const coverageNote = this.data.content?.parte3_patrimoniale?.coverageNote || '';
+        container.innerHTML = `<div class="content-section"><h3>${title}</h3><p>${intro}</p><div class="alert alert-danger mt-2">${note}</div><div class="alert alert-warning mt-2"><strong>Copertura:</strong> ${coverageNote}</div></div>`;
     },
-    renderComposizioneAttivo() {
-        const ctx = document.getElementById('attivoChart');
-        if (!ctx) return;
-        if (this.charts.attivo) this.charts.attivo.destroy();
-        this.charts.attivo = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Immobilizzazioni', 'Crediti', 'Rimanenze', 'Liquidità', 'Altri'],
-                datasets: [{
-                    data: [25, 35, 25, 10, 5],
-                    backgroundColor: ['#191970', '#24b47e', '#2196F3', '#FFC107', '#9E9E9E']
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { position: 'bottom' } }
-            }
-        });
-    },
-    renderComposizionePassivo() {
-        const ctx = document.getElementById('passivoChart');
-        if (!ctx) return;
-        if (this.charts.passivo) this.charts.passivo.destroy();
-        this.charts.passivo = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Patrimonio Netto', 'Debiti Finanziari', 'Debiti Commerciali', 'TFR', 'Altri'],
-                datasets: [{
-                    data: [30, 35, 20, 10, 5],
-                    backgroundColor: ['#24b47e', '#F44336', '#FF9800', '#2196F3', '#9E9E9E']
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { position: 'bottom' } }
-            }
-        });
-    },
-    renderPatrimonioNettoEvolution() {
-        const ctx = document.getElementById('patrimonioNettoChart');
-        if (!ctx) return;
-        const chartData = this.data.charts?.reports?.parte1?.mainMetricsChart;
-        if (!chartData) return;
-        if (this.charts.patrimonioNetto) this.charts.patrimonioNetto.destroy();
-        this.charts.patrimonioNetto = new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: chartData.labels,
-                datasets: [{
-                    label: 'Patrimonio Netto',
-                    data: chartData.datasets.equity.data,
-                    backgroundColor: '#24b47e'
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { display: false } },
-                scales: { y: { beginAtZero: true, ticks: { callback: v => '€' + v + 'K' } } }
-            }
-        });
+    renderLiquidityNote() {
+        const container = document.getElementById('liquidityNote');
+        if (!container) return;
+        const title = this.data.content?.parte3_patrimoniale?.liquidityTitle || 'Liquidità';
+        const note = this.data.content?.parte3_patrimoniale?.liquidityNote || '';
+        container.innerHTML = `<div class="alert alert-success"><strong>${title}:</strong> ${note}</div>`;
     }
 };
 document.addEventListener('DOMContentLoaded', () => { Parte3Patrimoniale.init(); });

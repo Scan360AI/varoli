@@ -4,90 +4,74 @@ const Parte6Rischi = {
         try {
             await App.init();
             this.data = App.getData();
+            this.renderSectionIntro();
             this.renderRiskMatrix();
-            this.renderRecommendations();
+            this.renderRedFlags();
             this.renderActionPlan();
+            this.renderGovernanceNote();
+            this.renderScenarioAnalysis();
         } catch (error) {
             console.error('Error initializing Parte 6:', error);
         }
     },
-    renderRiskMatrix() {
-        const container = document.getElementById('riskMatrixTable');
+    renderSectionIntro() {
+        const container = document.getElementById('sectionIntro');
         if (!container) return;
-        const riskData = this.data.tables?.parte6_rischi?.riskMatrix;
-        if (riskData) {
-            TableRenderer.renderTable(container, riskData);
-        } else {
-            container.innerHTML = '<thead><tr><th>Rischio</th><th class="text-center">Probabilità</th><th class="text-center">Impatto</th><th class="text-center">Priorità</th><th class="text-center">Stato</th></tr></thead><tbody><tr><td>EBITDA negativo - Perdita operativa</td><td class="text-center">Alta</td><td class="text-center">Critico</td><td class="text-center"><span class="badge danger">Critico</span></td><td class="text-center"><span class="badge warning">In gestione</span></td></tr><tr><td>Elevato indebitamento finanziario</td><td class="text-center">Alta</td><td class="text-center">Alto</td><td class="text-center"><span class="badge danger">Alto</span></td><td class="text-center"><span class="badge info">Monitorato</span></td></tr><tr><td>Ciclo circolante inefficiente (194gg magazzino)</td><td class="text-center">Media</td><td class="text-center">Alto</td><td class="text-center"><span class="badge warning">Medio</span></td><td class="text-center"><span class="badge info">Monitorato</span></td></tr><tr><td>Dipendenza settore edilizio</td><td class="text-center">Media</td><td class="text-center">Medio</td><td class="text-center"><span class="badge warning">Medio</span></td><td class="text-center"><span class="badge success">Accettato</span></td></tr></tbody>';
-        }
+        const intro = this.data.content?.parte6_rischi_raccomandazioni?.sectionIntro || '';
+        container.innerHTML = `<div class="alert alert-info"><i class="fas fa-info-circle me-2"></i>${intro}</div>`;
     },
-    renderRecommendations() {
-        const container = document.getElementById('recommendationsContainer');
+    renderRiskMatrix() {
+        const container = document.getElementById('riskMatrixIntro');
         if (!container) return;
-        const recommendations = [
-            {
-                title: 'Urgente: Ripristino Redditività Operativa',
-                priority: 'danger',
-                description: this.data.content?.parte6_rischi?.recommendations?.[0]?.description || 'Implementare azioni immediate per riportare EBITDA in positivo attraverso revisione pricing e ottimizzazione costi.',
-                actions: this.data.content?.parte6_rischi?.recommendations?.[0]?.actions || [
-                    'Analisi dettagliata struttura costi per individuare inefficienze',
-                    'Revisione politica pricing con focus su marginalità',
-                    'Negoziazione condizioni con fornitori principali',
-                    'Riduzione costi fissi non strategici'
-                ]
-            },
-            {
-                title: 'Ottimizzazione Gestione Magazzino',
-                priority: 'warning',
-                description: this.data.content?.parte6_rischi?.recommendations?.[1]?.description || 'Ridurre giorni di giacenza magazzino (DIO) da 194 a 90 giorni per liberare capitale circolante.',
-                actions: this.data.content?.parte6_rischi?.recommendations?.[1]?.actions || [
-                    'Implementazione sistema gestione scorte (modello EOQ)',
-                    'Analisi ABC su categorie merceologiche',
-                    'Eliminazione stock obsoleto',
-                    'Accordi con fornitori per consegne just-in-time'
-                ]
-            },
-            {
-                title: 'Ristrutturazione Debito Finanziario',
-                priority: 'warning',
-                description: this.data.content?.parte6_rischi?.recommendations?.[2]?.description || 'Ridurre dipendenza da debito bancario a breve termine e ristrutturare PFN.',
-                actions: this.data.content?.parte6_rischi?.recommendations?.[2]?.actions || [
-                    'Negoziazione consolidamento debiti a breve in M/L termine',
-                    'Valutazione dismissione asset non strategici',
-                    'Ricerca fonti finanziamento alternative',
-                    'Implementazione piano rimborso strutturato'
-                ]
-            }
-        ];
-        container.innerHTML = recommendations.map(rec => '<div class="alert-box ' + rec.priority + '"><div class="alert-title">' + rec.title + '</div><div class="alert-content"><p>' + rec.description + '</p><strong style="display: block; margin-top: 12px; margin-bottom: 8px;">Azioni specifiche:</strong><ul style="margin: 0; padding-left: 20px;">' + rec.actions.map(action => '<li>' + action + '</li>').join('') + '</ul></div></div>').join('');
+        const title = this.data.content?.parte6_rischi_raccomandazioni?.riskMatrixTitle || 'Matrice Rischi';
+        const intro = this.data.content?.parte6_rischi_raccomandazioni?.riskMatrixIntro || '';
+        const finRisk = this.data.content?.parte6_rischi_raccomandazioni?.financialRisk || {};
+        const opRisk = this.data.content?.parte6_rischi_raccomandazioni?.operationalRisk || {};
+        const liqRisk = this.data.content?.parte6_rischi_raccomandazioni?.liquidityRisk || {};
+        const mktRisk = this.data.content?.parte6_rischi_raccomandazioni?.marketRisk || {};
+        container.innerHTML = `<h3>${title}</h3><p>${intro}</p>
+            <div class="row">
+                <div class="col-md-6"><div class="alert alert-danger"><strong>Rischio Finanziario (${finRisk.impact || ''} / ${finRisk.probability || ''}):</strong> ${finRisk.description || ''}</div></div>
+                <div class="col-md-6"><div class="alert alert-danger"><strong>Rischio Operativo (${opRisk.impact || ''} / ${opRisk.probability || ''}):</strong> ${opRisk.description || ''}</div></div>
+                <div class="col-md-6"><div class="alert alert-warning"><strong>Rischio Liquidità (${liqRisk.impact || ''} / ${liqRisk.probability || ''}):</strong> ${liqRisk.description || ''}</div></div>
+                <div class="col-md-6"><div class="alert alert-warning"><strong>Rischio Mercato (${mktRisk.impact || ''} / ${mktRisk.probability || ''}):</strong> ${mktRisk.description || ''}</div></div>
+            </div>`;
+    },
+    renderRedFlags() {
+        const container = document.getElementById('redFlagsSection');
+        if (!container) return;
+        const title = this.data.content?.parte6_rischi_raccomandazioni?.redFlagsTitle || 'Segnali di Allarme';
+        const intro = this.data.content?.parte6_rischi_raccomandazioni?.redFlagsIntro || '';
+        const redFlags = this.data.tables?.parte6_rischi?.redFlags?.rows || [];
+        const flagsHTML = redFlags.map(flag => `<tr><td><span class="badge bg-danger">${flag.area}</span></td><td>${flag.segnale}</td><td class="text-right">${flag.valore}</td><td>${flag.rischio}</td></tr>`).join('');
+        container.innerHTML = `<div class="content-section"><h3>${title}</h3><p>${intro}</p><table class="table table-sm"><thead><tr><th>Area</th><th>Segnale</th><th>Valore</th><th>Rischio</th></tr></thead><tbody>${flagsHTML}</tbody></table></div>`;
     },
     renderActionPlan() {
-        const container = document.getElementById('actionPlanTable');
+        const container = document.getElementById('actionPlanSection');
         if (!container) return;
-        const actionsData = this.data.tables?.parte1_sintesi?.priorityActions?.rows || [];
-        if (actionsData.length > 0) {
-            const rows = actionsData.map(action => ({
-                cells: [
-                    { value: action.action },
-                    { value: action.area },
-                    { value: 'Q1-Q2 2025', align: 'text-center' },
-                    { value: '15000', type: 'currency' },
-                    { value: { type: 'badge', text: 'In corso' }, align: 'text-center' }
-                ]
-            }));
-            TableRenderer.renderTable(container, {
-                columns: [
-                    { label: 'Azione', width: '35%' },
-                    { label: 'Area', width: '20%' },
-                    { label: 'Scadenza', align: 'text-center', width: '15%' },
-                    { label: 'Budget', align: 'text-right', width: '15%' },
-                    { label: 'Stato', align: 'text-center', width: '15%' }
-                ],
-                rows: rows
-            });
-        } else {
-            container.innerHTML = '<thead><tr><th>Azione</th><th>Responsabile</th><th class="text-center">Scadenza</th><th class="text-right">Budget</th><th class="text-center">Stato</th></tr></thead><tbody><tr><td>Ripristino redditività operativa</td><td>CFO / Direzione</td><td class="text-center">Q2 2025</td><td class="text-right">€50.000</td><td class="text-center"><span class="badge danger">Critico</span></td></tr><tr><td>Ottimizzazione magazzino</td><td>Operations</td><td class="text-center">Q1 2025</td><td class="text-right">€15.000</td><td class="text-center"><span class="badge warning">In corso</span></td></tr><tr><td>Ristrutturazione debito</td><td>CFO</td><td class="text-center">Q1 2025</td><td class="text-right">€10.000</td><td class="text-center"><span class="badge warning">Pianificato</span></td></tr></tbody>';
-        }
+        const title = this.data.content?.parte6_rischi_raccomandazioni?.actionPlanTitle || 'Piano Azione';
+        const intro = this.data.content?.parte6_rischi_raccomandazioni?.actionPlanIntro || '';
+        const actionPlan = this.data.content?.parte6_rischi_raccomandazioni?.actionPlan || {};
+        container.innerHTML = `<div class="content-section"><h3>${title}</h3><p>${intro}</p>
+            <div class="alert alert-danger"><strong>Urgente (0-3 mesi):</strong> ${actionPlan.urgentActions || ''}</div>
+            <div class="alert alert-warning"><strong>Breve Termine (3-6 mesi):</strong> ${actionPlan.shortTerm || ''}</div>
+            <div class="alert alert-info"><strong>Medio Termine (6-12 mesi):</strong> ${actionPlan.mediumTerm || ''}</div>
+        </div>`;
+        const continuityNote = this.data.content?.parte6_rischi_raccomandazioni?.continuityNote || '';
+        const contContainer = document.getElementById('continuityNote');
+        if (contContainer) contContainer.innerHTML = `<div class="alert alert-danger mt-3">${continuityNote}</div>`;
+    },
+    renderGovernanceNote() {
+        const container = document.getElementById('governanceNote');
+        if (!container) return;
+        const note = this.data.content?.parte6_rischi_raccomandazioni?.governanceNote || '';
+        container.innerHTML = `<div class="alert alert-light"><strong>Governance e Adeguati Assetti:</strong> ${note}</div>`;
+    },
+    renderScenarioAnalysis() {
+        const container = document.getElementById('scenarioAnalysis');
+        if (!container) return;
+        const analysis = this.data.content?.parte6_rischi_raccomandazioni?.scenarioAnalysis || '';
+        container.innerHTML = `<div class="alert alert-warning mt-3"><strong>Analisi di Scenario:</strong> ${analysis}</div>`;
     }
 };
 document.addEventListener('DOMContentLoaded', () => { Parte6Rischi.init(); });

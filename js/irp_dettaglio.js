@@ -5,114 +5,100 @@ const IRPDettaglio = {
         try {
             await App.init();
             this.data = App.getData();
-            this.renderIRPMain();
+            this.renderIRPOverview();
+            this.renderIRPExplanation();
             this.renderComponents();
-            this.renderComposition();
-            this.renderIndicators();
-            this.renderTrend();
+            this.renderCPDetail();
+            this.renderLeanusDetail();
+            this.renderMCCDetail();
+            this.renderZScoreDetail();
+            this.renderImprovementTargets();
         } catch (error) {
             console.error('Error initializing IRP Dettaglio:', error);
         }
     },
-    renderIRPMain() {
-        const irpData = this.data.kpis?.irp || {};
-        const score = irpData.value || 0;
-        const category = irpData.category || 'N/A';
-        const riskLevel = irpData.categoryLabel || 'Non disponibile';
+    renderIRPOverview() {
+        const container = document.getElementById('irpOverview');
+        if (!container) return;
+        const irp = this.data.kpis?.irp || {};
+        const score = irp.value || 0;
         const riskClass = Utils.getRiskLevel(score);
-        const scoreCircle = document.getElementById('irpMainCircle');
-        if (scoreCircle) scoreCircle.className = 'irp-score-circle risk-' + riskClass;
-        const scoreValue = document.getElementById('irpMainValue');
-        if (scoreValue) scoreValue.textContent = score.toFixed(1);
-        const categoryBadge = document.getElementById('irpMainBadge');
-        if (categoryBadge) {
-            categoryBadge.className = 'badge ' + (irpData.status || 'danger');
-            categoryBadge.textContent = 'Categoria ' + category;
-        }
-        const riskLevelEl = document.getElementById('irpMainRisk');
-        if (riskLevelEl) riskLevelEl.textContent = riskLevel;
-        const visualSection = document.getElementById('irpMainSection');
-        if (visualSection) visualSection.className = 'irp-visual-section risk-' + riskClass;
-        const marker = document.getElementById('irpMainMarker');
-        if (marker) marker.style.left = score + '%';
-        const narrative = document.getElementById('irpMainNarrative');
-        if (narrative) {
-            narrative.textContent = 'L\'IRP di ' + score.toFixed(1) + '/100 (Categoria ' + category + ') riflette la situazione finanziaria dell\'azienda. ' + (irpData.description || '');
-        }
+        container.innerHTML = `
+            <div class="irp-score-circle risk-${riskClass}">
+                <div class="irp-score-value">${score.toFixed(1)}</div>
+                <div class="irp-score-max">/ 100</div>
+            </div>
+            <h3 class="text-center mt-3">${irp.categoryLabel || ''}</h3>
+            <span class="badge ${irp.status || 'danger'} d-block text-center">Categoria ${irp.category || 'D+'}</span>`;
+    },
+    renderIRPExplanation() {
+        const container = document.getElementById('irpExplanation');
+        if (!container) return;
+        const explanation = this.data.content?.irp_dettaglio?.irpExplanation || '';
+        const interpretation = this.data.content?.irp_dettaglio?.scoreInterpretation || '';
+        const weights = this.data.content?.irp_dettaglio?.componentWeights || '';
+        container.innerHTML = `<p>${explanation}</p><div class="alert alert-danger mt-2">${interpretation}</div><div class="alert alert-light mt-2"><strong>Pesi:</strong> ${weights}</div>`;
     },
     renderComponents() {
-        const container = document.getElementById('irpComponentsGrid');
+        const container = document.getElementById('componentsIntro');
         if (!container) return;
-        const components = [
-            { label: 'Solidità Patrimoniale', score: 45, weight: 30, icon: 'fa-shield-alt', iconType: 'warning' },
-            { label: 'Redditività', score: 35, weight: 25, icon: 'fa-chart-line', iconType: 'danger' },
-            { label: 'Liquidità', score: 65, weight: 25, icon: 'fa-tint', iconType: 'warning' },
-            { label: 'Sostenibilità Debito', score: 40, weight: 20, icon: 'fa-balance-scale', iconType: 'danger' }
-        ];
-        container.innerHTML = components.map(comp => {
-            const contribution = (comp.score * comp.weight / 100).toFixed(1);
-            return '<div class="kpi-card-v4"><div class="icon-circle ' + comp.iconType + '"><i class="fas ' + comp.icon + '"></i></div><div class="kpi-content"><div class="kpi-label">' + comp.label + '</div><div class="kpi-value">' + comp.score + '/100</div><div class="kpi-subtitle">Peso: ' + comp.weight + '% • Contributo: ' + contribution + '</div></div></div>';
-        }).join('');
+        const title = this.data.content?.irp_dettaglio?.componentsTitle || 'Componenti';
+        const intro = this.data.content?.irp_dettaglio?.componentsIntro || '';
+        const redScore = this.data.content?.irp_dettaglio?.redditivityScore || '';
+        const solScore = this.data.content?.irp_dettaglio?.solidityScore || '';
+        const debtScore = this.data.content?.irp_dettaglio?.debtScore || '';
+        const effScore = this.data.content?.irp_dettaglio?.efficiencyScore || '';
+        const liqScore = this.data.content?.irp_dettaglio?.liquidityScore || '';
+        container.innerHTML = `<h3>${title}</h3><p>${intro}</p>
+            <div class="row">
+                <div class="col-md-4"><div class="alert alert-danger"><strong>Redditività:</strong> ${redScore}</div></div>
+                <div class="col-md-4"><div class="alert alert-warning"><strong>Solidità:</strong> ${solScore}</div></div>
+                <div class="col-md-4"><div class="alert alert-warning"><strong>Debito:</strong> ${debtScore}</div></div>
+                <div class="col-md-6"><div class="alert alert-warning"><strong>Efficienza:</strong> ${effScore}</div></div>
+                <div class="col-md-6"><div class="alert alert-success"><strong>Liquidità:</strong> ${liqScore}</div></div>
+            </div>`;
     },
-    renderComposition() {
-        const ctx = document.getElementById('irpCompositionChart');
-        if (!ctx) return;
-        if (this.charts.composition) this.charts.composition.destroy();
-        this.charts.composition = new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Solidità (30%)', 'Redditività (25%)', 'Liquidità (25%)', 'Debito (20%)'],
-                datasets: [{
-                    data: [13.5, 8.75, 16.25, 8.0],
-                    backgroundColor: ['#24b47e', '#2196F3', '#FFC107', '#191970']
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { position: 'bottom' } }
-            }
-        });
-        const table = document.getElementById('irpWeightsTable');
-        if (table) {
-            table.innerHTML = '<thead><tr><th>Area</th><th class="text-right">Peso</th><th class="text-right">Contributo</th></tr></thead><tbody><tr><td>Solidità Patrimoniale</td><td class="text-right">30%</td><td class="text-right">13.5</td></tr><tr><td>Redditività</td><td class="text-right">25%</td><td class="text-right">8.8</td></tr><tr><td>Liquidità</td><td class="text-right">25%</td><td class="text-right">16.3</td></tr><tr><td>Sostenibilità Debito</td><td class="text-right">20%</td><td class="text-right">8.0</td></tr><tr><td colspan="3"></td></tr><tr class="table-primary"><td><strong>TOTALE IRP</strong></td><td class="text-right"><strong>100%</strong></td><td class="text-right"><strong>' + (this.data.kpis?.irp?.value || 0).toFixed(1) + '</strong></td></tr></tbody>';
-        }
-    },
-    renderIndicators() {
-        const container = document.getElementById('irpIndicatorsTable');
+    renderCPDetail() {
+        const container = document.getElementById('cpDetail');
         if (!container) return;
-        const indici = this.data.tables?.parte2_economico?.indiciRedditività?.rows || [];
-        const rows = [
-            { area: 'Solidità', indicatore: 'Indipendenza Finanziaria', valore: 'N/A', score: 45, valutazione: 'Critico' },
-            { area: 'Redditività', indicatore: 'ROE', valore: (indici.find(r => r.indice === 'ROE')?.[2024] || 0).toFixed(1) + '%', score: 35, valutazione: 'Critico' },
-            { area: 'Redditività', indicatore: 'ROS', valore: (indici.find(r => r.indice === 'ROS')?.[2024] || 0).toFixed(1) + '%', score: 30, valutazione: 'Critico' },
-            { area: 'Liquidità', indicatore: 'Current Ratio', valore: '3.45', score: 90, valutazione: 'Ottimo' },
-            { area: 'Debito', indicatore: 'D/E', valore: (this.data.kpis?.leverageDE?.displayValue || 'N/A'), score: 30, valutazione: 'Critico' }
-        ];
-        container.innerHTML = '<thead><tr><th>Area</th><th>Indicatore</th><th class="text-right">Valore</th><th class="text-right">Score</th><th class="text-center">Valutazione</th></tr></thead><tbody>' + rows.map(row => '<tr><td>' + row.area + '</td><td>' + row.indicatore + '</td><td class="text-right">' + row.valore + '</td><td class="text-right">' + row.score + '</td><td class="text-center"><span class="badge ' + (row.valutazione === 'Critico' ? 'danger' : row.valutazione === 'Ottimo' ? 'success' : 'warning') + '">' + row.valutazione + '</span></td></tr>').join('') + '</tbody>';
+        const cpExpl = this.data.content?.irp_dettaglio?.cpExplanation || '';
+        container.innerHTML = `<div class="alert alert-light"><strong>Coefficiente di Ponderazione:</strong> ${cpExpl}</div>`;
     },
-    renderTrend() {
-        const ctx = document.getElementById('irpTrendChart');
-        if (!ctx) return;
-        if (this.charts.trend) this.charts.trend.destroy();
-        this.charts.trend = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['2022', '2023', '2024'],
-                datasets: [
-                    { label: 'IRP Complessivo', data: [65, 58, this.data.kpis?.irp?.value || 51], borderColor: '#191970', borderWidth: 3, tension: 0 },
-                    { label: 'Solidità', data: [70, 60, 45], borderColor: '#24b47e', borderWidth: 2, tension: 0 },
-                    { label: 'Redditività', data: [75, 70, 35], borderColor: '#2196F3', borderWidth: 2, tension: 0 },
-                    { label: 'Liquidità', data: [65, 68, 65], borderColor: '#FFC107', borderWidth: 2, tension: 0 }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { position: 'bottom' } },
-                scales: { y: { min: 0, max: 100 } }
-            }
-        });
+    renderLeanusDetail() {
+        const container = document.getElementById('leanusDetail');
+        if (!container) return;
+        const leanusExpl = this.data.content?.irp_dettaglio?.leanusExplanation || '';
+        container.innerHTML = `<div class="alert alert-light"><strong>Leanus Score:</strong> ${leanusExpl}</div>`;
+    },
+    renderMCCDetail() {
+        const container = document.getElementById('mccDetail');
+        if (!container) return;
+        const mccExpl = this.data.content?.irp_dettaglio?.mccExplanation || '';
+        container.innerHTML = `<div class="alert alert-light"><strong>Rating MCC:</strong> ${mccExpl}</div>`;
+    },
+    renderZScoreDetail() {
+        const container = document.getElementById('zscoreDetail');
+        if (!container) return;
+        const zscoreExpl = this.data.content?.irp_dettaglio?.zscoreExplanation || '';
+        container.innerHTML = `<div class="alert alert-light"><strong>Z-Score Altman:</strong> ${zscoreExpl}</div>`;
+    },
+    renderImprovementTargets() {
+        const container = document.getElementById('improvementTargets');
+        if (!container) return;
+        const title = this.data.content?.irp_dettaglio?.improvementTitle || 'Obiettivi';
+        const intro = this.data.content?.irp_dettaglio?.improvementIntro || '';
+        const sixMonth = this.data.content?.irp_dettaglio?.sixMonthTarget || '';
+        const twelveMonth = this.data.content?.irp_dettaglio?.twelveMonthTarget || '';
+        const twentyFourMonth = this.data.content?.irp_dettaglio?.twentyFourMonthTarget || '';
+        const historical = this.data.content?.irp_dettaglio?.historicalTrend || '';
+        const peer = this.data.content?.irp_dettaglio?.peerComparison || '';
+        container.innerHTML = `<div class="content-section"><h3>${title}</h3><p>${intro}</p>
+            <div class="alert alert-danger"><strong>6 mesi:</strong> ${sixMonth}</div>
+            <div class="alert alert-warning"><strong>12 mesi:</strong> ${twelveMonth}</div>
+            <div class="alert alert-info"><strong>24 mesi:</strong> ${twentyFourMonth}</div>
+            <div class="alert alert-light mt-3"><strong>Trend Storico:</strong> ${historical}</div>
+            <div class="alert alert-light mt-2"><strong>Confronto con Peers:</strong> ${peer}</div>
+        </div>`;
     }
 };
 document.addEventListener('DOMContentLoaded', () => { IRPDettaglio.init(); });
