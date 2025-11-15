@@ -1,59 +1,30 @@
 /**
- * SCAN360 Dashboard - Main Application
- * Handles data loading, initialization, and global state
+ * SCAN360 - Main Application
+ * Handles data loading and initialization
  */
 
 const App = {
-    // Global data storage
-    data: {
-        company: null,
-        config: null,
-        kpis: null,
-        content: null,
-        charts: null,
-        tables: null
-    },
-
-    // Loading state
-    isLoading: false,
-    loadingErrors: [],
+    data: {},
 
     /**
      * Initialize application
      */
     async init() {
-        console.log('🚀 Initializing SCAN360 Dashboard...');
-
-        // Check authentication
-        if (!Utils.requireAuth()) {
-            return;
-        }
-
-        // Show loading state
-        this.showLoading();
-
         try {
-            // Load all JSON data in parallel
-            await this.loadAllData();
-
-            // Initialize UI components
-            this.initializeUI();
-
-            // Hide loading state
+            await this.loadData();
+            this.updateHeaderIRP();
+            this.initializeLogout();
             this.hideLoading();
-
-            console.log('✅ SCAN360 Dashboard initialized successfully');
         } catch (error) {
-            console.error('❌ Error initializing dashboard:', error);
-            this.showError('Errore nel caricamento dei dati. Riprova.');
-            this.hideLoading();
+            console.error('Error initializing app:', error);
+            alert('Errore durante il caricamento dei dati. Ricarica la pagina.');
         }
     },
 
     /**
      * Load all JSON data files
      */
-    async loadAllData() {
+    async loadData() {
         const files = [
             { key: 'company', path: 'data/company.json' },
             { key: 'config', path: 'data/config.json' },
@@ -65,234 +36,86 @@ const App = {
 
         const promises = files.map(file =>
             fetch(file.path)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Failed to load ${file.path}`);
-                    }
-                    return response.json();
-                })
+                .then(res => res.json())
                 .then(data => {
                     this.data[file.key] = data;
-                    console.log(`✓ Loaded ${file.key}`);
-                })
-                .catch(error => {
-                    console.error(`✗ Error loading ${file.path}:`, error);
-                    this.loadingErrors.push({ file: file.key, error });
-                    throw error;
                 })
         );
 
         await Promise.all(promises);
-
-        // Store in session for quick access
-        Utils.setSessionData('scan360_data', this.data);
-
-        return this.data;
     },
 
     /**
-     * Get cached data or reload
+     * Get loaded data
      */
     getData() {
-        if (this.data.company) {
-            return this.data;
-        }
-
-        // Try to get from session
-        const cachedData = Utils.getSessionData('scan360_data');
-        if (cachedData) {
-            this.data = cachedData;
-            return this.data;
-        }
-
-        // Otherwise reload
-        console.warn('Data not loaded, reloading...');
-        this.loadAllData();
         return this.data;
     },
 
     /**
-     * Initialize UI components
+     * Update header IRP badge
      */
-    initializeUI() {
-        // Update company info in sidebar
-        this.updateCompanyInfo();
+    updateHeaderIRP() {
+        const irpBadge = document.getElementById('headerIRPBadge');
+        if (!irpBadge) return;
 
-        // Update user info
-        this.updateUserInfo();
+        // Get IRP from content or tables
+        const irpData = this.data.tables?.irp_dettaglio?.irpOverall;
+        if (!irpData) return;
 
-        // Set active navigation
-        this.setActiveNavigation();
+        const score = irpData.score || 0;
+        const category = irpData.category || '';
 
-        // Initialize Lucide icons
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
-        }
-
-        // Setup logout button
-        this.setupLogout();
-
-        // Setup export button
-        this.setupExportButton();
+        irpBadge.innerHTML = `
+            <span>IRP:</span>
+            <span class="irp-badge-score">${score.toFixed(1)}</span>
+            <span class="badge ${Utils.getRiskLevel(score) === 'low' ? 'success' : Utils.getRiskLevel(score) === 'medium' ? 'warning' : 'danger'}" style="background: white; color: var(--primary-color);">
+                ${category}
+            </span>
+        `;
     },
 
     /**
-     * Update company information in sidebar
+     * Initialize logout functionality
      */
-    updateCompanyInfo() {
-        const companyData = this.data.company;
-        if (!companyData) return;
-
-        const companyNameEl = document.querySelector('.company-name');
-        const companyDetailEl = document.querySelector('.company-detail');
-
-        if (companyNameEl) {
-            companyNameEl.textContent = companyData.shortName || companyData.name;
-        }
-
-        if (companyDetailEl) {
-            companyDetailEl.textContent = `Anno fiscale ${companyData.fiscalYear}`;
-        }
-    },
-
-    /**
-     * Update user information in header
-     */
-    updateUserInfo() {
-        const username = Utils.getUsername();
-        const userNameEl = document.querySelector('.user-name');
-        const userAvatarEl = document.querySelector('.user-avatar');
-
-        if (userNameEl) {
-            userNameEl.textContent = username;
-        }
-
-        if (userAvatarEl) {
-            const initials = username.split(' ')
-                .map(n => n[0])
-                .join('')
-                .toUpperCase()
-                .substr(0, 2);
-            userAvatarEl.textContent = initials;
-        }
-    },
-
-    /**
-     * Set active navigation item based on current page
-     */
-    setActiveNavigation() {
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        const navItems = document.querySelectorAll('.nav-item');
-
-        navItems.forEach(item => {
-            const href = item.getAttribute('href');
-            if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-                item.classList.add('active');
-            } else {
-                item.classList.remove('active');
-            }
-        });
-    },
-
-    /**
-     * Setup logout functionality
-     */
-    setupLogout() {
+    initializeLogout() {
         const logoutBtn = document.getElementById('logoutBtn');
         if (logoutBtn) {
-            logoutBtn.addEventListener('click', (e) => {
-                e.preventDefault();
+            logoutBtn.addEventListener('click', () => {
                 if (confirm('Sei sicuro di voler uscire?')) {
-                    Utils.logout();
+                    sessionStorage.clear();
+                    window.location.href = 'login.html';
                 }
             });
         }
     },
 
     /**
-     * Setup export button
-     */
-    setupExportButton() {
-        const exportBtn = document.getElementById('exportPdfBtn');
-        if (exportBtn) {
-            exportBtn.addEventListener('click', async () => {
-                await ExportAPI.generatePDF();
-            });
-        }
-    },
-
-    /**
-     * Show loading state
-     */
-    showLoading() {
-        this.isLoading = true;
-        const loadingEl = document.getElementById('loadingOverlay');
-        if (loadingEl) {
-            loadingEl.style.display = 'flex';
-        }
-    },
-
-    /**
-     * Hide loading state
+     * Hide loading overlay
      */
     hideLoading() {
-        this.isLoading = false;
-        const loadingEl = document.getElementById('loadingOverlay');
-        if (loadingEl) {
-            loadingEl.style.display = 'none';
+        const overlay = document.getElementById('loadingOverlay');
+        if (overlay) {
+            setTimeout(() => {
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                }, 300);
+            }, 200);
         }
     },
 
     /**
-     * Show error message
+     * Show loading overlay
      */
-    showError(message) {
-        Utils.showToast(message, 'error', 5000);
-    },
-
-    /**
-     * Get theme configuration
-     */
-    getTheme() {
-        return this.data.config?.theme || {};
-    },
-
-    /**
-     * Get color from theme
-     */
-    getColor(colorPath) {
-        const theme = this.getTheme();
-        return Utils.getNestedProperty(theme.colors, colorPath);
-    },
-
-    /**
-     * Get benchmark value
-     */
-    getBenchmark(key) {
-        return this.data.config?.benchmarks?.[key];
-    },
-
-    /**
-     * Get threshold value
-     */
-    getThreshold(category, level) {
-        return this.data.config?.thresholds?.[category]?.[level];
-    },
-
-    /**
-     * Get chart options
-     */
-    getChartOptions() {
-        return this.data.config?.chartOptions || {};
+    showLoading() {
+        const overlay = document.getElementById('loadingOverlay');
+        if (overlay) {
+            overlay.style.display = 'flex';
+            overlay.style.opacity = '1';
+        }
     }
 };
-
-// Initialize app when DOM is ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => App.init());
-} else {
-    App.init();
-}
 
 // Export for use in other modules
 if (typeof module !== 'undefined' && module.exports) {
