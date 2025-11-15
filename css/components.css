@@ -295,6 +295,51 @@
     color: var(--color-gray-600);
 }
 
+/* Background highlights for table cells - Modern style with badges */
+.bg-success-light {
+    background-color: #d4edda !important;
+    color: #155724 !important;
+    font-weight: 600;
+    padding: 6px 12px !important;
+    border-radius: 4px;
+    display: inline-block;
+    min-width: 80px;
+    text-align: center;
+}
+
+.bg-warning-light {
+    background-color: #fff3cd !important;
+    color: #856404 !important;
+    font-weight: 600;
+    padding: 6px 12px !important;
+    border-radius: 4px;
+    display: inline-block;
+    min-width: 80px;
+    text-align: center;
+}
+
+.bg-danger-light {
+    background-color: #f8d7da !important;
+    color: #721c24 !important;
+    font-weight: 600;
+    padding: 6px 12px !important;
+    border-radius: 4px;
+    display: inline-block;
+    min-width: 80px;
+    text-align: center;
+}
+
+.bg-info-light {
+    background-color: #d1ecf1 !important;
+    color: #0c5460 !important;
+    font-weight: 600;
+    padding: 6px 12px !important;
+    border-radius: 4px;
+    display: inline-block;
+    min-width: 80px;
+    text-align: center;
+}
+
 /* ============================================
    Charts
    ============================================ */

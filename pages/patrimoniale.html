@@ -200,6 +200,7 @@
     <script src="../js/components/kpi-card.js"></script>
     <script src="../js/components/chart.js"></script>
     <script src="../js/components/table.js"></script>
+    <script src="../js/table-renderer.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', async () => {
@@ -232,6 +233,7 @@
                 const card = createModernKPICard(kpiData);
                 kpiContainer.appendChild(card);
             });
+            lucide.createIcons(); // Render icons after KPI cards
 
             // Charts
             const chartsDiv = document.getElementById('chartsContainer');
@@ -246,16 +248,17 @@
                 ChartComponent.render(chartsDiv, chart.data, chart.title);
             });
 
-            // Tables
-            renderTable('statoPatrimonialeImpieghi', tables.statoPatrimonialeImpieghi);
-            renderTable('statoPatrimonialeFonti', tables.statoPatrimonialeFonti);
-            renderTable('pfn', tables.pfn);
-            renderTable('indiciSolidita', tables.indiciSolidita);
+            // Tables - Use new TableRenderer
+            TableRenderer.render('statoPatrimonialeImpieghi', tables.statoPatrimonialeImpieghi);
+            TableRenderer.render('statoPatrimonialeFonti', tables.statoPatrimonialeFonti);
+            TableRenderer.render('pfn', tables.pfn);
+            TableRenderer.render('indiciSolidita', tables.indiciSolidita);
 
             // Additional notes
             document.getElementById('pfnAnalysis').innerHTML = content.pfnAnalysis;
-            document.getElementById('solidityNote').innerHTML = content.solidityNote + '<br><br>' + content.liquidityNote;
+            document.getElementById('solidityNote').innerHTML = content.solidityNote + '<br><br>' + content.liquidityNote + '<br><br>' + content.debtAnalysis;
 
+            // Final icon rendering
             lucide.createIcons();
         });
 
@@ -296,69 +299,6 @@
             `;
 
             return card;
-        }
-
-        function renderTable(containerId, tableData) {
-            const container = document.getElementById(containerId);
-
-            const html = `
-                <div class="chart-card-modern">
-                    <div class="table-wrapper" style="border: none; box-shadow: none;">
-                        <table class="table-modern">
-                            <thead>
-                                <tr>
-                                    ${tableData.headers.map(h => `<th>${h}</th>`).join('')}
-                                </tr>
-                            </thead>
-                            <tbody>
-                                ${tableData.rows.map(row => {
-                                    const isHighlight = row.highlight || false;
-                                    const rowClass = isHighlight ? 'style="background: var(--color-primary-light); font-weight: 600;"' : '';
-
-                                    const values = Object.keys(row).filter(k => k !== 'highlight').map(key => {
-                                        const value = row[key];
-
-                                        if (key.includes('pct') || key === 'var') {
-                                            if (value === null) return '<td style="text-align: right;">-</td>';
-                                            const formatted = Utils.formatPercent(value);
-                                            const colorClass = value < 0 ? 'text-danger' : value > 0 ? 'text-success' : '';
-                                            return `<td style="text-align: right;"><span class="${colorClass}">${formatted}</span></td>`;
-                                        }
-
-                                        if (typeof value === 'number' && !key.includes('categoria') && !key.includes('componente') && !key.includes('indice')) {
-                                            return `<td style="text-align: right;">${Utils.formatNumber(value, 0)}</td>`;
-                                        }
-
-                                        if (key.includes('valutazione')) {
-                                            const colorMap = {
-                                                'Critico': 'text-danger',
-                                                'Insufficiente': 'text-danger',
-                                                'Sufficiente': 'text-warning',
-                                                'Ottimo': 'text-success',
-                                                'In linea': 'text-success'
-                                            };
-                                            let colorClass = '';
-                                            for (const [keyword, cls] of Object.entries(colorMap)) {
-                                                if (value && value.includes(keyword)) {
-                                                    colorClass = cls;
-                                                    break;
-                                                }
-                                            }
-                                            return `<td><span class="${colorClass}">${value || '-'}</span></td>`;
-                                        }
-
-                                        return `<td>${value !== null && value !== undefined ? value : '-'}</td>`;
-                                    });
-
-                                    return `<tr ${rowClass}>${values.join('')}</tr>`;
-                                }).join('')}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            `;
-
-            container.innerHTML = html;
         }
     </script>
 </body>

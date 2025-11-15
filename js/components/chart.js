@@ -114,8 +114,10 @@ const ChartComponent = {
                 backgroundColor: this.getBackgroundColor(dataset.type || chartData.type, color),
                 borderColor: color,
                 borderWidth: 2,
-                tension: 0.4,
-                fill: dataset.fill !== undefined ? dataset.fill : false
+                tension: 0,  // No curved lines
+                fill: dataset.fill !== undefined ? dataset.fill : false,
+                pointRadius: 3,
+                pointHoverRadius: 5
             };
 
             // Handle mixed charts
@@ -269,10 +271,24 @@ const ChartComponent = {
                         }
                     },
                     grid: {
-                        color: 'rgba(0, 0, 0, 0.1)'
+                        color: 'rgba(0, 0, 0, 0.1)',
+                        circular: false  // Angular grid, not circular
+                    },
+                    pointLabels: {
+                        font: {
+                            size: 11,
+                            weight: '600'
+                        }
                     }
                 }
             };
+        }
+
+        // Pie and Doughnut specific options
+        if (chartData.type === 'pie' || chartData.type === 'doughnut') {
+            options.plugins.legend.position = 'right';
+            options.borderWidth = 0;  // No borders on pie slices
+            options.spacing = 2;
         }
 
         return options;
