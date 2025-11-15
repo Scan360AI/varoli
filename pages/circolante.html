@@ -200,6 +200,7 @@
     <script src="../js/components/kpi-card.js"></script>
     <script src="../js/components/chart.js"></script>
     <script src="../js/components/table.js"></script>
+    <script src="../js/table-renderer.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', async () => {
@@ -247,10 +248,10 @@
             });
 
             // Tables
-            renderTable('trendCicloCircolante', tables.trendCicloCircolante);
-            renderTable('flussiCassa2024', tables.flussiCassa2024);
-            renderTable('proiezioniFinanziarie', tables.proiezioniFinanziarie);
-            renderTable('miglioramentoCircolante', tables.miglioramentoCircolante);
+            TableRenderer.render('trendCicloCircolante', tables.trendCicloCircolante);
+            TableRenderer.render('flussiCassa2024', tables.flussiCassa2024);
+            TableRenderer.render('proiezioniFinanziarie', tables.proiezioniFinanziarie);
+            TableRenderer.render('miglioramentoCircolante', tables.miglioramentoCircolante);
 
             // Additional notes
             document.getElementById('inventoryNote').innerHTML = content.inventoryNote;
@@ -298,7 +299,7 @@
             return card;
         }
 
-        function renderTable(containerId, tableData) {
+        function TableRenderer.render(containerId, tableData) {
             const container = document.getElementById(containerId);
 
             const html = `

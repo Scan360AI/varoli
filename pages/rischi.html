@@ -217,6 +217,7 @@
     <script src="../js/components/kpi-card.js"></script>
     <script src="../js/components/chart.js"></script>
     <script src="../js/components/table.js"></script>
+    <script src="../js/table-renderer.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', async () => {
@@ -246,11 +247,11 @@
             });
 
             // Tables - ALL tables including missing ones
-            renderTable('indicatoriRischio', tables.indicatoriRischio);
-            renderTable('zScoreRating', tables.zScoreRating);
-            renderTable('redFlags', tables.redFlags);
-            renderTable('pianoAzione', tables.pianoAzione);
-            renderTable('dashboardKPI', tables.dashboardKPI);
+            TableRenderer.render('indicatoriRischio', tables.indicatoriRischio);
+            TableRenderer.render('zScoreRating', tables.zScoreRating);
+            TableRenderer.render('redFlags', tables.redFlags);
+            TableRenderer.render('pianoAzione', tables.pianoAzione);
+            TableRenderer.render('dashboardKPI', tables.dashboardKPI);
 
             // Action plan sections
             document.getElementById('urgentActions').innerHTML = content.actionPlan.urgentActions + '<br><br>' + content.actionPlan.shortTerm;
@@ -305,7 +306,7 @@
             lucide.createIcons();
         }
 
-        function renderTable(containerId, tableData) {
+        function TableRenderer.render(containerId, tableData) {
             const container = document.getElementById(containerId);
 
             const html = `

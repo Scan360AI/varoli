@@ -189,6 +189,7 @@
     <script src="../js/components/kpi-card.js"></script>
     <script src="../js/components/chart.js"></script>
     <script src="../js/components/table.js"></script>
+    <script src="../js/table-renderer.js"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', async () => {
@@ -234,9 +235,9 @@
             });
 
             // Tables
-            renderTable('valutazioneBancabilita', tables.valutazioneBancabilita);
-            renderTable('sostenibilitaDebito', tables.sostenibilitaDebito);
-            renderTable('cciiIndicators', tables.cciiIndicators);
+            TableRenderer.render('valutazioneBancabilita', tables.valutazioneBancabilita);
+            TableRenderer.render('sostenibilitaDebito', tables.sostenibilitaDebito);
+            TableRenderer.render('cciiIndicators', tables.cciiIndicators);
 
             // Additional notes
             document.getElementById('pfnEbitdaNote').innerHTML = content.pfnEbitdaNote + '<br><br>' + content.interestCoverageNote + '<br><br>' + content.creditRatingNote;
@@ -284,7 +285,7 @@
             return card;
         }
 
-        function renderTable(containerId, tableData) {
+        function TableRenderer.render(containerId, tableData) {
             const container = document.getElementById(containerId);
 
             const html = `
