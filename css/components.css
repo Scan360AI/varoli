@@ -659,3 +659,127 @@ td.text-center {
         transform: rotate(360deg);
     }
 }
+
+/* KPI Card V2 - Dashboard Style */
+.kpi-card-v2 {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--primary);
+    position: relative;
+    height: 100%;
+    transition: all 0.2s ease;
+}
+
+.kpi-card-v2:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.kpi-card-v2.border-left-danger {
+    border-left-color: var(--danger);
+}
+
+.kpi-card-v2.border-left-success {
+    border-left-color: var(--success);
+}
+
+.kpi-card-v2.border-left-warning {
+    border-left-color: var(--warning);
+}
+
+.kpi-card-v2.border-left-info {
+    border-left-color: var(--info);
+}
+
+.kpi-icon-modern-bg {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 32px;
+    opacity: 0.1;
+    color: var(--text-primary);
+}
+
+.card-title-modern {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.kpi-value-modern {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+    line-height: 1;
+}
+
+.kpi-trend-modern {
+    margin-bottom: var(--space-sm);
+    font-size: 14px;
+}
+
+.kpi-trend-modern .trend-icon {
+    margin-right: var(--space-xs);
+}
+
+.kpi-trend-modern.trend-up .trend-icon {
+    color: var(--success);
+}
+
+.kpi-trend-modern.trend-down .trend-icon {
+    color: var(--danger);
+}
+
+.kpi-trend-modern .trend-value {
+    font-weight: 600;
+}
+
+.kpi-description-modern {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-sm);
+    line-height: 1.4;
+}
+
+/* Status Badges */
+.status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.status-badge.bg-danger {
+    background-color: var(--danger);
+    color: white;
+}
+
+.status-badge.bg-success {
+    background-color: var(--success);
+    color: white;
+}
+
+.status-badge.bg-warning {
+    background-color: var(--warning);
+    color: var(--text-primary);
+}
+
+.status-badge.bg-info {
+    background-color: var(--info);
+    color: white;
+}
+
+/* Button Pill */
+.btn-pill {
+    border-radius: 20px;
+}
+

@@ -158,10 +158,44 @@
                     <div class="section-header">
                         <h2 class="section-title">
                             <i class="fas fa-tachometer-alt"></i>
-                            Indicatori Principali
+                            Panoramica KPI
                         </h2>
                     </div>
-                    <div class="grid-4" id="dashboardKPIs"></div>
+                    <div class="row" id="dashboardKPIs"></div>
+                </div>
+
+                <!-- Grafici Chiave -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-chart-pie"></i>
+                            Grafici Chiave
+                        </h2>
+                    </div>
+                    <div class="row">
+                        <!-- Grafico 1: Trend Economico -->
+                        <div class="col-lg-6 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title text-center mb-4">Trend Ricavi, EBITDA e Margine</h6>
+                                    <div class="chart-container" style="height: 300px;">
+                                        <canvas id="trendChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Grafico 2: PFN/EBITDA -->
+                        <div class="col-lg-6 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title text-center mb-4">Sostenibilità Debito (PFN/EBITDA)</h6>
+                                    <div class="chart-container" style="height: 300px;">
+                                        <canvas id="pfnChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- IRP Section -->
