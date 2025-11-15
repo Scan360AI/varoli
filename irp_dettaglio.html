@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dettaglio IRP - SCAN360</title>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/img/logo_scan.png" alt="SCAN360" class="sidebar-logo">
+                <div class="company-info">
+                    <div class="company-name">VAROLI</div>
+                    <div class="company-detail">Anno fiscale 2024</div>
+                </div>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-title">Dashboard</div>
+                    <a href="dashboard_v2.html" class="nav-item"><i class="fas fa-home"></i><span>Dashboard</span></a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-title">Analisi Finanziaria</div>
+                    <a href="parte1_sintesi.html" class="nav-item"><i class="fas fa-chart-pie"></i><span>Sintesi e Profilo</span></a>
+                    <a href="parte2_economico.html" class="nav-item"><i class="fas fa-chart-line"></i><span>Analisi Economica</span></a>
+                    <a href="parte3_patrimoniale.html" class="nav-item"><i class="fas fa-balance-scale"></i><span>Analisi Patrimoniale</span></a>
+                    <a href="parte4_bancabilita.html" class="nav-item"><i class="fas fa-university"></i><span>Bancabilità</span></a>
+                    <a href="parte5_circolante_flussi.html" class="nav-item"><i class="fas fa-sync-alt"></i><span>Circolante e Flussi</span></a>
+                    <a href="parte6_rischi-raccomandazioni.html" class="nav-item"><i class="fas fa-exclamation-triangle"></i><span>Rischi e Azioni</span></a>
+                </div>
+                <div class="nav-section">
+                    <div class="nav-title">Approfondimenti</div>
+                    <a href="irp_dettaglio.html" class="nav-item active"><i class="fas fa-chart-bar"></i><span>Dettaglio IRP</span></a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">© 2024 SCAN360<br>Powered by <a href="http://www.kitzanos.com" target="_blank">Kitzanos Lab</a></div>
+        </aside>
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-title">
+                    <h1>Dettaglio Indice di Rischio Ponderato (IRP)</h1>
+                    <div class="header-subtitle"><span>VAROLI GUIDO E FIGLIO S.R.L.</span> • <span>Dicembre 2024</span></div>
+                </div>
+                <div class="header-actions">
+                    <div class="irp-badge" id="headerIRPBadge"><span>IRP:</span><span class="irp-badge-score">78.5</span><span class="badge success">B</span></div>
+                    <button class="btn-print" onclick="window.print()"><i class="fas fa-print"></i><span>Stampa</span></button>
+                    <div class="user-dropdown"><div class="user-trigger"><div class="user-avatar">AD</div><span class="user-name">Admin</span></div></div>
+                    <button id="logoutBtn" class="btn btn-sm btn-outline-secondary"><i class="fas fa-sign-out-alt"></i></button>
+                </div>
+            </header>
+            <div class="content-wrapper">
+                <div class="content-section">
+                    <div class="irp-visual-section" id="irpMainSection">
+                        <div class="row align-items-center">
+                            <div class="col-md-4 text-center">
+                                <div class="irp-score-circle" id="irpMainCircle">
+                                    <div class="irp-score-value" id="irpMainValue">78.5</div>
+                                    <div class="irp-score-max">/ 100</div>
+                                </div>
+                                <div class="mt-3">
+                                    <span class="badge" id="irpMainBadge">Categoria B</span>
+                                    <div class="mt-2 text-muted" id="irpMainRisk">Rischio Moderato-Basso</div>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <h3 style="margin-bottom: 1rem;">Sintesi IRP</h3>
+                                <div class="irp-gradient-bar"><div class="irp-marker" id="irpMainMarker"></div></div>
+                                <div class="irp-scale-labels"><span>0</span><span>50</span><span>75</span><span>100</span></div>
+                                <p class="mt-3" style="font-size: 14px; line-height: 1.6;" id="irpMainNarrative"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title"><i class="fas fa-layer-group"></i>Componenti IRP</h2>
+                        <div class="section-description">Breakdown dettagliato delle 4 aree di valutazione</div>
+                    </div>
+                    <div class="grid-4" id="irpComponentsGrid"></div>
+                </div>
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title"><i class="fas fa-chart-pie"></i>Distribuzione Pesi per Area</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="chart-container">
+                                <div class="chart-header">
+                                    <div class="chart-title">Composizione IRP per Area</div>
+                                </div>
+                                <div class="chart-wrapper small">
+                                    <canvas id="irpCompositionChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="table-wrapper">
+                                <table id="irpWeightsTable"></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title"><i class="fas fa-list-alt"></i>Dettaglio Indicatori</h2>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="irpIndicatorsTable"></table>
+                    </div>
+                </div>
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title"><i class="fas fa-chart-line"></i>Evoluzione IRP</h2>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <div class="chart-title">Trend IRP 2022-2024</div>
+                            <div class="chart-subtitle">Score complessivo e per componente</div>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="irpTrendChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="main-footer">© 2024 SCAN360 Financial Dashboard • Powered by <a href="http://www.kitzanos.com" target="_blank">Kitzanos Lab</a></footer>
+        </main>
+    </div>
+    <div id="loadingOverlay" style="display: flex; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(255,255,255,0.95); z-index: 9999; align-items: center; justify-content: center; flex-direction: column;">
+        <div class="loading"></div>
+        <div style="margin-top: 16px; font-size: 14px; color: var(--text-secondary);">Caricamento dati...</div>
+    </div>
+    <script src="js/utils.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/TableRenderer.js"></script>
+    <script src="js/irp_dettaglio.js"></script>
+</body>
+</html>
