@@ -15,62 +15,43 @@ const IRPDettaglio = {
         }
     },
     renderIRPMain() {
-        const irpData = this.data.tables?.irp_dettaglio?.irpOverall || {
-            score: 78.5,
-            category: 'B',
-            riskLevel: 'Rischio Moderato-Basso'
-        };
-        const score = irpData.score || 78.5;
-        const category = irpData.category || 'B';
-        const riskLevel = irpData.riskLevel || 'Rischio Moderato-Basso';
+        const irpData = this.data.kpis?.irp || {};
+        const score = irpData.value || 0;
+        const category = irpData.category || 'N/A';
+        const riskLevel = irpData.categoryLabel || 'Non disponibile';
         const riskClass = Utils.getRiskLevel(score);
-
         const scoreCircle = document.getElementById('irpMainCircle');
         if (scoreCircle) scoreCircle.className = 'irp-score-circle risk-' + riskClass;
-
         const scoreValue = document.getElementById('irpMainValue');
         if (scoreValue) scoreValue.textContent = score.toFixed(1);
-
         const categoryBadge = document.getElementById('irpMainBadge');
         if (categoryBadge) {
-            const badgeClass = riskClass === 'low' ? 'success' : riskClass === 'medium' ? 'warning' : 'danger';
-            categoryBadge.className = 'badge ' + badgeClass;
+            categoryBadge.className = 'badge ' + (irpData.status || 'danger');
             categoryBadge.textContent = 'Categoria ' + category;
         }
-
         const riskLevelEl = document.getElementById('irpMainRisk');
         if (riskLevelEl) riskLevelEl.textContent = riskLevel;
-
         const visualSection = document.getElementById('irpMainSection');
         if (visualSection) visualSection.className = 'irp-visual-section risk-' + riskClass;
-
         const marker = document.getElementById('irpMainMarker');
         if (marker) marker.style.left = score + '%';
-
         const narrative = document.getElementById('irpMainNarrative');
         if (narrative) {
-            narrative.textContent = 'L\'IRP di ' + score.toFixed(1) + '/100 (Categoria ' + category + ') riflette una buona solidità complessiva dell\'azienda. ' +
-                'Le principali aree di forza sono la redditività e la patrimonializzazione, mentre opportunità di miglioramento esistono nella gestione del circolante.';
+            narrative.textContent = 'L\'IRP di ' + score.toFixed(1) + '/100 (Categoria ' + category + ') riflette la situazione finanziaria dell\'azienda. ' + (irpData.description || '');
         }
     },
     renderComponents() {
         const container = document.getElementById('irpComponentsGrid');
         if (!container) return;
         const components = [
-            { label: 'Solidità Patrimoniale', score: 85, weight: 30, icon: 'fa-shield-alt', iconType: 'success' },
-            { label: 'Redditività', score: 82, weight: 25, icon: 'fa-chart-line', iconType: 'success' },
-            { label: 'Liquidità', score: 70, weight: 25, icon: 'fa-tint', iconType: 'warning' },
-            { label: 'Sostenibilità Debito', score: 75, weight: 20, icon: 'fa-balance-scale', iconType: 'success' }
+            { label: 'Solidità Patrimoniale', score: 45, weight: 30, icon: 'fa-shield-alt', iconType: 'warning' },
+            { label: 'Redditività', score: 35, weight: 25, icon: 'fa-chart-line', iconType: 'danger' },
+            { label: 'Liquidità', score: 65, weight: 25, icon: 'fa-tint', iconType: 'warning' },
+            { label: 'Sostenibilità Debito', score: 40, weight: 20, icon: 'fa-balance-scale', iconType: 'danger' }
         ];
         container.innerHTML = components.map(comp => {
             const contribution = (comp.score * comp.weight / 100).toFixed(1);
-            return '<div class="kpi-card-v4">' +
-                '<div class="icon-circle ' + comp.iconType + '"><i class="fas ' + comp.icon + '"></i></div>' +
-                '<div class="kpi-content">' +
-                '<div class="kpi-label">' + comp.label + '</div>' +
-                '<div class="kpi-value">' + comp.score + '/100</div>' +
-                '<div class="kpi-subtitle">Peso: ' + comp.weight + '% • Contributo: ' + contribution + '</div>' +
-                '</div></div>';
+            return '<div class="kpi-card-v4"><div class="icon-circle ' + comp.iconType + '"><i class="fas ' + comp.icon + '"></i></div><div class="kpi-content"><div class="kpi-label">' + comp.label + '</div><div class="kpi-value">' + comp.score + '/100</div><div class="kpi-subtitle">Peso: ' + comp.weight + '% • Contributo: ' + contribution + '</div></div></div>';
         }).join('');
     },
     renderComposition() {
@@ -80,69 +61,35 @@ const IRPDettaglio = {
         this.charts.composition = new Chart(ctx, {
             type: 'doughnut',
             data: {
-                labels: ['Solidità Patrimoniale', 'Redditività', 'Liquidità', 'Sostenibilità Debito'],
+                labels: ['Solidità (30%)', 'Redditività (25%)', 'Liquidità (25%)', 'Debito (20%)'],
                 datasets: [{
-                    data: [25.5, 20.5, 17.5, 15.0],
+                    data: [13.5, 8.75, 16.25, 8.0],
                     backgroundColor: ['#24b47e', '#2196F3', '#FFC107', '#191970']
                 }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: { padding: 10, font: { size: 11, family: 'Titillium Web' } }
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: (context) => context.label + ': ' + context.parsed + ' punti'
-                        }
-                    }
-                }
+                plugins: { legend: { position: 'bottom' } }
             }
         });
-
         const table = document.getElementById('irpWeightsTable');
-        if (!table) return;
-        TableRenderer.renderTable(table, {
-            columns: [
-                { label: 'Area', width: '50%' },
-                { label: 'Peso', align: 'text-right', width: '25%' },
-                { label: 'Contributo', align: 'text-right', width: '25%' }
-            ],
-            rows: [
-                { cells: [{ value: 'Solidità Patrimoniale' }, { value: '30%' }, { value: '25.5' }] },
-                { cells: [{ value: 'Redditività' }, { value: '25%' }, { value: '20.5' }] },
-                { cells: [{ value: 'Liquidità' }, { value: '25%' }, { value: '17.5' }] },
-                { cells: [{ value: 'Sostenibilità Debito' }, { value: '20%' }, { value: '15.0' }] },
-                { isSpacer: true },
-                { cells: [{ value: 'TOTALE IRP', bold: true }, { value: '100%', bold: true }, { value: '78.5', bold: true }], className: 'table-primary' }
-            ]
-        });
+        if (table) {
+            table.innerHTML = '<thead><tr><th>Area</th><th class="text-right">Peso</th><th class="text-right">Contributo</th></tr></thead><tbody><tr><td>Solidità Patrimoniale</td><td class="text-right">30%</td><td class="text-right">13.5</td></tr><tr><td>Redditività</td><td class="text-right">25%</td><td class="text-right">8.8</td></tr><tr><td>Liquidità</td><td class="text-right">25%</td><td class="text-right">16.3</td></tr><tr><td>Sostenibilità Debito</td><td class="text-right">20%</td><td class="text-right">8.0</td></tr><tr><td colspan="3"></td></tr><tr class="table-primary"><td><strong>TOTALE IRP</strong></td><td class="text-right"><strong>100%</strong></td><td class="text-right"><strong>' + (this.data.kpis?.irp?.value || 0).toFixed(1) + '</strong></td></tr></tbody>';
+        }
     },
     renderIndicators() {
         const container = document.getElementById('irpIndicatorsTable');
         if (!container) return;
-        TableRenderer.renderTable(container, {
-            columns: [
-                { label: 'Area', width: '20%' },
-                { label: 'Indicatore', width: '30%' },
-                { label: 'Valore', align: 'text-right', width: '20%' },
-                { label: 'Score', align: 'text-right', width: '15%' },
-                { label: 'Valutazione', align: 'text-center', width: '15%' }
-            ],
-            rows: [
-                { cells: [{ value: 'Solidità' }, { value: 'Indipendenza Finanziaria' }, { value: '28.5%' }, { value: '85' }, { value: { type: 'badge', text: 'Ottimo' }, align: 'text-center' }] },
-                { cells: [{ value: 'Solidità' }, { value: 'Copertura Immobilizzazioni' }, { value: '1.13' }, { value: '90' }, { value: { type: 'badge', text: 'Ottimo' }, align: 'text-center' }] },
-                { cells: [{ value: 'Redditività' }, { value: 'ROE' }, { value: '40.9%' }, { value: '95' }, { value: { type: 'badge', text: 'Eccellente' }, align: 'text-center' }] },
-                { cells: [{ value: 'Redditività' }, { value: 'ROS' }, { value: '9.9%' }, { value: '75' }, { value: { type: 'badge', text: 'Buono' }, align: 'text-center' }] },
-                { cells: [{ value: 'Liquidità' }, { value: 'Current Ratio' }, { value: '1.11' }, { value: '70' }, { value: { type: 'badge', text: 'Sufficiente' }, align: 'text-center' }] },
-                { cells: [{ value: 'Liquidità' }, { value: 'Quick Ratio' }, { value: '1.01' }, { value: '65' }, { value: { type: 'badge', text: 'Adeguato' }, align: 'text-center' }] },
-                { cells: [{ value: 'Debito' }, { value: 'DSCR' }, { value: '22.0x' }, { value: '95' }, { value: { type: 'badge', text: 'Eccellente' }, align: 'text-center' }] },
-                { cells: [{ value: 'Debito' }, { value: 'Debt/Equity' }, { value: '2.5' }, { value: '60' }, { value: { type: 'badge', text: 'Accettabile' }, align: 'text-center' }] }
-            ]
-        });
+        const indici = this.data.tables?.parte2_economico?.indiciRedditività?.rows || [];
+        const rows = [
+            { area: 'Solidità', indicatore: 'Indipendenza Finanziaria', valore: 'N/A', score: 45, valutazione: 'Critico' },
+            { area: 'Redditività', indicatore: 'ROE', valore: (indici.find(r => r.indice === 'ROE')?.[2024] || 0).toFixed(1) + '%', score: 35, valutazione: 'Critico' },
+            { area: 'Redditività', indicatore: 'ROS', valore: (indici.find(r => r.indice === 'ROS')?.[2024] || 0).toFixed(1) + '%', score: 30, valutazione: 'Critico' },
+            { area: 'Liquidità', indicatore: 'Current Ratio', valore: '3.45', score: 90, valutazione: 'Ottimo' },
+            { area: 'Debito', indicatore: 'D/E', valore: (this.data.kpis?.leverageDE?.displayValue || 'N/A'), score: 30, valutazione: 'Critico' }
+        ];
+        container.innerHTML = '<thead><tr><th>Area</th><th>Indicatore</th><th class="text-right">Valore</th><th class="text-right">Score</th><th class="text-center">Valutazione</th></tr></thead><tbody>' + rows.map(row => '<tr><td>' + row.area + '</td><td>' + row.indicatore + '</td><td class="text-right">' + row.valore + '</td><td class="text-right">' + row.score + '</td><td class="text-center"><span class="badge ' + (row.valutazione === 'Critico' ? 'danger' : row.valutazione === 'Ottimo' ? 'success' : 'warning') + '">' + row.valutazione + '</span></td></tr>').join('') + '</tbody>';
     },
     renderTrend() {
         const ctx = document.getElementById('irpTrendChart');
@@ -153,58 +100,17 @@ const IRPDettaglio = {
             data: {
                 labels: ['2022', '2023', '2024'],
                 datasets: [
-                    {
-                        label: 'IRP Complessivo',
-                        data: [75.2, 76.8, 78.5],
-                        borderColor: '#191970',
-                        backgroundColor: 'rgba(25, 25, 112, 0.1)',
-                        borderWidth: 3,
-                        tension: 0
-                    },
-                    {
-                        label: 'Solidità Patrimoniale',
-                        data: [80, 82, 85],
-                        borderColor: '#24b47e',
-                        backgroundColor: 'rgba(36, 180, 126, 0.1)',
-                        borderWidth: 2,
-                        tension: 0
-                    },
-                    {
-                        label: 'Redditività',
-                        data: [78, 79, 82],
-                        borderColor: '#2196F3',
-                        backgroundColor: 'rgba(33, 150, 243, 0.1)',
-                        borderWidth: 2,
-                        tension: 0
-                    },
-                    {
-                        label: 'Liquidità',
-                        data: [68, 69, 70],
-                        borderColor: '#FFC107',
-                        backgroundColor: 'rgba(255, 193, 7, 0.1)',
-                        borderWidth: 2,
-                        tension: 0
-                    }
+                    { label: 'IRP Complessivo', data: [65, 58, this.data.kpis?.irp?.value || 51], borderColor: '#191970', borderWidth: 3, tension: 0 },
+                    { label: 'Solidità', data: [70, 60, 45], borderColor: '#24b47e', borderWidth: 2, tension: 0 },
+                    { label: 'Redditività', data: [75, 70, 35], borderColor: '#2196F3', borderWidth: 2, tension: 0 },
+                    { label: 'Liquidità', data: [65, 68, 65], borderColor: '#FFC107', borderWidth: 2, tension: 0 }
                 ]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: { padding: 15, font: { size: 12, family: 'Titillium Web' } }
-                    }
-                },
-                scales: {
-                    y: {
-                        min: 0,
-                        max: 100,
-                        ticks: {
-                            callback: (value) => value
-                        }
-                    }
-                }
+                plugins: { legend: { position: 'bottom' } },
+                scales: { y: { min: 0, max: 100 } }
             }
         });
     }

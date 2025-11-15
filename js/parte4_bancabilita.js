@@ -14,56 +14,35 @@ const Parte4Bancabilita = {
     renderMerito() {
         const container = document.getElementById('meritoGrid');
         if (!container) return;
-        const kpis = [
-            { label: 'Leanus Score', value: '6.8/10', icon: 'fa-star', iconType: 'success', trend: '+0.3', trendType: 'positive' },
-            { label: 'Rating MCC', value: 'BB+', icon: 'fa-award', iconType: 'success', trend: 'Stabile', trendType: 'neutral' },
-            { label: 'Business Category', value: 'Standard', icon: 'fa-building', iconType: 'info', trend: '-', trendType: 'neutral' },
-            { label: 'Affidabilità', value: 'Alta', icon: 'fa-shield-alt', iconType: 'success', trend: 'Migliorata', trendType: 'positive' }
+        const kpis = this.data.kpis || {};
+        const supportInd = this.data.tables?.parte1_sintesi?.supportIndicators?.rows || [];
+        const kpiConfigs = [
+            { label: kpis.leanusScore?.title || 'Leanus Score', value: kpis.leanusScore?.displayValue || 'N/A', icon: 'fa-star', iconType: kpis.leanusScore?.status || 'warning' },
+            { label: 'Rating MCC', value: supportInd.find(r => r.indicator === 'Rating MCC')?.value || 'n.d.', icon: 'fa-award', iconType: supportInd.find(r => r.indicator === 'Rating MCC')?.badgeColor || 'warning' },
+            { label: 'Business Category', value: kpis.leanusScore?.metadata?.category || 'N/A', icon: 'fa-building', iconType: 'info' },
+            { label: 'IRP', value: kpis.irp?.category || 'N/A', icon: 'fa-shield-alt', iconType: kpis.irp?.status || 'danger' }
         ];
-        container.innerHTML = kpis.map(kpi => `
-            <div class="kpi-card-v4">
-                <div class="icon-circle ${kpi.iconType}"><i class="fas ${kpi.icon}"></i></div>
-                <div class="kpi-content">
-                    <div class="kpi-label">${kpi.label}</div>
-                    <div class="kpi-value">${kpi.value}</div>
-                    <div class="kpi-trend ${kpi.trendType}"><i class="fas fa-arrow-${kpi.trendType === 'positive' ? 'up' : 'minus'}"></i><span>${kpi.trend}</span></div>
-                </div>
-            </div>
-        `).join('');
+        container.innerHTML = kpiConfigs.map(kpi => '<div class="kpi-card-v4"><div class="icon-circle ' + kpi.iconType + '"><i class="fas ' + kpi.icon + '"></i></div><div class="kpi-content"><div class="kpi-label">' + kpi.label + '</div><div class="kpi-value">' + kpi.value + '</div></div></div>').join('');
     },
     renderDSCR() {
         const container = document.getElementById('dscrTable');
         if (!container) return;
-        TableRenderer.renderTable(container, {
-            columns: [
-                { label: 'Anno', width: '25%' },
-                { label: 'EBITDA', align: 'text-right', width: '25%' },
-                { label: 'Oneri Finanziari', align: 'text-right', width: '25%' },
-                { label: 'DSCR', align: 'text-right', width: '25%' }
-            ],
-            rows: [
-                { cells: [{ value: '2024' }, { value: 135910, type: 'currency' }, { value: 6180, type: 'currency' }, { value: '22,0x', bold: true }], className: 'table-success' },
-                { cells: [{ value: '2023' }, { value: 134040, type: 'currency' }, { value: 60814, type: 'currency' }, { value: '2,2x' }] },
-                { cells: [{ value: '2022' }, { value: 131786, type: 'currency' }, { value: 59882, type: 'currency' }, { value: '2,2x' }] }
-            ]
-        });
+        const dscrData = this.data.tables?.parte4_bancabilita?.dscr;
+        if (dscrData) {
+            TableRenderer.renderTable(container, dscrData);
+        } else {
+            container.innerHTML = '<thead><tr><th>Anno</th><th class="text-right">EBITDA</th><th class="text-right">Oneri Finanziari</th><th class="text-right">DSCR</th></tr></thead><tbody><tr><td>2024</td><td class="text-right">€-44K</td><td class="text-right">€66K</td><td class="text-right text-danger"><strong>N/A</strong></td></tr><tr><td>2023</td><td class="text-right">€213K</td><td class="text-right">€39K</td><td class="text-right">5.4x</td></tr></tbody>';
+        }
     },
     renderRating() {
         const container = document.getElementById('ratingGrid');
         if (!container) return;
         const ratings = [
-            { title: 'Rating Altman Z-Score', icon: 'fa-chart-line', score: '3.85', status: 'Zona Sicura', statusClass: 'success', description: 'Basso rischio fallimento' },
-            { title: 'Rating Cerved', icon: 'fa-certificate', score: 'B1.2', status: 'Affidabile', statusClass: 'success', description: 'Rischio di credito contenuto' },
-            { title: 'Rating Basel III', icon: 'fa-university', score: 'BBB', status: 'Investment Grade', statusClass: 'info', description: 'Buona qualità creditizia' }
+            { title: 'Altman Z-Score', score: this.data.tables?.parte1_sintesi?.supportIndicators?.rows?.find(r => r.indicator === 'Z-Score')?.value || 'n.d.', status: 'Zona Grigia', statusClass: 'warning', description: 'Monitoraggio necessario' },
+            { title: 'Rating Cerved', score: 'N/A', status: 'Non disponibile', statusClass: 'warning', description: 'Richiede valutazione' },
+            { title: 'IRP Category', score: this.data.kpis?.irp?.category || 'N/A', status: this.data.kpis?.irp?.categoryLabel || 'N/A', statusClass: this.data.kpis?.irp?.status || 'danger', description: this.data.kpis?.irp?.description || '-' }
         ];
-        container.innerHTML = ratings.map(rating => `
-            <div class="profile-section-restored">
-                <div class="profile-section-title"><i class="fas ${rating.icon}"></i>${rating.title}</div>
-                <div class="profile-item"><div class="profile-label">Score</div><div class="profile-value" style="font-size: 24px; font-weight: 700; color: var(--primary-color);">${rating.score}</div></div>
-                <div class="profile-item"><div class="profile-label">Stato</div><div class="profile-value"><span class="badge ${rating.statusClass}">${rating.status}</span></div></div>
-                <div class="profile-item"><div class="profile-label">Descrizione</div><div class="profile-value">${rating.description}</div></div>
-            </div>
-        `).join('');
+        container.innerHTML = ratings.map(rating => '<div class="profile-section-restored"><div class="profile-section-title"><i class="fas fa-certificate"></i>' + rating.title + '</div><div class="profile-item"><div class="profile-label">Score</div><div class="profile-value" style="font-size: 24px; font-weight: 700; color: var(--primary-color);">' + rating.score + '</div></div><div class="profile-item"><div class="profile-label">Stato</div><div class="profile-value"><span class="badge ' + rating.statusClass + '">' + rating.status + '</span></div></div><div class="profile-item"><div class="profile-label">Descrizione</div><div class="profile-value">' + rating.description + '</div></div></div>').join('');
     }
 };
 document.addEventListener('DOMContentLoaded', () => { Parte4Bancabilita.init(); });
