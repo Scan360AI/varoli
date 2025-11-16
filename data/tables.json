@@ -109,6 +109,23 @@
           "badgeClass": "bg-warning text-dark"
         }
       ]
+    },
+    "companyProfile": {
+      "anagrafica": [
+        {"label": "Rag. Sociale", "value": "VAROLI GUIDO E FIGLIO S.R.L.", "icon": "fa-id-card"},
+        {"label": "ATECO", "value": "46.83.10 - Commercio all'ingrosso di legname", "icon": "fa-barcode"},
+        {"label": "Fondazione", "value": "1985", "icon": "fa-calendar-alt"},
+        {"label": "Sede", "value": "San Sperate (SU), Sardegna", "icon": "fa-map-marker-alt"},
+        {"label": "Settore", "value": "Commercio all'ingrosso di legname", "icon": "fa-industry"},
+        {"label": "Dimensione", "value": "Piccola Impresa", "icon": "fa-expand-arrows-alt"}
+      ],
+      "struttura": [
+        {"label": "Dipendenti", "value": "9", "icon": "fa-users"},
+        {"label": "Costo Personale", "value": "€267.333 (9,38% Ricavi)", "icon": "fa-money-bill-wave"},
+        {"label": "Modello di business", "value": "Trader", "icon": "fa-sitemap"},
+        {"label": "Capitale sociale", "value": "n.d.", "icon": "fa-chart-pie"},
+        {"label": "Composizione patrimoniale", "value": "Azionariato composto esclusivamente da persone fisiche (3 soci)", "icon": "fa-link"}
+      ]
     }
   },
   "parte2_economico": {
