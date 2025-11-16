@@ -62,20 +62,70 @@
                 <!-- Cash Cycle Alert -->
                 <div id="cashCycleAlert"></div>
 
+                <!-- Working Capital Cycle Chart -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title"><i class="fas fa-sync-alt"></i>Ciclo del Capitale Circolante</h2>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <div class="chart-title">Ciclo Capitale Circolante vs Benchmark</div>
+                            <div class="chart-subtitle">Giorni - VAROLI vs Settore</div>
+                        </div>
+                        <div class="chart-wrapper"><canvas id="workingCapitalCycleChart"></canvas></div>
+                    </div>
+                </div>
+
                 <!-- Working Capital Analysis -->
                 <div id="workingCapitalAnalysis"></div>
 
-                <!-- Cycle Components -->
-                <div class="grid-3" id="cycleComponentsGrid"></div>
+                <!-- Cycle Components KPI Cards -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title"><i class="fas fa-clock"></i>Componenti del Ciclo</h2>
+                    </div>
+                    <div class="grid-3" id="cycleComponentsGrid"></div>
+                </div>
 
                 <!-- Inventory Analysis -->
                 <div id="inventoryAnalysis"></div>
 
+                <!-- Receivables Analysis -->
+                <div id="receivablesAnalysis"></div>
+
                 <!-- Payables Analysis -->
                 <div id="payablesAnalysis"></div>
 
+                <!-- Cash Flow Trend Chart -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title"><i class="fas fa-chart-line"></i>Trend Flussi di Cassa</h2>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <div class="chart-title">Evoluzione Flussi di Cassa 2022-2024</div>
+                            <div class="chart-subtitle">Valori in Euro</div>
+                        </div>
+                        <div class="chart-wrapper"><canvas id="cashFlowTrendChart"></canvas></div>
+                    </div>
+                </div>
+
                 <!-- Cash Flow Analysis -->
                 <div id="cashFlowAnalysis"></div>
+
+                <!-- Cash Flow Projection Chart -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title"><i class="fas fa-crystal-ball"></i>Proiezioni Finanziarie</h2>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <div class="chart-title">Proiezioni Cash Flow e Liquidità 2025-2028</div>
+                            <div class="chart-subtitle">Piano Inerziale</div>
+                        </div>
+                        <div class="chart-wrapper"><canvas id="cashFlowProjectionChart"></canvas></div>
+                    </div>
+                </div>
 
                 <!-- Optimization Strategies -->
                 <div id="optimizationStrategies"></div>
@@ -99,9 +149,9 @@
                     <div class="chart-container">
                         <div class="chart-header">
                             <div class="chart-title">Cash Flow Waterfall 2024</div>
-                            <div class="chart-subtitle">Flussi di cassa per area (in migliaia di Euro)</div>
+                            <div class="chart-subtitle">Da EBITDA a Variazione Netta Cassa (€)</div>
                         </div>
-                        <div class="chart-wrapper"><canvas id="cashFlowChart"></canvas></div>
+                        <div class="chart-wrapper"><canvas id="cashFlowWaterfallChart"></canvas></div>
                     </div>
                 </div>
             </div>
