@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAROLI GUIDO E FIGLIO S.R.L. - SCAN360</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="text-center mb-5">
+                    <img src="assets/img/logo_scan.png" alt="SCAN Logo" style="max-height: 80px;" class="mb-3">
+                    <h1 class="mb-2">VAROLI GUIDO E FIGLIO S.R.L.</h1>
+                    <h4 class="text-muted">Analisi Finanziaria SCAN360</h4>
+                    <p class="text-muted small">Refactoring Modulare - Architettura HTML + JSON + JS</p>
+                </div>
+
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="fas fa-tachometer-alt me-2"></i>Dashboard</h5>
+                    </div>
+                    <div class="card-body">
+                        <a href="pages/dashboard.html" class="btn btn-primary btn-lg w-100">
+                            <i class="fas fa-tachometer-alt me-2"></i>Apri Dashboard Esecutiva
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-secondary text-white">
+                        <h5 class="mb-0"><i class="fas fa-file-alt me-2"></i>Report Analitici</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="list-group">
+                            <a href="pages/sintesi.html" class="list-group-item list-group-item-action">
+                                <i class="fas fa-home fa-fw me-2 text-primary"></i>
+                                <strong>1. Sintesi e Profilo Aziendale</strong>
+                                <small class="d-block text-muted">IRP, KPI principali, SWOT, Crisis Framework</small>
+                            </a>
+                            <a href="pages/economica.html" class="list-group-item list-group-item-action">
+                                <i class="fas fa-chart-line fa-fw me-2 text-success"></i>
+                                <strong>2. Analisi Economica e Benchmark</strong>
+                                <small class="d-block text-muted">Conto Economico, Margini, Benchmark settoriale</small>
+                            </a>
+                            <a href="pages/patrimoniale.html" class="list-group-item list-group-item-action">
+                                <i class="fas fa-balance-scale fa-fw me-2 text-info"></i>
+                                <strong>3. Analisi Patrimoniale</strong>
+                                <small class="d-block text-muted">Stato Patrimoniale, Indici, Solidità</small>
+                            </a>
+                            <a href="pages/bancabilita.html" class="list-group-item list-group-item-action">
+                                <i class="fas fa-university fa-fw me-2 text-warning"></i>
+                                <strong>4. Bancabilità e Sostenibilità Debito</strong>
+                                <small class="d-block text-muted">DSCR, PFN/EBITDA, Matching Finanziario</small>
+                            </a>
+                            <a href="pages/circolante-flussi.html" class="list-group-item list-group-item-action">
+                                <i class="fas fa-sync-alt fa-fw me-2 text-primary"></i>
+                                <strong>5. Circolante e Flussi di Cassa</strong>
+                                <small class="d-block text-muted">Working Capital, Cash Flow, Ciclo finanziario</small>
+                            </a>
+                            <a href="pages/rischi-raccomandazioni.html" class="list-group-item list-group-item-action">
+                                <i class="fas fa-exclamation-triangle fa-fw me-2 text-danger"></i>
+                                <strong>6-7. Rischi e Raccomandazioni</strong>
+                                <small class="d-block text-muted">Red Flags, Stress Test, Piano d'Azione</small>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm mb-4">
+                    <div class="card-header bg-dark text-white">
+                        <h5 class="mb-0"><i class="fas fa-search-plus me-2"></i>Approfondimenti</h5>
+                    </div>
+                    <div class="card-body">
+                        <a href="pages/irp-dettaglio.html" class="list-group-item list-group-item-action">
+                            <i class="fas fa-shield-alt fa-fw me-2 text-danger"></i>
+                            <strong>Dettaglio IRP (Indice Rischio Ponderato)</strong>
+                            <small class="d-block text-muted">CP, Leanus, MCC, Z-Score - Metodologia e Target</small>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card shadow-sm">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0"><i class="fas fa-code me-2"></i>Architettura Modulare</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="mb-3">Ogni pagina è composta da <strong>3 file modulari</strong>:</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">
+                                <i class="fas fa-file-code text-primary me-2"></i>
+                                <strong>HTML puro</strong> - Struttura semantica, zero inline data
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-database text-warning me-2"></i>
+                                <strong>JSON completo</strong> - Tutti i dati, CSS classes, icons, chart config
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-cogs text-success me-2"></i>
+                                <strong>JavaScript modulare</strong> - Async loading, rendering, event handlers
+                            </li>
+                        </ul>
+                        <hr>
+                        <p class="small text-muted mb-0">
+                            <i class="fas fa-folder-open me-1"></i> Struttura:
+                            <code>pages/</code> (8 HTML),
+                            <code>data/pages/</code> (8 JSON),
+                            <code>js/pages/</code> (8 JS),
+                            <code>css/</code> (4 CSS)
+                        </p>
+                    </div>
+                </div>
+
+                <div class="text-center mt-5">
+                    <p class="text-muted small">
+                        SCAN360 © 2025 - Powered by
+                        <a href="http://www.kitzanos.com" target="_blank" class="text-decoration-none fw-bold">Kitzanos Lab</a>
+                    </p>
+                    <img src="assets/img/logo_kitzanos.png" alt="Kitzanos Logo" style="height: 30px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
