@@ -3,7 +3,7 @@
     "companyName": "VAROLI GUIDO E FIGLIO S.R.L.",
     "menuItems": [
       {
-        "href": "/dashboard_v2",
+        "href": "dashboard.html",
         "icon": "fas fa-tachometer-alt fa-fw",
         "label": "Dashboard",
         "active": false
@@ -13,37 +13,37 @@
         "label": "Analisi Dettagliata"
       },
       {
-        "href": "/report/parte1_sintesi",
+        "href": "sintesi.html",
         "icon": "fas fa-file-alt fa-fw",
         "label": "Sintesi e Profilo",
         "active": false
       },
       {
-        "href": "/report/parte2_economico",
+        "href": "economica.html",
         "icon": "fas fa-balance-scale fa-fw",
         "label": "Analisi Economica",
         "active": false
       },
       {
-        "href": "/report/parte3_patrimoniale",
+        "href": "patrimoniale.html",
         "icon": "fas fa-landmark fa-fw",
         "label": "Analisi Patrimoniale",
         "active": false
       },
       {
-        "href": "/report/parte4_bancabilita",
+        "href": "bancabilita.html",
         "icon": "fas fa-university fa-fw",
         "label": "Bancabilità",
         "active": false
       },
       {
-        "href": "/report/parte5_circolante_flussi",
+        "href": "circolante-flussi.html",
         "icon": "fas fa-sync-alt fa-fw",
         "label": "Circolante e Flussi",
         "active": true
       },
       {
-        "href": "/report/parte6_rischi-raccomandazioni",
+        "href": "rischi-raccomandazioni.html",
         "icon": "fas fa-exclamation-triangle fa-fw",
         "label": "Rischi e Azioni",
         "active": false
@@ -53,7 +53,7 @@
         "label": "Approfondimenti"
       },
       {
-        "href": "/report/irp_dettaglio",
+        "href": "irp-dettaglio.html",
         "icon": "fas fa-shield-alt fa-fw",
         "label": "Dettaglio IRP",
         "active": false

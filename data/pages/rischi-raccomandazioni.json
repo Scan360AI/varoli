@@ -2,16 +2,16 @@
   "sidebar": {
     "companyName": "VAROLI GUIDO E FIGLIO S.R.L.",
     "menuItems": [
-      {"href": "/dashboard_v2", "icon": "fas fa-tachometer-alt fa-fw", "label": "Dashboard", "active": false},
+      {"href": "dashboard.html", "icon": "fas fa-tachometer-alt fa-fw", "label": "Dashboard", "active": false},
       {"type": "title", "label": "Analisi Dettagliata"},
-      {"href": "/report/parte1_sintesi", "icon": "fas fa-file-alt fa-fw", "label": "Sintesi e Profilo", "active": false},
-      {"href": "/report/parte2_economico", "icon": "fas fa-balance-scale fa-fw", "label": "Analisi Economica", "active": false},
-      {"href": "/report/parte3_patrimoniale", "icon": "fas fa-landmark fa-fw", "label": "Analisi Patrimoniale", "active": false},
-      {"href": "/report/parte4_bancabilita", "icon": "fas fa-university fa-fw", "label": "Bancabilità", "active": false},
-      {"href": "/report/parte5_circolante_flussi", "icon": "fas fa-sync-alt fa-fw", "label": "Circolante e Flussi", "active": false},
-      {"href": "/report/parte6_rischi-raccomandazioni", "icon": "fas fa-exclamation-triangle fa-fw", "label": "Rischi e Azioni", "active": true},
+      {"href": "sintesi.html", "icon": "fas fa-file-alt fa-fw", "label": "Sintesi e Profilo", "active": false},
+      {"href": "economica.html", "icon": "fas fa-balance-scale fa-fw", "label": "Analisi Economica", "active": false},
+      {"href": "patrimoniale.html", "icon": "fas fa-landmark fa-fw", "label": "Analisi Patrimoniale", "active": false},
+      {"href": "bancabilita.html", "icon": "fas fa-university fa-fw", "label": "Bancabilità", "active": false},
+      {"href": "circolante-flussi.html", "icon": "fas fa-sync-alt fa-fw", "label": "Circolante e Flussi", "active": false},
+      {"href": "rischi-raccomandazioni.html", "icon": "fas fa-exclamation-triangle fa-fw", "label": "Rischi e Azioni", "active": true},
       {"type": "title", "label": "Approfondimenti"},
-      {"href": "/report/irp_dettaglio", "icon": "fas fa-shield-alt fa-fw", "label": "Dettaglio IRP", "active": false}
+      {"href": "irp-dettaglio.html", "icon": "fas fa-shield-alt fa-fw", "label": "Dettaglio IRP", "active": false}
     ]
   },
   "header": {

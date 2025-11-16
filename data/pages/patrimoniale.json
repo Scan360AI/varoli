@@ -9,16 +9,16 @@
     "companyName": "VAROLI GUIDO E FIGLIO S.R.L.",
     "logo": "../assets/img/logo_scan.png",
     "menuItems": [
-      {"type": "link", "label": "Dashboard", "icon": "fas fa-tachometer-alt", "href": "/dashboard_v2", "active": false},
+      {"type": "link", "label": "Dashboard", "icon": "fas fa-tachometer-alt", "href": "dashboard.html", "active": false},
       {"type": "title", "label": "Analisi Dettagliata"},
-      {"type": "link", "label": "Sintesi e Profilo", "icon": "fas fa-file-alt", "href": "/report/parte1_sintesi", "active": false},
-      {"type": "link", "label": "Analisi Economica", "icon": "fas fa-balance-scale", "href": "/report/parte2_economico", "active": false},
-      {"type": "link", "label": "Analisi Patrimoniale", "icon": "fas fa-landmark", "href": "/report/parte3_patrimoniale", "active": true},
-      {"type": "link", "label": "Bancabilità", "icon": "fas fa-university", "href": "/report/parte4_bancabilita", "active": false},
+      {"type": "link", "label": "Sintesi e Profilo", "icon": "fas fa-file-alt", "href": "sintesi.html", "active": false},
+      {"type": "link", "label": "Analisi Economica", "icon": "fas fa-balance-scale", "href": "economica.html", "active": false},
+      {"type": "link", "label": "Analisi Patrimoniale", "icon": "fas fa-landmark", "href": "patrimoniale.html", "active": true},
+      {"type": "link", "label": "Bancabilità", "icon": "fas fa-university", "href": "bancabilita.html", "active": false},
       {"type": "link", "label": "Circolante e Flussi", "icon": "fas fa-sync-alt", "href": "/report/parte5_circolante-flussi", "active": false},
-      {"type": "link", "label": "Rischi e Azioni", "icon": "fas fa-exclamation-triangle", "href": "/report/parte6_rischi-raccomandazioni", "active": false},
+      {"type": "link", "label": "Rischi e Azioni", "icon": "fas fa-exclamation-triangle", "href": "rischi-raccomandazioni.html", "active": false},
       {"type": "title", "label": "Approfondimenti"},
-      {"type": "link", "label": "Dettaglio IRP", "icon": "fas fa-shield-alt", "href": "/report/irp_dettaglio", "active": false}
+      {"type": "link", "label": "Dettaglio IRP", "icon": "fas fa-shield-alt", "href": "irp-dettaglio.html", "active": false}
     ]
   },
   "header": {

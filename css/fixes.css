@@ -478,3 +478,420 @@
         margin-left: 0;
     }
 }
+
+/* ============================================
+   GRAPHIC IMPROVEMENTS - Modern & Airy Layout
+   ============================================ */
+
+/* Sidebar Improvements */
+.sidebar {
+    box-shadow: 2px 0 12px rgba(0, 0, 0, 0.08);
+    background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.sidebar-header {
+    padding: 2rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.sidebar-header h5 {
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin: 0.75rem 0 0 0;
+    letter-spacing: 0.3px;
+    line-height: 1.4;
+}
+
+.sidebar-nav {
+    padding: 1.5rem 0;
+}
+
+.nav-title {
+    padding: 1.5rem 1.5rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-top: 0.5rem;
+}
+
+.nav-title:first-child {
+    margin-top: 0;
+}
+
+.nav-item {
+    list-style: none;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    padding: 0.875rem 1.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.95);
+    border-left-color: var(--color-primary, #4a69bd);
+}
+
+.nav-link.active {
+    background: rgba(74, 105, 189, 0.15);
+    color: white;
+    border-left-color: var(--color-primary, #4a69bd);
+    font-weight: 600;
+}
+
+.nav-link i {
+    width: 20px;
+    text-align: center;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.nav-link span {
+    flex: 1;
+}
+
+.sidebar-footer {
+    padding: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.sidebar-footer small {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.75rem;
+}
+
+/* Dashboard Header Improvements */
+.dashboard-header {
+    background: white;
+    padding: 1.75rem 2.5rem;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.header-title h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-gray-700, #374151);
+    margin-bottom: 0.25rem;
+}
+
+.header-title h5 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: var(--color-primary, #191970);
+    margin: 0;
+}
+
+.header-title p {
+    font-size: 0.9375rem;
+    color: var(--color-gray-500, #6b7280);
+    margin: 0;
+}
+
+/* Main Content Layout - More Spacious */
+.main-content {
+    margin-left: 260px;
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-container {
+    flex: 1;
+    padding: 2.5rem 3rem;
+    max-width: 1800px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Section Titles - Improved */
+.section-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-gray-800, #1f2937);
+    margin-bottom: 2rem;
+    margin-top: 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--color-gray-200, #e5e7eb);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.section-title i {
+    color: var(--color-primary, #191970);
+    font-size: 1rem;
+}
+
+/* Card Improvements - More Airy */
+.report-section {
+    margin-bottom: 2.5rem;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e7eb;
+}
+
+.report-section .card-header {
+    padding: 1.5rem 2rem;
+}
+
+.report-section .card-body {
+    padding: 2rem;
+}
+
+.card-header h5 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.card-header h6 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Dashboard Card - Improved */
+.dashboard-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+}
+
+.dashboard-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+}
+
+.card-title-modern {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-gray-700, #374151);
+    margin-bottom: 1.5rem;
+}
+
+/* KPI Card V2 - More Airy */
+.kpi-card-v2 {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    border: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.kpi-card-v2:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.card-title-modern {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-gray-600, #4b5563);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1.25rem;
+}
+
+.kpi-value-modern {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--color-gray-900, #111827);
+    margin: 1rem 0 0.75rem;
+    line-height: 1.2;
+}
+
+.kpi-description-modern {
+    font-size: 0.9375rem;
+    color: var(--color-gray-600, #4b5563);
+    margin-top: 0.875rem;
+    line-height: 1.5;
+}
+
+.kpi-icon-modern-bg {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    margin-bottom: 1.25rem;
+    font-size: 26px;
+}
+
+/* Table Improvements - More Readable */
+.table {
+    margin-bottom: 0;
+    font-size: 0.9375rem;
+}
+
+.table thead th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8125rem;
+    letter-spacing: 0.5px;
+    color: var(--color-gray-700, #374151);
+    border-bottom: 2px solid #dee2e6;
+    padding: 1rem 0.875rem;
+}
+
+.table tbody td {
+    padding: 0.875rem;
+    vertical-align: middle;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.015);
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(74, 105, 189, 0.04);
+}
+
+/* Footer Improvements */
+.footer {
+    background: white;
+    padding: 1.5rem 0;
+    border-top: 1px solid #e5e7eb;
+    margin-top: auto;
+}
+
+.footer small,
+.footer a {
+    font-size: 0.875rem;
+}
+
+/* Badge Improvements */
+.badge {
+    padding: 0.375rem 0.875rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    border-radius: 6px;
+    letter-spacing: 0.3px;
+}
+
+.status-badge {
+    padding: 0.375rem 0.875rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    border-radius: 6px;
+}
+
+/* Alert Improvements */
+.alert {
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+    border-left-width: 4px;
+}
+
+/* Button Improvements */
+.btn {
+    font-weight: 500;
+    border-radius: 8px;
+    padding: 0.625rem 1.25rem;
+    transition: all 0.2s ease;
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+.btn-pill {
+    border-radius: 50px;
+}
+
+/* Spacing Improvements */
+.mb-4 {
+    margin-bottom: 2rem !important;
+}
+
+.mt-4 {
+    margin-top: 2rem !important;
+}
+
+/* Print Header Improvements */
+.d-print-block {
+    padding: 1.5rem 0;
+}
+
+.d-print-block h1 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.d-print-block p {
+    font-size: 1rem;
+    color: var(--color-gray-600, #4b5563);
+}
+
+/* Responsive Improvements */
+@media (max-width: 991px) {
+    .main-content {
+        margin-left: 0;
+    }
+    
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .sidebar.show {
+        transform: translateX(0);
+    }
+    
+    .dashboard-container {
+        padding: 1.5rem;
+    }
+    
+    .dashboard-header {
+        padding: 1.25rem 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 1rem;
+    }
+    
+    .kpi-value-modern {
+        font-size: 1.875rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .dashboard-container {
+        padding: 1rem;
+    }
+    
+    .kpi-card-v2 {
+        padding: 1.5rem;
+    }
+    
+    .dashboard-card {
+        padding: 1.5rem;
+    }
+    
+    .report-section .card-body {
+        padding: 1.5rem;
+    }
+}
