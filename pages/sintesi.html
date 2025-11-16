@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sintesi e Profilo Aziendale - SCAN V9</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/components.css" rel="stylesheet">
+    <link href="../css/modern.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+    <style>
+        /* Stili IRP V6/V7 */
+        .irp-visual-section { background: linear-gradient(135deg, var(--white) 0%, #f0f4f8 100%); border-radius: 12px; padding: 2rem; box-shadow: var(--shadow); margin-bottom: 2.5rem; border: 1px solid var(--card-border); }
+        .irp-main-title { color: var(--primary); font-weight: 700; margin-bottom: 1.5rem; border-bottom: 2px solid var(--secondary); padding-bottom: 0.8rem; }
+        .irp-gradient-bar-container { margin-bottom: 0.5rem; }
+        .irp-gradient-bar { height: 20px; border-radius: 10px; overflow: hidden; position: relative; background: linear-gradient(to right, #d62246 0%, #d98c00 35%, #ffc107 55%, #4CAF50 80%, #191970 100%); border: 1px solid #bdc3c7; }
+        .irp-marker { position: absolute; top: -5px; bottom: -5px; width: 6px; background-color: #ffffff; border: 2px solid #343a40; transform: translateX(-50%); box-shadow: 0 0 8px rgba(0,0,0,0.5); z-index: 2; border-radius: 3px; }
+        .irp-marker::after { content: ''; position: absolute; bottom: -7px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 7px solid transparent; border-right: 7px solid transparent; border-top: 8px solid #343a40; }
+        .irp-scale-labels { font-size: 0.8rem; color: #6c757d; font-weight: 500; padding: 0 5px;}
+        .irp-score-circle { width: 140px; height: 140px; border-radius: 50%; color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 0.5rem auto; box-shadow: 0 8px 20px rgba(0,0,0,0.25); background: var(--warning); border: 6px solid rgba(255, 255, 255, 0.5); }
+        .irp-score-circle.risk-low { background: radial-gradient(circle, #6bc571, #4CAF50); }
+        .irp-score-circle.risk-medium { background: radial-gradient(circle, #ffd54f, #FFC107); }
+        .irp-score-circle.risk-high { background: radial-gradient(circle, #f6685e, #F44336); }
+        .irp-score-value { font-size: 3.5rem; font-weight: 700; line-height: 1; text-shadow: 1px 1px 3px rgba(0,0,0,0.4);}
+        .irp-score-max { font-size: 0.9rem; opacity: 0.8; display: block; line-height: 1;}
+        .irp-category-text { font-size: 1.2rem; font-weight: 600; margin-top: 0.5rem; text-align: center; }
+        .irp-category-text .status-badge { font-size: 0.85rem; vertical-align: middle; margin-left: 8px;}
+        .other-ratings { font-size: 0.85rem; } .other-ratings strong { color: var(--dark); } .other-ratings .badge { margin-left: 5px; }
+        .stable-badge { background-color: var(--warning); color: var(--dark); border-radius: 8px; padding: 3px 8px; font-weight: 600; font-size: 0.8rem;}
+
+         /* Stili per KPI V6 */
+         .kpi-card-v4 { display: flex; align-items: center; padding: 1rem; background-color: var(--white); border-radius: 8px; box-shadow: var(--shadow); margin-bottom: 1.5rem; border: 1px solid var(--card-border); height: 100%;}
+         .kpi-card-v4 .kpi-content { margin-left: 0; flex-grow: 1;}
+         .kpi-card-v4 .kpi-header { display: flex; align-items: center; margin-bottom: 5px;}
+         .kpi-card-v4 .kpi-title { font-size: 0.8rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 0; line-height: 1.2;}
+         .kpi-card-v4 .kpi-value { font-size: 1.7rem; font-weight: 700; color: var(--dark); line-height: 1.2; margin-bottom: 3px;}
+         .kpi-card-v4 .kpi-trend { font-size: 0.8rem; font-weight: 600; margin-top: 0px;}
+         .kpi-card-v4 .trend-up { color: var(--success); } .kpi-card-v4 .trend-down { color: var(--danger); } .kpi-card-v4 .trend-neutral { color: var(--text-secondary); }
+         .icon-circle { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; color: white; margin-right: 12px; font-size: 0.9rem; flex-shrink: 0; }
+         .bg-icon-success { background-color: var(--success); } .bg-icon-warning { background-color: var(--warning); } .bg-icon-danger { background-color: var(--danger); }
+         .bg-icon-info { background-color: #4f6d7a; } .bg-icon-primary { background-color: var(--primary); } .bg-icon-secondary { background-color: var(--secondary); }
+
+         /* Stili per Profilo V7 */
+         .profile-section-restored { background-color: var(--white); border-radius: 8px; padding: 1.5rem; box-shadow: var(--shadow); border: 1px solid var(--card-border); }
+         .profile-section-restored h6 { color: var(--primary); font-weight: 600; margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem;}
+         .profile-section-restored p { font-size: 0.9rem; margin-bottom: 0.5rem; line-height: 1.5;}
+         .profile-section-restored p strong { color: var(--dark); margin-right: 5px;}
+         .profile-section-restored ul { list-style: none; padding-left: 0; margin-bottom: 0; }
+         .profile-section-restored li { margin-bottom: 0.5rem; }
+         .profile-section-restored i.fa-fw { color: var(--secondary); width: 1.2em; text-align: center; margin-right: 5px;}
+
+         /* Stili per SWOT V7 */
+        .swot-card-restored { background-color: var(--white); border-radius: 8px; border: 1px solid var(--card-border); box-shadow: var(--shadow); height: 100%;}
+        .swot-card-restored .card-header { display: flex; align-items: center; font-weight: 600; border-bottom: 1px solid var(--card-border); padding: 0.75rem 1rem;}
+        .swot-card-restored .card-header i { margin-right: 8px; font-size: 1.1rem; }
+        .swot-card-restored .card-body { padding: 1rem;}
+        .swot-card-restored .card-body ul { font-size: 0.85rem; padding-left: 1.5rem; list-style: disc; margin-bottom: 0;}
+        .swot-card-restored .card-body li { margin-bottom: 0.5rem;}
+        .swot-card-restored.strength .card-header { background-color: #d1e7dd; color: #0a3622;} .swot-card-restored.strength .card-header i { color: #0a3622; }
+        .swot-card-restored.weakness .card-header { background-color: #f8d7da; color: #58151c;} .swot-card-restored.weakness .card-header i { color: #58151c; }
+        .swot-card-restored.opportunity .card-header { background-color: #cff4fc; color: #055160;} .swot-card-restored.opportunity .card-header i { color: #055160; }
+        .swot-card-restored.threat .card-header { background-color: #fff3cd; color: #664d03;} .swot-card-restored.threat .card-header i { color: #664d03; }
+
+        /* Altri stili V9 */
+         :root {
+            --primary: #191970; --secondary: #4a69bd; --success: #4CAF50;
+            --warning: #FFC107; --danger: #F44336; --info: #0dcaf0;
+            --light: #f8f9fa; --dark: #343a40; --white: #ffffff;
+            --text-primary: #212529; --text-secondary: #6c757d;
+            --card-bg: var(--white); --card-border: #dee2e6;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        html, body { height: 100%; overflow-x: hidden; font-family: 'Titillium Web', sans-serif; background-color: #f4f8fb; }
+        body { display: flex; }
+        .sidebar { width: 250px; background-color: var(--primary); color: #e0e0e0; position: fixed; top: 0; bottom: 0; left: 0; z-index: 1031; display: flex; flex-direction: column; box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1); transition: width 0.3s ease; overflow-y: auto; }
+        .main-wrapper { margin-left: 250px; width: calc(100% - 250px); display: flex; flex-direction: column; min-height: 100vh; position: relative; padding-top: 70px; }
+        .dashboard-header { background-color: var(--white); padding: 15px 30px; border-bottom: 1px solid var(--card-border); box-shadow: 0 2px 5px rgba(0,0,0,0.05); min-height: 70px; display: flex; align-items: center; justify-content: space-between; position: fixed; top: 0; left: 250px; right: 0; z-index: 1030; }
+        .dashboard-container { padding: 30px; flex-grow: 1; width: 100%; }
+        .footer { background-color: var(--primary); color: rgba(255, 255, 255, 0.7); padding: 15px 30px; font-size: 0.85rem; margin-top: auto; flex-shrink: 0; width: 100%; }
+        .footer img { max-height: 20px; width: auto; filter: brightness(0) invert(1); opacity: 0.8; vertical-align: middle;}
+        .sidebar-header { padding: 10px 20px; margin-bottom: 20px; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .sidebar-header img { max-height: 40px; } .sidebar-header h5 { color: var(--white); margin-top: 10px; font-size: 1.1rem; font-weight: 600; }
+        .sidebar-nav { list-style: none; padding: 0; } .sidebar-nav .nav-item { margin: 0; }
+        .sidebar-nav .nav-link { color: #e0e0e0; padding: 12px 20px; display: flex; align-items: center; font-size: 0.95rem; font-weight: 500; border-left: 4px solid transparent; transition: all 0.2s ease; }
+        .sidebar-nav .nav-link:hover { background-color: rgba(255, 255, 255, 0.05); color: var(--white); border-left-color: var(--warning); }
+        .sidebar-nav .nav-link.active { background-color: rgba(255, 255, 255, 0.1); color: var(--white); font-weight: 600; border-left-color: var(--white); }
+        .sidebar-nav .nav-link i { margin-right: 15px; width: 20px; text-align: center; font-size: 1rem; }
+        .sidebar-nav .nav-title { padding: 10px 20px; font-size: 0.75rem; color: rgba(255, 255, 255, 0.5); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 15px; }
+        .sidebar-footer { margin-top: auto; padding: 15px 20px; border-top: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.9rem; text-align: left; }
+        .section-title { color: var(--primary); font-weight: 600; margin-top: 2.5rem; margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--secondary); font-size: 1.75rem; display: flex; align-items: center; } .section-title i { margin-right: 10px; }
+        .dashboard-card { background-color: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 20px; margin-bottom: 20px; box-shadow: var(--shadow); transition: all 0.3s ease; height: 100%; }
+        .dashboard-card:hover { box-shadow: 0 8px 16px rgba(0,0,0,0.1); transform: translateY(-3px); }
+        .card-title-small { font-size: 0.9rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .table { border: 1px solid var(--card-border); margin-bottom: 1rem; } .table thead th { background-color: var(--light); color: var(--primary); font-weight: 600; border-bottom: 2px solid var(--primary); font-size: 0.9rem; white-space: nowrap; } .table-hover tbody tr:hover { background-color: #eef2f7; } .table td, .table th { vertical-align: middle; padding: 0.6rem 0.75rem; font-size: 0.9rem;} .value-highlight { font-weight: 600; color: var(--primary); } .text-end { text-align: right !important;} .text-success { color: var(--success) !important; } .text-danger { color: var(--danger) !important; } .text-warning { color: var(--warning) !important; } .text-secondary { color: var(--text-secondary) !important; }
+        .alert-box { padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 1px solid; } .alert-box h5 { margin-bottom: 10px; font-size: 1.1rem; font-weight: 600;} .alert-box ul { padding-left: 20px; margin-bottom: 0; font-size: 0.9rem;} .alert-box.alert-success { background-color: #d1e7dd; border-color: #a3cfbb; color: #0a3622; } .alert-box.alert-warning { background-color: #fff3cd; border-color: #ffda6a; color: #664d03; } .alert-box.alert-danger { background-color: #f8d7da; border-color: #f1aeb5; color: #58151c; } .alert-box.alert-info { background-color: #cff4fc; border-color: #9eeaf9; color: #055160; }
+        .status-badge { font-size: .75em; font-weight: 700; line-height: 1; padding: .35em .65em; border-radius: .375rem; color: white; display: inline-block; } .status-badge.bg-success { background-color: var(--success) !important; } .status-badge.bg-warning { background-color: var(--warning) !important; color: var(--dark) !important;} .status-badge.bg-danger { background-color: var(--danger) !important; } .status-badge.bg-info { background-color: var(--info) !important; color: var(--dark) !important;}
+        .chart-container { height: 300px; margin-bottom: 20px; background-color: var(--white); padding: 15px; border-radius: 8px; border: 1px solid var(--card-border); box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: relative; }
+        .action-table td:nth-child(1) { width: 30%; white-space: nowrap; } .action-table td:nth-child(2) { width: 40%; } .action-table td:nth-child(3) { width: 20%; } .action-table td:nth-child(4) { width: 10%; text-align: center;}
+        @media (max-width: 991.98px) { .sidebar { width: 0; border: none; box-shadow: none;} .main-wrapper { margin-left: 0; width: 100%; padding-top: 56px; } .dashboard-header { left: 0; width: 100%; min-height: 56px; padding: 5px 15px;} .header-title h5 { font-size: 1rem;} .header-title p { font-size: 0.75rem;} .dashboard-container { padding: 15px;} .footer { padding: 10px 15px;} }
+        @media print { body { display: block; } .main-wrapper { margin-left: 0; width: 100%; padding-top: 0; } .no-print { display: none !important; } .report-section { page-break-inside: avoid; } }
+     </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar no-print">
+        <div class="sidebar-header">
+            <img src="../assets/img/logo_scan.png" alt="SCAN Logo" id="sidebarLogo">
+            <h5 id="sidebarCompanyName"></h5>
+        </div>
+        <ul class="sidebar-nav flex-grow-1" id="sidebarNav">
+            <!-- Populated by JS -->
+        </ul>
+        <div class="sidebar-footer">
+            <small>SCAN360 © <span id="currentYearSidebar"></span> Kitzanos</small>
+        </div>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+        <!-- Header -->
+        <header class="dashboard-header no-print">
+            <div class="header-title">
+                <h5 class="mb-0" id="headerTitle"></h5>
+                <p class="mb-0" id="headerSubtitle"></p>
+            </div>
+            <div class="header-controls d-flex align-items-center">
+                <span id="irp-header-badge" class="badge me-3"></span>
+                <button class="btn btn-sm btn-outline-secondary me-2 print-button" id="printBtn">
+                    <i class="fas fa-print"></i> Stampa
+                </button>
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-light border dropdown-toggle" type="button" id="userMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user-circle me-1"></i> <span id="userMenuName"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenuButton">
+                        <li><button class="dropdown-item" type="button" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i>Logout</button></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <div class="container d-none d-print-block mt-4 mb-4">
+            <h1 class="text-center mb-0"><span class="company-name" id="printCompanyName"></span></h1>
+            <p class="text-center mb-0" id="printSubtitle"></p>
+            <hr>
+        </div>
+
+        <!-- Content -->
+        <div class="dashboard-container">
+            <!-- SINTESI ANALISI FINANZIARIA -->
+            <h2 class="section-title" id="summary">
+                <i class="fas fa-file-invoice me-2"></i>1.1 SINTESI DELL'ANALISI FINANZIARIA
+            </h2>
+
+            <!-- IRP Section -->
+            <section class="irp-visual-section report-section" id="irp-summary-section">
+                <div class="row align-items-center">
+                    <div class="col-md-4 text-center mb-4 mb-md-0">
+                        <h6 class="card-title-small mb-3">
+                            <i class="fas fa-shield-alt me-1"></i> Indice Rischio Ponderato
+                        </h6>
+                        <div class="irp-score-circle" id="irpScoreCircle">
+                            <span class="irp-score-value" id="irpScoreValue"></span>
+                            <span class="irp-score-max">/ 100</span>
+                        </div>
+                        <div class="irp-category-text mt-2" id="irpCategoryText">
+                            <span id="irpCategoryLabel"></span>
+                            <span class="status-badge" id="irpCategoryBadge"></span>
+                        </div>
+                        <a class='btn btn-sm btn-outline-primary mt-3 btn-pill' href='/report/irp_dettaglio'>Vedi Dettaglio IRP</a>
+                    </div>
+                    <div class="col-md-8">
+                        <h4 class="mb-3 fw-bold" style="color: var(--primary);">Valutazione Generale</h4>
+                        <p class="mb-3" id="irpDescription"></p>
+                        <a href="#crisis-framework" class="btn btn-danger btn-sm mb-3 btn-pill" id="irpCrisisBtn">
+                            <i class="fas fa-exclamation-circle me-1"></i> <span id="irpCrisisText"></span>
+                        </a>
+                        <div class="other-ratings border-top pt-3 mt-3">
+                            <h6 class="card-title-small mb-2">Altri Indicatori di Supporto:</h6>
+                            <ul class="list-unstyled mb-0 row gx-3 gy-2" id="otherRatingsList">
+                                <!-- Populated by JS -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- KPI Cards -->
+            <div class="card mb-4 report-section">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-key me-2"></i><span id="kpiSectionTitle"></span></h5>
+                </div>
+                <div class="card-body">
+                    <div class="row gy-4" id="kpiContainer">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="card mb-4 report-section">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-chart-bar me-2"></i>Grafici di Sintesi</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6 mb-4">
+                            <h6 class="text-center small mb-3" id="chart1Title"></h6>
+                            <div class="chart-container">
+                                <canvas id="mainMetricsChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mb-4">
+                            <h6 class="text-center small mb-3" id="chart2Title"></h6>
+                            <div class="chart-container">
+                                <canvas id="currentAssetsLiabilitiesChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PROFILO AZIENDALE -->
+            <h2 class="section-title" id="profile">
+                <i class="fas fa-building me-2"></i>1.2 PROFILO AZIENDALE
+            </h2>
+            <div class="card mb-4 report-section profile-section-restored">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h6><i class="fas fa-info-circle fa-fw me-2 text-primary"></i> Anagrafica e Settore</h6>
+                        <ul id="profileAnagraficaList">
+                            <!-- Populated by JS -->
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <h6><i class="fas fa-users-cog fa-fw me-2 text-primary"></i> Struttura e Personale</h6>
+                        <ul id="profileStrutturaList">
+                            <!-- Populated by JS -->
+                        </ul>
+                    </div>
+                    <div class="col-lg-12 mt-3">
+                        <h6><i class="fas fa-briefcase fa-fw me-2 text-primary"></i> Modello di Business e Posizionamento</h6>
+                        <p class="small" id="profileBusinessModel"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SWOT Analysis -->
+            <h2 class="section-title mt-5" id="swot-summary">
+                <i class="fas fa-sitemap me-2"></i>Analisi SWOT
+            </h2>
+            <div class="row" id="swotContainer">
+                <!-- Populated by JS -->
+            </div>
+
+            <!-- Crisis Framework -->
+            <h2 class="section-title mt-5" id="crisis-framework">
+                <i class="fas fa-gavel me-2"></i>1.3 CONFORMITÀ ALLA NORMATIVA SULLA CRISI D'IMPRESA (CCII)
+            </h2>
+            <div class="card mb-4 report-section">
+                <div class="card-header">
+                    <h5 class="mb-0">Verifica Indicatori e Framework Normativo</h5>
+                </div>
+                <div class="card-body">
+                    <div class="alert-box alert-danger d-flex align-items-center">
+                        <span class="icon-circle bg-icon-danger me-3">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </span>
+                        <div>
+                            <h6 class="mb-1" id="crisisAlertTitle"></h6>
+                            <p class="small mb-0" id="crisisAlertText"></p>
+                        </div>
+                    </div>
+                    <h6 class="mt-4">Contesto Normativo Rilevante:</h6>
+                    <ul class="small" id="crisisNormativeList">
+                        <!-- Populated by JS -->
+                    </ul>
+                    <p class="small text-muted mt-3" id="crisisNote"></p>
+                </div>
+            </div>
+
+            <!-- Actions Table -->
+            <div class="card mb-4 report-section">
+                <div class="card-header">
+                    <h5 class="mb-0"><i class="fas fa-tasks me-1"></i>Azioni Raccomandate Prioritarie (Sintesi)</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-sm table-hover action-table">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Area</th>
+                                    <th>Azione Prioritaria</th>
+                                    <th>Impatto Atteso</th>
+                                    <th>Priorità</th>
+                                </tr>
+                            </thead>
+                            <tbody id="actionsTableBody">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <a class='btn btn-sm btn-primary mt-2 btn-pill' href='/report/parte6_rischi-raccomandazioni#table_7_1_1'>
+                        <i class="fas fa-list-alt me-1"></i> Vedi Piano d'Azione Dettagliato
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer no-print">
+            <div class="container-fluid px-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                        SCAN360 © <span id="currentYearFooterReport"></span>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        Powered by <a href="http://www.kitzanos.com" target="_blank" class="text-white fw-bold">Kitzanos Lab</a>
+                        <img src="../assets/img/logo_kitzanos.png" alt="Kitzanos Logo" class="ms-2">
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/pages/sintesi.js"></script>
+</body>
+</html>

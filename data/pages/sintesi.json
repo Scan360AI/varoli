@@ -1,0 +1,479 @@
+{
+  "metadata": {
+    "companyName": "VAROLI GUIDO E FIGLIO S.R.L.",
+    "reportDate": "1 Novembre 2025",
+    "pageTitle": "Sintesi e Profilo Aziendale - SCAN V9",
+    "reportTitle": "Report Dettagliato: Sintesi e Profilo Aziendale"
+  },
+  "sidebar": {
+    "companyName": "VAROLI GUIDO E FIGLIO S.R.L.",
+    "logo": "../assets/img/logo_scan.png",
+    "menuItems": [
+      {
+        "type": "link",
+        "label": "Dashboard",
+        "icon": "fas fa-tachometer-alt",
+        "href": "/dashboard_v2",
+        "active": false
+      },
+      {
+        "type": "title",
+        "label": "Analisi Dettagliata"
+      },
+      {
+        "type": "link",
+        "label": "Sintesi e Profilo",
+        "icon": "fas fa-file-alt",
+        "href": "/report/parte1_sintesi",
+        "active": true
+      },
+      {
+        "type": "link",
+        "label": "Analisi Economica",
+        "icon": "fas fa-balance-scale",
+        "href": "/report/parte2_economico",
+        "active": false
+      },
+      {
+        "type": "link",
+        "label": "Analisi Patrimoniale",
+        "icon": "fas fa-landmark",
+        "href": "/report/parte3_patrimoniale",
+        "active": false
+      },
+      {
+        "type": "link",
+        "label": "Bancabilità",
+        "icon": "fas fa-university",
+        "href": "/report/parte4_bancabilita",
+        "active": false
+      },
+      {
+        "type": "link",
+        "label": "Circolante e Flussi",
+        "icon": "fas fa-sync-alt",
+        "href": "/report/parte5_circolante_flussi",
+        "active": false
+      },
+      {
+        "type": "link",
+        "label": "Rischi e Azioni",
+        "icon": "fas fa-exclamation-triangle",
+        "href": "/report/parte6_rischi-raccomandazioni",
+        "active": false
+      },
+      {
+        "type": "title",
+        "label": "Approfondimenti"
+      },
+      {
+        "type": "link",
+        "label": "Dettaglio IRP",
+        "icon": "fas fa-shield-alt",
+        "href": "/report/irp_dettaglio",
+        "active": false
+      }
+    ]
+  },
+  "header": {
+    "title": "Report Dettagliato: Sintesi e Profilo Aziendale",
+    "subtitle": "VAROLI GUIDO E FIGLIO S.R.L. | <span class=\"report-date\">1 Novembre 2025</span>",
+    "userMenuName": "VAROLI GUIDO E FIGLIO S.R.L."
+  },
+  "irp": {
+    "score": 51.42,
+    "maxScore": 100,
+    "category": "high",
+    "categoryLabel": "Rischio elevato",
+    "categoryBadge": "D+",
+    "description": "Profilo di rischio <strong>elevato con criticità significative</strong>. L'azienda presenta una redditività operativa negativa (EBITDA margin -1,53%) e una posizione finanziaria deteriorata (PFN €919.610), con un incremento dell'indebitamento finanziario del 173,03%. Si evidenziano criticità nella generazione di cassa operativa (7,42% dei ricavi, insufficiente) e nello squilibrio del ciclo del circolante (167 giorni), con tempi di magazzino particolarmente elevati (194 giorni) e tempi di pagamento (68 giorni) inferiori ai tempi di incasso (41 giorni).",
+    "crisisText": "Verifica Crisi d'Impresa (2 su 6)",
+    "otherRatings": [
+      {
+        "label": "Leanus Score:",
+        "value": "3",
+        "badge": {
+          "text": "Discreto",
+          "class": "bg-warning"
+        },
+        "icon": "fas fa-chart-bar",
+        "iconClass": "bg-icon-warning"
+      },
+      {
+        "label": "Business Cat.:",
+        "value": "",
+        "badge": {
+          "text": "TRADER",
+          "class": "stable-badge"
+        },
+        "icon": "fas fa-building",
+        "iconClass": "bg-icon-warning"
+      },
+      {
+        "label": "Rating MCC:",
+        "value": "n.d.",
+        "badge": {
+          "text": "Elevato",
+          "class": "bg-danger"
+        },
+        "icon": "fas fa-university",
+        "iconClass": "bg-icon-danger"
+      },
+      {
+        "label": "Z-Score:",
+        "value": "n.d.",
+        "badge": {
+          "text": "Critico",
+          "class": "bg-danger"
+        },
+        "icon": "fas fa-calculator",
+        "iconClass": "bg-icon-danger"
+      }
+    ]
+  },
+  "kpis": {
+    "title": "Indicatori Chiave di Performance (KPI) - 12/2024",
+    "items": [
+      {
+        "title": "Ricavi",
+        "value": "€ 2,85 M",
+        "trend": {
+          "direction": "down",
+          "text": "-14,27% YoY",
+          "icon": "fas fa-arrow-down"
+        },
+        "icon": "fas fa-euro-sign",
+        "iconClass": "bg-icon-danger"
+      },
+      {
+        "title": "EBITDA",
+        "value": "€ -43.535",
+        "trend": {
+          "direction": "down",
+          "text": "-120,43% YoY",
+          "icon": "fas fa-arrow-down"
+        },
+        "icon": "fas fa-chart-line",
+        "iconClass": "bg-icon-danger"
+      },
+      {
+        "title": "EBITDA Margin",
+        "value": "-1,53%",
+        "trend": {
+          "direction": "down",
+          "text": "-7,93 p.p. YoY",
+          "icon": "fas fa-arrow-down"
+        },
+        "icon": "fas fa-percentage",
+        "iconClass": "bg-icon-danger"
+      },
+      {
+        "title": "Utile Netto",
+        "value": "€ -149.177",
+        "trend": {
+          "direction": "down",
+          "text": "-230,23% YoY",
+          "icon": "fas fa-arrow-down"
+        },
+        "icon": "fas fa-coins",
+        "iconClass": "bg-icon-danger"
+      },
+      {
+        "title": "Patrimonio Netto",
+        "value": "€ 479.666",
+        "trend": {
+          "direction": "down",
+          "text": "-26,08% YoY",
+          "icon": "fas fa-arrow-down"
+        },
+        "icon": "fas fa-landmark",
+        "iconClass": "bg-icon-danger"
+      },
+      {
+        "title": "Liquidità",
+        "value": "€ 355.443",
+        "trend": {
+          "direction": "up",
+          "text": "+107,1% YoY",
+          "icon": "fas fa-arrow-up"
+        },
+        "icon": "fas fa-tint",
+        "iconClass": "bg-icon-success"
+      },
+      {
+        "title": "PFN / EBITDA",
+        "value": "n.a.",
+        "trend": {
+          "direction": "neutral",
+          "text": "Critico",
+          "icon": "fas fa-minus"
+        },
+        "icon": "fas fa-balance-scale-right",
+        "iconClass": "bg-icon-danger"
+      },
+      {
+        "title": "Leva Finanziaria (D/E)",
+        "value": "2,66",
+        "trend": {
+          "direction": "neutral",
+          "text": "Elevata",
+          "icon": "fas fa-minus"
+        },
+        "icon": "fas fa-money-bill-wave",
+        "iconClass": "bg-icon-danger"
+      }
+    ]
+  },
+  "charts": {
+    "chart1": {
+      "title": "Grafico 1.1: Trend Indicatori Principali (€000)",
+      "canvasId": "mainMetricsChart",
+      "type": "line",
+      "data": {
+        "labels": ["2022", "2023", "2024"],
+        "datasets": [
+          {
+            "label": "Ricavi",
+            "data": [3200, 3325, 2850],
+            "borderColor": "#191970",
+            "backgroundColor": "rgba(25, 25, 112, 0.1)",
+            "tension": 0.4
+          },
+          {
+            "label": "EBITDA",
+            "data": [180, 213, -44],
+            "borderColor": "#4CAF50",
+            "backgroundColor": "rgba(76, 175, 80, 0.1)",
+            "tension": 0.4
+          },
+          {
+            "label": "Patrimonio Netto",
+            "data": [580, 649, 480],
+            "borderColor": "#FFC107",
+            "backgroundColor": "rgba(255, 193, 7, 0.1)",
+            "tension": 0.4
+          }
+        ]
+      },
+      "options": {
+        "responsive": true,
+        "maintainAspectRatio": false,
+        "plugins": {
+          "legend": {
+            "position": "top"
+          }
+        },
+        "scales": {
+          "y": {
+            "beginAtZero": false
+          }
+        }
+      }
+    },
+    "chart2": {
+      "title": "Grafico 1.2: Trend Capitale Investito Netto (€)",
+      "canvasId": "currentAssetsLiabilitiesChart",
+      "type": "bar",
+      "data": {
+        "labels": ["2022", "2023", "2024"],
+        "datasets": [
+          {
+            "label": "Attivo Corrente",
+            "data": [1850, 1920, 2100],
+            "backgroundColor": "#4a69bd"
+          },
+          {
+            "label": "Passivo Corrente",
+            "data": [1200, 1350, 1620],
+            "backgroundColor": "#F44336"
+          }
+        ]
+      },
+      "options": {
+        "responsive": true,
+        "maintainAspectRatio": false,
+        "plugins": {
+          "legend": {
+            "position": "top"
+          }
+        },
+        "scales": {
+          "y": {
+            "beginAtZero": true
+          }
+        }
+      }
+    }
+  },
+  "profile": {
+    "anagrafica": [
+      {
+        "icon": "fas fa-id-card",
+        "label": "Rag. Sociale:",
+        "value": "VAROLI GUIDO E FIGLIO S.R.L."
+      },
+      {
+        "icon": "fas fa-barcode",
+        "label": "ATECO:",
+        "value": "46.83.10 - Commercio all'ingrosso di legname"
+      },
+      {
+        "icon": "fas fa-calendar-alt",
+        "label": "Fondazione:",
+        "value": "1985"
+      },
+      {
+        "icon": "fas fa-map-marker-alt",
+        "label": "Sede:",
+        "value": "San Sperate (SU), Sardegna"
+      },
+      {
+        "icon": "fas fa-industry",
+        "label": "Settore:",
+        "value": "Commercio all'ingrosso di legname"
+      },
+      {
+        "icon": "fas fa-expand-arrows-alt",
+        "label": "Dimensione:",
+        "value": "Piccola Impresa"
+      }
+    ],
+    "struttura": [
+      {
+        "icon": "fas fa-users",
+        "label": "Dipendenti:",
+        "value": "9"
+      },
+      {
+        "icon": "fas fa-money-bill-wave",
+        "label": "Costo Personale:",
+        "value": "€267.333 (9,38% Ricavi)"
+      },
+      {
+        "icon": "fas fa-sitemap",
+        "label": "Modello di business:",
+        "value": "Trader"
+      },
+      {
+        "icon": "fas fa-chart-pie",
+        "label": "Capitale sociale:",
+        "value": "n.d."
+      },
+      {
+        "icon": "fas fa-link",
+        "label": "Composizione patrimoniale:",
+        "value": "Azionariato composto esclusivamente da persone fisiche (3 soci)"
+      }
+    ],
+    "businessModel": "VAROLI GUIDO E FIGLIO S.R.L. opera dal 1985 nel settore del commercio all'ingrosso di legname, con un modello di business focalizzato sulla commercializzazione B2B. L'azienda presenta una struttura patrimoniale compromessa, caratterizzata da un elevato indebitamento finanziario (€1.275.053, pari al 44,74% dei ricavi) e un rapporto PFN/Patrimonio Netto di 1,92x. L'esercizio 2024 ha evidenziato un significativo calo dei ricavi (-14,27%) e un deterioramento dell'EBITDA (passato da positivo a negativo), segnalando criticità nel modello di business. L'indicatore di resilienza, che misura la capacità dell'impresa di reagire a condizioni di mercato avverse, è classificato come \"Basso\", a causa della fragile posizione finanziaria e della redditività operativa negativa."
+  },
+  "swot": [
+    {
+      "type": "strength",
+      "title": "Forza",
+      "icon": "fas fa-thumbs-up",
+      "items": [
+        "Longevità aziendale: Presenza sul mercato dal 1985",
+        "Discreta liquidità disponibile: €355.443, pari al 12,47% dei ricavi",
+        "Buona capacità di copertura degli investimenti a lungo termine: Rapporto di copertura dell'attivo fisso pari a 1,28",
+        "Miglioramento nella gestione dei crediti commerciali: Riduzione dei giorni clienti da 55 a 41 giorni (-25,45%)",
+        "Cash Flow operativo positivo: €211.345, pari al 7,42% dei ricavi"
+      ]
+    },
+    {
+      "type": "weakness",
+      "title": "Debolezza",
+      "icon": "fas fa-thumbs-down",
+      "items": [
+        "Redditività operativa negativa: EBITDA margin del -1,53%, in netto peggioramento",
+        "Utile netto fortemente negativo: -€149.177, con un calo del 230,23%",
+        "Elevato indebitamento finanziario: Debiti finanziari per €1.275.053, in aumento del 150,77%",
+        "Ciclo del circolante inefficiente: 167 giorni, sebbene in miglioramento",
+        "Incapacità di coprire gli oneri finanziari: Rapporto EBIT/Oneri finanziari di -1,38"
+      ]
+    },
+    {
+      "type": "opportunity",
+      "title": "Opportunità",
+      "icon": "fas fa-lightbulb",
+      "items": [
+        "Ottimizzazione del magazzino: Le rimanenze ruotano con un tempo medio di 194 giorni",
+        "Rinegoziazione delle condizioni con i fornitori: I tempi di pagamento sono diminuiti a 68 giorni",
+        "Diversificazione dell'offerta: Possibilità di ampliare la gamma prodotti",
+        "Digitalizzazione dei processi: Potenziale miglioramento dell'efficienza operativa",
+        "Espansione territoriale: Possibilità di sviluppare nuovi mercati geografici"
+      ]
+    },
+    {
+      "type": "threat",
+      "title": "Minacce",
+      "icon": "fas fa-exclamation-triangle",
+      "items": [
+        "Contrazione significativa dei ricavi: -14,27% rispetto al 2023",
+        "Deterioramento della redditività: Passaggio da un EBITDA positivo ad un EBITDA negativo",
+        "Aumento significativo dell'indebitamento: Incremento PFN del 173,03%",
+        "Dipendenza dal settore edilizio: Vulnerabilità alle fluttuazioni cicliche",
+        "Rating di rischio elevato: La classificazione D+ nell'IRP segnala una probabilità di default significativa"
+      ]
+    }
+  ],
+  "crisis": {
+    "alertTitle": "Indicatori CCII: <strong>In linea con 2 su 6 indicatori</strong>",
+    "alertText": "L'analisi degli indicatori della crisi calcolati sullo schema civilistico mostra che l'impresa non è conforme a 4 dei 6 indicatori previsti dal CCII. Diversi parametri risultano al di sotto delle soglie minime, segnalando la presenza di segnali di allerta secondo il framework normativo.",
+    "normatives": [
+      "<strong>D.Lgs. 14/2019 (CCII)</strong> - Richiede implementazione di adeguati assetti organizzativi e monitoraggio continuativo degli indicatori di crisi",
+      "<strong>Art. 2086 c.c.</strong> - Obbligo di adeguati assetti per piccole imprese con 9 dipendenti",
+      "<strong>Normative settore commercio all'ingrosso di legname</strong> - Requisiti specifici per la commercializzazione, incluse normative sulla tracciabilità dei prodotti forestali",
+      "<strong>Principi OIC</strong> per la predisposizione del bilancio",
+      "<strong>Normativa fiscale</strong> applicabile alle società commerciali"
+    ],
+    "note": "L'azienda presenta un DSCR teorico insufficiente (0,67) a causa dell'elevato indebitamento finanziario, che conferma la difficoltà nel far fronte agli impegni finanziari. Questo valore, significativamente inferiore alla soglia minima (1,0), rappresenta un punto di debolezza che limita la flessibilità finanziaria e aumenta la vulnerabilità a potenziali shock esterni."
+  },
+  "actions": [
+    {
+      "area": "Redditività Operativa",
+      "action": "Revisione struttura dei costi e pricing strategico",
+      "impact": "Miglioramento EBITDA di circa €120.000-€150.000",
+      "priority": "Alta",
+      "priorityClass": "bg-danger",
+      "icon": "fas fa-chart-line",
+      "iconClass": "bg-icon-danger"
+    },
+    {
+      "area": "Gestione Magazzino",
+      "action": "Implementare sistema di gestione scorte con modello EOQ",
+      "impact": "Liberazione di circa €250.000 di capitale circolante",
+      "priority": "Alta",
+      "priorityClass": "bg-danger",
+      "icon": "fas fa-sync-alt",
+      "iconClass": "bg-icon-danger"
+    },
+    {
+      "area": "Indebitamento Finanziario",
+      "action": "Ristrutturazione debito e valorizzazione asset non strategici",
+      "impact": "Riduzione PFN a €700.000",
+      "priority": "Alta",
+      "priorityClass": "bg-danger",
+      "icon": "fas fa-money-bill-wave",
+      "iconClass": "bg-icon-danger"
+    },
+    {
+      "area": "Diversificazione",
+      "action": "Espansione gamma con prodotti complementari ad alta marginalità",
+      "impact": "Investimento di €70.000-€100.000 con ROI >15%",
+      "priority": "Media",
+      "priorityClass": "bg-warning text-dark",
+      "icon": "fas fa-store",
+      "iconClass": "bg-icon-warning"
+    },
+    {
+      "area": "Governance",
+      "action": "Formalizzare \"adeguati assetti\" e sistema di monitoraggio",
+      "impact": "Mitigazione rischi e conformità normativa",
+      "priority": "Media",
+      "priorityClass": "bg-warning text-dark",
+      "icon": "fas fa-gavel",
+      "iconClass": "bg-icon-warning"
+    }
+  ]
+}
