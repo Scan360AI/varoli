@@ -1,5 +1,6 @@
 const Parte4Bancabilita = {
     data: null,
+    charts: {},
     async init() {
         try {
             await App.init();
@@ -8,10 +9,15 @@ const Parte4Bancabilita = {
             this.renderDSCRAlert();
             this.renderSustainabilityAnalysis();
             this.renderSostenibilitaDebitoTable();
+            this.createDebtSustainabilityChart();
+            this.createFinancialDebtChart();
+            this.createDebtCostChart();
             this.renderCCIIAnalysis();
             this.renderCCIIIndicatorsTable();
             this.renderBankabilityRecommendation();
             this.renderValutazioneBancabilitaTable();
+            this.renderMeritoGrid();
+            this.renderDSCRTable();
             this.renderRatingCards();
         } catch (error) {
             console.error('Error initializing Parte 4:', error);
@@ -115,6 +121,212 @@ const Parte4Bancabilita = {
             </div>`;
         const noteContainer = document.getElementById('leanusNote');
         if (noteContainer) noteContainer.innerHTML = `<div class="alert alert-light mt-3">${leanusNote}</div>`;
+    },
+    createDebtSustainabilityChart() {
+        const ctx = document.getElementById('debtSustainabilityChart');
+        if (!ctx) return;
+        const chartData = this.data.charts?.reports?.parte4?.debtSustainabilityChart;
+        if (!chartData) return;
+        if (this.charts.debtSustainability) this.charts.debtSustainability.destroy();
+        this.charts.debtSustainability = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: chartData.labels,
+                datasets: [
+                    {
+                        label: chartData.datasets.company.label,
+                        data: chartData.datasets.company.data,
+                        backgroundColor: 'rgba(220, 53, 69, 0.2)',
+                        borderColor: 'rgba(220, 53, 69, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(220, 53, 69, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(220, 53, 69, 1)'
+                    },
+                    {
+                        label: chartData.datasets.target.label,
+                        data: chartData.datasets.target.data,
+                        backgroundColor: 'rgba(40, 167, 69, 0.2)',
+                        borderColor: 'rgba(40, 167, 69, 1)',
+                        borderWidth: 2,
+                        pointBackgroundColor: 'rgba(40, 167, 69, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(40, 167, 69, 1)'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            stepSize: 20
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.dataset.label + ': ' + context.parsed.r.toFixed(0) + '/100';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    },
+    createFinancialDebtChart() {
+        const ctx = document.getElementById('financialDebtChart');
+        if (!ctx) return;
+        const chartData = this.data.charts?.reports?.parte4?.financialDebtChart;
+        if (!chartData) return;
+        if (this.charts.financialDebt) this.charts.financialDebt.destroy();
+        this.charts.financialDebt = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: chartData.labels,
+                datasets: [{
+                    data: chartData.datasets.values.data,
+                    backgroundColor: [
+                        'rgba(220, 53, 69, 0.8)',
+                        'rgba(255, 193, 7, 0.8)'
+                    ],
+                    borderColor: [
+                        'rgba(220, 53, 69, 1)',
+                        'rgba(255, 193, 7, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const value = Utils.formatCurrency(context.raw);
+                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                const percentage = ((context.raw / total) * 100).toFixed(1);
+                                return `${context.label}: ${value} (${percentage}%)`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    },
+    createDebtCostChart() {
+        const ctx = document.getElementById('debtCostChart');
+        if (!ctx) return;
+        const chartData = this.data.charts?.reports?.parte4?.debtCostChart;
+        if (!chartData) return;
+        if (this.charts.debtCost) this.charts.debtCost.destroy();
+        this.charts.debtCost = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: chartData.labels,
+                datasets: [
+                    {
+                        label: chartData.datasets.ebitda.label,
+                        data: chartData.datasets.ebitda.data,
+                        backgroundColor: 'rgba(0, 123, 255, 0.8)',
+                        type: 'bar'
+                    },
+                    {
+                        label: chartData.datasets.debtCapacity.label,
+                        data: chartData.datasets.debtCapacity.data,
+                        borderColor: 'rgba(40, 167, 69, 1)',
+                        borderWidth: 3,
+                        fill: false,
+                        type: 'line'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                },
+                scales: {
+                    y: {
+                        ticks: {
+                            callback: function(value) {
+                                return Utils.formatCurrency(value);
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    },
+    renderMeritoGrid() {
+        const container = document.getElementById('meritoGrid');
+        if (!container) return;
+        const pfnEbitda = this.data.kpis?.pfnEbitda || {};
+        const leverageDE = this.data.kpis?.leverageDE || {};
+        const cashFlow = this.data.kpis?.cashFlowOperativo || {};
+        const dso = this.data.kpis?.dso || {};
+        container.innerHTML = `
+            <div class="kpi-card-v4">
+                <div class="icon-circle ${pfnEbitda.status || 'danger'}"><i class="fas ${pfnEbitda.icon || 'fa-balance-scale'}"></i></div>
+                <div class="kpi-content">
+                    <div class="kpi-label">${pfnEbitda.title || 'PFN/EBITDA'}</div>
+                    <div class="kpi-value">${pfnEbitda.displayValue || 'N/A'}</div>
+                    <div class="kpi-subtitle">${pfnEbitda.description || ''}</div>
+                </div>
+            </div>
+            <div class="kpi-card-v4">
+                <div class="icon-circle ${leverageDE.status || 'danger'}"><i class="fas ${leverageDE.icon || 'fa-money-bill-wave'}"></i></div>
+                <div class="kpi-content">
+                    <div class="kpi-label">${leverageDE.title || 'D/E'}</div>
+                    <div class="kpi-value">${leverageDE.displayValue || 'N/A'}</div>
+                    <div class="kpi-subtitle">${leverageDE.description || ''}</div>
+                </div>
+            </div>
+            <div class="kpi-card-v4">
+                <div class="icon-circle ${cashFlow.status || 'warning'}"><i class="fas ${cashFlow.icon || 'fa-coins'}"></i></div>
+                <div class="kpi-content">
+                    <div class="kpi-label">${cashFlow.title || 'Cash Flow Op.'}</div>
+                    <div class="kpi-value">${cashFlow.displayValue || 'N/A'}</div>
+                    <div class="kpi-subtitle">${cashFlow.trend?.displayValue || ''} ${cashFlow.trend?.label || ''}</div>
+                </div>
+            </div>
+            <div class="kpi-card-v4">
+                <div class="icon-circle ${dso.status || 'warning'}"><i class="fas ${dso.icon || 'fa-file-invoice-dollar'}"></i></div>
+                <div class="kpi-content">
+                    <div class="kpi-label">${dso.title || 'DSO'}</div>
+                    <div class="kpi-value">${dso.displayValue || 'N/A'}</div>
+                    <div class="kpi-subtitle">${dso.description || ''}</div>
+                </div>
+            </div>
+        `;
+    },
+    renderDSCRTable() {
+        const container = document.getElementById('dscrTable');
+        if (!container) return;
+        const dscrData = this.data.tables?.parte4_bancabilita?.sostenibilitaDebito;
+        if (!dscrData) return;
+        const dscrRow = dscrData.rows.find(r => r.indicatore === 'DSCR');
+        if (!dscrRow) return;
+        const headers = '<thead><tr><th>Metrica</th><th>2022</th><th>2023</th><th>2024</th><th>Benchmark</th><th>Valutazione</th></tr></thead>';
+        const tbody = '<tbody><tr><td><strong>DSCR (Debt Service Coverage Ratio)</strong></td><td class="text-center">' + (dscrRow['2022'] || '-') + '</td><td class="text-center">' + (dscrRow['2023'] || '-') + '</td><td class="text-center">' + (dscrRow['2024'] || '-') + '</td><td class="text-center">' + (dscrRow.benchmark || '-') + '</td><td class="text-center"><span class="badge bg-success">Sufficiente</span></td></tr></tbody>';
+        container.innerHTML = headers + tbody;
     }
 };
 document.addEventListener('DOMContentLoaded', () => { Parte4Bancabilita.init(); });
