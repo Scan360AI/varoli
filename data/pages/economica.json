@@ -1,0 +1,434 @@
+{
+  "metadata": {
+    "companyName": "VAROLI GUIDO E FIGLIO S.R.L.",
+    "reportDate": "01 Settembre 2025",
+    "pageTitle": "Analisi Economica e Benchmark - SCAN V9",
+    "reportTitle": "Report Dettagliato: Analisi Economica e Benchmark"
+  },
+  "sidebar": {
+    "companyName": "VAROLI GUIDO E FIGLIO S.R.L.",
+    "logo": "../assets/img/logo_scan.png",
+    "menuItems": [
+      {"type": "link", "label": "Dashboard", "icon": "fas fa-tachometer-alt", "href": "/dashboard_v2", "active": false},
+      {"type": "title", "label": "Analisi Dettagliata"},
+      {"type": "link", "label": "Sintesi e Profilo", "icon": "fas fa-file-alt", "href": "/report/parte1_sintesi", "active": false},
+      {"type": "link", "label": "Analisi Economica", "icon": "fas fa-balance-scale", "href": "/report/parte2_economico", "active": true},
+      {"type": "link", "label": "Analisi Patrimoniale", "icon": "fas fa-landmark", "href": "/report/parte3_patrimoniale", "active": false},
+      {"type": "link", "label": "Bancabilità", "icon": "fas fa-university", "href": "/report/parte4_bancabilita", "active": false},
+      {"type": "link", "label": "Circolante e Flussi", "icon": "fas fa-sync-alt", "href": "/report/parte5_circolante_flussi", "active": false},
+      {"type": "link", "label": "Rischi e Azioni", "icon": "fas fa-exclamation-triangle", "href": "/report/parte6_rischi-raccomandazioni", "active": false},
+      {"type": "title", "label": "Approfondimenti"},
+      {"type": "link", "label": "Dettaglio IRP", "icon": "fas fa-shield-alt", "href": "/report/irp_dettaglio", "active": false}
+    ]
+  },
+  "header": {
+    "title": "Report Dettagliato: Analisi Economica e Benchmark",
+    "subtitle": "VAROLI GUIDO E FIGLIO S.R.L. | <span class=\"report-date\">01 Settembre 2025</span>",
+    "userMenuName": "VAROLI GUIDO E FIGLIO S.R.L.",
+    "irpScore": 51.42
+  },
+  "section_2_1_1": {
+    "intro": "Il conto economico riclassificato evidenzia la struttura dei costi e dei ricavi di VAROLI GUIDO E FIGLIO S.R.L. nel periodo 2022-2024, consentendo di valutare la redditività operativa e netta nel settore del commercio all'ingrosso di legname.",
+    "chart1": {
+      "title": "Grafico 2.1: Andamento Ricavi ed EBITDA 2022-2024 (€000 e %)",
+      "canvasId": "economicTrendChart",
+      "type": "line",
+      "data": {
+        "labels": ["2022", "2023", "2024"],
+        "datasets": [
+          {
+            "label": "Ricavi (€000)",
+            "data": [3722, 3324, 2850],
+            "borderColor": "#191970",
+            "backgroundColor": "rgba(25, 25, 112, 0.1)",
+            "yAxisID": "y",
+            "tension": 0.4
+          },
+          {
+            "label": "EBITDA (€000)",
+            "data": [197, 213, -44],
+            "borderColor": "#4CAF50",
+            "backgroundColor": "rgba(76, 175, 80, 0.1)",
+            "yAxisID": "y",
+            "tension": 0.4
+          },
+          {
+            "label": "EBITDA Margin (%)",
+            "data": [5.3, 6.4, -1.5],
+            "borderColor": "#FFC107",
+            "backgroundColor": "rgba(255, 193, 7, 0.1)",
+            "yAxisID": "y1",
+            "tension": 0.4,
+            "borderDash": [5, 5]
+          }
+        ]
+      },
+      "options": {
+        "responsive": true,
+        "maintainAspectRatio": false,
+        "interaction": {
+          "mode": "index",
+          "intersect": false
+        },
+        "plugins": {
+          "legend": {
+            "position": "top"
+          }
+        },
+        "scales": {
+          "y": {
+            "type": "linear",
+            "display": true,
+            "position": "left",
+            "title": {
+              "display": true,
+              "text": "€000"
+            }
+          },
+          "y1": {
+            "type": "linear",
+            "display": true,
+            "position": "right",
+            "title": {
+              "display": true,
+              "text": "%"
+            },
+            "grid": {
+              "drawOnChartArea": false
+            }
+          }
+        }
+      }
+    },
+    "table1": {
+      "title": "Tabella 2.1: Conto Economico Riclassificato 2022-2024 (valori in €)",
+      "headers": ["Voce", "2022", "% Ricavi", "2023", "% Ricavi", "2024", "% Ricavi", "Var. % 23-24"],
+      "rows": [
+        {"voce": "Ricavi", "2022": 3722214, "pct_2022": "100,0%", "2023": 3324256, "pct_2023": "100,0%", "2024": 2849913, "pct_2024": "100,0%", "var": -14.27, "highlight": false},
+        {"voce": "Valore Aggiunto su Consumi", "2022": 882787, "pct_2022": "23,7%", "2023": 900716, "pct_2023": "27,1%", "2024": 654316, "pct_2024": "23,0%", "var": -27.35, "highlight": false},
+        {"voce": "Margine di Contribuzione", "2022": 506486, "pct_2022": "13,6%", "2023": 541132, "pct_2023": "16,3%", "2024": 243892, "pct_2024": "8,6%", "var": -54.93, "highlight": false},
+        {"voce": "EBITDA", "2022": 196510, "pct_2022": "5,3%", "2023": 213142, "pct_2023": "6,4%", "2024": -43535, "pct_2024": "-1,5%", "var": -120.43, "highlight": true, "highlightClass": "table-success fw-bold"},
+        {"voce": "EBIT (Reddito Operativo)", "2022": 144694, "pct_2022": "3,9%", "2023": 172671, "pct_2023": "5,2%", "2024": -92982, "pct_2024": "-3,3%", "var": -153.85, "highlight": false},
+        {"voce": "Margine Ante Gestione Fin.", "2022": 144694, "pct_2022": "3,9%", "2023": 172671, "pct_2023": "5,2%", "2024": -92982, "pct_2024": "-3,3%", "var": -153.85, "highlight": false},
+        {"voce": "Margine Corrente", "2022": 116186, "pct_2022": "3,1%", "2023": 133278, "pct_2023": "4,0%", "2024": -158485, "pct_2024": "-5,6%", "var": -218.91, "highlight": false},
+        {"voce": "Risultato Ante Imposte", "2022": 116186, "pct_2022": "3,1%", "2023": 133278, "pct_2023": "4,0%", "2024": -158485, "pct_2024": "-5,6%", "var": -218.91, "highlight": false},
+        {"voce": "Utile/Perdita d'esercizio", "2022": 106304, "pct_2022": "2,9%", "2023": 114552, "pct_2023": "3,4%", "2024": -149177, "pct_2024": "-5,2%", "var": -230.23, "highlight": true, "highlightClass": "table-success fw-bold"}
+      ]
+    },
+    "costsComposition": {
+      "title": "Analisi della composizione dei costi",
+      "headers": ["Categoria di costo", "2022", "% Ricavi", "2023", "% Ricavi", "2024", "% Ricavi", "Var.% 23-24"],
+      "rows": [
+        {"categoria": "Acquisti", "2022": "n.d.", "pct_2022": "n.d.", "2023": "n.d.", "pct_2023": "n.d.", "2024": -2195597, "pct_2024": "-77,0%", "var": "n.d."},
+        {"categoria": "Costi variabili di produzione", "2022": "n.d.", "pct_2022": "n.d.", "2023": "n.d.", "pct_2023": "n.d.", "2024": -410424, "pct_2024": "-14,4%", "var": "n.d."},
+        {"categoria": "Costi fissi", "2022": "n.d.", "pct_2022": "n.d.", "2023": "n.d.", "pct_2023": "n.d.", "2024": -287427, "pct_2024": "-10,1%", "var": "n.d."},
+        {"categoria": "Costo del Personale", "2022": "n.d.", "pct_2022": "n.d.", "2023": 308000, "pct_2023": "9,3%", "2024": -267333, "pct_2024": "-9,4%", "var": -13.2, "varClass": "text-success"},
+        {"categoria": "Ammortamenti", "2022": -51816, "pct_2022": "-1,4%", "2023": -40471, "pct_2023": "-1,2%", "2024": -49447, "pct_2024": "-1,7%", "var": 22.18, "varClass": "text-danger"},
+        {"categoria": "Oneri finanziari", "2022": -28508, "pct_2022": "-0,8%", "2023": -39393, "pct_2023": "-1,2%", "2024": -65503, "pct_2024": "-2,3%", "var": 66.28, "varClass": "text-danger"},
+        {"categoria": "Imposte", "2022": -9882, "pct_2022": "-0,3%", "2023": -18726, "pct_2023": "-0,6%", "2024": 9308, "pct_2024": "0,3%", "var": -149.71, "varClass": "text-success"}
+      ]
+    },
+    "analysis": {
+      "title": "Analisi del Conto Economico (VAROLI GUIDO E FIGLIO S.R.L.):",
+      "points": [
+        "<strong>Ricavi:</strong> Significativa contrazione del 14,27% nel 2024 rispetto al 2023, evidenziando un trend negativo nel settore del commercio all'ingrosso di legname.",
+        "<strong>Valore Aggiunto (23,0%):</strong> In forte calo rispetto al 2023 (-27,35%), indicando un peggioramento delle condizioni di acquisto o una maggiore pressione competitiva sui prezzi di vendita.",
+        "<strong>Margine di Contribuzione (8,6%):</strong> Drastico peggioramento (-54,93%) rispetto al 2023, segnalando una perdita di efficienza commerciale che ha compromesso la capacità dell'azienda di generare marginalità.",
+        "<strong>EBITDA (-1,5%):</strong> Crollo del 120,43% rispetto al 2023, con passaggio in territorio negativo, evidenziando una grave perdita di efficienza operativa.",
+        "<strong>EBIT (-3,3%):</strong> Significativo peggioramento (-153,85%) rispetto al 2023, con risultato operativo negativo che compromette la sostenibilità del business.",
+        "<strong>Utile Netto (-5,2%):</strong> Drammatico passaggio da un utile di €114.552 a una perdita di €149.177 (-230,23%), principalmente a causa del deterioramento della marginalità operativa e dell'incremento degli oneri finanziari (+66,28%)."
+      ]
+    }
+  },
+  "section_2_1_2": {
+    "intro": "L'analisi della marginalità valuta la capacità di generare valore aggiunto nel settore del commercio all'ingrosso di legname.",
+    "chart2": {
+      "title": "Grafico 2.2: Evoluzione delle Principali Marginalità (%)",
+      "canvasId": "marginalityChart",
+      "type": "line",
+      "data": {
+        "labels": ["2022", "2023", "2024"],
+        "datasets": [
+          {"label": "Valore Aggiunto/Ricavi", "data": [23.7, 27.1, 23.0], "borderColor": "#191970", "backgroundColor": "rgba(25, 25, 112, 0.1)", "tension": 0.4},
+          {"label": "MdC/Ricavi", "data": [13.6, 16.3, 8.6], "borderColor": "#4a69bd", "backgroundColor": "rgba(74, 105, 189, 0.1)", "tension": 0.4},
+          {"label": "EBITDA/Ricavi", "data": [5.3, 6.4, -1.5], "borderColor": "#4CAF50", "backgroundColor": "rgba(76, 175, 80, 0.1)", "tension": 0.4},
+          {"label": "ROS (EBIT/Ricavi)", "data": [3.9, 5.2, -3.3], "borderColor": "#FFC107", "backgroundColor": "rgba(255, 193, 7, 0.1)", "tension": 0.4}
+        ]
+      },
+      "options": {
+        "responsive": true,
+        "maintainAspectRatio": false,
+        "plugins": {"legend": {"position": "top"}},
+        "scales": {"y": {"beginAtZero": false}}
+      }
+    },
+    "table2": {
+      "title": "Tabella 2.2: Evoluzione Indici di Marginalità (VAROLI GUIDO E FIGLIO S.R.L.)",
+      "headers": ["Indicatore", "2022", "2023", "2024", "Trend"],
+      "rows": [
+        {"indicatore": "Valore Aggiunto/Ricavi", "2022": "23,7%", "2023": "27,1%", "2024": "23,0%", "trend": "down", "trendClass": "text-danger"},
+        {"indicatore": "MdC/Ricavi", "2022": "13,6%", "2023": "16,3%", "2024": "8,6%", "trend": "down", "trendClass": "text-danger"},
+        {"indicatore": "EBITDA/Ricavi", "2022": "5,3%", "2023": "6,4%", "2024": "-1,5%", "trend": "down", "trendClass": "text-danger"},
+        {"indicatore": "ROS (EBIT/Ricavi)", "2022": "3,9%", "2023": "5,2%", "2024": "-3,3%", "trend": "down", "trendClass": "text-danger"},
+        {"indicatore": "Utile Netto/Ricavi", "2022": "2,9%", "2023": "3,4%", "2024": "-5,2%", "trend": "down", "trendClass": "text-danger"},
+        {"indicatore": "Break-Even Point (€)", "2022": "n.d.", "2023": "n.d.", "2024": "3.936.421", "trend": "up", "trendClass": "text-danger", "highlight": true},
+        {"indicatore": "Margine Sicurezza", "2022": "n.d.", "2023": "n.d.", "2024": "-38,12%", "trend": "critical", "trendClass": "text-danger", "highlight": true}
+      ]
+    },
+    "breakEven": {
+      "title": "Break-Even e Leva Operativa (2024 - VAROLI GUIDO E FIGLIO S.R.L.)",
+      "items": [
+        {"icon": "fas fa-bullseye", "text": "BEP: €3.936.421 | Margine Sicurezza: -38,12% (Critico)"},
+        {"icon": "fas fa-calculator", "text": "Moltiplicatore CF: 11,69"},
+        {"icon": "fas fa-arrows-alt-v", "text": "Variazione ricavi per EBIT=0: +38,12% | Variazione CF per EBIT=0: -26,01%"}
+      ]
+    }
+  },
+  "section_2_1_3": {
+    "intro": "Analisi delle principali voci di costo e loro incidenza nel settore del commercio all'ingrosso di legname.",
+    "table3": {
+      "title": "Tabella 2.3: Struttura dei Costi 2022-2024 (VAROLI GUIDO E FIGLIO S.R.L.)",
+      "headers": ["Categoria di Costo", "2022", "% Ricavi", "2023", "% Ricavi", "2024", "% Ricavi", "Var%", "Valutazione"],
+      "rows": [
+        {"categoria": "Costi variabili produzione", "2022": "n.d.", "pct_2022": "n.d.", "2023": "n.d.", "pct_2023": "n.d.", "2024": -2606021, "pct_2024": "-91,4%", "var": "n.d.", "badge": "Critico", "badgeClass": "bg-danger"},
+        {"categoria": "Costi fissi", "2022": "n.d.", "pct_2022": "n.d.", "2023": "n.d.", "pct_2023": "n.d.", "2024": -287427, "pct_2024": "-10,1%", "var": "n.d.", "badge": "Elevato", "badgeClass": "bg-warning"},
+        {"categoria": "Costo del personale", "2022": "n.d.", "pct_2022": "n.d.", "2023": 308000, "pct_2023": "9,3%", "2024": -267333, "pct_2024": "-9,4%", "var": "-13,2%", "varClass": "text-success", "badge": "In linea", "badgeClass": "bg-success"},
+        {"categoria": "Godimento beni terzi", "2022": "n.d.", "pct_2022": "n.d.", "2023": "n.d.", "pct_2023": "n.d.", "2024": "n.d.", "pct_2024": "n.d.", "var": "n.d.", "badge": "Non disponibile", "badgeClass": "bg-warning"},
+        {"categoria": "Ammortamenti", "2022": -51816, "pct_2022": "-1,4%", "2023": -40471, "pct_2023": "-1,2%", "2024": -49447, "pct_2024": "-1,7%", "var": "+22,2%", "varClass": "text-danger", "badge": "In aumento", "badgeClass": "bg-warning"},
+        {"categoria": "Oneri finanziari", "2022": -28508, "pct_2022": "-0,8%", "2023": -39393, "pct_2023": "-1,2%", "2024": -65503, "pct_2024": "-2,3%", "var": "+66,3%", "varClass": "text-danger", "badge": "Critico", "badgeClass": "bg-danger"}
+      ]
+    },
+    "personnelCost": {
+      "title": "Analisi del Costo del Personale",
+      "headers": ["Dettaglio", "2022", "2023", "2024", "Var.% 23-24"],
+      "rows": [
+        {"dettaglio": "Numero dipendenti", "2022": "n.d.", "2023": "n.d.", "2024": "n.d.", "var": "n.d."},
+        {"dettaglio": "Costo totale personale (€)", "2022": "n.d.", "2023": 308000, "2024": 267333, "var": "-13,2%", "varClass": "text-success"},
+        {"dettaglio": "Costo medio per dipendente (€)", "2022": "n.d.", "2023": "n.d.", "2024": "n.d.", "var": "n.d."},
+        {"dettaglio": "Incidenza su ricavi (%)", "2022": "n.d.", "2023": "9,3%", "2024": "9,4%", "var": "+0,1 p.p.", "varClass": "text-danger"},
+        {"dettaglio": "Ricavi per dipendente (€)", "2022": "n.d.", "2023": "n.d.", "2024": "n.d.", "var": "n.d."}
+      ]
+    },
+    "costsAnalysis": {
+      "title": "Approfondimento (VAROLI GUIDO E FIGLIO S.R.L.):",
+      "points": [
+        "<strong>Costi variabili (91,4%):</strong> Elevata incidenza tipica del modello di business TRADER, con prevalenza assoluta dei costi variabili rispetto ai costi fissi.",
+        "<strong>Costi fissi (10,1%):</strong> Incidenza significativa che, combinata con la riduzione dei volumi, ha amplificato l'impatto negativo sulla redditività operativa.",
+        "<strong>Costo del personale (9,4%):</strong> Allineato con i benchmark di riferimento per i TRADER, ma la sua limitata elasticità rispetto alla contrazione del fatturato ha contribuito al deterioramento della marginalità.",
+        "<strong>Ammortamenti (1,7%):</strong> Incremento significativo (+22,18%) che riflette investimenti recenti non ancora pienamente produttivi.",
+        "<strong>Oneri finanziari (2,3%):</strong> Preoccupante incremento (+66,28%) legato all'aumento dell'indebitamento finanziario, con ulteriore erosione della redditività netta."
+      ]
+    }
+  },
+  "section_2_1_4": {
+    "intro": "Analisi della capacità di generare ritorni adeguati nel settore del commercio all'ingrosso di legname.",
+    "table4": {
+      "title": "Tabella 2.4: Indici di Redditività 2022-2024 (VAROLI GUIDO E FIGLIO S.R.L.)",
+      "headers": ["Indice", "Formula", "2022", "2023", "2024", "Soglia", "Valutazione"],
+      "rows": [
+        {"indice": "ROE", "formula": "Utile/PN", "2022": "19,18%", "2023": "17,65%", "2024": "-31,10%", "soglia": "> 8%", "badge": "Critico", "badgeClass": "bg-danger"},
+        {"indice": "ROI", "formula": "EBIT/CIN", "2022": "14,96%", "2023": "17,52%", "2024": "-6,65%", "soglia": "> 8%", "badge": "Critico", "badgeClass": "bg-danger"},
+        {"indice": "ROS", "formula": "EBIT/Ricavi", "2022": "3,9%", "2023": "5,2%", "2024": "-3,3%", "soglia": "> 4%", "badge": "Critico", "badgeClass": "bg-danger"},
+        {"indice": "EBITDA Margin", "formula": "EBITDA/Ricavi", "2022": "5,3%", "2023": "6,4%", "2024": "-1,5%", "soglia": "> 8%", "badge": "Critico", "badgeClass": "bg-danger"},
+        {"indice": "Redditività Netta", "formula": "Utile/Ricavi", "2022": "2,9%", "2023": "3,4%", "2024": "-5,2%", "soglia": "> 2%", "badge": "Critico", "badgeClass": "bg-danger"},
+        {"indice": "Turnover", "formula": "Ricavi/CIN", "2022": "n.d.", "2023": "n.d.", "2024": "2,04", "soglia": "> 1,5", "badge": "Ottimo", "badgeClass": "bg-success"},
+        {"indice": "Cash Flow / Ricavi", "formula": "CF Op./Ricavi", "2022": "n.d.", "2023": "n.d.", "2024": "7,42%", "soglia": "> 8%", "badge": "Sotto benchmark", "badgeClass": "bg-warning"}
+      ]
+    },
+    "chart3": {
+      "title": "Grafico 2.3: Andamento Redditività (%)",
+      "canvasId": "profitabilityIndicesChart",
+      "type": "bar",
+      "data": {
+        "labels": ["ROE", "ROI", "ROS", "EBITDA Margin"],
+        "datasets": [
+          {"label": "2022", "data": [19.18, 14.96, 3.9, 5.3], "backgroundColor": "#4a69bd"},
+          {"label": "2023", "data": [17.65, 17.52, 5.2, 6.4], "backgroundColor": "#4CAF50"},
+          {"label": "2024", "data": [-31.10, -6.65, -3.3, -1.5], "backgroundColor": "#F44336"}
+        ]
+      },
+      "options": {
+        "responsive": true,
+        "maintainAspectRatio": false,
+        "plugins": {"legend": {"position": "top"}},
+        "scales": {"y": {"beginAtZero": false}}
+      }
+    },
+    "profitabilityAnalysis": {
+      "title": "Analisi (VAROLI GUIDO E FIGLIO S.R.L.):",
+      "points": [
+        "<strong>ROE (-31,10%):</strong> Valore drammaticamente negativo, in netto peggioramento rispetto al 2023 (+17,65%), indicando un elevato rischio di erosione del patrimonio netto nel medio termine.",
+        "<strong>ROI (-6,65%):</strong> Valore negativo, in drastico peggioramento rispetto al 2023 (+17,52%), segnalando una grave inefficienza nell'impiego delle risorse investite.",
+        "<strong>ROS (-3,3%):</strong> Valore negativo, ben al di sotto della soglia minima del 4% e della media di settore (-0,95%), evidenziando una criticità strutturale nella generazione di reddito operativo.",
+        "<strong>EBITDA Margin (-1,5%):</strong> Performance negativa, significativamente inferiore alla soglia dell'8% e al benchmark di settore (+0,93%), confermando la perdita di efficienza operativa.",
+        "<strong>Cash Flow / Ricavi (7,42%):</strong> Valore appena sotto la soglia ottimale dell'8%, unico indicatore relativamente positivo che evidenzia una discreta capacità di generazione di cassa operativa nonostante le difficoltà reddituali.",
+        "<strong>Turnover (2,04):</strong> Buona rotazione del capitale, superiore alla soglia minima di 1,5, indicando una discreta efficienza nell'utilizzo delle risorse, coerente con il modello di business TRADER."
+      ]
+    }
+  },
+  "section_2_1_5": {
+    "intro": "Valutazione dell'impatto dell'indebitamento sulla redditività del capitale proprio nel contesto del commercio all'ingrosso di legname.",
+    "table5": {
+      "title": "Tabella 2.5: Analisi Effetto Leva 2022-2024 (VAROLI GUIDO E FIGLIO S.R.L.)",
+      "headers": ["Parametro", "Formula", "2022", "2023", "2024", "Variazione 23-24"],
+      "rows": [
+        {"parametro": "ROI", "formula": "EBIT/CIN", "2022": "14,96%", "2023": "17,52%", "2024": "-6,65%", "var": "-24,17 p.p."},
+        {"parametro": "Costo medio del debito (i)", "formula": "Oneri Fin./Debiti Fin.", "2022": "5,62%", "2023": "7,75%", "2024": "5,14%", "var": "-2,61 p.p."},
+        {"parametro": "Spread (ROI - i)", "formula": "ROI - i", "2022": "9,34%", "2023": "9,77%", "2024": "-11,79%", "var": "-21,56 p.p."},
+        {"parametro": "Rapporto D/E (Debt/Equity)", "formula": "Debiti Fin./PN", "2022": "0,92", "2023": "0,78", "2024": "2,66", "var": "+1,88"},
+        {"parametro": "Effetto leva (ROI - i) × D/E", "formula": "(ROI - i) × D/E", "2022": "8,59%", "2023": "7,62%", "2024": "-31,36%", "var": "-38,98 p.p.", "highlight": true},
+        {"parametro": "ROE teorico (ROI + effetto leva)", "formula": "ROI + Effetto Leva", "2022": "23,55%", "2023": "25,14%", "2024": "-38,01%", "var": "-63,15 p.p."},
+        {"parametro": "ROE effettivo", "formula": "Utile Netto/PN", "2022": "19,18%", "2023": "17,65%", "2024": "-31,10%", "var": "-48,75 p.p.", "highlight": true, "bold": true},
+        {"parametro": "Differenza (ROE effettivo - ROE teorico)", "formula": "ROE - ROE teorico", "2022": "-4,37%", "2023": "-7,49%", "2024": "6,91%", "var": "+14,40 p.p."}
+      ]
+    },
+    "chart4": {
+      "title": "Grafico 2.4: Evoluzione della Struttura Finanziaria",
+      "canvasId": "leverageChart",
+      "type": "line",
+      "data": {
+        "labels": ["2022", "2023", "2024"],
+        "datasets": [
+          {"label": "ROI (%)", "data": [14.96, 17.52, -6.65], "borderColor": "#191970", "backgroundColor": "rgba(25, 25, 112, 0.1)", "yAxisID": "y", "tension": 0.4},
+          {"label": "Costo Debito (%)", "data": [5.62, 7.75, 5.14], "borderColor": "#F44336", "backgroundColor": "rgba(244, 67, 54, 0.1)", "yAxisID": "y", "tension": 0.4},
+          {"label": "D/E Ratio", "data": [0.92, 0.78, 2.66], "borderColor": "#FFC107", "backgroundColor": "rgba(255, 193, 7, 0.1)", "yAxisID": "y1", "tension": 0.4}
+        ]
+      },
+      "options": {
+        "responsive": true,
+        "maintainAspectRatio": false,
+        "plugins": {"legend": {"position": "top"}},
+        "scales": {
+          "y": {"type": "linear", "display": true, "position": "left", "title": {"display": true, "text": "%"}},
+          "y1": {"type": "linear", "display": true, "position": "right", "title": {"display": true, "text": "D/E"}, "grid": {"drawOnChartArea": false}}
+        }
+      }
+    },
+    "leverageAnalysis": {
+      "title": "Analisi Leva (VAROLI GUIDO E FIGLIO S.R.L.):",
+      "items": [
+        {"icon": "fas fa-info-circle", "iconClass": "text-primary", "text": "L'analisi dell'effetto leva finanziaria evidenzia un drammatico peggioramento, con inversione dell'effetto moltiplicativo da positivo a fortemente negativo."},
+        {"icon": "fas fa-exclamation-circle", "iconClass": "text-danger", "text": "ROI negativo (-6,65%) significativamente inferiore al costo del debito (5,14%), generando uno spread negativo (-11,79%) che amplifica le perdite."},
+        {"icon": "fas fa-arrow-up", "iconClass": "text-danger", "text": "Rapporto D/E in forte aumento (da 0,78 a 2,66), che moltiplica l'effetto negativo dello spread, creando un circolo vizioso di deterioramento della redditività."},
+        {"icon": "fas fa-lightbulb", "iconClass": "text-warning", "text": "La struttura finanziaria attuale, caratterizzata da un elevato indebitamento in presenza di redditività operativa negativa, rappresenta un fattore di rischio critico."},
+        {"icon": "fas fa-chart-line", "iconClass": "text-danger", "text": "Urgente necessità di ristrutturazione finanziaria per ridurre l'indebitamento e di interventi operativi per ripristinare la redditività, al fine di invertire l'effetto leva negativo."}
+      ]
+    }
+  },
+  "section_2_2_1": {
+    "intro": "Valutazione della performance rispetto al settore \"Commercio all'ingrosso di legname\" (ATECO 46.73.10).",
+    "chart5": {
+      "title": "Grafico 2.5: Posizionamento Competitivo (Base 100 = Media Settore)",
+      "canvasId": "benchmarkRadarChart",
+      "type": "radar",
+      "data": {
+        "labels": ["Crescita Ricavi", "EBITDA Margin", "ROI", "Turnover", "Costo Personale (inv)", "PFN/EBITDA (inv)", "D/E (inv)"],
+        "datasets": [
+          {
+            "label": "VAROLI GUIDO E FIGLIO S.R.L.",
+            "data": [45, 60, 40, 102, 95, 30, 40],
+            "backgroundColor": "rgba(25, 25, 112, 0.3)",
+            "borderColor": "rgba(25, 25, 112, 1)",
+            "borderWidth": 2,
+            "pointBackgroundColor": "rgba(25, 25, 112, 1)",
+            "pointBorderColor": "#fff",
+            "pointHoverBackgroundColor": "#fff",
+            "pointHoverBorderColor": "rgba(25, 25, 112, 1)"
+          },
+          {
+            "label": "Media Settore",
+            "data": [100, 100, 100, 100, 100, 100, 100],
+            "backgroundColor": "rgba(217, 140, 0, 0.3)",
+            "borderColor": "rgba(217, 140, 0, 1)",
+            "borderWidth": 2,
+            "pointBackgroundColor": "rgba(217, 140, 0, 1)",
+            "pointBorderColor": "#fff",
+            "pointHoverBackgroundColor": "#fff",
+            "pointHoverBorderColor": "rgba(217, 140, 0, 1)"
+          }
+        ]
+      },
+      "options": {
+        "responsive": true,
+        "maintainAspectRatio": false,
+        "scales": {
+          "r": {
+            "angleLines": {"color": "#e0e0e0"},
+            "grid": {"color": "#e0e0e0"},
+            "pointLabels": {"font": {"size": 10}},
+            "ticks": {
+              "backdropColor": "rgba(255, 255, 255, 0.75)",
+              "font": {"size": 9},
+              "maxTicksLimit": 5
+            },
+            "suggestedMin": 0
+          }
+        },
+        "plugins": {
+          "legend": {"position": "bottom", "labels": {"boxWidth": 12, "padding": 15, "font": {"size": 11}}},
+          "title": {"display": false}
+        },
+        "animation": {"duration": 400}
+      }
+    },
+    "table6": {
+      "title": "Tabella 2.6: Posizionamento Competitivo 2024 (VAROLI GUIDO E FIGLIO S.R.L.)",
+      "headers": ["Indicatore", "VAROLI", "Media Sett.", "Gap", "Valutazione"],
+      "rows": [
+        {"indicatore": "Crescita ricavi", "varoli": "-14,27%", "settore": "+3,33%", "gap": "-17,60 p.p.", "gapClass": "text-danger", "badge": "Critico", "badgeClass": "bg-danger"},
+        {"indicatore": "EBITDA Margin", "varoli": "-1,53%", "settore": "+0,93%", "gap": "-2,46 p.p.", "gapClass": "text-danger", "badge": "Critico", "badgeClass": "bg-danger"},
+        {"indicatore": "ROI", "varoli": "-6,65%", "settore": "-3,16%", "gap": "-3,49 p.p.", "gapClass": "text-danger", "badge": "Sotto benchmark", "badgeClass": "bg-danger"},
+        {"indicatore": "ROE", "varoli": "-31,10%", "settore": "+3,22%", "gap": "-34,32 p.p.", "gapClass": "text-danger", "badge": "Critico", "badgeClass": "bg-danger"},
+        {"indicatore": "Turnover", "varoli": "2,04", "settore": "2,0", "gap": "+0,04", "gapClass": "text-success", "badge": "In linea", "badgeClass": "bg-success"},
+        {"indicatore": "PFN/EBITDA", "varoli": "-29,29", "settore": "3,0", "gap": "-32,29", "gapClass": "text-danger", "badge": "Critico", "badgeClass": "bg-danger"},
+        {"indicatore": "Leva D/E", "varoli": "2,66", "settore": "0,8", "gap": "+1,86", "gapClass": "text-danger", "badge": "Critico", "badgeClass": "bg-danger"},
+        {"indicatore": "Giorni Crediti Clienti", "varoli": "41", "settore": "54", "gap": "-13", "gapClass": "text-success", "badge": "Ottimo", "badgeClass": "bg-success"},
+        {"indicatore": "Ciclo Circolante", "varoli": "167", "settore": "51", "gap": "+116", "gapClass": "text-danger", "badge": "Critico", "badgeClass": "bg-danger"}
+      ]
+    },
+    "benchmarkAnalysis": {
+      "title": "Analisi posizionamento (VAROLI GUIDO E FIGLIO S.R.L.):",
+      "text": "VAROLI GUIDO E FIGLIO S.R.L. presenta un <strong>posizionamento complessivamente negativo</strong> rispetto al settore. La contrazione dei ricavi (-14,27% vs +3,33% del settore), la marginalità operativa negativa (EBITDA -1,53% vs +0,93%) e gli indicatori di redditività (ROI -6,65% vs -3,16%, ROE -31,10% vs +3,22%) evidenziano una <strong>performance significativamente inferiore</strong> ai benchmark di riferimento. L'unico elemento positivo riguarda la gestione dei crediti commerciali (41 giorni vs 54 giorni di settore), mentre il ciclo del circolante risulta drammaticamente superiore alla media (167 giorni vs 51 giorni), principalmente a causa dell'inefficiente gestione delle scorte. La struttura finanziaria presenta criticità rilevanti, con un rapporto D/E (2,66) significativamente superiore alla media di settore (0,8) e un rapporto PFN/EBITDA negativo che segnala l'incapacità di sostenere il debito con i flussi operativi."
+    }
+  },
+  "section_2_2_2": {
+    "intro": "Identificazione aree di miglioramento rispetto alle best practice del settore del commercio all'ingrosso di legname.",
+    "table7": {
+      "title": "Tabella 2.7: Gap Analysis 2024 (VAROLI GUIDO E FIGLIO S.R.L.)",
+      "headers": ["Area", "Situazione Attuale", "Benchmark", "Gap", "Valutazione"],
+      "rows": [
+        {"area": "Margine di contribuzione", "attuale": "8,56% dei ricavi", "benchmark": "8,87% dei ricavi", "gap": "-0,31 p.p.", "gapClass": "text-danger", "badge": "Sotto soglia", "badgeClass": "bg-warning"},
+        {"area": "Redditività operativa", "attuale": "EBITDA: -1,53%", "benchmark": "0,93%", "gap": "-2,46 p.p.", "gapClass": "text-danger", "badge": "Critico", "badgeClass": "bg-danger"},
+        {"area": "Gestione Magazzino", "attuale": "194 giorni", "benchmark": "61 giorni", "gap": "+133 giorni", "gapClass": "text-danger", "badge": "Critico", "badgeClass": "bg-danger"},
+        {"area": "Ciclo del Circolante", "attuale": "167 giorni", "benchmark": "51 giorni", "gap": "+116 giorni", "gapClass": "text-danger", "badge": "Critico", "badgeClass": "bg-danger"},
+        {"area": "Break-even point", "attuale": "Margine sicurezza: -38,12%", "benchmark": "Positivo", "gap": "Negativo", "gapClass": "text-danger", "badge": "Critico", "badgeClass": "bg-danger"},
+        {"area": "Struttura finanziaria", "attuale": "D/E: 2,66", "benchmark": "0,8", "gap": "+1,86", "gapClass": "text-danger", "badge": "Critico", "badgeClass": "bg-danger"},
+        {"area": "Sostenibilità del debito", "attuale": "PFN/EBITDA: -29,29", "benchmark": "3,0", "gap": "Negativo", "gapClass": "text-danger", "badge": "Critico", "badgeClass": "bg-danger"},
+        {"area": "Oneri finanziari", "attuale": "2,3% dei ricavi", "benchmark": "1,0% dei ricavi", "gap": "+1,3 p.p.", "gapClass": "text-danger", "badge": "Critico", "badgeClass": "bg-danger"}
+      ]
+    }
+  },
+  "section_2_2_3": {
+    "table8": {
+      "title": "Tabella 2.8: Piano di Azione Economico (Sintesi - VAROLI GUIDO E FIGLIO S.R.L.)",
+      "headers": ["<i class=\"fas fa-flag me-1\"></i> Area", "<i class=\"fas fa-wrench me-1\"></i> Azione Suggerita", "<i class=\"fas fa-chart-line me-1\"></i> Effetti Previsti", "<i class=\"fas fa-coins me-1\"></i> Net Benefit Stimato"],
+      "rows": [
+        {"area": "Gestione Magazzino", "azione": "Implementazione sistema di inventory management per ridurre le giacenze", "effetti": "Riduzione giorni magazzino da 194 a 120 giorni", "benefit": "Liberazione liquidità: €450.000", "benefitClass": "text-success"},
+        {"area": "Politica commerciale", "azione": "Revisione del listino prezzi e analisi di redditività per cliente/prodotto", "effetti": "Incremento margine di contribuzione dall'8,6% all'11,0%", "benefit": "Incremento MdC: €68.000/anno", "benefitClass": "text-success"},
+        {"area": "Struttura dei costi", "azione": "Razionalizzazione dei costi fissi e ottimizzazione processi operativi", "effetti": "Riduzione costi fissi del 5%", "benefit": "Risparmio: €14.000/anno", "benefitClass": "text-success"},
+        {"area": "Ristrutturazione finanziaria", "azione": "Rinegoziazione delle linee di credito e consolidamento del debito", "effetti": "Riduzione oneri finanziari dal 2,3% all'1,8% dei ricavi", "benefit": "Risparmio: €14.000/anno", "benefitClass": "text-success"},
+        {"area": "Riposizionamento strategico", "azione": "Diversificazione del portafoglio prodotti verso segmenti a maggiore valore aggiunto", "effetti": "Incremento ricavi del 10% con margine contribuzione del 13,8%", "benefit": "Incremento MdC: €39.000/anno", "benefitClass": "text-success"},
+        {"area": "Efficientamento organizzativo", "azione": "Revisione dei processi operativi e introduzione di KPI specifici", "effetti": "Incremento produttività del 8%", "benefit": "Risparmio: €21.000/anno", "benefitClass": "text-success"}
+      ]
+    },
+    "actionsNote": "L'implementazione di queste azioni consentirebbe di migliorare significativamente la generazione di cassa operativa, ottimizzare il capitale circolante e ripristinare la redditività. Il piano permetterebbe di liberare circa €450.000 di risorse finanziarie attraverso l'ottimizzazione del magazzino, con un impatto positivo stimato sull'EBITDA di €156.000 annui, portandolo in territorio positivo (circa 5,5% sui ricavi). Il break-even point verrebbe raggiunto già nel 2025, con un margine di sicurezza positivo dello 0,6%."
+  },
+  "summary": {
+    "title": "Conclusioni Analisi Economica e Benchmark (VAROLI GUIDO E FIGLIO S.R.L.)",
+    "paragraphs": [
+      "VAROLI GUIDO E FIGLIO S.R.L. presenta un <strong>profilo economico fortemente deteriorato</strong>, caratterizzato da una significativa contrazione dei ricavi (-14,27%), una marginalità operativa negativa (EBITDA -1,5%) e una struttura finanziaria compromessa (D/E 2,66, oneri finanziari in aumento del 66,28%).",
+      "Le <strong>principali criticità</strong> riguardano: (1) l'inefficiente gestione delle scorte (194 giorni, triplo rispetto al benchmark), (2) il margine di contribuzione insufficiente (8,56%) a coprire i costi fissi, (3) il break-even point non raggiunto, con margine di sicurezza fortemente negativo (-38,12%), (4) l'elevato indebitamento finanziario che amplifica l'effetto negativo della redditività operativa.",
+      "Le <strong>azioni prioritarie</strong> devono concentrarsi sull'ottimizzazione del capitale circolante attraverso una drastica riduzione delle giacenze di magazzino, sulla revisione della politica commerciale per incrementare il margine di contribuzione, sulla razionalizzazione della struttura dei costi fissi e sulla ristrutturazione finanziaria per ridurre l'incidenza degli oneri finanziari. La lunga esperienza nel settore (attiva dal 1985) e la buona gestione dei crediti commerciali costituiscono punti di forza su cui costruire il percorso di risanamento."
+    ]
+  }
+}
