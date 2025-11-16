@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circolante e Flussi di Cassa - VAROLI GUIDO E FIGLIO S.R.L. | SCAN V12</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/components.css" rel="stylesheet">
+    <link href="../css/modern.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar no-print">
+        <div class="sidebar-header">
+            <img src="../assets/img/logo_scan.png" alt="SCAN Logo" style="max-height: 40px;">
+            <h5 id="sidebarCompanyName"></h5>
+        </div>
+        <ul class="sidebar-nav flex-grow-1" id="sidebarNav">
+            <!-- Populated by JS -->
+        </ul>
+        <div class="sidebar-footer">
+            <small>SCAN360 © <span id="currentYearSidebar"></span> Kitzanos</small>
+        </div>
+    </aside>
+
+    <!-- Contenuto Principale Wrapper -->
+    <div class="main-wrapper">
+        <!-- Header Orizzontale -->
+        <header class="dashboard-header no-print">
+            <div class="header-title">
+                <h5 class="mb-0" id="headerTitle"></h5>
+                <p class="mb-0" id="headerSubtitle"></p>
+            </div>
+            <div class="header-controls d-flex align-items-center">
+                <span id="irp-header-badge" class="badge me-3"></span>
+                <button class="btn btn-sm btn-outline-secondary me-2 print-button" id="printBtn">
+                    <i class="fas fa-print"></i> Stampa
+                </button>
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-light border dropdown-toggle" type="button" id="userMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user-circle me-1"></i> <span id="userMenuName"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenuButton">
+                        <li><button class="dropdown-item" type="button" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i>Logout</button></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!-- Print Header -->
+        <div class="container d-none d-print-block mt-4 mb-4">
+            <h1 class="text-center mb-0"><span id="printCompanyName"></span></h1>
+            <p class="text-center mb-0" id="printSubtitle"></p>
+            <hr>
+        </div>
+
+        <!-- Area Contenuto Specifico del Report -->
+        <div class="dashboard-container">
+
+            <!-- Sezione 5.1 -->
+            <h2 class="section-title" id="section51Title"></h2>
+
+            <!-- Sintesi Ciclo -->
+            <div class="card mb-4 report-section">
+                <div class="card-header card-header-primary"><h5 class="mb-0" id="cycleSummaryTitle"></h5></div>
+                <div class="card-body">
+                    <p id="cycleSummaryIntro"></p>
+                    <div class="row gy-3 mt-4 mb-4" id="cycleKPIsContainer">
+                        <!-- Populated by JS -->
+                    </div>
+                    <p class="small" id="cycleSummaryConclusion"></p>
+
+                    <h6 class="mt-4 card-title-small" id="cycleTrendTableTitle"></h6>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped table-hover caption-top">
+                            <thead class="table-light" id="cycleTrendTableHead">
+                                <!-- Populated by JS -->
+                            </thead>
+                            <tbody id="cycleTrendTableBody">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analisi Dettagliata -->
+            <div class="card mb-4 report-section">
+                <div class="card-header card-header-secondary"><h5 class="mb-0" id="detailedAnalysisTitle"></h5></div>
+                <div class="card-body">
+                    <div class="row mb-4">
+                        <div class="col-lg-7 mb-3 mb-lg-0">
+                            <h6 class="text-center small" id="chart1Title"></h6>
+                            <div class="chart-container" style="height: 320px;">
+                                <canvas id="workingCapitalCycleChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 d-flex flex-column justify-content-center">
+                            <div class="alert-box p-3 mb-3" id="cycleAnalysisAlert">
+                                <h6 class="mb-1" id="cycleAnalysisTitle"></h6>
+                                <p class="small mb-0" id="cycleAnalysisText"></p>
+                            </div>
+                            <div class="alert-box alert-info p-3 small">
+                                <h6 class="mb-2" id="componentKeyTitle"></h6>
+                                <ul class="list-unstyled mb-0" id="componentKeyList">
+                                    <!-- Populated by JS -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <h6 class="mt-4 mb-3" id="congruityTestTitle"></h6>
+                    <div class="row gy-4" id="testCardsContainer">
+                        <!-- Populated by JS -->
+                    </div>
+                    <div class="alert-box small mt-4 p-2" id="detailedAnalysisAlert">
+                        <!-- Populated by JS -->
+                    </div>
+                    <hr class="my-4">
+                    <h6 class="mt-4 mb-3" id="improvementStrategiesTitle"></h6>
+                    <div class="row" id="strategyCardsContainer">
+                        <!-- Populated by JS -->
+                    </div>
+                    <div class="alert-box text-center mt-4" id="totalImpactAlert">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sezione 5.2 -->
+            <h2 class="section-title mt-5" id="section52Title"></h2>
+
+            <!-- Analisi Flussi -->
+            <div class="card mb-4 report-section">
+                <div class="card-header card-header-primary"><h5 class="mb-0" id="cashFlowAnalysisTitle"></h5></div>
+                <div class="card-body">
+                    <p id="cashFlowAnalysisIntro"></p>
+                    <div class="row">
+                        <div class="col-lg-7 mb-3 mb-lg-0">
+                            <h6 class="text-center small" id="chart2Title"></h6>
+                            <div class="chart-container" style="height: 400px;">
+                                <canvas id="cashFlowWaterfallChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <h6 class="mt-1" id="cashFlowTableTitle"></h6>
+                            <div class="table-responsive">
+                                <table class="table table-sm table-striped table-hover">
+                                    <thead class="table-light" id="cashFlowTableHead">
+                                        <!-- Populated by JS -->
+                                    </thead>
+                                    <tbody id="cashFlowTableBody">
+                                        <!-- Populated by JS -->
+                                    </tbody>
+                                </table>
+                                <p class="small text-muted mt-1 mb-0" id="cashFlowTableSource"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <h6 class="mt-4" id="cashFlowAnalysisSubtitle"></h6>
+                    <div class="alert-box small" id="cashFlowAnalysisAlert">
+                        <ul class="mb-0" id="cashFlowAnalysisList">
+                            <!-- Populated by JS -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trend e Proiezioni -->
+            <div class="card mb-4 report-section">
+                <div class="card-header card-header-secondary"><h5 class="mb-0" id="trendProjectionsTitle"></h5></div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-7 mb-3 mb-lg-0">
+                            <h6 class="text-center small" id="chart3Title"></h6>
+                            <div class="chart-container" style="height: 320px;">
+                                <canvas id="cashFlowTrendChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <h6 class="mt-1" id="trendInterpretationTitle"></h6>
+                            <ul class="small list-unstyled" id="trendInterpretationList">
+                                <!-- Populated by JS -->
+                            </ul>
+                        </div>
+                    </div>
+                    <hr class="my-4">
+                    <div class="row">
+                        <div class="col-lg-7 mb-3 mb-lg-0">
+                            <h6 class="text-center small" id="chart4Title"></h6>
+                            <div class="chart-container" style="height: 320px;">
+                                <canvas id="cashFlowProjectionChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <h6 class="mt-1" id="projectionAnalysisTitle"></h6>
+                            <ul class="small list-unstyled" id="projectionAnalysisList">
+                                <!-- Populated by JS -->
+                            </ul>
+                            <div class="alert alert-warning small p-2 mt-2" id="projectionWarning"></div>
+                        </div>
+                    </div>
+                    <h6 class="mt-4" id="operationalSuggestionsTitle"></h6>
+                    <div class="table-responsive small">
+                        <table class="table table-sm table-striped table-hover">
+                            <thead class="table-light" id="suggestionsTableHead">
+                                <!-- Populated by JS -->
+                            </thead>
+                            <tbody id="suggestionsTableBody">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="alert-box small mt-3" id="conclusionsAlert">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer no-print">
+            <div class="container-fluid px-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                        SCAN360 © <span id="currentYearFooterReport"></span>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        Powered by <a href="http://www.kitzanos.com" target="_blank" class="text-white fw-bold">Kitzanos Lab</a>
+                        <img src="../assets/img/logo_kitzanos.png" alt="Kitzanos Logo" class="ms-2">
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Script JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="../js/pages/circolante-flussi.js"></script>
+</body>
+</html>

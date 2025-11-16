@@ -1,0 +1,676 @@
+{
+  "sidebar": {
+    "companyName": "VAROLI GUIDO E FIGLIO S.R.L.",
+    "menuItems": [
+      {
+        "href": "/dashboard_v2",
+        "icon": "fas fa-tachometer-alt fa-fw",
+        "label": "Dashboard",
+        "active": false
+      },
+      {
+        "type": "title",
+        "label": "Analisi Dettagliata"
+      },
+      {
+        "href": "/report/parte1_sintesi",
+        "icon": "fas fa-file-alt fa-fw",
+        "label": "Sintesi e Profilo",
+        "active": false
+      },
+      {
+        "href": "/report/parte2_economico",
+        "icon": "fas fa-balance-scale fa-fw",
+        "label": "Analisi Economica",
+        "active": false
+      },
+      {
+        "href": "/report/parte3_patrimoniale",
+        "icon": "fas fa-landmark fa-fw",
+        "label": "Analisi Patrimoniale",
+        "active": false
+      },
+      {
+        "href": "/report/parte4_bancabilita",
+        "icon": "fas fa-university fa-fw",
+        "label": "Bancabilità",
+        "active": false
+      },
+      {
+        "href": "/report/parte5_circolante_flussi",
+        "icon": "fas fa-sync-alt fa-fw",
+        "label": "Circolante e Flussi",
+        "active": true
+      },
+      {
+        "href": "/report/parte6_rischi-raccomandazioni",
+        "icon": "fas fa-exclamation-triangle fa-fw",
+        "label": "Rischi e Azioni",
+        "active": false
+      },
+      {
+        "type": "title",
+        "label": "Approfondimenti"
+      },
+      {
+        "href": "/report/irp_dettaglio",
+        "icon": "fas fa-shield-alt fa-fw",
+        "label": "Dettaglio IRP",
+        "active": false
+      }
+    ]
+  },
+  "header": {
+    "title": "Report Dettagliato: Analisi Circolante e Flussi",
+    "subtitle": "VAROLI GUIDO E FIGLIO S.R.L. | 12 Novembre 2025",
+    "companyName": "VAROLI GUIDO E FIGLIO S.R.L.",
+    "userName": "VAROLI GUIDO E FIGLIO S.R.L.",
+    "irpBadge": {
+      "score": 51.42,
+      "class": "bg-danger"
+    }
+  },
+  "section51": {
+    "title": "<i class=\"fas fa-sync-alt me-2\"></i>5.1 ANALISI CAPITALE CIRCOLANTE",
+    "cycleSummary": {
+      "title": "Sintesi Ciclo Capitale Circolante",
+      "intro": "Il capitale circolante rappresenta una componente fondamentale per la valutazione della gestione finanziaria a breve termine dell'azienda. L'analisi del ciclo del circolante permette di comprendere il tempo che intercorre tra il pagamento ai fornitori e l'incasso dai clienti, evidenziando il fabbisogno finanziario generato dal ciclo operativo.",
+      "kpis": [
+        {
+          "label": "DSO (Clienti)",
+          "value": "41",
+          "borderClass": "border-warning",
+          "valueClass": "text-warning"
+        },
+        {
+          "label": "DIO (Magazzino)",
+          "value": "194",
+          "borderClass": "border-success",
+          "valueClass": "text-success"
+        },
+        {
+          "label": "DPO (Fornitori)",
+          "value": "68",
+          "borderClass": "border-warning",
+          "valueClass": "text-warning"
+        },
+        {
+          "label": "Ciclo Circolante",
+          "value": "167",
+          "borderClass": "border-warning",
+          "valueClass": "text-warning",
+          "bgClass": "bg-light"
+        }
+      ],
+      "conclusion": "Il ciclo del circolante particolarmente elevato di 167 giorni indica che l'azienda ha un significativo fabbisogno finanziario generato dalla differenza temporale tra pagamenti e incassi, elemento che richiede un'attenta gestione della liquidità, soprattutto considerando la tipologia di business focalizzato sul commercio all'ingrosso di legname."
+    },
+    "cycleTrend": {
+      "tableTitle": "TREND CICLO CIRCOLANTE 2022-2024 (GIORNI - VAROLI GUIDO E FIGLIO S.R.L.)",
+      "headers": ["Componente", "12/2022", "12/2023", "12/2024", "Trend"],
+      "rows": [
+        {
+          "componente": "DSO (giorni)",
+          "2022": "59",
+          "2023": "55",
+          "2024": "41",
+          "trend": "Miglioramento ↓",
+          "trendClass": "text-warning"
+        },
+        {
+          "componente": "DIO (giorni)",
+          "2022": "159",
+          "2023": "186",
+          "2024": "194",
+          "trend": "Peggioramento ↑",
+          "trendClass": "text-success"
+        },
+        {
+          "componente": "DPO (giorni)",
+          "2022": "73",
+          "2023": "67",
+          "2024": "68",
+          "trend": "Miglioramento ↑",
+          "trendClass": "text-warning"
+        },
+        {
+          "componente": "Ciclo Circolante",
+          "2022": "145",
+          "2023": "174",
+          "2024": "167",
+          "trend": "Miglioramento ↓",
+          "trendClass": "text-warning",
+          "highlight": true,
+          "highlightClass": "table-warning fw-bold"
+        }
+      ]
+    }
+  },
+  "detailedAnalysis": {
+    "title": "Analisi Dettagliata Giorni e Test di Congruità",
+    "chart1Title": "Grafico 5.1: Ciclo Capitale Circolante vs Benchmark (Giorni - VAROLI GUIDO E FIGLIO S.R.L.)",
+    "chart1": {
+      "type": "bar",
+      "data": {
+        "labels": ["DSO", "DIO", "DPO", "Ciclo Totale"],
+        "datasets": [
+          {
+            "label": "VAROLI GUIDO E FIGLIO 2024",
+            "data": [41, 194, -68, 167],
+            "backgroundColor": ["#FFC107", "#4CAF50", "#FFC107", "#FFC107"],
+            "borderColor": ["#FFA000", "#388E3C", "#FFA000", "#FFA000"],
+            "borderWidth": 1
+          },
+          {
+            "label": "Benchmark Settore",
+            "data": [55, 105, -75, 85],
+            "backgroundColor": "rgba(76, 175, 80, 0.6)",
+            "borderColor": "#388E3C",
+            "borderWidth": 1
+          }
+        ]
+      },
+      "options": {
+        "responsive": true,
+        "maintainAspectRatio": false,
+        "plugins": {
+          "legend": {"position": "top"},
+          "title": {"display": false}
+        },
+        "scales": {
+          "y": {
+            "beginAtZero": true,
+            "title": {"display": true, "text": "Giorni"}
+          }
+        }
+      }
+    },
+    "cycleAnalysis": {
+      "alertClass": "alert-warning",
+      "title": "<i class=\"fas fa-exclamation-circle me-2\"></i>Analisi Ciclo (167 giorni)",
+      "text": "Ciclo del circolante in miglioramento rispetto al 2023 (-7gg). Il ciclo di 167 giorni comporta un fabbisogno finanziario di circa €552.770."
+    },
+    "componentKey": {
+      "title": "<i class=\"fas fa-info-circle me-2\"></i>Componenti Chiave 2024:",
+      "items": [
+        {
+          "label": "DSO (41gg)",
+          "labelClass": "text-warning",
+          "text": "Inferiore al benchmark di settore (50-60gg), con una riduzione di 14 giorni rispetto al 2023."
+        },
+        {
+          "label": "DIO (194gg)",
+          "labelClass": "text-success",
+          "text": "Significativamente superiore al benchmark (90-120gg), con un incremento di 8 giorni rispetto al 2023."
+        },
+        {
+          "label": "DPO (68gg)",
+          "labelClass": "text-warning",
+          "text": "Sostanzialmente in linea con il benchmark (70-80gg), con un leggero incremento rispetto al 2023."
+        }
+      ]
+    },
+    "congruityTest": {
+      "title": "<i class=\"fas fa-balance-scale me-1\"></i> Test di Congruità Componenti (2024 - VAROLI GUIDO E FIGLIO S.R.L.)",
+      "tests": [
+        {
+          "icon": "fas fa-file-invoice-dollar me-1",
+          "iconClass": "text-warning",
+          "title": "Crediti (DSO)",
+          "borderClass": "border-warning",
+          "data": [
+            "Valore: € 317.323",
+            "DSO Effettivo: <strong>41 gg</strong>",
+            "DSO Standard: 55 gg"
+          ],
+          "result": [
+            {
+              "label": "Eccesso giorni:",
+              "value": "-14 gg",
+              "valueClass": "text-warning"
+            },
+            {
+              "label": "Liquidità immobilizzata:",
+              "value": "-€110.824",
+              "valueClass": "text-warning"
+            }
+          ]
+        },
+        {
+          "icon": "fas fa-truck me-1",
+          "iconClass": "text-warning",
+          "title": "Debiti (DPO)",
+          "borderClass": "border-warning",
+          "data": [
+            "Valore: € 480.162",
+            "DPO Effettivo: <strong>68 gg</strong>",
+            "DPO Standard: 75 gg"
+          ],
+          "result": [
+            {
+              "label": "Deficit giorni:",
+              "value": "-7 gg",
+              "valueClass": "text-warning"
+            },
+            {
+              "label": "Potenziale liquidità:",
+              "value": "-€23.170",
+              "valueClass": "text-warning"
+            }
+          ]
+        },
+        {
+          "icon": "fas fa-boxes me-1",
+          "iconClass": "text-success",
+          "title": "Magazzino (DIO)",
+          "borderClass": "border-success",
+          "data": [
+            "Valore: € 1.180.021",
+            "DIO Effettivo: <strong>194 gg</strong>",
+            "DIO Standard: 105 gg"
+          ],
+          "result": [
+            {
+              "label": "Eccesso giorni:",
+              "value": "89 gg",
+              "valueClass": "text-success"
+            },
+            {
+              "label": "Eccesso scorte:",
+              "value": "€542.811",
+              "valueClass": "text-success"
+            }
+          ]
+        }
+      ]
+    },
+    "detailedAlert": {
+      "alertClass": "alert-warning",
+      "text": "<strong>Analisi Dettagliata:</strong> L'azienda presenta un eccesso di fabbisogno finanziario di circa €542.811 dovuto principalmente a: tempi di permanenza delle merci in magazzino significativamente superiori al benchmark di settore, nonostante i tempi di incasso dai clienti inferiori al benchmark e i tempi di pagamento ai fornitori sostanzialmente in linea."
+    },
+    "improvementStrategies": {
+      "title": "<i class=\"fas fa-lightbulb me-1\"></i> Strategie di Miglioramento e Impatto Finanziario Atteso (VAROLI GUIDO E FIGLIO S.R.L.)",
+      "strategies": [
+        {
+          "icon": "fas fa-file-invoice-dollar me-1",
+          "title": "Crediti Clienti",
+          "actions": [
+            "Mantenere l'efficiente politica di incasso",
+            "Monitoraggio proattivo scadenze",
+            "Sistema di credit scoring",
+            "Incentivi pagamenti anticipati"
+          ],
+          "impact": "+€0",
+          "impactClass": "text-success",
+          "target": "(Target DSO 41gg)"
+        },
+        {
+          "icon": "fas fa-boxes me-1",
+          "title": "Gestione Magazzino",
+          "actions": [
+            "Implementare sistema ABC classificazione scorte",
+            "Rivedere livelli riordino e quantità minime",
+            "Accordi con fornitori per consegne frequenti",
+            "Introdurre KPI monitoraggio rotazione"
+          ],
+          "impact": "+€268.356",
+          "impactClass": "text-success",
+          "target": "(Target DIO 150gg)"
+        },
+        {
+          "icon": "fas fa-truck me-1",
+          "title": "Debiti Fornitori",
+          "actions": [
+            "Rinegoziazione termini pagamento",
+            "Centralizzazione gestione pagamenti",
+            "Pianificazione strategica pagamenti",
+            "Revisione contratti fornitori"
+          ],
+          "impact": "+€23.170",
+          "impactClass": "text-success",
+          "target": "(Target DPO 75gg)"
+        }
+      ]
+    },
+    "totalImpact": {
+      "alertClass": "alert-info",
+      "text": "<strong>Impatto totale stimato: liberazione liquidità di €291.526 con ciclo circolante target di 116 giorni</strong>"
+    }
+  },
+  "section52": {
+    "title": "<i class=\"fas fa-stream me-2\"></i>5.2 ANALISI FLUSSI DI CASSA",
+    "cashFlowAnalysis": {
+      "title": "Analisi Flussi di Cassa (da EBITDA a Variazione Netta Cassa) - 2024",
+      "intro": "Il passaggio dall'EBITDA al Free Cash Flow evidenzia la capacità dell'azienda di convertire i margini operativi in liquidità effettiva. L'analisi evidenzia una situazione complessa, caratterizzata da una marginalità operativa negativa (EBITDA -1,53%) compensata da una generazione positiva di cassa dal capitale circolante.",
+      "chart2Title": "Grafico 5.2: Composizione Flussi di Cassa 2024 (Waterfall Semplificato - VAROLI GUIDO E FIGLIO S.R.L.)",
+      "chart2": {
+        "type": "bar",
+        "data": {
+          "labels": ["EBITDA", "Imposte", "Var. CCN", "CF Operativo", "Investimenti", "FCF", "Op. Finanziarie", "Var. Cassa"],
+          "datasets": [
+            {
+              "label": "Flussi di Cassa 2024",
+              "data": [-43535, -5720, 108427, 211345, -774136, -562791, 746599, 183808],
+              "backgroundColor": [
+                "#F44336", "#F44336", "#4CAF50", "#FFC107",
+                "#F44336", "#F44336", "#4CAF50", "#4CAF50"
+              ],
+              "borderColor": [
+                "#D32F2F", "#D32F2F", "#388E3C", "#FFA000",
+                "#D32F2F", "#D32F2F", "#388E3C", "#388E3C"
+              ],
+              "borderWidth": 1
+            }
+          ]
+        },
+        "options": {
+          "responsive": true,
+          "maintainAspectRatio": false,
+          "plugins": {
+            "legend": {"display": false},
+            "title": {"display": false}
+          },
+          "scales": {
+            "y": {
+              "beginAtZero": true,
+              "title": {"display": true, "text": "Euro (€)"},
+              "ticks": {
+                "callback": "function(value) { return value.toLocaleString('it-IT'); }"
+              }
+            }
+          }
+        }
+      },
+      "tableTitle": "Tabella 5.1: Dettaglio Flussi 2024 (€ - VAROLI GUIDO E FIGLIO S.R.L.)",
+      "table": {
+        "headers": ["Voce", "Valore", "% Ricavi"],
+        "rows": [
+          {
+            "voce": "EBITDA",
+            "icon": null,
+            "valore": -43535,
+            "valoreClass": "text-success",
+            "pctRicavi": "-1,53%"
+          },
+          {
+            "voce": "Imposte",
+            "icon": "fas fa-minus-circle text-danger fa-fw me-1",
+            "valore": -5720,
+            "valoreClass": "text-danger",
+            "pctRicavi": "-0,20%"
+          },
+          {
+            "voce": "Variazione CCN",
+            "icon": "fas fa-plus-circle text-success fa-fw me-1",
+            "valore": 108427,
+            "valoreClass": "text-success",
+            "pctRicavi": "3,80%"
+          },
+          {
+            "voce": "Cash Flow Operativo",
+            "icon": "fas fa-equals fa-fw me-1",
+            "valore": 211345,
+            "valoreClass": "text-success",
+            "pctRicavi": "7,42%",
+            "highlight": true,
+            "highlightClass": "table-warning fw-bold"
+          },
+          {
+            "voce": "Investimenti",
+            "icon": "fas fa-minus-circle text-danger fa-fw me-1",
+            "valore": -774136,
+            "valoreClass": "text-danger",
+            "pctRicavi": "-27,16%"
+          },
+          {
+            "voce": "Free Cash Flow (FCF)",
+            "icon": "fas fa-equals fa-fw me-1",
+            "valore": -562791,
+            "valoreClass": "text-success",
+            "pctRicavi": "-19,75%",
+            "highlight": true,
+            "highlightClass": "table-success fw-bold"
+          },
+          {
+            "voce": "Operazioni finanziarie",
+            "icon": "fas fa-minus-circle text-danger fa-fw me-1",
+            "valore": 746599,
+            "valoreClass": "text-danger",
+            "pctRicavi": "26,20%"
+          },
+          {
+            "voce": "Variazione Netta Cassa",
+            "icon": "fas fa-equals fa-fw me-1",
+            "valore": 183808,
+            "valoreClass": "text-danger",
+            "pctRicavi": "6,45%",
+            "highlight": true,
+            "highlightClass": "table-danger fw-bold"
+          }
+        ],
+        "source": "*Fonte: Report Leanus 12/11/2025"
+      },
+      "analysisSubtitle": "Analisi Flussi di Cassa 2024 (VAROLI GUIDO E FIGLIO S.R.L.):",
+      "analysisAlert": {
+        "alertClass": "alert-warning",
+        "items": [
+          "<strong>EBITDA negativo (-€43.535):</strong> Marginalità operativa negativa del -1,53% sui ricavi.",
+          "<strong>Cash Flow Operativo positivo (€211.345):</strong> 7,42% dei ricavi, nonostante l'EBITDA negativo.",
+          "<strong>Paradosso EBITDA-CFO:</strong> Spiegato principalmente dalla riduzione del capitale circolante, in particolare dalla significativa diminuzione dei crediti verso clienti.",
+          "<strong>Investimenti significativi (€774.136):</strong> 27,16% dei ricavi, non coperti dal cash flow operativo.",
+          "<strong>Significativo ricorso a finanziamenti (€746.599):</strong> Ha determinato una variazione netta di cassa positiva.",
+          "<strong>Incremento liquidità (€183.808):</strong> +6,45% rispetto all'esercizio precedente."
+        ]
+      }
+    }
+  },
+  "trendProjections": {
+    "title": "Trend Triennale e Proiezioni dei Flussi di Cassa",
+    "chart3Title": "Grafico 5.3: Evoluzione Flussi di Cassa 2022-2024 (€ - VAROLI GUIDO E FIGLIO S.R.L.)",
+    "chart3": {
+      "type": "line",
+      "data": {
+        "labels": ["2022", "2023", "2024"],
+        "datasets": [
+          {
+            "label": "Cash Flow Operativo",
+            "data": [-125524, 96543, 211345],
+            "borderColor": "#2196F3",
+            "backgroundColor": "rgba(33, 150, 243, 0.1)",
+            "tension": 0.3
+          },
+          {
+            "label": "EBITDA",
+            "data": [-64517, 76378, -43535],
+            "borderColor": "#4CAF50",
+            "backgroundColor": "rgba(76, 175, 80, 0.1)",
+            "tension": 0.3
+          },
+          {
+            "label": "Variazione Netta Cassa",
+            "data": [33976, -132863, 183808],
+            "borderColor": "#F44336",
+            "backgroundColor": "rgba(244, 67, 54, 0.1)",
+            "tension": 0.3
+          }
+        ]
+      },
+      "options": {
+        "responsive": true,
+        "maintainAspectRatio": false,
+        "plugins": {
+          "legend": {"position": "top"},
+          "title": {"display": false}
+        },
+        "scales": {
+          "y": {
+            "beginAtZero": true,
+            "title": {"display": true, "text": "Euro (€)"},
+            "ticks": {
+              "callback": "function(value) { return value.toLocaleString('it-IT'); }"
+            }
+          }
+        }
+      }
+    },
+    "trendInterpretation": {
+      "title": "Interpretazione Trend (VAROLI GUIDO E FIGLIO S.R.L.):",
+      "items": [
+        {
+          "icon": "fas fa-chart-line",
+          "iconClass": "text-danger",
+          "text": "<strong>Cash Flow Operativo in miglioramento:</strong> Da -€125.524 (2022) a €211.345 (2024)."
+        },
+        {
+          "icon": "fas fa-exclamation",
+          "iconClass": "text-danger",
+          "text": "<strong>Miglioramento significativo:</strong> Netto miglioramento nel triennio."
+        },
+        {
+          "icon": "fas fa-exchange-alt",
+          "iconClass": "text-success",
+          "text": "<strong>Cash Flow Capitale Circolante:</strong> Da -€64.517 (2022) a €108.427 (2024), trend di continuo miglioramento."
+        },
+        {
+          "icon": "fas fa-building",
+          "iconClass": "text-warning",
+          "text": "<strong>Incremento esponenziale investimenti:</strong> €774.136 nel 2024 vs valori molto contenuti nei due esercizi precedenti."
+        }
+      ]
+    },
+    "chart4Title": "Grafico 5.4: Proiezioni Finanziarie 2025-2028 (€ - VAROLI GUIDO E FIGLIO S.R.L.)",
+    "chart4": {
+      "type": "line",
+      "data": {
+        "labels": ["2024", "2025", "2026", "2027", "2028"],
+        "datasets": [
+          {
+            "label": "Liquidità Prevista",
+            "data": [183808, 304780, 331409, 411891, 506351],
+            "borderColor": "#4CAF50",
+            "backgroundColor": "rgba(76, 175, 80, 0.1)",
+            "tension": 0.3,
+            "yAxisID": "y"
+          },
+          {
+            "label": "Debiti Finanziari",
+            "data": [919610, 1132866, 1057393, 992702, 937253],
+            "borderColor": "#F44336",
+            "backgroundColor": "rgba(244, 67, 54, 0.1)",
+            "tension": 0.3,
+            "yAxisID": "y1"
+          }
+        ]
+      },
+      "options": {
+        "responsive": true,
+        "maintainAspectRatio": false,
+        "plugins": {
+          "legend": {"position": "top"},
+          "title": {"display": false}
+        },
+        "scales": {
+          "y": {
+            "type": "linear",
+            "display": true,
+            "position": "left",
+            "title": {"display": true, "text": "Liquidità (€)"},
+            "ticks": {
+              "callback": "function(value) { return value.toLocaleString('it-IT'); }"
+            }
+          },
+          "y1": {
+            "type": "linear",
+            "display": true,
+            "position": "right",
+            "title": {"display": true, "text": "Debiti Finanziari (€)"},
+            "ticks": {
+              "callback": "function(value) { return value.toLocaleString('it-IT'); }"
+            },
+            "grid": {"drawOnChartArea": false}
+          }
+        }
+      }
+    },
+    "projectionAnalysis": {
+      "title": "Analisi Proiezioni (Piano Inerziale 2025-2028):",
+      "items": [
+        {
+          "icon": "fas fa-arrow-up",
+          "iconClass": "text-success",
+          "text": "<strong>CF Operativo positivo:</strong> Dopo un calo nel 2025, si prevede una ripresa significativa dal 2026."
+        },
+        {
+          "icon": "fas fa-ban",
+          "iconClass": "text-info",
+          "text": "<strong>Investimenti concentrati:</strong> Il piano prevede investimenti concentrati nel biennio 2025-2026."
+        },
+        {
+          "icon": "fas fa-piggy-bank",
+          "iconClass": "text-success",
+          "text": "<strong>Incremento liquidità:</strong> Da un calo iniziale nel 2025, si prevede un incremento costante fino a €506.351 nel 2028."
+        },
+        {
+          "icon": "fas fa-shield-alt",
+          "iconClass": "text-success",
+          "text": "<strong>Gestione finanziaria:</strong> Dopo un incremento dell'indebitamento nel 2025, è previsto un progressivo rimborso nei tre esercizi successivi."
+        },
+        {
+          "icon": "fas fa-exclamation-triangle",
+          "iconClass": "text-warning",
+          "text": "<strong>DSCR critico:</strong> 0,68 per il 2025, inferiore alla soglia minima di sicurezza (1,2), con miglioramento previsto negli esercizi successivi."
+        }
+      ],
+      "warning": "Le proiezioni evidenziano potenziali tensioni nella capacità di copertura del servizio del debito nel breve termine, con un miglioramento previsto negli esercizi successivi."
+    },
+    "operationalSuggestions": {
+      "title": "Suggerimenti Operativi per Miglioramento Flussi (VAROLI GUIDO E FIGLIO S.R.L.)",
+      "table": {
+        "headers": ["Area", "Azione Suggerita", "Impatto Quantitativo Annuo"],
+        "rows": [
+          {
+            "area": "Marginalità operativa",
+            "azione": "Revisione pricing e struttura costi operativi",
+            "impatto": "+€158.000 (EBITDA al 4%)",
+            "impattClass": "text-success"
+          },
+          {
+            "area": "Gestione magazzino",
+            "azione": "Ottimizzazione scorte e riordini",
+            "impatto": "+€268.356 (DIO a 150gg)",
+            "impattClass": "text-success"
+          },
+          {
+            "area": "Struttura finanziaria",
+            "azione": "Ristrutturazione debito verso MLT",
+            "impatto": "Impatto qualitativo",
+            "impattClass": "text-success"
+          },
+          {
+            "area": "Piano investimenti",
+            "azione": "Sviluppo piano investimenti strutturato",
+            "impatto": "ROI medio 15%",
+            "impattClass": "text-success"
+          },
+          {
+            "area": "Pianificazione tesoreria",
+            "azione": "Implementazione sistema di cash pooling e budget di tesoreria",
+            "impatto": "+€15.000",
+            "impattClass": "text-success"
+          },
+          {
+            "area": "Complessivo",
+            "azione": "Piano integrato ottimizzazione",
+            "impatto": "+€441.356 miglioramento cassa",
+            "impattClass": "text-success",
+            "highlight": true,
+            "highlightClass": "table-primary fw-bold"
+          }
+        ]
+      }
+    },
+    "conclusions": {
+      "alertClass": "alert-info",
+      "text": "<strong>CONCLUSIONI:</strong> L'analisi del capitale circolante e dei flussi di cassa di VAROLI GUIDO E FIGLIO S.R.L. evidenzia criticità nella generazione di cassa operativa legata principalmente alla marginalità negativa e all'elevato assorbimento di risorse da parte del magazzino. Il ciclo del circolante di 167 giorni, sebbene in miglioramento rispetto all'esercizio precedente, presenta uno squilibrio significativo dovuto principalmente all'elevato tempo di permanenza delle merci in magazzino (194 giorni). Il Cash Flow Operativo positivo (€211.345, 7,42% dei ricavi) è stato possibile grazie alla generazione positiva dal capitale circolante, ma non è stato sufficiente a coprire i significativi investimenti (€774.136), rendendo necessario il ricorso a nuovo indebitamento. Le priorità includono: 1) Ripristino della marginalità operativa, 2) Razionalizzazione della gestione delle scorte, 3) Ristrutturazione del debito. L'implementazione del piano permetterebbe di liberare €291.526 di liquidità dal circolante e generare un miglioramento di cassa complessivo di €441.356."
+    }
+  }
+}
