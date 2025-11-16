@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisi Rischi e Raccomandazioni - VAROLI GUIDO E FIGLIO S.R.L. | SCAN V17</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/components.css" rel="stylesheet">
+    <link href="../css/modern.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar no-print">
+        <div class="sidebar-header">
+            <img src="../assets/img/logo_scan.png" alt="SCAN Logo" style="max-height: 40px;">
+            <h5 id="sidebarCompanyName"></h5>
+        </div>
+        <ul class="sidebar-nav flex-grow-1" id="sidebarNav">
+            <!-- Populated by JS -->
+        </ul>
+        <div class="sidebar-footer">
+            <small>SCAN360 © <span id="currentYearSidebar"></span> Kitzanos</small>
+        </div>
+    </aside>
+
+    <!-- Contenuto Principale Wrapper -->
+    <div class="main-wrapper">
+        <!-- Header Orizzontale -->
+        <header class="dashboard-header no-print">
+            <div class="header-title">
+                <h5 class="mb-0" id="headerTitle"></h5>
+                <p class="mb-0" id="headerSubtitle"></p>
+            </div>
+            <div class="header-controls d-flex align-items-center">
+                <span id="irp-header-badge" class="badge me-3"></span>
+                <button class="btn btn-sm btn-outline-secondary me-2 print-button" id="printBtn">
+                    <i class="fas fa-print"></i> Stampa
+                </button>
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-light border dropdown-toggle" type="button" id="userMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user-circle me-1"></i> <span id="userMenuName"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenuButton">
+                        <li><button class="dropdown-item" type="button" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i>Logout</button></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!-- Print Header -->
+        <div class="container d-none d-print-block mt-4 mb-4">
+            <h1 class="text-center mb-0"><span id="printCompanyName"></span></h1>
+            <p class="text-center mb-0" id="printSubtitle"></p>
+            <hr>
+        </div>
+
+        <!-- Area Contenuto Specifico del Report -->
+        <div class="dashboard-container">
+
+            <!-- Section 6: Analisi Rischi -->
+            <h2 class="section-title" id="section6Title"></h2>
+
+            <!-- 6.1 Indicatori di Rischio -->
+            <div class="card mb-4 report-section">
+                <div class="card-header card-header-primary"><h5 class="mb-0" id="section61Title"></h5></div>
+                <div class="card-body">
+                    <p id="section61Intro"></p>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped table-hover">
+                            <thead class="table-light" id="table61Head"></thead>
+                            <tbody id="table61Body"></tbody>
+                        </table>
+                    </div>
+                    <p class="small mt-3" id="section61Conclusion"></p>
+                </div>
+            </div>
+
+            <!-- 6.2 Z-Score e Rating -->
+            <div class="card mb-4 report-section">
+                <div class="card-header card-header-secondary"><h5 class="mb-0" id="section62Title"></h5></div>
+                <div class="card-body">
+                    <div class="small">
+                        <h6 id="table62Title"></h6>
+                        <div class="table-responsive">
+                            <table class="table table-sm table-striped">
+                                <thead class="table-light" id="table62Head"></thead>
+                                <tbody id="table62Body"></tbody>
+                            </table>
+                        </div>
+                        <hr>
+                        <h6 id="section62InterpretationTitle"></h6>
+                        <div id="section62Interpretation"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6.3 Red Flags -->
+            <div class="card mb-4 report-section">
+                <div class="card-header card-header-primary"><h5 class="mb-0" id="section63Title"></h5></div>
+                <div class="card-body">
+                    <h6 id="table63Title"></h6>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-hover small">
+                            <thead class="table-light" id="table63Head"></thead>
+                            <tbody id="table63Body"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6.4 Manipolazioni Contabili -->
+            <div class="card mb-4 report-section">
+                <div class="card-header"><h5 class="mb-0" id="section64Title"></h5></div>
+                <div class="card-body small">
+                    <p id="section64Intro"></p>
+                    <h6 id="table64Title"></h6>
+                    <table class="table table-sm">
+                        <thead class="table-light" id="table64Head"></thead>
+                        <tbody id="table64Body"></tbody>
+                    </table>
+                    <p id="section64Conclusion"></p>
+                </div>
+            </div>
+
+            <!-- 6.5 Analisi Sensitività -->
+            <div class="card mb-4 report-section">
+                <div class="card-header"><h5 class="mb-0" id="section65Title"></h5></div>
+                <div class="card-body">
+                    <div class="small">
+                        <h6 id="table65Title"></h6>
+                        <div class="table-responsive">
+                            <table class="table table-sm table-striped">
+                                <thead class="table-light" id="table65Head"></thead>
+                                <tbody id="table65Body"></tbody>
+                            </table>
+                        </div>
+                        <p class="alert alert-warning small mt-3 p-2 mb-0" id="section65Alert"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6.6 Stress Test -->
+            <div class="card mb-4 report-section">
+                <div class="card-header"><h5 class="mb-0" id="section66Title"></h5></div>
+                <div class="card-body">
+                    <h6 id="table66Title"></h6>
+                    <div class="table-responsive small">
+                        <table class="table table-sm table-hover">
+                            <thead class="table-light" id="table66Head"></thead>
+                            <tbody id="table66Body"></tbody>
+                        </table>
+                    </div>
+                    <p class="small mt-3 mb-1" id="section66Conclusion"></p>
+                </div>
+            </div>
+
+            <!-- Section 7: Raccomandazioni -->
+            <h2 class="section-title mt-5" id="section7Title"></h2>
+
+            <!-- 7.1 Piano d'Azione -->
+            <div class="card mb-4 report-section">
+                <div class="card-header card-header-primary"><h5 class="mb-0" id="section71Title"></h5></div>
+                <div class="card-body">
+                    <p id="section71Intro"></p>
+                    <h6 id="table71Title"></h6>
+                    <div class="table-responsive small">
+                        <table class="table table-sm table-hover action-table">
+                            <thead class="table-light" id="table71Head"></thead>
+                            <tbody id="table71Body"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7.3 Piano Timeframe -->
+            <div class="card mb-4 report-section">
+                <div class="card-header card-header-secondary"><h5 class="mb-0" id="section73Title"></h5></div>
+                <div class="card-body">
+                    <h6 id="table73Title"></h6>
+                    <ul class="timeline-irp" id="timelineContainer">
+                        <!-- Populated by JS -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 7.4 Dashboard KPI -->
+            <div class="card mb-4 report-section">
+                <div class="card-header card-header-primary"><h5 class="mb-0" id="section74Title"></h5></div>
+                <div class="card-body">
+                    <p class="small" id="section74Intro"></p>
+                    <h6 id="table74Title"></h6>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-bordered kpi-target-table">
+                            <thead class="table-light" id="table74Head"></thead>
+                            <tbody id="table74Body"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7.5 Revisione e Alerting -->
+            <div class="card mb-4 report-section">
+                <div class="card-header card-header-secondary"><h5 class="mb-0" id="section75Title"></h5></div>
+                <div class="card-body revision-list small">
+                    <h6 id="table75Title"></h6>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-hover">
+                            <thead class="table-light" id="table75Head"></thead>
+                            <tbody id="table75Body"></tbody>
+                        </table>
+                    </div>
+                    <p class="mt-4" id="section75ReportingIntro"></p>
+                    <ol id="section75ReportingList">
+                        <!-- Populated by JS -->
+                    </ol>
+                    <p id="section75Conclusion"></p>
+                </div>
+            </div>
+
+            <!-- Tabella Riepilogativa -->
+            <div class="card summary-card mb-4 report-section">
+                <div class="card-header bg-success text-white"><h5 class="mb-0" id="summaryTitle"></h5></div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped table-hover action-table">
+                            <thead class="table-light" id="summaryTableHead"></thead>
+                            <tbody id="summaryTableBody"></tbody>
+                        </table>
+                    </div>
+                    <p class="mt-3 small" id="summaryConclusion"></p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer no-print">
+            <div class="container-fluid px-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                        SCAN360 © <span id="currentYearFooterReport"></span>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        Powered by <a href="http://www.kitzanos.com" target="_blank" class="text-white fw-bold">Kitzanos Lab</a>
+                        <img src="../assets/img/logo_kitzanos.png" alt="Kitzanos Logo" class="ms-2">
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Script JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/pages/rischi-raccomandazioni.js"></script>
+</body>
+</html>

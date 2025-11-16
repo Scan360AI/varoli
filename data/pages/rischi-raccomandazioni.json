@@ -1,0 +1,216 @@
+{
+  "sidebar": {
+    "companyName": "VAROLI GUIDO E FIGLIO S.R.L.",
+    "menuItems": [
+      {"href": "/dashboard_v2", "icon": "fas fa-tachometer-alt fa-fw", "label": "Dashboard", "active": false},
+      {"type": "title", "label": "Analisi Dettagliata"},
+      {"href": "/report/parte1_sintesi", "icon": "fas fa-file-alt fa-fw", "label": "Sintesi e Profilo", "active": false},
+      {"href": "/report/parte2_economico", "icon": "fas fa-balance-scale fa-fw", "label": "Analisi Economica", "active": false},
+      {"href": "/report/parte3_patrimoniale", "icon": "fas fa-landmark fa-fw", "label": "Analisi Patrimoniale", "active": false},
+      {"href": "/report/parte4_bancabilita", "icon": "fas fa-university fa-fw", "label": "Bancabilità", "active": false},
+      {"href": "/report/parte5_circolante_flussi", "icon": "fas fa-sync-alt fa-fw", "label": "Circolante e Flussi", "active": false},
+      {"href": "/report/parte6_rischi-raccomandazioni", "icon": "fas fa-exclamation-triangle fa-fw", "label": "Rischi e Azioni", "active": true},
+      {"type": "title", "label": "Approfondimenti"},
+      {"href": "/report/irp_dettaglio", "icon": "fas fa-shield-alt fa-fw", "label": "Dettaglio IRP", "active": false}
+    ]
+  },
+  "header": {
+    "title": "Report Dettagliato: Analisi Rischi e Raccomandazioni",
+    "subtitle": "VAROLI GUIDO E FIGLIO S.R.L. | 1 Settembre 2025",
+    "companyName": "VAROLI GUIDO E FIGLIO S.R.L.",
+    "userName": "VAROLI GUIDO E FIGLIO S.R.L.",
+    "irpBadge": {"score": 51.42, "category": "D+", "class": "bg-danger"}
+  },
+  "section6": {
+    "title": "<i class=\"fas fa-exclamation-triangle me-2\"></i>6. ANALISI DEI RISCHI",
+    "section61": {
+      "title": "6.1 Indicatori di Rischio",
+      "intro": "L'analisi dei principali indicatori di rischio di VAROLI GUIDO E FIGLIO S.R.L. evidenzia un profilo complessivamente critico con significative aree di attenzione:",
+      "table": {
+        "headers": ["Indicatore", "12/2022", "12/2023", "12/2024", "Trend", "Valutazione"],
+        "rows": [
+          {"indicatore": "Variazione Ricavi", "2022": "N/D", "2023": "-10,69%", "2024": "-14,27%", "trend": "↘", "valutazione": "Forte contrazione del fatturato", "valutazioneClass": "text-danger"},
+          {"indicatore": "EBITDA Margin", "2022": "5,28%", "2023": "6,41%", "2024": "-1,53%", "trend": "↘↘", "valutazione": "Redditività operativa negativa", "valutazioneClass": "text-danger"},
+          {"indicatore": "PFN/EBITDA", "2022": "2,10", "2023": "1,58", "2024": "NOK", "trend": "↘↘", "valutazione": "Non sostenibile (EBITDA negativo)", "valutazioneClass": "text-danger"},
+          {"indicatore": "Leva Finanziaria (D/E)", "2022": "0,66", "2023": "0,54", "2024": "1,92", "trend": "↗↗", "valutazione": "Forte incremento dell'indebitamento", "valutazioneClass": "text-danger"},
+          {"indicatore": "Liquidità/Ricavi", "2022": "9,23%", "2023": "10,71%", "2024": "12,47%", "trend": "↗", "valutazione": "Liquidità sufficiente ma in contesto critico", "valutazioneClass": "text-warning"},
+          {"indicatore": "Cash Flow Operativo/Ricavi", "2022": "5,3%", "2023": "6,4%", "2024": "7,4%", "trend": "↗", "valutazione": "Generazione di cassa positiva ma insufficiente", "valutazioneClass": "text-warning"},
+          {"indicatore": "Equilibrio del circolante (giorni)", "2022": "153", "2023": "159", "2024": "167", "trend": "↗", "valutazione": "Ciclo del circolante molto elevato", "valutazioneClass": "text-danger"},
+          {"indicatore": "DSO (giorni crediti clienti)", "2022": "83", "2023": "85", "2024": "89", "trend": "↗", "valutazione": "Tempi di incasso molto elevati", "valutazioneClass": "text-danger"},
+          {"indicatore": "DPO (giorni debiti fornitori)", "2022": "116", "2023": "112", "2024": "116", "trend": "↗", "valutazione": "Tempi di pagamento elevati", "valutazioneClass": "text-warning"},
+          {"indicatore": "DIO (giorni magazzino)", "2022": "186", "2023": "186", "2024": "194", "trend": "↗", "valutazione": "Rotazione magazzino molto lenta", "valutazioneClass": "text-danger"}
+        ]
+      },
+      "conclusion": "Si evidenzia una forte contrazione del fatturato (-14,27%) e un drammatico peggioramento dell'EBITDA margin (-1,53%), con numerosi segnali di criticità relativi alla gestione economica e finanziaria. In particolare, si nota un significativo deterioramento della redditività operativa, passata da valori positivi a negativi, e un ciclo del circolante anomalo (167 giorni) che comporta un elevato assorbimento di liquidità nel ciclo operativo."
+    },
+    "section62": {
+      "title": "6.2 Z-Score e Rating",
+      "tableTitle": "Tabella 6.2.1: Z-Score e rating",
+      "table": {
+        "headers": ["Indicatore", "Valore", "Interpretazione"],
+        "rows": [
+          {"indicatore": "Z-Score di Altman", "valore": "2,22", "badge": "Zona grigia (rischio moderato di default)", "badgeClass": "bg-warning text-dark"},
+          {"indicatore": "Probabilità di Default (MCC)", "valore": "Elevata", "badge": "Rischio default elevato", "badgeClass": "bg-danger"},
+          {"indicatore": "Classe di Valutazione", "valore": "D+", "badge": "Rischio elevato", "badgeClass": "bg-danger"},
+          {"indicatore": "Rating", "valore": "8", "badge": "Default probabile", "badgeClass": "bg-danger"},
+          {"indicatore": "Leanus Score", "valore": "54,70", "badge": "Fragilità moderata", "badgeClass": "bg-warning text-dark"},
+          {"indicatore": "IRP (Indice di Rischio Ponderato)", "valore": "51,42", "badge": "Classe di rischio \"ELEVATO\"", "badgeClass": "bg-danger"}
+        ]
+      },
+      "interpretationTitle": "Interpretazione",
+      "interpretation": [
+        "<p>L'analisi dell'Indice di Rischio Ponderato (IRP) di VAROLI GUIDO E FIGLIO S.R.L. evidenzia un profilo di rischio complessivamente elevato (51,42/100), confermando la fragilità dell'azienda che ha registrato una significativa contrazione dei ricavi (-14,27%) rispetto all'esercizio precedente.</p>",
+        "<p>Lo Z-Score di Altman pari a 2,22 si colloca nella \"zona grigia\" che indica una probabilità di default moderata ma significativa. Il Leanus Score (54,70) conferma una situazione di fragilità moderata, mentre l'IRP (Indice di Rischio Ponderato) pari a 51,42/100 colloca l'azienda in una classe di rischio \"ELEVATO\", evidenziando la presenza di significative vulnerabilità finanziarie che richiedono un'attenta e immediata gestione strategica.</p>"
+      ]
+    },
+    "section63": {
+      "title": "6.3 Red Flags e Segnali d'Allarme",
+      "tableTitle": "Tabella 6.3.1: Principali Red Flags identificate",
+      "table": {
+        "headers": ["Area", "Segnale di allarme", "Valore/Trend", "Rischio potenziale"],
+        "rows": [
+          {"area": "Redditività", "segnale": "EBITDA negativo", "valore": "-1,53% dei ricavi", "rischio": "Incapacità di generare margini operativi"},
+          {"area": "Capitale Circolante", "segnale": "Ciclo circolante anomalo", "valore": "167 giorni", "rischio": "Elevato assorbimento di liquidità"},
+          {"area": "Magazzino", "segnale": "Rotazione molto lenta", "valore": "194 giorni", "rischio": "Rischio obsolescenza e immobilizzazione risorse"},
+          {"area": "Indebitamento", "segnale": "PFN/PN elevato", "valore": "1,92x", "rischio": "Struttura finanziaria squilibrata"},
+          {"area": "Sostenibilità debito", "segnale": "DSCR insufficiente", "valore": "0,67", "rischio": "Rischio concreto di insolvenza"},
+          {"area": "Redditività", "segnale": "ROE fortemente negativo", "valore": "-31,10%", "rischio": "Erosione del capitale proprio"},
+          {"area": "Fatturato", "segnale": "Contrazione significativa", "valore": "-14,27%", "rischio": "Perdita di competitività sul mercato"},
+          {"area": "Patrimonio", "segnale": "Erosione in corso", "valore": "-23,72%", "rischio": "Rischio di sottocapitalizzazione"}
+        ]
+      }
+    },
+    "section64": {
+      "title": "6.4 Analisi di Potenziali Manipolazioni Contabili",
+      "intro": "Sulla base del framework Kitzanos, sono stati analizzati i potenziali indicatori di manipolazioni contabili:",
+      "tableTitle": "Tabella 6.4.1: Indicatori di potenziali manipolazioni contabili",
+      "table": {
+        "headers": ["Test", "Indicatori", "Valutazione", "Note"],
+        "rows": [
+          {"test": "Sales Profitability", "indicatori": "- Fatturato: -14,27%<br>- EBITDA: -120,43%<br>- Variazione ricavi vs EBITDA: coerente", "valutazione": "✓ Coerente", "note": "Calo fatturato e marginalità allineati"},
+          {"test": "Tax Effect", "indicatori": "- Oneri finanziari: 67.447 €<br>- Posizione Tributaria Netta: -12.328 €<br>- Perdita d'esercizio: -149.177 €", "valutazione": "✓ Coerente", "note": "Situazione fiscale coerente con la perdita"},
+          {"test": "Capitalism Test", "indicatori": "- Investimenti: limitati<br>- Ammortamenti: 49.447 €<br>- Cash Flow Operativo: 211.345 €", "valutazione": "✓ Coerente", "note": "Investimenti coerenti con la situazione"}
+        ]
+      },
+      "conclusion": "<strong>Considerazioni:</strong> L'analisi non evidenzia particolari incongruenze o segnali di potenziali manipolazioni contabili. La relazione tra calo del fatturato e deterioramento dell'EBITDA appare coerente, così come il rapporto tra investimenti, ammortamenti e cash flow. La posizione tributaria netta e la perdita d'esercizio appaiono coerenti con il quadro complessivo di difficoltà operativa dell'azienda."
+    },
+    "section65": {
+      "title": "6.5 Analisi di Sensitività",
+      "tableTitle": "Tabella 6.5.1: Analisi di sensitività",
+      "table": {
+        "headers": ["Parametro", "Valore critico", "Interpretazione"],
+        "rows": [
+          {"parametro": "Variazione Ricavi che azzera l'EBIT", "valore": "N/A", "interpretazione": "EBIT già negativo (-3,26%)", "interpretazioneClass": "text-danger"},
+          {"parametro": "Variazione Costi Fissi che azzera l'EBIT", "valore": "N/A", "interpretazione": "EBIT già negativo (-92.982 €)", "interpretazioneClass": "text-danger"},
+          {"parametro": "Variazione Crediti Clienti che azzera la Liquidità", "valore": "+38 gg", "interpretazione": "Bassa capacità di assorbire ritardi negli incassi", "interpretazioneClass": "text-danger"},
+          {"parametro": "Variazione Rimanenze che annulla il Patrimonio Netto", "valore": "-38,12%", "interpretazione": "Elevata sensibilità alla svalutazione magazzino", "interpretazioneClass": "text-danger"},
+          {"parametro": "Variazione Debiti Fornitori che azzera la Liquidità", "valore": "-29 gg", "interpretazione": "Elevata sensibilità all'accorciamento dei termini di pagamento", "interpretazioneClass": "text-danger"}
+        ]
+      },
+      "alert": "<i class=\"fas fa-exclamation-triangle me-1\"></i>L'interpretazione dei risultati evidenzia una situazione già critica con EBIT negativo, una bassa capacità di assorbire ritardi negli incassi (+38 giorni), un'elevata sensibilità alla svalutazione del magazzino (-38,12%) e un'elevata sensibilità all'accorciamento dei termini di pagamento, con una soglia critica di -29 giorni. Questi valori confermano l'elevata fragilità dell'azienda rispetto a variazioni anche contenute dei parametri operativi."
+    },
+    "section66": {
+      "title": "6.6 Risultati Stress Test",
+      "tableTitle": "Tabella 6.6.1: Risultati Stress Test",
+      "table": {
+        "headers": ["Stress Test", "Superato", "Valore critico", "Valore attuale", "Margine di sicurezza"],
+        "rows": [
+          {"test": "Variazione Ricavi", "superato": "✗", "superatoClass": "text-danger", "valoreCritico": "N/A", "valoreAttuale": "-14,27%", "margine": "Negativo"},
+          {"test": "Variazione Costi Fissi", "superato": "✗", "superatoClass": "text-danger", "valoreCritico": "N/A", "valoreAttuale": "N/A", "margine": "Negativo"},
+          {"test": "Variazione Crediti", "superato": "⚠", "superatoClass": "text-warning", "valoreCritico": "+38 gg", "valoreAttuale": "89 gg", "margine": "Solo 38 gg"},
+          {"test": "Variazione Rimanenze", "superato": "⚠", "superatoClass": "text-warning", "valoreCritico": "-38,12%", "valoreAttuale": "194 gg", "margine": "Limitato"},
+          {"test": "Variazione Debiti", "superato": "⚠", "superatoClass": "text-warning", "valoreCritico": "-29 gg", "valoreAttuale": "116 gg", "margine": "Solo 29 gg"}
+        ]
+      },
+      "conclusion": "Lo stress test conferma che l'azienda presenta una situazione di elevata fragilità, con criticità in tutti i parametri analizzati. Particolarmente preoccupante è la situazione reddituale già negativa e la limitata capacità di assorbire variazioni nei parametri del capitale circolante, evidenziando un rischio concreto di insolvenza in caso di ulteriori deterioramenti delle condizioni operative."
+    }
+  },
+  "section7": {
+    "title": "<i class=\"fas fa-lightbulb me-2\"></i>7. RACCOMANDAZIONI",
+    "section71": {
+      "title": "7.1 Piano d'Azione e Raccomandazioni Operative",
+      "intro": "In base all'analisi svolta, si raccomandano le seguenti azioni prioritarie:",
+      "tableTitle": "Tabella 7.1.1: Piano d'azione e raccomandazioni operative",
+      "table": {
+        "headers": ["Area", "Situazione Attuale", "Azione Raccomandata", "Effetti Previsti", "Priorità"],
+        "rows": [
+          {"icon": "fas fa-coins me-1", "area": "Ristrutturazione debito", "situazione": "PFN: €919.610, DSCR: 0,67", "azione": "Rinegoziare scadenze finanziamenti a medio-lungo termine", "effetti": "Miglioramento sostenibilità debito<br>DSCR target >1,0", "priorita": "Alta", "prioritaClass": "bg-danger"},
+          {"icon": "fas fa-file-invoice me-1", "area": "Gestione Magazzino", "situazione": "Rotazione: 194 giorni", "azione": "Revisione politiche di gestione scorte e svalutazione prodotti a lenta rotazione", "effetti": "Riduzione magazzino del 30%<br>+€250.000-300.000 liquidità", "priorita": "Alta", "prioritaClass": "bg-danger"},
+          {"icon": "fas fa-hand-holding-usd me-1", "area": "Marginalità", "situazione": "EBITDA: -1,53%", "azione": "Revisione politiche di pricing e mix prodotti", "effetti": "Incremento margine contribuzione<br>EBITDA target >3%", "priorita": "Alta", "prioritaClass": "bg-danger"},
+          {"icon": "fas fa-percentage me-1", "area": "Crediti Clienti", "situazione": "DSO: 89 giorni", "azione": "Rafforzamento procedure credit management", "effetti": "Riduzione DSO a 70 giorni<br>+€100.000 liquidità", "priorita": "Alta", "prioritaClass": "bg-danger"},
+          {"icon": "fas fa-boxes me-1", "area": "Costi Operativi", "situazione": "Costi operativi elevati", "azione": "Analisi ABC costi e implementazione piano di riduzione", "effetti": "Riduzione costi 8-10%<br>+€80.000-100.000 EBITDA", "priorita": "Alta", "prioritaClass": "bg-danger"},
+          {"icon": "fas fa-calculator me-1", "area": "Rafforzamento patrimoniale", "situazione": "PN/Totale Attivo: 17%", "azione": "Valutare aumento di capitale o ingresso partner", "effetti": "Miglioramento equilibrio patrimoniale<br>Riduzione PFN/PN a <1,0", "priorita": "Media", "prioritaClass": "bg-warning text-dark"}
+        ]
+      }
+    },
+    "section73": {
+      "title": "7.3 Piano d'Azione Articolato per Timeframe",
+      "tableTitle": "Tabella 7.3.1: Piano d'azione articolato per timeframe",
+      "timeline": [
+        {"timeframe": "0/3m", "badge": "priority-high", "title": "Azioni Immediate", "label": "Urgenti", "labelClass": "bg-danger", "actions": ["Avvio negoziazione con banche per ristrutturazione debito", "Implementazione sistema monitoraggio flussi di cassa a 90 giorni", "Analisi ABC magazzino e avvio liquidazione prodotti obsoleti", "Revisione politiche commerciali e pricing"]},
+        {"timeframe": "3/6m", "badge": "priority-high", "title": "Azioni a Breve", "label": "Alta", "labelClass": "bg-danger", "actions": ["Consolidamento debito a breve termine", "Rafforzamento procedure di credit management", "Implementazione piano di riduzione costi operativi", "Rinegoziazione termini con fornitori strategici"]},
+        {"timeframe": "6/12m", "badge": "priority-medium", "title": "Azioni a Medio Termine", "label": "Media", "labelClass": "bg-warning text-dark", "actions": ["Valutazione aumento di capitale o ingresso partner", "Sviluppo servizi a valore aggiunto complementari", "Rifocalizzazione su segmenti a maggiore marginalità", "Implementazione sistema di controllo di gestione evoluto"]},
+        {"timeframe": "12/24m", "badge": "priority-low", "title": "Azioni a Lungo Termine", "label": "Strategiche", "labelClass": "bg-success", "actions": ["Valutazione opportunità di integrazione verticale", "Diversificazione business e mercati", "Sviluppo piano di reinvestimento degli utili futuri", "Evoluzione modello di business"]}
+      ]
+    },
+    "section74": {
+      "title": "7.4 Dashboard di Controllo con principali KPI",
+      "intro": "Si raccomanda l'implementazione di una dashboard di controllo che monitori i seguenti KPI con cadenza mensile:",
+      "tableTitle": "Tabella 7.4.1: Dashboard di controllo con principali KPI",
+      "table": {
+        "headers": ["Categoria", "KPI", "Frequenza", "Target", "Ultimo valore", "Alert"],
+        "rows": [
+          {"categoria": "Redditività", "rowspan": 3, "kpi": "EBITDA margin", "frequenza": "Mensile", "target": ">3%", "ultimoValore": "-1,53%", "valoreClass": "value-crit", "alert": "<i class=\"fas fa-arrow-down text-danger\"></i> < 0%"},
+          {"kpi": "Margine contribuzione", "frequenza": "Mensile", "target": ">10%", "ultimoValore": "8,56%", "valoreClass": "value-warn", "alert": "<i class=\"fas fa-arrow-down text-danger\"></i> < 7%"},
+          {"kpi": "ROI", "frequenza": "Trimestrale", "target": ">5%", "ultimoValore": "-6,65%", "valoreClass": "value-crit", "alert": "<i class=\"fas fa-arrow-down text-danger\"></i> < 0%"},
+          {"categoria": "Liquidità", "rowspan": 3, "kpi": "Cash Flow Operativo/Ricavi", "frequenza": "Mensile", "target": ">7%", "ultimoValore": "7,4%", "valoreClass": "value-ok", "alert": "<i class=\"fas fa-arrow-down text-danger\"></i> < 5%"},
+          {"kpi": "DSCR", "frequenza": "Mensile", "target": ">1,0", "ultimoValore": "0,67", "valoreClass": "value-crit", "alert": "<i class=\"fas fa-arrow-down text-danger\"></i> < 0,8"},
+          {"kpi": "Variazione netta di cassa", "frequenza": "Mensile", "target": "Positiva", "ultimoValore": "Negativa", "valoreClass": "value-crit", "alert": "<i class=\"fas fa-arrow-down text-danger\"></i> Negativa per 2 mesi"},
+          {"categoria": "Capitale Circolante", "rowspan": 3, "kpi": "DSO (giorni crediti)", "frequenza": "Mensile", "target": "< 70 gg", "ultimoValore": "89 gg", "valoreClass": "value-crit", "alert": "<i class=\"fas fa-arrow-up text-danger\"></i> > 90 gg"},
+          {"kpi": "DIO (giorni magazzino)", "frequenza": "Mensile", "target": "< 150 gg", "ultimoValore": "194 gg", "valoreClass": "value-crit", "alert": "<i class=\"fas fa-arrow-up text-danger\"></i> > 200 gg"},
+          {"kpi": "Ciclo del circolante", "frequenza": "Mensile", "target": "< 120 gg", "ultimoValore": "167 gg", "valoreClass": "value-crit", "alert": "<i class=\"fas fa-arrow-up text-danger\"></i> > 180 gg"},
+          {"categoria": "Solidità", "rowspan": 3, "kpi": "PFN/PN", "frequenza": "Trimestrale", "target": "< 1,5x", "ultimoValore": "1,92x", "valoreClass": "value-crit", "alert": "<i class=\"fas fa-arrow-up text-danger\"></i> > 2,0x"},
+          {"kpi": "Patrimonio Netto/Totale Attivo", "frequenza": "Trimestrale", "target": "> 20%", "ultimoValore": "17,0%", "valoreClass": "value-crit", "alert": "<i class=\"fas fa-arrow-down text-danger\"></i> < 15%"},
+          {"kpi": "Pipeline commerciale", "frequenza": "Mensile", "target": "> 120% budget", "ultimoValore": "n.d.", "valoreClass": "value-warn", "alert": "<i class=\"fas fa-arrow-down text-danger\"></i> < 90% budget"}
+        ]
+      }
+    },
+    "section75": {
+      "title": "7.5 Frequenza di Revisione e Sistema di Alerting Raccomandati",
+      "tableTitle": "Tabella 7.5.1: Sistema di monitoraggio e alerting",
+      "table": {
+        "headers": ["Area", "Frequenza monitoraggio", "Soglie di alerting", "Procedura escalation"],
+        "rows": [
+          {"area": "Liquidità", "frequenza": "Settimanale", "soglie": "- Riduzione >5% vs settimana precedente<br>- Liquidità/Ricavi <10%<br>- Cash flow operativo settimanale negativo", "procedura": "1. Alert team finanziario<br>2. Revisione forecast di cassa<br>3. Escalation direzione amministrativa"},
+          {"area": "Capitale circolante", "frequenza": "Bisettimanale", "soglie": "- DSO >90 giorni<br>- DIO >200 giorni<br>- Ciclo monetario >180 giorni", "procedura": "1. Alert team amministrativo<br>2. Analisi scostamenti<br>3. Escalation controller"},
+          {"area": "Redditività", "frequenza": "Mensile", "soglie": "- EBITDA margin <0%<br>- Margine contribuzione <7%<br>- ROI <0%", "procedura": "1. Alert team controllo gestione<br>2. Analisi costi/ricavi<br>3. Escalation direzione generale"},
+          {"area": "Solidità", "frequenza": "Mensile", "soglie": "- PFN/PN >2,0x<br>- Patrimonio Netto/Totale Attivo <15%<br>- DSCR <0,8", "procedura": "1. Alert direzione finanziaria<br>2. Review proiezioni finanziarie<br>3. Escalation CdA"},
+          {"area": "Crescita", "frequenza": "Mensile", "soglie": "- Variazione ricavi <-5%<br>- Variazione ordini <-10%<br>- Pipeline <90% budget", "procedura": "1. Alert direzione commerciale<br>2. Revisione azioni commerciali<br>3. Escalation comitato esecutivo"}
+        ]
+      },
+      "reportingIntro": "Si raccomanda inoltre l'implementazione di un sistema di reportistica integrato che includa:",
+      "reportingList": [
+        "Report settimanale di tesoreria (liquidità e previsioni a 30 giorni)",
+        "Report quindicinale del capitale circolante (aging crediti/debiti e magazzino)",
+        "Flash report mensile (performance economica vs budget e anno precedente)",
+        "Forecast rolling a 12 mesi (aggiornato mensilmente)",
+        "Dashboard interattiva con KPI in tempo reale per il management"
+      ],
+      "conclusion": "Questo sistema permetterà di identificare tempestivamente segnali di deterioramento e implementare azioni correttive prima che diventino criticità conclamate."
+    }
+  },
+  "summary": {
+    "title": "<i class=\"fas fa-check-circle me-2\"></i>Tabella Riepilogativa Interventi Prioritari",
+    "table": {
+      "headers": ["Area", "Situazione Attuale", "Azione Raccomandata", "Effetti Previsti", "Priorità"],
+      "rows": [
+        {"icon": "fas fa-sync-alt", "iconClass": "bg-icon-danger", "area": "Ristrutturazione del debito", "situazione": "PFN: €919.610, DSCR: 0,67", "azione": "Rinegoziazione scadenze e consolidamento debito a breve", "effetti": "Miglioramento sostenibilità debito<br>DSCR target >1,0", "effettiClass": "text-success", "priorita": "Alta", "prioritaClass": "bg-danger"},
+        {"icon": "fas fa-money-bill-wave", "iconClass": "bg-icon-danger", "area": "Ottimizzazione magazzino", "situazione": "DIO: 194 giorni", "azione": "Revisione politiche di gestione scorte e liquidazione prodotti obsoleti", "effetti": "Riduzione magazzino 30%<br>+€250.000-300.000 liquidità", "effettiClass": "text-success", "priorita": "Alta", "prioritaClass": "bg-danger"},
+        {"icon": "fas fa-chart-line", "iconClass": "bg-icon-danger", "area": "Miglioramento marginalità", "situazione": "EBITDA: -1,53%", "azione": "Revisione pricing e mix prodotti", "effetti": "Incremento al 3-4%<br>+€130.000-170.000", "effettiClass": "text-success", "priorita": "Alta", "prioritaClass": "bg-danger"},
+        {"icon": "fas fa-balance-scale", "iconClass": "bg-icon-danger", "area": "Riduzione costi operativi", "situazione": "Costi operativi elevati", "azione": "Analisi ABC costi e piano di riduzione", "effetti": "Riduzione costi 8-10%<br>+€80.000-100.000", "effettiClass": "text-success", "priorita": "Alta", "prioritaClass": "bg-danger"},
+        {"icon": "fas fa-piggy-bank", "iconClass": "bg-icon-warning", "area": "Rafforzamento patrimoniale", "situazione": "PN/Totale Attivo: 17%", "azione": "Valutazione aumento capitale o ingresso partner", "effetti": "Miglioramento equilibrio patrimoniale<br>Riduzione PFN/PN a <1,0", "effettiClass": "text-success", "priorita": "Media", "prioritaClass": "bg-warning text-dark"}
+      ]
+    },
+    "conclusion": "VAROLI GUIDO E FIGLIO S.R.L. presenta un profilo di rischio complessivamente elevato (IRP: 51,42/100), caratterizzato da significative criticità nell'equilibrio economico, tensioni sulla liquidità e una struttura finanziaria sbilanciata. L'implementazione delle raccomandazioni proposte è urgente e necessaria per interrompere la spirale negativa in atto e ripristinare condizioni di equilibrio sostenibili. L'azienda presenta comunque alcuni punti di forza su cui costruire il percorso di rilancio, in particolare la buona liquidità disponibile, il cash flow operativo ancora positivo e una discreta solidità patrimoniale relativa."
+  }
+}
