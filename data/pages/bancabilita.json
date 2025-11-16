@@ -1,0 +1,679 @@
+{
+  "sidebar": {
+    "companyName": "VAROLI GUIDO E FIGLIO S.R.L.",
+    "menuItems": [
+      {
+        "href": "/dashboard_v2",
+        "icon": "fas fa-tachometer-alt fa-fw",
+        "label": "Dashboard",
+        "active": false
+      },
+      {
+        "type": "title",
+        "label": "Analisi Dettagliata"
+      },
+      {
+        "href": "/report/parte1_sintesi",
+        "icon": "fas fa-file-alt fa-fw",
+        "label": "Sintesi e Profilo",
+        "active": false
+      },
+      {
+        "href": "/report/parte2_economico",
+        "icon": "fas fa-balance-scale fa-fw",
+        "label": "Analisi Economica",
+        "active": false
+      },
+      {
+        "href": "/report/parte3_patrimoniale",
+        "icon": "fas fa-landmark fa-fw",
+        "label": "Analisi Patrimoniale",
+        "active": false
+      },
+      {
+        "href": "/report/parte4_bancabilita",
+        "icon": "fas fa-university fa-fw",
+        "label": "Bancabilità",
+        "active": true
+      },
+      {
+        "href": "/report/parte5_circolante-flussi",
+        "icon": "fas fa-sync-alt fa-fw",
+        "label": "Circolante e Flussi",
+        "active": false
+      },
+      {
+        "href": "/report/parte6_rischi-raccomandazioni",
+        "icon": "fas fa-exclamation-triangle fa-fw",
+        "label": "Rischi e Azioni",
+        "active": false
+      },
+      {
+        "type": "title",
+        "label": "Approfondimenti"
+      },
+      {
+        "href": "/report/irp_dettaglio",
+        "icon": "fas fa-shield-alt fa-fw",
+        "label": "Dettaglio IRP",
+        "active": false
+      }
+    ]
+  },
+  "header": {
+    "title": "Report Dettagliato: Bancabilità e Sostenibilità Debito",
+    "subtitle": "VAROLI GUIDO E FIGLIO S.R.L. | 31 Dicembre 2024",
+    "companyName": "VAROLI GUIDO E FIGLIO S.R.L.",
+    "userName": "VAROLI GUIDO E FIGLIO S.R.L.",
+    "irpBadge": {
+      "score": 51.42,
+      "category": "D+",
+      "icon": "fas fa-shield-alt",
+      "class": "bg-danger"
+    }
+  },
+  "sectionMain": {
+    "icon": "fas fa-university me-2",
+    "title": "4. BANCABILITÀ E SOSTENIBILITÀ DEL DEBITO"
+  },
+  "irpSummary": {
+    "title": "<i class=\"fas fa-shield-alt me-1\"></i> Indice Rischio Ponderato",
+    "score": 51.42,
+    "category": "risk-high",
+    "categoryText": "Rischio Elevato",
+    "categoryClass": "text-danger",
+    "badge": {
+      "text": "D+",
+      "class": "status-badge bg-danger"
+    },
+    "detailLink": "/report/irp_dettaglio",
+    "sectionClass": "risk-high",
+    "generalTitle": "Valutazione Generale",
+    "generalText": "Profilo di rischio <strong>elevato con problematica solidità finanziaria</strong>. L'azienda presenta un profilo di rischio elevato (IRP 51,42 - categoria D+) con una struttura finanziaria indebolita. L'elevato indebitamento finanziario (€1.275.053), l'EBITDA negativo (-€43.535) e la riduzione del patrimonio netto (-26,07%) sono parzialmente controbilanciate da una discreta liquidità (€355.443) e da un cash flow operativo positivo (€211.345).",
+    "crisisButton": {
+      "icon": "fas fa-exclamation-circle me-1",
+      "text": "Profilo di bancabilità problematico",
+      "class": "btn-danger"
+    },
+    "otherRatings": {
+      "title": "Altri Indicatori di Supporto:",
+      "items": [
+        {
+          "icon": "fas fa-chart-bar",
+          "iconClass": "bg-icon-warning",
+          "label": "Leanus Score:",
+          "value": "3,47",
+          "badge": {
+            "text": "Discreto",
+            "class": "bg-warning"
+          }
+        },
+        {
+          "icon": "fas fa-building",
+          "iconClass": "bg-icon-warning",
+          "label": "Business Cat.:",
+          "badge": {
+            "text": "TRADER",
+            "class": "stable-badge"
+          }
+        },
+        {
+          "icon": "fas fa-university",
+          "iconClass": "bg-icon-danger",
+          "label": "Rating MCC:",
+          "value": "8,45%",
+          "badge": {
+            "text": "Fascia 4",
+            "class": "bg-danger"
+          }
+        },
+        {
+          "icon": "fas fa-calculator",
+          "iconClass": "bg-icon-danger",
+          "label": "Z-Score:",
+          "value": "N/D",
+          "badge": {
+            "text": "Zona di rischio",
+            "class": "bg-danger"
+          }
+        }
+      ]
+    }
+  },
+  "section41": {
+    "title": "4.1 Valutazione Sintetica della Bancabilità e Sostenibilità del Debito",
+    "intro": [
+      "<p>L'analisi della bancabilità di VAROLI GUIDO E FIGLIO S.R.L. mostra un quadro complessivamente <strong>problematico</strong> con una struttura patrimoniale indebolita e una posizione finanziaria deteriorata. L'azienda, attiva dal 1985 nel settore \"Commercio all'ingrosso di legname\" (ATECO 46.73.1), si configura come una piccola impresa con un modello di business di tipo trader.</p>",
+      "<p>La società presenta i seguenti indicatori chiave:</p>"
+    ],
+    "table": {
+      "headers": ["Indicatore", "Valore", "Valutazione"],
+      "rows": [
+        {
+          "indicatore": "Leanus® Score",
+          "valore": "3,47 (\"3 - Discreto\")",
+          "valutazione": "Stabile rispetto al periodo precedente"
+        },
+        {
+          "indicatore": "Indice di Rischio Ponderato (IRP)",
+          "valore": "51,42/100",
+          "valutazione": "Classe di rischio ELEVATO"
+        },
+        {
+          "indicatore": "Rating Fondo Garanzia MCC",
+          "valore": "FASCIA \"4\"",
+          "valutazione": "Probabilità di default 8,45%"
+        },
+        {
+          "indicatore": "Debiti Finanziari",
+          "valore": "€1.275.053",
+          "valutazione": "44,74% dei ricavi"
+        },
+        {
+          "indicatore": "PFN",
+          "valore": "€919.610",
+          "valutazione": "32,3% dei ricavi"
+        },
+        {
+          "indicatore": "DSCR",
+          "valore": "2,463",
+          "valutazione": "Sufficiente"
+        }
+      ]
+    },
+    "strengths": {
+      "title": "Punti di forza:",
+      "items": [
+        "Liquidità disponibile significativa (€355.443, pari al 12,47% dei ricavi)",
+        "Cash Flow Operativo positivo (€211.345)",
+        "DSCR sufficiente (2,463)",
+        "Costo del debito inferiore al benchmark di settore (7,53% vs 10,79%)",
+        "ROE meno negativo rispetto al benchmark (-31,10% vs -43,66%)"
+      ]
+    },
+    "criticalities": {
+      "title": "Criticità rilevanti:",
+      "items": [
+        "EBITDA negativo (-€43.535, pari a -1,53% dei ricavi)",
+        "Forte incremento dell'indebitamento finanziario (+150,77%)",
+        "Riduzione del patrimonio netto (-26,07%)",
+        "Contrazione dei ricavi (-14,27%)",
+        "Ciclo del circolante sbilanciato (167 giorni)"
+      ]
+    },
+    "conclusion": "L'azienda presenta quindi un profilo di attenzione per gli istituti di credito, principalmente a causa della redditività negativa nonostante una liquidità disponibile significativa e una capacità di generare cash flow operativo positivo."
+  },
+  "section42": {
+    "title": "4.2 Indicatori di Sostenibilità del Debito",
+    "intro": "Gli indicatori di sostenibilità del debito presentano valori complessivamente critici, evidenziando una significativa pressione finanziaria sull'azienda:",
+    "tableTitle": "Tabella 4.1: Indicatori Sostenibilità Debito",
+    "table": {
+      "headers": ["Indicatore", "Valore", "Valutazione"],
+      "rows": [
+        {
+          "indicatore": "PFN/EBITDA",
+          "valore": "NOK (EBITDA negativo)",
+          "badge": "Critico",
+          "badgeClass": "bg-danger"
+        },
+        {
+          "indicatore": "Leva Finanziaria (D/E)",
+          "valore": "2,66",
+          "badge": "Area di attenzione",
+          "badgeClass": "bg-warning"
+        },
+        {
+          "indicatore": "EBITDA/Oneri Finanziari",
+          "valore": "-0,65",
+          "badge": "Critico",
+          "badgeClass": "bg-danger"
+        },
+        {
+          "indicatore": "DSCR",
+          "valore": "2,463",
+          "badge": "Sufficiente",
+          "badgeClass": "bg-warning"
+        },
+        {
+          "indicatore": "Cash Flow Operativo/Debiti Finanziari",
+          "valore": "0,166",
+          "badge": "Insufficiente",
+          "badgeClass": "bg-warning"
+        },
+        {
+          "indicatore": "Liquidità/Ricavi",
+          "valore": "12,47%",
+          "badge": "Buono",
+          "badgeClass": "bg-success"
+        }
+      ]
+    },
+    "chartTitle": "Grafico 4.1: Indicatori Sostenibilità (Radar)",
+    "chart": {
+      "type": "radar",
+      "data": {
+        "labels": ["PFN/EBITDA", "Leva (D/E)", "DSCR", "Autonomia", "Liquidità", "CFO/Ricavi"],
+        "datasets": [
+          {
+            "label": "2023",
+            "data": [70, 65, 75, 60, 75, 70],
+            "borderColor": "rgba(54, 162, 235, 0.8)",
+            "backgroundColor": "rgba(54, 162, 235, 0.2)",
+            "borderWidth": 2
+          },
+          {
+            "label": "2024",
+            "data": [20, 40, 65, 50, 70, 45],
+            "borderColor": "rgba(255, 99, 132, 0.8)",
+            "backgroundColor": "rgba(255, 99, 132, 0.2)",
+            "borderWidth": 2
+          }
+        ]
+      },
+      "options": {
+        "scales": {
+          "r": {
+            "min": 0,
+            "max": 100,
+            "beginAtZero": true,
+            "ticks": {
+              "display": false
+            }
+          }
+        },
+        "plugins": {
+          "legend": {
+            "display": true,
+            "position": "bottom"
+          }
+        }
+      }
+    },
+    "interpretationTitle": "Interpretazione Indicatori Sostenibilità:",
+    "interpretation": [
+      "La <strong>PFN/EBITDA</strong> è indicata come \"NOK\" a causa dell'EBITDA negativo, segnalando una situazione particolarmente problematica per la sostenibilità del debito. Questo rapporto ha mostrato un significativo deterioramento rispetto ai valori del 2023 (1,58) e 2022 (2,10).",
+      "La <strong>Leva Finanziaria (D/E)</strong> pari a 2,66 si posiziona nella fascia di attenzione per le imprese con modello TRADER (2,5-4,0), indicando un equilibrio patrimoniale sotto stress.",
+      "La copertura degli <strong>oneri finanziari</strong> è fortemente negativa (-0,65), con un EBITDA incapace di coprire gli oneri finanziari (€67.136), indicando una tensione finanziaria acuta.",
+      "Il <strong>DSCR</strong> di 2,463 è un valore positivo calcolato nell'ipotesi che i debiti finanziari unitamente agli interessi siano restituiti in 3 periodi. Questo valore, apparentemente positivo, è da interpretare con cautela alla luce dell'EBITDA negativo.",
+      "Il <strong>Cash Flow Operativo</strong> rispetto ai debiti finanziari (0,166) è insufficiente secondo i parametri standard (>0,2)."
+    ]
+  },
+  "section43": {
+    "title": "4.3 Capacità di Indebitamento Incrementale",
+    "intro": "Secondo l'analisi automatica Leanus, \"la capacità teorica di indebitamento incrementale sostenibile è pari a €0\".",
+    "incrementalCapacity": {
+      "alertClass": "alert-danger",
+      "icon": "fas fa-exclamation",
+      "iconClass": "bg-icon-danger",
+      "title": "Capacità Incrementale Nulla:",
+      "value": "€ 0",
+      "label": "Debito aggiuntivo teorico"
+    },
+    "factorsTitle": "Fattori Chiave:",
+    "criticalities": {
+      "title": "Criticità:",
+      "items": [
+        {
+          "icon": "fas fa-times",
+          "iconClass": "text-danger",
+          "text": "EBITDA negativo (-€43.535)"
+        },
+        {
+          "icon": "fas fa-times",
+          "iconClass": "text-danger",
+          "text": "Elevato indebitamento (€1.275.053)"
+        },
+        {
+          "icon": "fas fa-times",
+          "iconClass": "text-danger",
+          "text": "Riduzione patrimonio netto (-26,07%)"
+        },
+        {
+          "icon": "fas fa-times",
+          "iconClass": "text-danger",
+          "text": "Redditività operativa negativa (ROS -3,26%)"
+        }
+      ]
+    },
+    "considerations": {
+      "title": "Considerazioni:",
+      "items": [
+        {
+          "icon": "fas fa-exclamation",
+          "iconClass": "text-warning",
+          "text": "DSCR sufficiente (2,463)"
+        },
+        {
+          "icon": "fas fa-exclamation",
+          "iconClass": "text-warning",
+          "text": "Cash flow operativo positivo"
+        },
+        {
+          "icon": "fas fa-exclamation",
+          "iconClass": "text-warning",
+          "text": "Liquidità disponibile significativa"
+        },
+        {
+          "icon": "fas fa-exclamation",
+          "iconClass": "text-danger",
+          "text": "Necessità di ristrutturazione del debito"
+        }
+      ]
+    },
+    "conclusion": [
+      "<p class=\"small mt-3\">Questa stima appare coerente con il profilo economico-finanziario dell'azienda, considerando l'elevato livello di indebitamento attuale (€1.275.053, pari al 44,74% dei ricavi), l'EBITDA negativo (-€43.535), il deterioramento della struttura patrimoniale (riduzione del Patrimonio Netto del 26,07%) e la riduzione della redditività operativa (ROS -3,26%).</p>",
+      "<p class=\"small\">L'azienda non è quindi in grado di incrementare il proprio indebitamento in maniera sostenibile nelle attuali condizioni. Sebbene il DSCR di 2,463 mostri una teorica capacità di servizio del debito esistente, l'assenza di marginalità operativa rappresenta un segnale di allarme significativo per qualsiasi valutazione di incremento dell'esposizione finanziaria.</p>"
+    ]
+  },
+  "section44": {
+    "title": "4.4 DSCR (Debt Service Coverage Ratio)",
+    "intro": "Il DSCR rappresenta l'indicatore principe per la valutazione della sostenibilità del debito secondo il framework normativo del CCII (Codice della Crisi d'Impresa e dell'Insolvenza).",
+    "table": {
+      "headers": ["Parametro DSCR", "Valore", "Valutazione"],
+      "rows": [
+        {
+          "parametro": "DSCR calcolato",
+          "valore": "2,463",
+          "badge": "Sufficiente",
+          "badgeClass": "bg-warning"
+        },
+        {
+          "parametro": "Soglia bancaria minima",
+          "valore": "1,2",
+          "valutazione": "Superata"
+        },
+        {
+          "parametro": "Cash Flow Operativo",
+          "valore": "€211.345",
+          "valutazione": "Positivo"
+        },
+        {
+          "parametro": "Oneri finanziari",
+          "valore": "€67.136",
+          "valutazione": "Significativi (7,53% del debito)"
+        }
+      ]
+    },
+    "analysis": {
+      "alertClass": "alert-warning",
+      "title": "Analisi DSCR:",
+      "intro": "Il valore del DSCR pari a 2,463, sebbene superiore alla soglia critica di 1,0, deve essere interpretato con cautela alla luce dell'EBITDA negativo:",
+      "items": [
+        "Presenza di debiti finanziari significativi (€1.275.053)",
+        "Oneri finanziari consistenti (€67.136)",
+        "EBITDA negativo (-€43.535)",
+        "Cash Flow Operativo positivo (€211.345), probabilmente sostenuto da dinamiche favorevoli del capitale circolante"
+      ]
+    },
+    "implicationsTitle": "Implicazioni per la bancabilità:",
+    "implications": [
+      "<strong>Rating creditizio potenziale:</strong> Problematico",
+      "<strong>Accesso al credito:</strong> Limitato e a condizioni onerose",
+      "<strong>Margine di sicurezza:</strong> Apparentemente sufficiente ma fragile",
+      "<strong>Capacità:</strong> Limitata possibilità di assumere nuovo debito"
+    ],
+    "conclusion": "Data la criticità della situazione, è opportuno condurre stress test che simulino scenari peggiorativi. Il DSCR mostra una certa resilienza a stress moderati, ma diventa critico (<1,0) in uno scenario severamente negativo con riduzione del Cash Flow Operativo del 60%. Considerando la volatilità tipica del modello di business TRADER e la tendenza già negativa dell'EBITDA, esiste un rischio concreto che tali scenari possano verificarsi."
+  },
+  "section45": {
+    "title": "4.5 Matching Finanziario",
+    "intro": "L'analisi del matching finanziario secondo i quattro principi fondamentali definiti nel Manuale Kitzanos evidenzia un problematico equilibrio nella struttura finanziaria di VAROLI GUIDO E FIGLIO S.R.L.",
+    "matchingCards": [
+      {
+        "cardClass": "adequate",
+        "icon": "fas fa-coins",
+        "iconClass": "text-warning",
+        "title": "Cash Flow Matching",
+        "intro": "Il principio del Cash Flow Matching valuta l'allineamento tra il servizio del debito e la capacità di generazione di cassa:",
+        "data": [
+          "<strong>Cash Flow Operativo:</strong> €211.345",
+          "<strong>Servizio del debito:</strong> €492.154 (quota capitale + oneri finanziari)",
+          "<strong>DSCR:</strong> 2,463"
+        ],
+        "text": "VAROLI GUIDO E FIGLIO S.R.L. presenta un Cash Flow Matching apparentemente sufficiente, con una capacità di generazione di cassa operativa che, pur essendo positiva, è sostenuta principalmente da dinamiche del capitale circolante piuttosto che dalla redditività operativa (EBITDA negativo).",
+        "evaluation": "Adeguato con riserve",
+        "badgeClass": "bg-warning"
+      },
+      {
+        "cardClass": "adequate",
+        "icon": "fas fa-layer-group",
+        "iconClass": "text-warning",
+        "title": "Amounts Matching",
+        "intro": "Il principio dell'Amounts Matching verifica che il debito a lungo termine non superi l'ammontare degli investimenti a lungo termine:",
+        "data": [
+          "<strong>Valore immobilizzazioni:</strong> €854.485",
+          "<strong>Debito a lungo termine:</strong> €616.361",
+          "<strong>Differenza:</strong> €238.124"
+        ],
+        "text": "VAROLI GUIDO E FIGLIO S.R.L. presenta un Amounts Matching adeguato, con immobilizzazioni che superano il debito a lungo termine, ma con un margine limitato che potrebbe ridursi ulteriormente in caso di deterioramento del valore degli asset.",
+        "evaluation": "Adeguato",
+        "badgeClass": "bg-warning"
+      },
+      {
+        "cardClass": "adequate",
+        "icon": "fas fa-hourglass-half",
+        "iconClass": "text-warning",
+        "title": "Duration Matching",
+        "intro": "Il principio del Duration Matching valuta l'allineamento tra la durata del finanziamento e la vita utile dell'attivo finanziato:",
+        "data": [
+          "<strong>Debiti finanziari a breve termine:</strong> €658.692 (51,7% del totale)",
+          "<strong>Debiti finanziari a medio-lungo termine:</strong> €616.361 (48,3% del totale)",
+          "<strong>Equilibrio temporale:</strong> Insufficiente"
+        ],
+        "text": "La prevalenza di debito a breve termine (51,7% del totale) a fronte di investimenti fissi (€854.485) che richiederebbero finanziamenti di durata compatibile evidenzia un Duration Matching problematico.",
+        "evaluation": "Adeguato con criticità",
+        "badgeClass": "bg-warning"
+      },
+      {
+        "cardClass": "adequate",
+        "icon": "fas fa-gem",
+        "iconClass": "text-warning",
+        "title": "Quality Matching",
+        "intro": "Il principio del Quality Matching valuta l'appropriatezza della forma tecnica del finanziamento:",
+        "data": [
+          "<strong>Immobilizzazioni:</strong> €854.485",
+          "<strong>Patrimonio netto:</strong> €479.666 (34,3% del passivo)",
+          "<strong>Copertura immobilizzazioni:</strong> 0,56"
+        ],
+        "text": "Questa configurazione evidenzia un Quality Matching problematico, con una copertura delle immobilizzazioni attraverso mezzi propri insufficiente (0,56) e una significativa dipendenza dal debito per finanziare gli asset a lungo termine.",
+        "evaluation": "Adeguato con criticità",
+        "badgeClass": "bg-warning"
+      }
+    ]
+  },
+  "section46": {
+    "title": "4.6 Analisi della Capacità di Indebitamento Sostenibile",
+    "intro": "La capacità di indebitamento sostenibile dipende dalla stabilità e prevedibilità dei flussi di cassa operativi. Considerando un approccio prudente, VAROLI GUIDO E FIGLIO S.R.L. presenta una capacità di indebitamento incrementale nulla:",
+    "table1": {
+      "headers": ["Scenario", "Formula", "Valore (€)"],
+      "rows": [
+        {
+          "scenario": "Capacità teorica (PFN/EBITDA = 3,0x)",
+          "formula": "3,0 × EBITDA - PFN attuale",
+          "valore": "NOK (EBITDA negativo)"
+        },
+        {
+          "scenario": "Capacità teorica (PFN/EBITDA = 2,5x)",
+          "formula": "2,5 × EBITDA - PFN attuale",
+          "valore": "NOK (EBITDA negativo)"
+        },
+        {
+          "scenario": "Capacità incrementale sostenibile",
+          "formula": "Capacità teorica - Debiti finanziari attuali",
+          "valore": "€0"
+        },
+        {
+          "scenario": "Fido consigliato a breve termine (Leanus)",
+          "formula": "-",
+          "valore": "€0"
+        }
+      ]
+    },
+    "outlookTitle": "Analisi prospettica secondo Business Plan Inerziale:",
+    "outlookIntro": "Il piano prevede un outlook problematico per la bancabilità dell'azienda, con persistenza delle difficoltà di redditività e sostenibilità del debito almeno nel breve termine:",
+    "table2": {
+      "headers": ["Anno", "Outlook Rating", "Problematiche Principali", "Capacità incrementale (€)"],
+      "rows": [
+        {
+          "anno": "2025",
+          "rating": "3 - Discreto",
+          "problematiche": "EBITDA <4%, PFN/EBITDA critico",
+          "capacita": "€0"
+        },
+        {
+          "anno": "2026",
+          "rating": "Non disponibile",
+          "problematiche": "Debiti finanziari a BT/Crediti Clienti >90%",
+          "capacita": "Limitata"
+        },
+        {
+          "anno": "2027",
+          "rating": "Non disponibile",
+          "problematiche": "Cash Flow Operativo/Ricavi <5%",
+          "capacita": "Limitata"
+        },
+        {
+          "anno": "2028",
+          "rating": "Non disponibile",
+          "problematiche": "Cash Flow Operativo/Ricavi <5%",
+          "capacita": "Limitata"
+        }
+      ]
+    },
+    "conclusion": "Le proiezioni non evidenziano un miglioramento significativo della capacità di assunzione di nuovo debito nel medio periodo, mantenendo VAROLI GUIDO E FIGLIO S.R.L. in una condizione di fragilità finanziaria persistente."
+  },
+  "section47": {
+    "title": "4.7 KPI della Crisi d'Impresa (CCII)",
+    "intro": "Sulla base dei dati finanziari analizzati, è possibile stimare la posizione dell'azienda rispetto ai principali indicatori di allerta del CCII:",
+    "table": {
+      "headers": ["Indicatore", "Formula", "Valore stimato", "Soglia di Allarme TRADER", "Valutazione"],
+      "rows": [
+        {
+          "indicatore": "Oneri Finanziari/Ricavi",
+          "formula": "Tot. Oneri Fin./Ricavi",
+          "valore": "2,36%",
+          "soglia": "> 8,0%",
+          "badge": "In linea",
+          "badgeClass": "bg-success"
+        },
+        {
+          "indicatore": "Patrimonio Netto/Debiti Totali",
+          "formula": "PN/(Tot. Debiti)",
+          "valore": "34,25%",
+          "soglia": "< 8,0%",
+          "badge": "In linea",
+          "badgeClass": "bg-success"
+        },
+        {
+          "indicatore": "Attività a Breve/Passività a Breve",
+          "formula": "Attivo Circolante/Passivo Corrente",
+          "valore": "109,00%",
+          "soglia": "< 90,0%",
+          "badge": "In linea",
+          "badgeClass": "bg-success"
+        },
+        {
+          "indicatore": "Cash Flow/Totale Attivo",
+          "formula": "Cash Flow/Tot. Attivo",
+          "valore": "10,96%",
+          "soglia": "< 0,4%",
+          "badge": "Ampiamente in linea",
+          "badgeClass": "bg-success"
+        },
+        {
+          "indicatore": "Indebitamento Prev. e Trib./Totale Attivo",
+          "formula": "(Debiti prev. + Debiti trib.)/Tot. Attivo",
+          "valore": "N/D",
+          "soglia": "> 5,5%",
+          "badge": "N/D",
+          "badgeClass": "bg-warning"
+        }
+      ]
+    },
+    "result": {
+      "alertClass": "alert-warning",
+      "title": "Risultato complessivo: Indicatori CCII ancora in linea",
+      "text": "Nonostante l'EBITDA negativo e le criticità nella sostenibilità del debito, l'azienda sembra mantenere indicatori CCII ancora al di sopra delle soglie di allarme, beneficiando probabilmente di una struttura patrimoniale che, sebbene deteriorata, mantiene ancora un certo equilibrio. Il Cash Flow positivo contribuisce significativamente a mantenere gli indicatori CCII in territorio non critico.",
+      "items": [
+        "Il report Leanus evidenzia numerosi segnali di allerta che richiedono immediata attenzione, tra cui ricavi in calo del 14,27%, EBITDA in calo del 120,43%, riduzione del patrimonio netto del 26,07% e incremento dell'indebitamento finanziario di €766.599 nel periodo.",
+        "Questi elementi configurano un quadro di rischio significativo, che potrebbe evolvere verso una situazione di crisi se non gestito con interventi strutturali e tempestivi."
+      ]
+    }
+  },
+  "section48": {
+    "title": "4.8 Raccomandazioni per la Strategia Finanziaria",
+    "table": {
+      "headers": ["Situazione Attuale", "Azione Suggerita", "Effetti Previsti", "Impatto Quantitativo/Costo"],
+      "rows": [
+        {
+          "situazione": "Debiti finanziari: €1.275.053 (44,74% ricavi)",
+          "azione": "Rimodulazione scadenze con conversione BT in MLT",
+          "effetti": "Miglioramento DSCR e equilibrio temporale",
+          "impatto": "Costo finanziario: +0,5-1,0%"
+        },
+        {
+          "situazione": "Ciclo circolante: 167 giorni",
+          "azione": "Ottimizzazione magazzino (194 gg)",
+          "effetti": "Riduzione fabbisogno finanziario",
+          "impatto": "Beneficio potenziale: €200.000-300.000"
+        },
+        {
+          "situazione": "EBITDA: -€43.535 (-1,53%)",
+          "azione": "Piano di efficienza operativa",
+          "effetti": "Ritorno a marginalità positiva",
+          "impatto": "Obiettivo: EBITDA +€100.000"
+        },
+        {
+          "situazione": "PN: €479.666 (-26,07%)",
+          "azione": "Iniezione capitale o prestito soci",
+          "effetti": "Miglioramento D/E e copertura AFN",
+          "impatto": "Investimento: €100.000-200.000"
+        },
+        {
+          "situazione": "Concentrazione su debito bancario",
+          "azione": "Valutare leasing, factoring pro soluto",
+          "effetti": "Riduzione pressione su linee bancarie",
+          "impatto": "Risparmio potenziale: €20.000-30.000/anno"
+        },
+        {
+          "situazione": "Sistema tradizionale",
+          "azione": "Implementazione dashboard KPI, budget mensile",
+          "effetti": "Interventi preventivi, monitoraggio costante",
+          "impatto": "Costo implementazione: €10.000-15.000"
+        }
+      ]
+    },
+    "priorityRecommendationsTitle": "Raccomandazioni prioritarie",
+    "priorityRecommendations": [
+      {
+        "title": "<strong>Ristrutturazione del debito finanziario</strong>",
+        "intro": "L'elevato livello di indebitamento a breve termine (€658.692) e l'EBITDA negativo rendono prioritaria una rimodulazione delle scadenze. Si suggerisce di:",
+        "items": [
+          "Negoziare con gli istituti bancari una rimodulazione del debito con conversione di parte del BT in MLT",
+          "Valutare moratorie temporanee su quota capitale per consentire il recupero della marginalità operativa",
+          "Centralizzare la gestione dell'indebitamento su meno istituti con relazioni più strutturate"
+        ]
+      },
+      {
+        "title": "<strong>Ottimizzazione del capitale circolante</strong>",
+        "intro": "Il magazzino rappresenta la criticità principale con 194 giorni di rotazione. Si consiglia di:",
+        "items": [
+          "Implementare un sistema di gestione delle scorte basato su analisi ABC e JIT",
+          "Valutare politiche di reso al fornitore per materiale a bassa rotazione",
+          "Concordare con i fornitori strategici accordi di consignment stock",
+          "Rivedere la politica commerciale per incentivare la vendita di prodotti a lenta movimentazione"
+        ]
+      },
+      {
+        "title": "<strong>Recovery plan operativo</strong>",
+        "intro": "Il ritorno a una marginalità operativa positiva è essenziale per ristabilire la bancabilità. Si suggerisce di:",
+        "items": [
+          "Analizzare il breakdown dei costi fissi e variabili per identificare aree di inefficienza",
+          "Rivedere il pricing dei prodotti per recuperare marginalità",
+          "Valutare possibili razionalizzazioni della struttura operativa",
+          "Implementare KPI operativi con monitoraggio settimanale per intercettare tempestivamente le deviazioni"
+        ]
+      }
+    ],
+    "conclusion": "<strong>Conclusione:</strong> VAROLI GUIDO E FIGLIO S.R.L. presenta un profilo di bancabilità problematico, caratterizzato da un significativo deterioramento degli indicatori economici e finanziari. L'elevato Indice di Rischio Ponderato (IRP) di 51,42/100 (Categoria D+) conferma l'alto profilo di rischio dell'azienda. Questa configurazione finanziaria richiede interventi strutturali e tempestivi per evitare l'evoluzione verso una crisi più profonda. La presenza di alcuni elementi positivi, come la liquidità disponibile (€355.443, 12,47% dei ricavi) e la capacità di generare cash flow operativo positivo (€211.345), rappresenta una base su cui costruire un percorso di risanamento credibile, a condizione che venga implementato con determinazione e tempestività."
+  }
+}

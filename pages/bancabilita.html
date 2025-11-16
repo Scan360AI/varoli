@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bancabilità e Sostenibilità Debito - VAROLI GUIDO E FIGLIO S.R.L. | SCAN V11</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/components.css" rel="stylesheet">
+    <link href="../css/modern.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar no-print">
+        <div class="sidebar-header">
+            <img src="../assets/img/logo_scan.png" alt="SCAN Logo" style="max-height: 40px;">
+            <h5 id="sidebarCompanyName"></h5>
+        </div>
+        <ul class="sidebar-nav flex-grow-1" id="sidebarNav">
+            <!-- Populated by JS -->
+        </ul>
+        <div class="sidebar-footer">
+            <small>SCAN360 © <span id="currentYearSidebar"></span> Kitzanos</small>
+        </div>
+    </aside>
+
+    <!-- Contenuto Principale Wrapper -->
+    <div class="main-wrapper">
+        <!-- Header Orizzontale -->
+        <header class="dashboard-header no-print">
+            <div class="header-title">
+                <h5 class="mb-0" id="headerTitle"></h5>
+                <p class="mb-0" id="headerSubtitle"></p>
+            </div>
+            <div class="header-controls d-flex align-items-center">
+                <span id="irp-header-badge" class="badge me-3"></span>
+                <button class="btn btn-sm btn-outline-secondary me-2 print-button" id="printBtn">
+                    <i class="fas fa-print"></i> Stampa
+                </button>
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-light border dropdown-toggle" type="button" id="userMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user-circle me-1"></i> <span id="userMenuName"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenuButton">
+                        <li><button class="dropdown-item" type="button" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i>Logout</button></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!-- Print Header -->
+        <div class="container d-none d-print-block mt-4 mb-4">
+            <h1 class="text-center mb-0"><span id="printCompanyName"></span></h1>
+            <p class="text-center mb-0" id="printSubtitle"></p>
+            <hr>
+        </div>
+
+        <!-- Area Contenuto Specifico del Report -->
+        <div class="dashboard-container">
+
+            <h2 class="section-title" id="sectionMainTitle"></h2>
+
+            <!-- Sezione IRP Prominente -->
+            <section class="irp-visual-section report-section" id="irpSummarySection">
+                <div class="row align-items-center">
+                    <div class="col-md-4 text-center mb-4 mb-md-0">
+                        <h6 class="card-title-small mb-3" id="irpTitle"></h6>
+                        <div class="irp-score-circle" id="irpScoreCircle">
+                            <span class="irp-score-value" id="irpScoreValue"></span>
+                            <span class="irp-score-max">/ 100</span>
+                        </div>
+                        <div class="irp-category-text mt-2" id="irpCategoryText"></div>
+                        <a class="btn btn-sm btn-outline-primary mt-3 btn-pill" id="irpDetailLink" href="#">Vedi Dettaglio IRP</a>
+                    </div>
+                    <div class="col-md-8">
+                        <h4 class="mb-3 fw-bold" style="color: var(--primary);" id="irpGeneralTitle"></h4>
+                        <p class="mb-3" id="irpGeneralText"></p>
+                        <a href="#crisis-framework" class="btn btn-sm mb-3 btn-pill" id="irpCrisisBtn"></a>
+                        <div class="other-ratings border-top pt-3 mt-3">
+                            <h6 class="card-title-small mb-2" id="otherRatingsTitle"></h6>
+                            <ul class="list-unstyled mb-0 row gx-3 gy-2" id="otherRatingsList">
+                                <!-- Populated by JS -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sezione 4.1 Valutazione Sintetica -->
+            <div class="card mb-4 report-section">
+                <div class="card-header"><h5 class="mb-0" id="section41Title"></h5></div>
+                <div class="card-body">
+                    <div id="section41Intro"></div>
+
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped">
+                            <thead id="section41TableHead">
+                                <!-- Populated by JS -->
+                            </thead>
+                            <tbody id="section41TableBody">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <h6 id="strengthsTitle"></h6>
+                            <ul id="strengthsList">
+                                <!-- Populated by JS -->
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 id="criticalitiesTitle"></h6>
+                            <ul id="criticalitiesList">
+                                <!-- Populated by JS -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p class="mt-3" id="section41Conclusion"></p>
+                </div>
+            </div>
+
+            <!-- Sezione 4.2 Indicatori Sostenibilità -->
+            <div class="card mb-4 report-section">
+                <div class="card-header"><h5 class="mb-0" id="section42Title"></h5></div>
+                <div class="card-body">
+                    <p id="section42Intro"></p>
+                    <div class="row">
+                        <div class="col-lg-7 mb-3 mb-lg-0">
+                            <h6 id="table42Title"></h6>
+                            <div class="table-responsive">
+                                <table class="table table-sm table-striped table-hover">
+                                    <thead class="table-light" id="section42TableHead">
+                                        <!-- Populated by JS -->
+                                    </thead>
+                                    <tbody id="section42TableBody">
+                                        <!-- Populated by JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <h6 class="text-center small" id="chart42Title"></h6>
+                            <div class="chart-container" style="height: 300px;">
+                                <canvas id="debtSustainabilityChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <h6 class="mt-4" id="interpretation42Title"></h6>
+                    <ul class="small" id="interpretation42List">
+                        <!-- Populated by JS -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Sezione 4.3 Capacità Indebitamento -->
+            <div class="card mb-4 report-section">
+                <div class="card-header"><h5 class="mb-0" id="section43Title"></h5></div>
+                <div class="card-body">
+                    <p id="section43Intro"></p>
+                    <div class="row align-items-center">
+                        <div class="col-md-5 mb-3 mb-md-0 text-center">
+                            <div class="alert-box p-3" id="incrementalCapacityAlert">
+                                <div class="icon-circle mx-auto mb-2" id="incrementalCapacityIcon"></div>
+                                <h6 class="mb-1" id="incrementalCapacityTitle"></h6>
+                                <p class="fs-3 fw-bold mb-1" id="incrementalCapacityValue"></p>
+                                <p class="small text-muted mb-0" id="incrementalCapacityLabel"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <h6 id="factorsTitle"></h6>
+                            <div class="row small">
+                                <div class="col-6">
+                                    <strong id="criticalitiesFactorsTitle"></strong>
+                                    <ul class="fa-ul ms-3" id="criticalitiesFactorsList">
+                                        <!-- Populated by JS -->
+                                    </ul>
+                                </div>
+                                <div class="col-6">
+                                    <strong id="considerationsFactorsTitle"></strong>
+                                    <ul class="fa-ul ms-3" id="considerationsFactorsList">
+                                        <!-- Populated by JS -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="section43Conclusion"></div>
+                </div>
+            </div>
+
+            <!-- Sezione 4.4 DSCR -->
+            <div class="card mb-4 report-section">
+                <div class="card-header"><h5 class="mb-0" id="section44Title"></h5></div>
+                <div class="card-body">
+                    <p id="section44Intro"></p>
+                    <div class="table-responsive mb-3">
+                        <table class="table table-sm table-striped table-hover">
+                            <thead class="table-light" id="section44TableHead">
+                                <!-- Populated by JS -->
+                            </thead>
+                            <tbody id="section44TableBody">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="alert-box" id="dscrAnalysisAlert">
+                        <h5 id="dscrAnalysisTitle"></h5>
+                        <p id="dscrAnalysisIntro"></p>
+                        <ul id="dscrAnalysisList">
+                            <!-- Populated by JS -->
+                        </ul>
+                    </div>
+                    <p id="implicationsTitle"></p>
+                    <ul id="implicationsList">
+                        <!-- Populated by JS -->
+                    </ul>
+                    <p id="section44Conclusion"></p>
+                </div>
+            </div>
+
+            <!-- Sezione 4.5 Matching Finanziario -->
+            <div class="card mb-4 report-section">
+                <div class="card-header"><h5 class="mb-0" id="section45Title"></h5></div>
+                <div class="card-body">
+                    <p id="section45Intro"></p>
+
+                    <div class="row gy-3" id="matchingCardsContainer">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sezione 4.6 Analisi Capacità Sostenibile -->
+            <div class="card mb-4 report-section">
+                <div class="card-header"><h5 class="mb-0" id="section46Title"></h5></div>
+                <div class="card-body">
+                    <p id="section46Intro"></p>
+
+                    <div class="table-responsive mb-3">
+                        <table class="table table-sm table-striped table-hover">
+                            <thead class="table-light" id="section46Table1Head">
+                                <!-- Populated by JS -->
+                            </thead>
+                            <tbody id="section46Table1Body">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h6 id="outlookTitle"></h6>
+                    <p id="outlookIntro"></p>
+
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped table-hover">
+                            <thead class="table-light" id="section46Table2Head">
+                                <!-- Populated by JS -->
+                            </thead>
+                            <tbody id="section46Table2Body">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="small mt-3" id="section46Conclusion"></p>
+                </div>
+            </div>
+
+            <!-- Sezione 4.7 KPI Crisi -->
+            <div class="card mb-4 report-section">
+                <div class="card-header"><h5 class="mb-0" id="section47Title"></h5></div>
+                <div class="card-body">
+                    <p id="section47Intro"></p>
+
+                    <div class="table-responsive mb-3">
+                        <table class="table table-sm table-striped table-hover">
+                            <thead class="table-light" id="section47TableHead">
+                                <!-- Populated by JS -->
+                            </thead>
+                            <tbody id="section47TableBody">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="alert-box" id="cciiResultAlert">
+                        <h5 id="cciiResultTitle"></h5>
+                        <p id="cciiResultText"></p>
+                        <ul id="cciiResultList">
+                            <!-- Populated by JS -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sezione 4.8 Raccomandazioni -->
+            <div class="card mb-4 report-section">
+                <div class="card-header"><h5 class="mb-0" id="section48Title"></h5></div>
+                <div class="card-body">
+                    <div class="table-responsive mb-3">
+                        <table class="table table-sm table-striped table-hover">
+                            <thead class="table-light" id="section48TableHead">
+                                <!-- Populated by JS -->
+                            </thead>
+                            <tbody id="section48TableBody">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h6 id="priorityRecommendationsTitle"></h6>
+
+                    <ol id="priorityRecommendationsList">
+                        <!-- Populated by JS -->
+                    </ol>
+
+                    <p class="mt-3" id="section48Conclusion"></p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer no-print">
+            <div class="container-fluid px-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                        SCAN360 © <span id="currentYearFooterReport"></span>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        Powered by <a href="http://www.kitzanos.com" target="_blank" class="text-white fw-bold">Kitzanos Lab</a>
+                        <img src="../assets/img/logo_kitzanos.png" alt="Kitzanos Logo" class="ms-2">
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Script JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="../js/pages/bancabilita.js"></script>
+</body>
+</html>
