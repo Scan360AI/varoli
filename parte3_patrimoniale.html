@@ -215,46 +215,100 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-3">
                             <div class="chart-container">
                                 <div class="chart-header">
-                                    <div class="chart-title">Composizione Attivo</div>
+                                    <div class="chart-title">Composizione Impieghi 2024</div>
                                 </div>
                                 <div class="chart-wrapper small">
-                                    <canvas id="attivoChart"></canvas>
+                                    <canvas id="assetsChart"></canvas>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-6 mb-3">
                             <div class="chart-container">
                                 <div class="chart-header">
-                                    <div class="chart-title">Composizione Passivo e PN</div>
+                                    <div class="chart-title">Composizione Fonti 2024</div>
                                 </div>
                                 <div class="chart-wrapper small">
-                                    <canvas id="passivoChart"></canvas>
+                                    <canvas id="liabilitiesChart"></canvas>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- 3.4 Evoluzione Patrimonio Netto -->
+                <!-- 3.4 Struttura degli Investimenti -->
                 <div class="content-section">
                     <div class="section-header">
                         <h2 class="section-title">
-                            <i class="fas fa-chart-line"></i>
-                            Evoluzione Patrimonio Netto
+                            <i class="fas fa-building"></i>
+                            Evoluzione Struttura Investimenti
                         </h2>
                     </div>
 
                     <div class="chart-container">
                         <div class="chart-header">
-                            <div class="chart-title">Patrimonio Netto 2022-2024</div>
-                            <div class="chart-subtitle">Valori in migliaia di Euro</div>
+                            <div class="chart-title">Evoluzione Impieghi 2022-2024</div>
+                            <div class="chart-subtitle">Valori in Euro</div>
                         </div>
                         <div class="chart-wrapper">
-                            <canvas id="patrimonioNettoChart"></canvas>
+                            <canvas id="investmentsStructureChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3.5 Struttura delle Fonti -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-chart-area"></i>
+                            Struttura delle Fonti
+                        </h2>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="chart-container">
+                                <div class="chart-header">
+                                    <div class="chart-title">Composizione Patrimonio Netto 2024</div>
+                                </div>
+                                <div class="chart-wrapper small">
+                                    <canvas id="equityCompositionChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <div class="chart-container">
+                                <div class="chart-header">
+                                    <div class="chart-title">Composizione Passività Correnti 2024</div>
+                                </div>
+                                <div class="chart-wrapper small">
+                                    <canvas id="currentLiabilitiesChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3.6 Evoluzione PFN -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-chart-line"></i>
+                            Evoluzione Posizione Finanziaria Netta
+                        </h2>
+                    </div>
+
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <div class="chart-title">PFN e Componenti 2022-2024</div>
+                            <div class="chart-subtitle">Valori in Euro</div>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="pfnTrendChart"></canvas>
                         </div>
                     </div>
                 </div>

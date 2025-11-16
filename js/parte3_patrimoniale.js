@@ -11,7 +11,13 @@ const Parte3Patrimoniale = {
             this.renderDebtAnalysis();
             this.renderBalanceSheetIntro();
             this.renderStatoPatrimoniale();
+            this.createAssetsChart();
+            this.createLiabilitiesChart();
+            this.createInvestmentsStructureChart();
+            this.createEquityCompositionChart();
+            this.createCurrentLiabilitiesChart();
             this.renderPFNTable();
+            this.createPFNTrendChart();
             this.renderIndiciSoliditaTable();
             this.renderSolidityAnalysis();
             this.renderLiquidityNote();
@@ -115,6 +121,268 @@ const Parte3Patrimoniale = {
         const title = this.data.content?.parte3_patrimoniale?.liquidityTitle || 'Liquidità';
         const note = this.data.content?.parte3_patrimoniale?.liquidityNote || '';
         container.innerHTML = `<div class="alert alert-success"><strong>${title}:</strong> ${note}</div>`;
+    },
+    createAssetsChart() {
+        const ctx = document.getElementById('assetsChart');
+        if (!ctx) return;
+        const chartData = this.data.charts?.reports?.parte3?.assetsChart;
+        if (!chartData) return;
+        if (this.charts.assets) this.charts.assets.destroy();
+        this.charts.assets = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: chartData.labels,
+                datasets: [{
+                    data: chartData.datasets.values.data,
+                    backgroundColor: [
+                        '#007bff',
+                        '#28a745',
+                        '#ffc107',
+                        '#6c757d',
+                        '#6f42c1',
+                        '#17a2b8'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const value = Utils.formatCurrency(context.raw);
+                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                const percentage = ((context.raw / total) * 100).toFixed(1);
+                                return `${context.label}: ${value} (${percentage}%)`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    },
+    createLiabilitiesChart() {
+        const ctx = document.getElementById('liabilitiesChart');
+        if (!ctx) return;
+        const chartData = this.data.charts?.reports?.parte3?.liabilitiesChart;
+        if (!chartData) return;
+        if (this.charts.liabilities) this.charts.liabilities.destroy();
+        this.charts.liabilities = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: chartData.labels,
+                datasets: [{
+                    data: chartData.datasets.values.data,
+                    backgroundColor: [
+                        '#28a745',
+                        '#dc3545',
+                        '#6c757d',
+                        '#fd7e14',
+                        '#e83e8c'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const value = Utils.formatCurrency(context.raw);
+                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                const percentage = ((context.raw / total) * 100).toFixed(1);
+                                return `${context.label}: ${value} (${percentage}%)`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    },
+    createInvestmentsStructureChart() {
+        const ctx = document.getElementById('investmentsStructureChart');
+        if (!ctx) return;
+        const chartData = this.data.charts?.reports?.parte3?.investmentsStructureChart;
+        if (!chartData) return;
+        if (this.charts.investments) this.charts.investments.destroy();
+        this.charts.investments = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: chartData.labels,
+                datasets: [
+                    {
+                        label: chartData.datasets.fixedAssets.label,
+                        data: chartData.datasets.fixedAssets.data,
+                        backgroundColor: 'rgba(111, 66, 193, 0.8)',
+                        borderColor: 'rgba(111, 66, 193, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: chartData.datasets.receivables.label,
+                        data: chartData.datasets.receivables.data,
+                        backgroundColor: 'rgba(40, 167, 69, 0.8)',
+                        borderColor: 'rgba(40, 167, 69, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: chartData.datasets.inventory.label,
+                        data: chartData.datasets.inventory.data,
+                        backgroundColor: 'rgba(255, 193, 7, 0.8)',
+                        borderColor: 'rgba(255, 193, 7, 1)',
+                        borderWidth: 1
+                    },
+                    {
+                        label: chartData.datasets.cash.label,
+                        data: chartData.datasets.cash.data,
+                        backgroundColor: 'rgba(23, 162, 184, 0.8)',
+                        borderColor: 'rgba(23, 162, 184, 1)',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom' } },
+                scales: {
+                    x: { stacked: true },
+                    y: {
+                        stacked: true,
+                        ticks: { callback: v => Utils.formatCurrency(v) }
+                    }
+                }
+            }
+        });
+    },
+    createEquityCompositionChart() {
+        const ctx = document.getElementById('equityCompositionChart');
+        if (!ctx) return;
+        const chartData = this.data.charts?.reports?.parte3?.equityCompositionChart;
+        if (!chartData) return;
+        if (this.charts.equity) this.charts.equity.destroy();
+        this.charts.equity = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: chartData.labels,
+                datasets: [{
+                    data: chartData.datasets.values.data,
+                    backgroundColor: [
+                        '#007bff',
+                        '#28a745',
+                        '#dc3545',
+                        '#6c757d'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const value = Utils.formatCurrency(context.raw);
+                                return `${context.label}: ${value}`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    },
+    createCurrentLiabilitiesChart() {
+        const ctx = document.getElementById('currentLiabilitiesChart');
+        if (!ctx) return;
+        // Calculate data from stato patrimoniale fonti
+        const fonti = this.data.tables?.parte3_patrimoniale?.statoPatrimonialeFonti;
+        if (!fonti) return;
+        const debitiFornitori = fonti.rows.find(r => r.categoria === 'Debiti Fornitori')?.[2024] || 0;
+        const altriDebiti = fonti.rows.find(r => r.categoria === 'Altri Debiti')?.[2024] || 0;
+        if (this.charts.currentLiabilities) this.charts.currentLiabilities.destroy();
+        this.charts.currentLiabilities = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Debiti Fornitori', 'Altri Debiti'],
+                datasets: [{
+                    data: [debitiFornitori, altriDebiti],
+                    backgroundColor: ['#fd7e14', '#e83e8c']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const value = Utils.formatCurrency(context.raw);
+                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                const percentage = ((context.raw / total) * 100).toFixed(1);
+                                return `${context.label}: ${value} (${percentage}%)`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    },
+    createPFNTrendChart() {
+        const ctx = document.getElementById('pfnTrendChart');
+        if (!ctx) return;
+        const chartData = this.data.charts?.reports?.parte3?.pfnTrendChart;
+        if (!chartData) return;
+        if (this.charts.pfnTrend) this.charts.pfnTrend.destroy();
+        this.charts.pfnTrend = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: chartData.labels,
+                datasets: [
+                    {
+                        label: chartData.datasets.totalDebt.label,
+                        data: chartData.datasets.totalDebt.data,
+                        backgroundColor: 'rgba(220, 53, 69, 0.8)',
+                        borderColor: 'rgba(220, 53, 69, 1)',
+                        borderWidth: 1,
+                        type: 'bar'
+                    },
+                    {
+                        label: chartData.datasets.cash.label,
+                        data: chartData.datasets.cash.data,
+                        backgroundColor: 'rgba(40, 167, 69, 0.8)',
+                        borderColor: 'rgba(40, 167, 69, 1)',
+                        borderWidth: 1,
+                        type: 'bar'
+                    },
+                    {
+                        label: chartData.datasets.pfn.label,
+                        data: chartData.datasets.pfn.data,
+                        type: 'line',
+                        borderColor: 'rgba(255, 193, 7, 1)',
+                        backgroundColor: 'rgba(255, 193, 7, 0.1)',
+                        borderWidth: 3,
+                        pointBackgroundColor: 'rgba(255, 193, 7, 1)',
+                        pointRadius: 6,
+                        fill: false
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom' } },
+                scales: {
+                    y: {
+                        ticks: { callback: v => Utils.formatCurrency(v) }
+                    }
+                }
+            }
+        });
     }
 };
 document.addEventListener('DOMContentLoaded', () => { Parte3Patrimoniale.init(); });
