@@ -149,6 +149,17 @@
                     <div class="table-wrapper">
                         <table id="contoEconomicoTable"></table>
                     </div>
+
+                    <!-- Economic Trend Chart -->
+                    <div class="chart-container" style="margin-top: 24px;">
+                        <div class="chart-header">
+                            <div class="chart-title">Andamento Ricavi ed EBITDA 2022-2024</div>
+                            <div class="chart-subtitle">Valori in migliaia di Euro e percentuali</div>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="economicTrendChart"></canvas>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- 2.2 Analisi Marginalità -->
@@ -261,6 +272,17 @@
                     <div class="table-wrapper">
                         <table id="effettoLevaTable"></table>
                     </div>
+
+                    <!-- Leverage Chart -->
+                    <div class="chart-container" style="margin-top: 24px;">
+                        <div class="chart-header">
+                            <div class="chart-title">Confronto ROI vs ROE</div>
+                            <div class="chart-subtitle">Analisi dell'effetto leva finanziaria</div>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="leverageChart"></canvas>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Benchmark Intro -->
@@ -280,23 +302,59 @@
                     </div>
                 </div>
 
-                <!-- 2.5 Trend Ricavi -->
+                <!-- 2.2 Benchmark e Posizionamento Competitivo -->
                 <div class="content-section">
                     <div class="section-header">
                         <h2 class="section-title">
-                            <i class="fas fa-chart-line"></i>
-                            Trend Ricavi e Risultati
+                            <i class="fas fa-trophy"></i>
+                            Benchmark e Posizionamento Competitivo
                         </h2>
+                        <div class="section-description">
+                            Confronto con la media del settore di riferimento
+                        </div>
                     </div>
 
-                    <div class="chart-container">
+                    <!-- 2.2.1 Posizionamento Competitivo -->
+                    <div id="competitivePositioningIntro"></div>
+
+                    <!-- Radar Chart -->
+                    <div class="chart-container" style="margin-top: 24px;">
                         <div class="chart-header">
-                            <div class="chart-title">Evoluzione Ricavi, EBITDA e Utile Netto 2022-2024</div>
-                            <div class="chart-subtitle">Valori in migliaia di Euro</div>
+                            <div class="chart-title">Posizionamento Competitivo vs Settore</div>
+                            <div class="chart-subtitle">Analisi radar degli indicatori chiave</div>
                         </div>
-                        <div class="chart-wrapper large">
-                            <canvas id="ricaviTrendChart"></canvas>
+                        <div class="chart-wrapper">
+                            <canvas id="benchmarkRadarChart"></canvas>
                         </div>
+                    </div>
+
+                    <!-- Competitive Positioning Table -->
+                    <div class="table-wrapper" style="margin-top: 24px;">
+                        <table id="competitivePositioningTable"></table>
+                    </div>
+
+                    <!-- 2.2.2 Gap Analysis -->
+                    <div class="section-header" style="margin-top: 32px;">
+                        <h3 class="section-title">
+                            <i class="fas fa-chart-area"></i>
+                            Gap Analysis vs Best Practice
+                        </h3>
+                    </div>
+                    <div id="gapAnalysisIntro"></div>
+                    <div class="table-wrapper">
+                        <table id="gapAnalysisTable"></table>
+                    </div>
+
+                    <!-- 2.2.3 Azioni di Miglioramento -->
+                    <div class="section-header" style="margin-top: 32px;">
+                        <h3 class="section-title">
+                            <i class="fas fa-lightbulb"></i>
+                            Azioni di Miglioramento Suggerite
+                        </h3>
+                    </div>
+                    <div id="improvementActionsIntro"></div>
+                    <div class="table-wrapper">
+                        <table id="improvementActionsTable"></table>
                     </div>
                 </div>
 

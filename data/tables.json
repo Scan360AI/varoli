@@ -188,6 +188,30 @@
         {"indicatore": "Giorni Crediti Clienti", "varoli": 41, "settore": 54, "gap": -13, "valutazione": "Ottimo"},
         {"indicatore": "Ciclo Circolante", "varoli": 167, "settore": 51, "gap": 116, "valutazione": "Critico"}
       ]
+    },
+    "gapAnalysisBestPractice": {
+      "headers": ["Area", "Valore Attuale", "Best Practice", "Gap", "Priorità"],
+      "rows": [
+        {"area": "EBITDA Margin", "valoreAttuale": "-1.53%", "bestPractice": "6-8%", "gap": "-7.5 p.p.", "priorita": "Alta"},
+        {"area": "ROI", "valoreAttuale": "-6.65%", "bestPractice": "10-15%", "gap": "-16.7 p.p.", "priorita": "Alta"},
+        {"area": "ROE", "valoreAttuale": "-31.10%", "bestPractice": "12-18%", "gap": "-43.1 p.p.", "priorita": "Alta"},
+        {"area": "Ciclo Circolante", "valoreAttuale": "167 gg", "bestPractice": "90-120 gg", "gap": "+47 gg", "priorita": "Alta"},
+        {"area": "PFN/EBITDA", "valoreAttuale": "N/A", "bestPractice": "<3x", "gap": "Critico", "priorita": "Alta"},
+        {"area": "D/E Ratio", "valoreAttuale": "2.66", "bestPractice": "<1.5", "gap": "+1.16", "priorita": "Media"},
+        {"area": "DSO", "valoreAttuale": "41 gg", "bestPractice": "45-60 gg", "gap": "0 gg", "priorita": "Bassa"},
+        {"area": "Turnover", "valoreAttuale": "2.04", "bestPractice": "2.0-2.5", "gap": "0", "priorita": "Bassa"}
+      ]
+    },
+    "azioniMiglioramento": {
+      "headers": ["Area", "Azione Suggerita", "Impatto Atteso", "Tempistiche", "Priorità"],
+      "rows": [
+        {"area": "Marginalità", "azione": "Revisione completa della struttura dei costi variabili e fissi; Rinegoziazione contratti fornitori strategici", "impattoAtteso": "Recupero margine EBITDA: +4-5 p.p.", "tempistiche": "6-12 mesi", "priorita": "Alta"},
+        {"area": "Ricavi", "azione": "Piano commerciale per arrestare la contrazione del fatturato; Diversificazione portafoglio clienti", "impattoAtteso": "Stabilizzazione ricavi e crescita +5-10%", "tempistiche": "12-18 mesi", "priorita": "Alta"},
+        {"area": "Magazzino", "azione": "Implementazione sistema ABC per gestione scorte; Ottimizzazione livelli riordino", "impattoAtteso": "Riduzione DIO da 194 a 150 gg; Liberazione €268K", "tempistiche": "6-9 mesi", "priorita": "Alta"},
+        {"area": "Debito Finanziario", "azione": "Rinegoziazione condizioni debito; Piano di riduzione PFN attraverso cash flow operativo", "impattoAtteso": "Riduzione D/E da 2.66 a <2.0", "tempistiche": "12-24 mesi", "priorita": "Media"},
+        {"area": "Capitale Circolante", "azione": "Ottimizzazione ciclo conversione cassa (DPO, DSO, DIO)", "impattoAtteso": "Riduzione ciclo da 167 a 120 gg", "tempistiche": "6-12 mesi", "priorita": "Media"},
+        {"area": "Governance", "azione": "Implementazione reporting mensile KPI; Sistema di controllo di gestione avanzato", "impattoAtteso": "Miglioramento decision-making e tempestività azioni correttive", "tempistiche": "3-6 mesi", "priorita": "Media"}
+      ]
     }
   },
   "parte3_patrimoniale": {
