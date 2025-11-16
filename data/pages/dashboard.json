@@ -1,0 +1,393 @@
+{
+  "sidebar": {
+    "companyName": "VAROLI GUIDO E FIGLIO S.R.L.",
+    "menuItems": [
+      {
+        "type": "title",
+        "label": "Menu Principale"
+      },
+      {
+        "type": "link",
+        "label": "Dashboard",
+        "href": "dashboard.html",
+        "icon": "fas fa-tachometer-alt",
+        "active": true
+      },
+      {
+        "type": "link",
+        "label": "Indicatori Chiave",
+        "href": "#kpi-section",
+        "icon": "fas fa-key",
+        "active": false
+      },
+      {
+        "type": "link",
+        "label": "Grafici",
+        "href": "#charts-section",
+        "icon": "fas fa-chart-pie",
+        "active": false
+      },
+      {
+        "type": "title",
+        "label": "Analisi Dettagliata"
+      },
+      {
+        "type": "link",
+        "label": "Sintesi e Profilo",
+        "href": "sintesi.html",
+        "icon": "fas fa-file-alt",
+        "active": false
+      },
+      {
+        "type": "link",
+        "label": "Analisi Economica",
+        "href": "economica.html",
+        "icon": "fas fa-balance-scale",
+        "active": false
+      },
+      {
+        "type": "link",
+        "label": "Analisi Patrimoniale",
+        "href": "patrimoniale.html",
+        "icon": "fas fa-landmark",
+        "active": false
+      },
+      {
+        "type": "link",
+        "label": "Bancabilità",
+        "href": "bancabilita.html",
+        "icon": "fas fa-university",
+        "active": false
+      },
+      {
+        "type": "link",
+        "label": "Circolante e Flussi",
+        "href": "circolante-flussi.html",
+        "icon": "fas fa-sync-alt",
+        "active": false
+      },
+      {
+        "type": "link",
+        "label": "Rischi e Azioni",
+        "href": "rischi-raccomandazioni.html",
+        "icon": "fas fa-exclamation-triangle",
+        "active": false
+      },
+      {
+        "type": "title",
+        "label": "Approfondimenti"
+      },
+      {
+        "type": "link",
+        "label": "Dettaglio IRP",
+        "href": "irp-dettaglio.html",
+        "icon": "fas fa-shield-alt",
+        "active": false
+      }
+    ]
+  },
+  "header": {
+    "companyName": "VAROLI GUIDO E FIGLIO S.R.L.",
+    "title": "Dashboard Esecutiva - VAROLI GUIDO E FIGLIO S.R.L.",
+    "titleStyle": "color: var(--primary);",
+    "updateDate": "Aggiornamento: 12 Nov 2025",
+    "userName": "AdminUser"
+  },
+  "kpiSection": {
+    "title": "<i class=\"fas fa-tachometer-alt me-2\"></i>PANORAMICA KPI",
+    "cards": [
+      {
+        "id": "kpi-irp",
+        "cardClass": "kpi-card-v2 border-left-danger",
+        "icon": "fas fa-shield-alt",
+        "iconClass": "kpi-icon-modern-bg",
+        "title": "IRP - Indice Rischio",
+        "value": "51,42",
+        "trend": {
+          "type": "badge",
+          "badge": "Categoria D+",
+          "badgeClass": "status-badge bg-danger",
+          "note": "(Rischio elevato)",
+          "noteClass": "text-muted ms-2"
+        },
+        "description": "Significative vulnerabilità finanziarie."
+      },
+      {
+        "id": "kpi-ricavi",
+        "cardClass": "kpi-card-v2 border-left-success",
+        "icon": "fas fa-chart-bar",
+        "iconClass": "kpi-icon-modern-bg",
+        "title": "Ricavi",
+        "value": "€ 2,85 M",
+        "trend": {
+          "type": "arrow",
+          "trendClass": "kpi-trend-modern trend-up",
+          "icon": "fas fa-arrow-down",
+          "iconClass": "trend-icon",
+          "value": "-14,27%",
+          "valueClass": "trend-value",
+          "note": "vs 2023",
+          "noteClass": "text-muted small"
+        },
+        "description": "Contrazione significativa."
+      },
+      {
+        "id": "kpi-ebitda",
+        "cardClass": "kpi-card-v2 border-left-success",
+        "icon": "fas fa-percent",
+        "iconClass": "kpi-icon-modern-bg",
+        "title": "EBITDA Margin",
+        "value": "-1,53%",
+        "trend": {
+          "type": "arrow",
+          "trendClass": "kpi-trend-modern trend-up",
+          "icon": "fas fa-arrow-down",
+          "iconClass": "trend-icon",
+          "value": "-7,93 p.p.",
+          "valueClass": "trend-value",
+          "note": "vs 2023",
+          "noteClass": "text-muted small"
+        },
+        "description": "Critico (benchmark >2,5%)."
+      },
+      {
+        "id": "kpi-pfn",
+        "cardClass": "kpi-card-v2 border-left-success",
+        "icon": "fas fa-balance-scale",
+        "iconClass": "kpi-icon-modern-bg",
+        "title": "PFN / EBITDA",
+        "value": "N/A",
+        "trend": {
+          "type": "arrow",
+          "trendClass": "kpi-trend-modern trend-down",
+          "icon": "fas fa-arrow-down",
+          "iconClass": "trend-icon",
+          "value": "NOK",
+          "valueClass": "trend-value",
+          "note": "vs 2023",
+          "noteClass": "text-muted small"
+        },
+        "description": "Critico (EBITDA negativo)."
+      },
+      {
+        "id": "kpi-dso",
+        "cardClass": "kpi-card-v2 border-left-warning",
+        "icon": "fas fa-file-invoice-dollar",
+        "iconClass": "kpi-icon-modern-bg",
+        "title": "Giorni Incasso Clienti",
+        "value": "41 gg",
+        "trend": {
+          "type": "arrow",
+          "trendClass": "kpi-trend-modern trend-down",
+          "icon": "fas fa-arrow-down",
+          "iconClass": "trend-icon",
+          "value": "-14 gg",
+          "valueClass": "trend-value",
+          "note": "vs 2023",
+          "noteClass": "text-muted small"
+        },
+        "description": "Ottimo (benchmark 50-60 gg)."
+      },
+      {
+        "id": "kpi-cashflow",
+        "cardClass": "kpi-card-v2 border-left-warning",
+        "icon": "fas fa-coins",
+        "iconClass": "kpi-icon-modern-bg",
+        "title": "Cash Flow Operativo",
+        "value": "€ 211,35 K",
+        "trend": {
+          "type": "arrow",
+          "trendClass": "kpi-trend-modern trend-down",
+          "icon": "fas fa-arrow-up",
+          "iconClass": "trend-icon",
+          "value": "7,42%",
+          "valueClass": "trend-value",
+          "note": "dei Ricavi",
+          "noteClass": "text-muted small"
+        },
+        "description": "Adeguato (benchmark >5%)."
+      },
+      {
+        "id": "kpi-leanus",
+        "cardClass": "kpi-card-v2 border-left-warning",
+        "icon": "fas fa-user-shield",
+        "iconClass": "kpi-icon-modern-bg",
+        "title": "Leanus Score / Categoria",
+        "value": "3,47",
+        "trend": {
+          "type": "badges",
+          "badges": [
+            {
+              "text": "Discreto (3)",
+              "class": "status-badge bg-warning me-2"
+            },
+            {
+              "text": "TRADER",
+              "class": "status-badge bg-info"
+            }
+          ]
+        },
+        "description": "Fragilità moderata con rischi elevati."
+      },
+      {
+        "id": "kpi-azione",
+        "cardClass": "kpi-card-v2 border-left-warning",
+        "icon": "fas fa-tasks",
+        "iconClass": "kpi-icon-modern-bg",
+        "title": "Azione Prioritaria",
+        "value": "Ottimizzazione Magazzino",
+        "valueStyle": "font-size: 1.5rem;",
+        "trend": {
+          "type": "badge",
+          "badge": "Critica",
+          "badgeClass": "status-badge bg-warning"
+        },
+        "description": "Ridurre rotazione (194 giorni).",
+        "actionButton": {
+          "text": "Vedi Piano",
+          "href": "rischi-raccomandazioni.html",
+          "class": "btn btn-outline-primary btn-sm btn-pill mt-2"
+        }
+      }
+    ]
+  },
+  "chartsSection": {
+    "title": "<i class=\"fas fa-chart-pie me-2\"></i>GRAFICI CHIAVE",
+    "charts": [
+      {
+        "id": "chart1",
+        "title": "Trend Ricavi, EBITDA e Margine",
+        "canvasId": "trendChart",
+        "type": "combo",
+        "data": {
+          "labels": ["2022", "2023", "2024"],
+          "datasets": [
+            {
+              "label": "Ricavi (M€)",
+              "type": "bar",
+              "data": [3.722, 3.324, 2.850],
+              "backgroundColor": "rgba(40, 167, 69, 0.8)",
+              "borderColor": "rgba(40, 167, 69, 1)",
+              "borderWidth": 1,
+              "yAxisID": "y"
+            },
+            {
+              "label": "EBITDA Margin (%)",
+              "type": "line",
+              "data": [5.3, 6.4, -1.53],
+              "borderColor": "rgba(255, 193, 7, 1)",
+              "backgroundColor": "rgba(255, 193, 7, 0.2)",
+              "borderWidth": 3,
+              "borderDash": [5, 5],
+              "pointBackgroundColor": "rgba(255, 193, 7, 1)",
+              "pointBorderColor": "rgba(255, 193, 7, 1)",
+              "pointRadius": 6,
+              "fill": false,
+              "yAxisID": "y1"
+            }
+          ]
+        },
+        "options": {
+          "responsive": true,
+          "maintainAspectRatio": false,
+          "interaction": {
+            "mode": "index",
+            "intersect": false
+          },
+          "plugins": {
+            "legend": {
+              "position": "bottom"
+            }
+          },
+          "scales": {
+            "x": {
+              "display": true,
+              "title": {
+                "display": true,
+                "text": "Anno"
+              }
+            },
+            "y": {
+              "type": "linear",
+              "display": true,
+              "position": "left",
+              "title": {
+                "display": true,
+                "text": "Ricavi (M€)"
+              },
+              "min": 0,
+              "max": 4.0
+            },
+            "y1": {
+              "type": "linear",
+              "display": true,
+              "position": "right",
+              "title": {
+                "display": true,
+                "text": "EBITDA Margin (%)"
+              },
+              "min": -5,
+              "max": 10,
+              "grid": {
+                "drawOnChartArea": false
+              }
+            }
+          }
+        }
+      },
+      {
+        "id": "chart2",
+        "title": "Sostenibilità Debito (PFN/EBITDA)",
+        "canvasId": "pfnChart",
+        "type": "bar",
+        "data": {
+          "labels": ["2022", "2023", "2024"],
+          "datasets": [
+            {
+              "label": "PFN/EBITDA",
+              "data": [2.10, 1.58, null],
+              "backgroundColor": [
+                "rgba(220, 53, 69, 0.8)",
+                "rgba(220, 53, 69, 0.8)",
+                "rgba(220, 53, 69, 0.8)"
+              ],
+              "borderColor": [
+                "rgba(220, 53, 69, 1)",
+                "rgba(220, 53, 69, 1)",
+                "rgba(220, 53, 69, 1)"
+              ],
+              "borderWidth": 1
+            }
+          ]
+        },
+        "options": {
+          "responsive": true,
+          "maintainAspectRatio": false,
+          "plugins": {
+            "legend": {
+              "position": "bottom"
+            }
+          },
+          "scales": {
+            "x": {
+              "display": true,
+              "title": {
+                "display": true,
+                "text": "Anno"
+              }
+            },
+            "y": {
+              "display": true,
+              "title": {
+                "display": true,
+                "text": "PFN/EBITDA"
+              },
+              "min": 0,
+              "max": 3
+            }
+          }
+        }
+      }
+    ]
+  }
+}

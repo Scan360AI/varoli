@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Moderna - VAROLI GUIDO E FIGLIO S.R.L. | SCAN</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/components.css" rel="stylesheet">
+    <link href="../css/modern.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+</head>
+<body>
+
+    <!-- Sidebar Verticale Fissa -->
+    <aside class="sidebar no-print">
+        <div class="sidebar-header">
+            <img src="../assets/img/logo_scan.png" alt="SCAN Logo" style="max-height: 40px;">
+            <h5 id="sidebarCompanyName"></h5>
+        </div>
+
+        <ul class="sidebar-nav flex-grow-1" id="sidebarNav">
+            <!-- Populated by JS -->
+        </ul>
+
+        <div class="sidebar-footer">
+            <small>SCAN360 © <span id="currentYearSidebar"></span> Kitzanos</small>
+        </div>
+    </aside>
+
+    <!-- Contenuto Principale -->
+    <main class="main-wrapper">
+        <!-- Header Orizzontale -->
+        <header class="dashboard-header no-print">
+            <div class="header-title">
+                <h4 class="mb-0" id="headerCompanyName"></h4>
+                <h5 class="mb-0 fw-bold" id="headerTitle"></h5>
+            </div>
+            <div class="header-controls d-flex align-items-center">
+                <span class="me-3 small text-muted" id="headerUpdateDate"></span>
+                <button class="btn btn-sm btn-outline-secondary me-2 print-button" id="printBtn">
+                    <i class="fas fa-print"></i> Stampa
+                </button>
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-light border dropdown-toggle" type="button" id="userMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user-circle me-1"></i> <span id="userMenuName"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenuButton">
+                        <li><button class="dropdown-item" type="button" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i>Logout</button></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!-- Area Contenuto Dashboard -->
+        <div class="dashboard-container">
+
+            <!-- Sezione KPI Principali -->
+            <section id="kpi-section">
+                <h4 class="section-title small" id="kpiSectionTitle"></h4>
+                <div class="row" id="kpiCardsContainer">
+                    <!-- Populated by JS -->
+                </div>
+            </section>
+
+            <!-- Sezione Grafici Chiave -->
+            <section id="charts-section">
+                <h4 class="section-title small mt-4" id="chartsSectionTitle"></h4>
+                <div class="row">
+                    <!-- Grafico 1: Trend Economico e Margine -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="dashboard-card">
+                            <h6 class="card-title-modern text-center" id="chart1Title"></h6>
+                            <div class="chart-container" style="height: 300px;">
+                                <canvas id="trendChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grafico 2: Sostenibilità Debito (PFN/EBITDA) -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="dashboard-card">
+                            <h6 class="card-title-modern text-center" id="chart2Title"></h6>
+                            <div class="chart-container" style="height: 300px;">
+                                <canvas id="pfnChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Footer Standard -->
+        <footer class="footer no-print">
+            <div class="container-fluid px-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                        SCAN360 © <span id="currentYearFooter"></span>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        Powered by <a href="http://www.kitzanos.com" target="_blank" class="text-white fw-bold">Kitzanos Lab</a>
+                        <img src="../assets/img/logo_kitzanos.png" alt="Kitzanos Logo" class="ms-2">
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Script JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/pages/dashboard.js"></script>
+</body>
+</html>
