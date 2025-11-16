@@ -130,8 +130,59 @@
 
                 <!-- 1.1 KPI Principali -->
                 <div class="content-section">
-                    <div class="grid-4" id="kpiMainGrid"></div>
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-tachometer-alt"></i>
+                            Panoramica KPI Principali
+                        </h2>
+                    </div>
+                    <div class="row" id="kpiMainGrid"></div>
                     <div id="kpiCommentary"></div>
+                </div>
+
+                <!-- 1.1.1 KPI Aggiuntivi -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-chart-bar"></i>
+                            KPI di Dettaglio
+                        </h2>
+                    </div>
+                    <div class="row" id="kpiAdditionalGrid"></div>
+                </div>
+
+                <!-- 1.1.2 Grafici Chiave -->
+                <div class="content-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-chart-pie"></i>
+                            Grafici Chiave
+                        </h2>
+                    </div>
+                    <div class="row">
+                        <!-- Grafico 1: Trend Economico -->
+                        <div class="col-lg-6 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title text-center mb-4">Trend Ricavi, EBITDA e Margine</h6>
+                                    <div class="chart-container" style="height: 300px;">
+                                        <canvas id="trendChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Grafico 2: PFN/EBITDA -->
+                        <div class="col-lg-6 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h6 class="card-title text-center mb-4">Sostenibilità Debito (PFN/EBITDA)</h6>
+                                    <div class="chart-container" style="height: 300px;">
+                                        <canvas id="pfnChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- 1.2 Sezione IRP -->
