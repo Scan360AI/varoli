@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approfondimento IRP - VAROLI GUIDO E FIGLIO S.R.L. | SCAN V17</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/components.css" rel="stylesheet">
+    <link href="../css/modern.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <aside class="sidebar no-print">
+        <div class="sidebar-header">
+            <img src="../assets/img/logo_scan.png" alt="SCAN Logo" style="max-height: 40px;">
+            <h5 id="sidebarCompanyName"></h5>
+        </div>
+        <ul class="sidebar-nav flex-grow-1" id="sidebarNav">
+            <!-- Populated by JS -->
+        </ul>
+        <div class="sidebar-footer">
+            <small>SCAN360 © <span id="currentYearSidebar"></span> Kitzanos</small>
+        </div>
+    </aside>
+
+    <!-- Contenuto Principale Wrapper -->
+    <div class="main-wrapper">
+        <!-- Header Orizzontale -->
+        <header class="dashboard-header no-print">
+            <div class="header-title">
+                <h5 class="mb-0" id="headerTitle"></h5>
+                <p class="mb-0" id="headerSubtitle"></p>
+            </div>
+            <div class="header-controls d-flex align-items-center">
+                <span id="irp-header-badge" class="badge me-3"></span>
+                <button class="btn btn-sm btn-outline-secondary me-2 print-button" id="printBtn">
+                    <i class="fas fa-print"></i> Stampa
+                </button>
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-light border dropdown-toggle" type="button" id="userMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user-circle me-1"></i> <span id="userMenuName"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenuButton">
+                        <li><button class="dropdown-item" type="button" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i>Logout</button></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!-- Print Header -->
+        <div class="container d-none d-print-block mt-4 mb-4">
+            <h1 class="text-center mb-0"><span id="printCompanyName"></span></h1>
+            <p class="text-center mb-0" id="printSubtitle"></p>
+            <hr>
+        </div>
+
+        <!-- Area Contenuto Specifico del Report -->
+        <div class="dashboard-container">
+
+            <!-- IRP Visual Section -->
+            <div class="card mb-4 report-section" id="irpVisualSection">
+                <div class="card-body">
+                    <h3 class="text-center mb-4" id="irpVisualTitle"></h3>
+
+                    <!-- Gradient Bar -->
+                    <div class="irp-gradient-bar mb-4">
+                        <div class="irp-marker" id="irpMarker">
+                            <div class="irp-marker-label" id="irpMarkerLabel"></div>
+                        </div>
+                    </div>
+
+                    <div class="row justify-content-center mt-4">
+                        <div class="col-md-8 text-center">
+                            <!-- Score Circle -->
+                            <div class="irp-score-circle mb-3" id="irpScoreCircle">
+                                <span class="irp-score-value" id="irpScoreValue"></span>
+                                <span class="irp-score-max">/ 100</span>
+                            </div>
+                            <h4 id="irpCategoryText"></h4>
+                            <p class="mt-2">
+                                <span id="irpCategoryBadge" class="badge"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sintesi Calcolo IRP -->
+            <div class="card mb-4 report-section">
+                <div class="card-header card-header-primary">
+                    <h5 class="mb-0" id="sintesiCalcoloTitle"></h5>
+                </div>
+                <div class="card-body">
+                    <p class="small" id="sintesiCalcoloIntro"></p>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped">
+                            <thead class="table-light" id="sintesiCalcoloTableHead"></thead>
+                            <tbody id="sintesiCalcoloTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Component Details -->
+            <h3 class="section-title mb-4" id="componentDetailsTitle"></h3>
+
+            <!-- CP - Coefficiente di Ponderazione -->
+            <div class="card mb-4 report-section component-card">
+                <div class="card-header card-header-secondary">
+                    <h5 class="mb-0" id="cpCardTitle"></h5>
+                </div>
+                <div class="card-body">
+                    <p class="small" id="cpCardIntro"></p>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-hover small">
+                            <thead class="table-light" id="cpTableHead"></thead>
+                            <tbody id="cpTableBody"></tbody>
+                        </table>
+                    </div>
+                    <p class="small mt-3" id="cpCardConclusion"></p>
+                </div>
+            </div>
+
+            <!-- Leanus Score -->
+            <div class="card mb-4 report-section component-card">
+                <div class="card-header card-header-primary">
+                    <h5 class="mb-0" id="leanusCardTitle"></h5>
+                </div>
+                <div class="card-body">
+                    <p class="small" id="leanusCardIntro"></p>
+
+                    <!-- Leanus Scale Visualization -->
+                    <div class="leanus-scale mt-4 mb-4">
+                        <div class="leanus-scale-bar">
+                            <div class="leanus-marker" id="leanusMarker">
+                                <div class="leanus-marker-label" id="leanusMarkerLabel"></div>
+                            </div>
+                        </div>
+                        <div class="leanus-scale-labels">
+                            <span id="leanusLabelMin"></span>
+                            <span id="leanusLabelMid"></span>
+                            <span id="leanusLabelMax"></span>
+                        </div>
+                    </div>
+
+                    <div class="alert alert-info small mt-3" id="leanusAlert"></div>
+                    <p class="small mt-3" id="leanusCardConclusion"></p>
+                </div>
+            </div>
+
+            <!-- MCC Rating -->
+            <div class="card mb-4 report-section component-card">
+                <div class="card-header card-header-secondary">
+                    <h5 class="mb-0" id="mccCardTitle"></h5>
+                </div>
+                <div class="card-body">
+                    <p class="small" id="mccCardIntro"></p>
+
+                    <div class="text-center my-4">
+                        <div class="display-4 fw-bold" id="mccValue"></div>
+                        <p class="text-muted small" id="mccValueLabel"></p>
+                    </div>
+
+                    <div class="alert alert-warning small mt-3" id="mccAlert"></div>
+                    <p class="small mt-3" id="mccCardConclusion"></p>
+                </div>
+            </div>
+
+            <!-- Z-Score Altman -->
+            <div class="card mb-4 report-section component-card">
+                <div class="card-header card-header-primary">
+                    <h5 class="mb-0" id="zscoreCardTitle"></h5>
+                </div>
+                <div class="card-body">
+                    <p class="small" id="zscoreCardIntro"></p>
+
+                    <!-- Z-Score Scale Visualization -->
+                    <div class="zscore-scale-container mt-4 mb-4">
+                        <div class="zscore-progress-bar">
+                            <div class="zscore-zone zone-danger" id="zscoreZoneDanger"></div>
+                            <div class="zscore-zone zone-warning" id="zscoreZoneWarning"></div>
+                            <div class="zscore-zone zone-success" id="zscoreZoneSuccess"></div>
+                            <div class="zscore-indicator-dot" id="zscoreIndicatorDot">
+                                <div class="zscore-value-label" id="zscoreValueLabel"></div>
+                            </div>
+                        </div>
+                        <div class="zscore-scale-labels mt-2">
+                            <span id="zscoreLabelMin"></span>
+                            <span id="zscoreLabelMid"></span>
+                            <span id="zscoreLabelMax"></span>
+                        </div>
+                    </div>
+
+                    <p class="small mt-3" id="zscoreCardConclusion"></p>
+                </div>
+            </div>
+
+            <!-- Valutazione Finale -->
+            <div class="card mb-4 report-section">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0" id="valutazioneFinaleTitle"></h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h6 id="puntiForteTitle"></h6>
+                            <ul class="fa-ul small" id="puntiForteLista">
+                                <!-- Populated by JS -->
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 id="puntiDebolezzaTitle"></h6>
+                            <ul class="fa-ul small" id="puntiDebolezzaLista">
+                                <!-- Populated by JS -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Raccomandazioni -->
+            <div class="card mb-4 report-section">
+                <div class="card-header card-header-primary">
+                    <h5 class="mb-0" id="raccomandazioniTitle"></h5>
+                </div>
+                <div class="card-body">
+                    <p class="small" id="raccomandazioniIntro"></p>
+                    <ol class="small" id="raccomandazioniLista">
+                        <!-- Populated by JS -->
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Target di Miglioramento -->
+            <div class="card mb-4 report-section">
+                <div class="card-header card-header-secondary">
+                    <h5 class="mb-0" id="targetMiglioramentoTitle"></h5>
+                </div>
+                <div class="card-body">
+                    <p class="small" id="targetMiglioramentoIntro"></p>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped table-hover">
+                            <thead class="table-light" id="targetMiglioramentoTableHead"></thead>
+                            <tbody id="targetMiglioramentoTableBody"></tbody>
+                        </table>
+                    </div>
+                    <p class="small mt-3" id="targetMiglioramentoConclusion"></p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer no-print">
+            <div class="container-fluid px-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                        SCAN360 © <span id="currentYearFooterReport"></span>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        Powered by <a href="http://www.kitzanos.com" target="_blank" class="text-white fw-bold">Kitzanos Lab</a>
+                        <img src="../assets/img/logo_kitzanos.png" alt="Kitzanos Logo" class="ms-2">
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Script JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/pages/irp-dettaglio.js"></script>
+</body>
+</html>

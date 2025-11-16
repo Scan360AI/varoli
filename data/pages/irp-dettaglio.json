@@ -1,0 +1,368 @@
+{
+  "sidebar": {
+    "companyName": "VAROLI GUIDO E FIGLIO S.R.L.",
+    "menuItems": [
+      {
+        "type": "title",
+        "label": "NAVIGAZIONE"
+      },
+      {
+        "type": "link",
+        "label": "Sintesi e Profilo Aziendale",
+        "href": "sintesi.html",
+        "icon": "fas fa-home",
+        "active": false
+      },
+      {
+        "type": "link",
+        "label": "Analisi Economica e Benchmark",
+        "href": "economica.html",
+        "icon": "fas fa-chart-line",
+        "active": false
+      },
+      {
+        "type": "link",
+        "label": "Analisi Patrimoniale",
+        "href": "patrimoniale.html",
+        "icon": "fas fa-balance-scale",
+        "active": false
+      },
+      {
+        "type": "link",
+        "label": "Bancabilità e Sostenibilità Debito",
+        "href": "bancabilita.html",
+        "icon": "fas fa-university",
+        "active": false
+      },
+      {
+        "type": "link",
+        "label": "Circolante e Flussi di Cassa",
+        "href": "circolante-flussi.html",
+        "icon": "fas fa-sync-alt",
+        "active": false
+      },
+      {
+        "type": "link",
+        "label": "Rischi e Raccomandazioni",
+        "href": "rischi-raccomandazioni.html",
+        "icon": "fas fa-exclamation-triangle",
+        "active": false
+      },
+      {
+        "type": "link",
+        "label": "Approfondimento IRP",
+        "href": "irp-dettaglio.html",
+        "icon": "fas fa-search-plus",
+        "active": true
+      }
+    ]
+  },
+  "header": {
+    "title": "Approfondimento IRP (Indice di Rischio Ponderato)",
+    "subtitle": "Analisi dettagliata dei componenti e metodologia di calcolo",
+    "companyName": "VAROLI GUIDO E FIGLIO S.R.L.",
+    "userName": "Utente Demo",
+    "irpBadge": {
+      "score": 51.42,
+      "category": "D+",
+      "class": "bg-danger text-white"
+    }
+  },
+  "irpVisual": {
+    "title": "Indice di Rischio Ponderato (IRP)",
+    "score": 51.42,
+    "scoreMax": 100,
+    "category": "Rischio elevato",
+    "categoryBadge": "D+",
+    "categoryBadgeClass": "bg-danger text-white fs-4 px-4 py-2",
+    "sectionClass": "risk-high",
+    "scoreCircleClass": "risk-high",
+    "markerPosition": 51.42,
+    "markerLabel": "51.42"
+  },
+  "sintesiCalcolo": {
+    "title": "Sintesi Calcolo IRP",
+    "intro": "L'IRP è calcolato come media ponderata di quattro componenti fondamentali, ciascuna con un peso specifico nella valutazione complessiva del rischio aziendale:",
+    "table": {
+      "headers": ["Componente", "Valore", "Peso", "Punteggio Ponderato"],
+      "rows": [
+        {
+          "componente": "CP - Coefficiente di Ponderazione",
+          "valore": "43,00",
+          "peso": "30%",
+          "ponderato": "12,90",
+          "highlight": false
+        },
+        {
+          "componente": "Leanus Score",
+          "valore": "54,70",
+          "peso": "25%",
+          "ponderato": "13,68",
+          "highlight": false
+        },
+        {
+          "componente": "MCC Rating",
+          "valore": "46,20",
+          "peso": "25%",
+          "ponderato": "11,55",
+          "highlight": false
+        },
+        {
+          "componente": "Z-Score di Altman (normalizzato)",
+          "valore": "70,40",
+          "peso": "20%",
+          "ponderato": "14,08",
+          "highlight": true,
+          "highlightClass": "table-success fw-bold"
+        },
+        {
+          "componente": "<strong>IRP Totale</strong>",
+          "valore": "",
+          "peso": "<strong>100%</strong>",
+          "ponderato": "<strong>51,42</strong>",
+          "highlight": true,
+          "highlightClass": "table-primary fw-bold"
+        }
+      ]
+    }
+  },
+  "componentDetails": {
+    "title": "Dettaglio Componenti IRP"
+  },
+  "cpComponent": {
+    "title": "CP - Coefficiente di Ponderazione",
+    "intro": "Il Coefficiente di Ponderazione valuta 6 indicatori chiave di solidità finanziaria, ciascuno con un peso specifico. Il punteggio finale riflette la capacità dell'azienda di gestire il proprio equilibrio finanziario.",
+    "table": {
+      "headers": ["Indicatore", "Valore 2024", "Score (0-100)", "Peso", "Contributo"],
+      "rows": [
+        {
+          "indicatore": "PFN/EBITDA",
+          "valore": "-30,12",
+          "score": 15,
+          "scoreClass": "text-danger",
+          "peso": "25%",
+          "contributo": "3,75"
+        },
+        {
+          "indicatore": "EBIT/Oneri Finanziari",
+          "valore": "-0,58",
+          "score": 0,
+          "scoreClass": "text-danger",
+          "peso": "20%",
+          "contributo": "0,00"
+        },
+        {
+          "indicatore": "Ciclo Circolante (gg)",
+          "valore": "41",
+          "score": 75,
+          "scoreClass": "text-success",
+          "peso": "15%",
+          "contributo": "11,25"
+        },
+        {
+          "indicatore": "EBITDA/Ricavi",
+          "valore": "-1,53%",
+          "score": 10,
+          "scoreClass": "text-danger",
+          "peso": "20%",
+          "contributo": "2,00"
+        },
+        {
+          "indicatore": "Copertura Attivo Fisso",
+          "valore": "0,56",
+          "score": 30,
+          "scoreClass": "text-warning",
+          "peso": "10%",
+          "contributo": "3,00"
+        },
+        {
+          "indicatore": "DSCR",
+          "valore": "0,02",
+          "score": 5,
+          "scoreClass": "text-danger",
+          "peso": "10%",
+          "contributo": "0,50"
+        },
+        {
+          "indicatore": "<strong>Totale CP</strong>",
+          "valore": "",
+          "score": "<strong>43</strong>",
+          "scoreClass": "fw-bold",
+          "peso": "<strong>100%</strong>",
+          "contributo": "<strong>43,00</strong>",
+          "highlight": true,
+          "highlightClass": "table-warning"
+        }
+      ]
+    },
+    "conclusion": "Il punteggio CP di 43/100 indica criticità significative nella gestione finanziaria, principalmente dovute a marginalità negativa e elevato indebitamento rispetto alla capacità di generazione di cassa."
+  },
+  "leanusComponent": {
+    "title": "Leanus Score",
+    "intro": "Il Leanus Score è un indicatore statistico che misura la probabilità di default dell'azienda su una scala da -80 (massimo rischio) a +80 (minimo rischio). Il punteggio viene normalizzato su scala 0-100 per l'inclusione nell'IRP.",
+    "scoreRaw": -5.3,
+    "scoreNormalized": 54.7,
+    "scaleMin": "-80",
+    "scaleMid": "0",
+    "scaleMax": "+80",
+    "markerPosition": "calc(50% + (-5.3 / 80 * 50%))",
+    "alert": {
+      "text": "Score Leanus: <strong>-5,3</strong> | Normalizzato: <strong>54,7/100</strong>",
+      "class": "alert-info"
+    },
+    "conclusion": "Il punteggio Leanus di -5,3 (54,7 normalizzato) colloca l'azienda in una fascia di rischio medio-alto. Il valore negativo segnala vulnerabilità finanziarie che richiedono monitoraggio attento."
+  },
+  "mccComponent": {
+    "title": "MCC Rating (Marginal Cost of Capital)",
+    "intro": "Il MCC Rating valuta il costo marginale del capitale e la capacità di sostenere nuovo debito. È espresso direttamente su scala 0-100.",
+    "value": "46,20",
+    "valueLabel": "Rating MCC su scala 0-100",
+    "alert": {
+      "text": "<strong>Attenzione:</strong> Un rating MCC sotto 50 indica difficoltà nell'accesso a nuova finanza e costi elevati del capitale. Considerare azioni per migliorare la struttura finanziaria.",
+      "class": "alert-warning"
+    },
+    "conclusion": "Il MCC Rating di 46,20 riflette condizioni di accesso al credito complesse, con tassi potenzialmente elevati. L'azienda dovrebbe focalizzarsi sul rafforzamento patrimoniale."
+  },
+  "zscoreComponent": {
+    "title": "Z-Score di Altman",
+    "intro": "Lo Z-Score di Altman è un modello predittivo di insolvenza basato su 5 ratios finanziari. Valori sotto 1,81 indicano alto rischio, tra 1,81 e 2,99 zona grigia, sopra 2,99 basso rischio. Il valore viene normalizzato su scala 0-100.",
+    "scoreRaw": 2.45,
+    "scoreNormalized": 70.4,
+    "zone": "warning",
+    "zoneClass": "zone-warning",
+    "dotPosition": "65%",
+    "dotLabel": "2,45",
+    "scaleMin": "< 1,81",
+    "scaleMid": "1,81 - 2,99",
+    "scaleMax": "> 2,99",
+    "zoneDangerLabel": "Alto Rischio",
+    "zoneWarningLabel": "Zona Grigia",
+    "zoneSuccessLabel": "Basso Rischio",
+    "conclusion": "Lo Z-Score di 2,45 posiziona l'azienda nella 'zona grigia', indicando una situazione finanziaria incerta che richiede attenzione. Il valore normalizzato di 70,4 è il migliore tra i 4 componenti dell'IRP."
+  },
+  "valutazioneFinale": {
+    "title": "Valutazione Finale IRP",
+    "puntiForte": {
+      "title": "Punti di Forza",
+      "items": [
+        {
+          "text": "Z-Score di Altman positivo (2,45) - migliore componente dell'IRP",
+          "icon": "fas fa-check",
+          "iconClass": "text-success"
+        },
+        {
+          "text": "Ciclo circolante contenuto (41 giorni)",
+          "icon": "fas fa-check",
+          "iconClass": "text-success"
+        },
+        {
+          "text": "Leanus Score in fascia medio-alta normalizzata (54,7)",
+          "icon": "fas fa-check",
+          "iconClass": "text-success"
+        }
+      ]
+    },
+    "puntiDebolezza": {
+      "title": "Punti di Debolezza",
+      "items": [
+        {
+          "text": "Marginalità negativa (EBITDA/Ricavi -1,53%)",
+          "icon": "fas fa-times",
+          "iconClass": "text-danger"
+        },
+        {
+          "text": "Rapporto PFN/EBITDA critico (-30,12)",
+          "icon": "fas fa-times",
+          "iconClass": "text-danger"
+        },
+        {
+          "text": "DSCR insufficiente (0,02 vs target >1,20)",
+          "icon": "fas fa-times",
+          "iconClass": "text-danger"
+        },
+        {
+          "text": "Copertura attivo fisso inadeguata (0,56 vs target >1,00)",
+          "icon": "fas fa-times",
+          "iconClass": "text-danger"
+        },
+        {
+          "text": "MCC Rating sotto soglia critica (46,20 < 50)",
+          "icon": "fas fa-times",
+          "iconClass": "text-danger"
+        }
+      ]
+    }
+  },
+  "raccomandazioni": {
+    "title": "Raccomandazioni per il Miglioramento dell'IRP",
+    "intro": "Sulla base dell'analisi dettagliata dei componenti, si raccomandano le seguenti azioni prioritarie:",
+    "items": [
+      "<strong>Priorità Alta - Ripristino Marginalità:</strong> Avviare immediatamente un piano di recupero della marginalità operativa attraverso revisione prezzi (+5-8%), riduzione costi operativi (-10% su costi variabili) e ottimizzazione mix produttivo. Obiettivo: EBITDA margin >3% entro 6 mesi.",
+      "<strong>Priorità Alta - Ristrutturazione Debito:</strong> Negoziare con gli istituti di credito una moratoria parziale e/o allungamento delle scadenze per ridurre il service del debito corrente. Valutare consolidamento PFN con strumenti a medio-lungo termine.",
+      "<strong>Priorità Media - Rafforzamento Patrimoniale:</strong> Considerare l'ingresso di nuova finanza tramite aumento di capitale (€200-300k) e/o conversione di debito in equity per migliorare la solidità patrimoniale e la copertura dell'attivo fisso.",
+      "<strong>Priorità Media - Ottimizzazione Capitale Circolante:</strong> Mantenere l'eccellenza nel ciclo circolante (41gg) ed estendere le best practice alla gestione completa del cash flow operativo. Implementare sistema di tesoreria previsionale per anticipare tensioni di liquidità."
+    ]
+  },
+  "targetMiglioramento": {
+    "title": "Target di Miglioramento IRP",
+    "intro": "Proiezione dell'evoluzione dell'IRP in base all'implementazione delle raccomandazioni secondo tempistiche realistiche:",
+    "table": {
+      "headers": ["Componente", "Attuale", "Target 6 mesi", "Target 12 mesi", "Target 24 mesi"],
+      "rows": [
+        {
+          "componente": "CP",
+          "attuale": "43,00",
+          "target6": "48,00",
+          "target6Class": "text-warning",
+          "target12": "55,00",
+          "target12Class": "text-info",
+          "target24": "65,00",
+          "target24Class": "text-success"
+        },
+        {
+          "componente": "Leanus Score",
+          "attuale": "54,70",
+          "target6": "56,00",
+          "target6Class": "text-warning",
+          "target12": "60,00",
+          "target12Class": "text-info",
+          "target24": "68,00",
+          "target24Class": "text-success"
+        },
+        {
+          "componente": "MCC Rating",
+          "attuale": "46,20",
+          "target6": "50,00",
+          "target6Class": "text-warning",
+          "target12": "55,00",
+          "target12Class": "text-info",
+          "target24": "62,00",
+          "target24Class": "text-success"
+        },
+        {
+          "componente": "Z-Score (norm.)",
+          "attuale": "70,40",
+          "target6": "72,00",
+          "target6Class": "text-success",
+          "target12": "75,00",
+          "target12Class": "text-success",
+          "target24": "80,00",
+          "target24Class": "text-success"
+        },
+        {
+          "componente": "<strong>IRP Totale</strong>",
+          "attuale": "<strong>51,42</strong>",
+          "target6": "<strong>55,50</strong>",
+          "target6Class": "fw-bold text-warning",
+          "target12": "<strong>61,25</strong>",
+          "target12Class": "fw-bold text-info",
+          "target24": "<strong>68,75</strong>",
+          "target24Class": "fw-bold text-success",
+          "highlight": true,
+          "highlightClass": "table-primary"
+        }
+      ]
+    },
+    "conclusion": "Con un'implementazione rigorosa del piano di azione, è realistico migliorare l'IRP da 51,42 (rischio elevato, D+) a circa 68,75 (rischio moderato, C+) entro 24 mesi, riducendo significativamente il profilo di rischio aziendale."
+  }
+}
