@@ -1,0 +1,356 @@
+{
+  "metadata": {
+    "companyName": "VAROLI GUIDO E FIGLIO S.R.L.",
+    "reportDate": "31 Dicembre 2024",
+    "pageTitle": "Analisi Patrimoniale - SCAN V9",
+    "reportTitle": "Report Dettagliato: Analisi Patrimoniale"
+  },
+  "sidebar": {
+    "companyName": "VAROLI GUIDO E FIGLIO S.R.L.",
+    "logo": "../assets/img/logo_scan.png",
+    "menuItems": [
+      {"type": "link", "label": "Dashboard", "icon": "fas fa-tachometer-alt", "href": "/dashboard_v2", "active": false},
+      {"type": "title", "label": "Analisi Dettagliata"},
+      {"type": "link", "label": "Sintesi e Profilo", "icon": "fas fa-file-alt", "href": "/report/parte1_sintesi", "active": false},
+      {"type": "link", "label": "Analisi Economica", "icon": "fas fa-balance-scale", "href": "/report/parte2_economico", "active": false},
+      {"type": "link", "label": "Analisi Patrimoniale", "icon": "fas fa-landmark", "href": "/report/parte3_patrimoniale", "active": true},
+      {"type": "link", "label": "Bancabilità", "icon": "fas fa-university", "href": "/report/parte4_bancabilita", "active": false},
+      {"type": "link", "label": "Circolante e Flussi", "icon": "fas fa-sync-alt", "href": "/report/parte5_circolante-flussi", "active": false},
+      {"type": "link", "label": "Rischi e Azioni", "icon": "fas fa-exclamation-triangle", "href": "/report/parte6_rischi-raccomandazioni", "active": false},
+      {"type": "title", "label": "Approfondimenti"},
+      {"type": "link", "label": "Dettaglio IRP", "icon": "fas fa-shield-alt", "href": "/report/irp_dettaglio", "active": false}
+    ]
+  },
+  "header": {
+    "title": "Report Dettagliato: Analisi Patrimoniale",
+    "subtitle": "VAROLI GUIDO E FIGLIO S.R.L. | <span class=\"report-date\">31 Dicembre 2024</span>",
+    "userMenuName": "VAROLI GUIDO E FIGLIO S.R.L.",
+    "irpScore": 51.42
+  },
+  "section1": {
+    "intro": "L'analisi dello Stato Patrimoniale riclassificato secondo il criterio fonti-impieghi evidenzia la seguente situazione per il triennio 2022-2024 di VAROLI GUIDO E FIGLIO S.R.L.",
+    "chart1": {
+      "title": "Grafico 3.1: Composizione Impieghi 2024 (%)",
+      "canvasId": "assetsChart",
+      "type": "doughnut",
+      "data": {
+        "labels": ["Liquidità", "Crediti Clienti", "Rimanenze", "Altri Crediti", "Immobilizzazioni"],
+        "datasets": [{
+          "data": [15.6, 14.2, 46.8, 3.6, 19.8],
+          "backgroundColor": ["#28a745", "#17a2b8", "#ffc107", "#6c757d", "#6f42c1"]
+        }]
+      },
+      "options": {
+        "responsive": true,
+        "maintainAspectRatio": false,
+        "plugins": {
+          "legend": {"position": "bottom"}
+        }
+      }
+    },
+    "chart2": {
+      "title": "Grafico 3.2: Composizione Fonti 2024 (%)",
+      "canvasId": "liabilitiesChart",
+      "type": "doughnut",
+      "data": {
+        "labels": ["Patrimonio Netto", "Passività Correnti", "Fondi", "Debiti Finanziari"],
+        "datasets": [{
+          "data": [17.5, 23.2, 3.5, 55.8],
+          "backgroundColor": ["#28a745", "#dc3545", "#6c757d", "#fd7e14"]
+        }]
+      },
+      "options": {
+        "responsive": true,
+        "maintainAspectRatio": false,
+        "plugins": {
+          "legend": {"position": "bottom"}
+        }
+      }
+    },
+    "table1": {
+      "title": "Tabella 3.1: Stato Patrimoniale Riclassificato 2022-2024 (valori in €)",
+      "headers": ["IMPIEGHI", "12/2022", "%", "12/2023", "%", "12/2024", "%", "Δ 2023-24"],
+      "assets": [
+        {"voce": "Liquidità", "2022": 331275, "pct_2022": "13,6%", "2023": 424881, "pct_2023": "16,7%", "2024": 355443, "pct_2024": "15,6%", "var": -16.3, "varClass": "text-danger"},
+        {"voce": "Crediti Clienti", "2022": 403423, "pct_2022": "16,6%", "2023": 422112, "pct_2023": "16,6%", "2024": 323921, "pct_2024": "14,2%", "var": -23.3, "varClass": "text-danger"},
+        {"voce": "Rimanenze", "2022": 1051763, "pct_2022": "43,2%", "2023": 1081429, "pct_2023": "42,6%", "2024": 1067842, "pct_2024": "46,8%", "var": -1.3, "varClass": "text-danger"},
+        {"voce": "Altri Crediti", "2022": 83265, "pct_2022": "3,4%", "2023": 67489, "pct_2023": "2,7%", "2024": 81242, "pct_2024": "3,6%", "var": 20.4, "varClass": "text-success"},
+        {"voce": "Totale Attivo Circolante", "2022": 1869726, "pct_2022": "76,8%", "2023": 1995911, "pct_2023": "78,6%", "2024": 1828448, "pct_2024": "80,2%", "var": -8.4, "varClass": "text-danger", "bold": true},
+        {"voce": "Immobilizzazioni Nette", "2022": 562981, "pct_2022": "23,2%", "2023": 542153, "pct_2023": "21,4%", "2024": 454485, "pct_2024": "19,8%", "var": -16.2, "varClass": "text-danger"},
+        {"voce": "TOTALE IMPIEGHI", "2022": 2432707, "pct_2022": "100,0%", "2023": 2538064, "pct_2023": "100,0%", "2024": 2282933, "pct_2024": "100,0%", "var": -10.1, "varClass": "text-danger", "highlight": true, "highlightClass": "table-primary fw-bold"}
+      ],
+      "liabilities": [
+        {"voce": "Debiti Fornitori", "2022": 418943, "pct_2022": "17,2%", "2023": 410754, "pct_2023": "16,2%", "2024": 388221, "pct_2024": "17,0%", "var": -5.5, "varClass": "text-danger"},
+        {"voce": "Altri Debiti", "2022": 231526, "pct_2022": "9,5%", "2023": 252291, "pct_2023": "9,9%", "2024": 140993, "pct_2024": "6,2%", "var": -44.1, "varClass": "text-danger"},
+        {"voce": "Passività Correnti", "2022": 650469, "pct_2022": "26,7%", "2023": 663045, "pct_2023": "26,1%", "2024": 529214, "pct_2024": "23,2%", "var": -20.2, "varClass": "text-danger", "bold": true},
+        {"voce": "Fondi", "2022": 58219, "pct_2022": "2,4%", "2023": 60839, "pct_2023": "2,4%", "2024": 78839, "pct_2024": "3,5%", "var": 29.6, "varClass": "text-success"},
+        {"voce": "Debiti Finanziari", "2022": 1140362, "pct_2022": "46,9%", "2023": 1163776, "pct_2023": "45,9%", "2024": 1275053, "pct_2024": "55,8%", "var": 9.6, "varClass": "text-success"},
+        {"voce": "di cui a M/L termine", "2022": 584221, "pct_2022": "24,0%", "2023": 588742, "pct_2023": "23,2%", "2024": 616361, "pct_2024": "27,0%", "var": 4.7, "varClass": "text-success", "indent": true},
+        {"voce": "di cui a Breve termine", "2022": 556141, "pct_2022": "22,9%", "2023": 575034, "pct_2023": "22,7%", "2024": 658692, "pct_2024": "28,8%", "var": 14.5, "varClass": "text-success", "indent": true},
+        {"voce": "Patrimonio Netto", "2022": 583657, "pct_2022": "24,0%", "2023": 650404, "pct_2023": "25,6%", "2024": 479666, "pct_2024": "17,5%", "var": -26.3, "varClass": "text-danger"},
+        {"voce": "TOTALE FONTI", "2022": 2432707, "pct_2022": "100,0%", "2023": 2538064, "pct_2023": "100,0%", "2024": 2282933, "pct_2024": "100,0%", "var": -10.1, "varClass": "text-danger", "highlight": true, "highlightClass": "table-primary fw-bold"}
+      ]
+    }
+  },
+  "section2": {
+    "intro": "L'analisi della struttura degli investimenti evidenzia un'azienda con una significativa incidenza dell'attivo circolante (80,2% nel 2024), in aumento rispetto agli esercizi precedenti. Questo dato è coerente con la natura dell'attività di commercio all'ingrosso di legname e materiali da costruzione, che tipicamente richiede investimenti significativi in scorte di magazzino e capitale circolante.",
+    "chart3": {
+      "title": "Grafico 3.3: Evoluzione Struttura Impieghi (€)",
+      "canvasId": "investmentsStructureChart",
+      "type": "bar",
+      "data": {
+        "labels": ["2022", "2023", "2024"],
+        "datasets": [
+          {
+            "label": "Attivo Circolante",
+            "data": [1869726, 1995911, 1828448],
+            "backgroundColor": "#17a2b8"
+          },
+          {
+            "label": "Immobilizzazioni",
+            "data": [562981, 542153, 454485],
+            "backgroundColor": "#6f42c1"
+          }
+        ]
+      },
+      "options": {
+        "responsive": true,
+        "maintainAspectRatio": false,
+        "scales": {
+          "x": {"stacked": true},
+          "y": {"stacked": true}
+        }
+      }
+    },
+    "analysis": {
+      "title": "Analisi Composizione Impieghi 2024:",
+      "items": [
+        {
+          "icon": "fas fa-building",
+          "iconClass": "bg-icon-primary",
+          "text": "<strong>Attivo Fisso (€454.485):</strong> 19,8% del Tot. Impieghi. Riduzione -16,2% rispetto al 2023."
+        },
+        {
+          "icon": "fas fa-laptop",
+          "iconClass": "bg-icon-info",
+          "text": "<strong>Imm. Immateriali (€12.345):</strong> 2,7% dell'Attivo Fisso, principalmente software e licenze."
+        },
+        {
+          "icon": "fas fa-tools",
+          "iconClass": "bg-icon-warning",
+          "text": "<strong>Imm. Materiali (€442.140):</strong> 97,3% dell'Attivo Fisso, attrezzature e immobili."
+        },
+        {
+          "icon": "fas fa-sync-alt",
+          "iconClass": "bg-icon-secondary",
+          "text": "<strong>Attivo Circolante (€1.828.448):</strong> 80,2% del Tot. Impieghi. Contrazione -8,4%. <span class=\"text-danger\">Rimanenze elevate (€1.067.842) e Crediti in calo (-23,3%).</span>"
+        }
+      ]
+    }
+  },
+  "section3": {
+    "intro": "L'analisi della struttura delle fonti evidenzia un'azienda con un grado di patrimonializzazione in significativo deterioramento. Il Patrimonio Netto rappresenta solo il 17,5% del totale delle fonti nel 2024, in forte diminuzione rispetto agli esercizi precedenti.",
+    "chart4": {
+      "title": "Grafico 3.4: Composizione Patrimonio Netto 2024 (%)",
+      "canvasId": "equityCompositionChart",
+      "type": "doughnut",
+      "data": {
+        "labels": ["Capitale Sociale", "Riserve", "Perdita"],
+        "datasets": [{
+          "data": [51.6, 79.5, -31.1],
+          "backgroundColor": ["#007bff", "#28a745", "#dc3545"]
+        }]
+      },
+      "options": {
+        "responsive": true,
+        "maintainAspectRatio": false,
+        "plugins": {
+          "legend": {"position": "bottom"}
+        }
+      }
+    },
+    "equityAnalysis": {
+      "title": "Analisi Patrimonio Netto (€ 479.666, -26,3%):",
+      "items": [
+        {
+          "icon": "fas fa-arrow-down",
+          "iconClass": "text-warning",
+          "text": "Riduzione dovuta alla perdita d'esercizio (-€149.177)."
+        },
+        {
+          "icon": "fas fa-exclamation-triangle",
+          "iconClass": "text-danger",
+          "html": "Incidenza su Fonti: <strong>17,5%</strong> <span class=\"status-badge bg-danger\">Insufficiente</span>."
+        }
+      ]
+    },
+    "chart5": {
+      "title": "Grafico 3.5: Composizione Passività Correnti 2024 (%)",
+      "canvasId": "currentLiabilitiesChart",
+      "type": "doughnut",
+      "data": {
+        "labels": ["Debiti Fornitori", "Altri Debiti"],
+        "datasets": [{
+          "data": [388221, 140993],
+          "backgroundColor": ["#fd7e14", "#e83e8c"]
+        }]
+      },
+      "options": {
+        "responsive": true,
+        "maintainAspectRatio": false,
+        "plugins": {
+          "legend": {"position": "bottom"},
+          "tooltip": {
+            "callbacks": {
+              "label": "function(context) { const ds = context.chart.data.datasets[context.datasetIndex]; const arr = Array.isArray(ds?.data) ? ds.data : []; const total = arr.reduce((a, b) => a + b, 0); const value = Number(context.raw) || 0; const percentage = total ? ((value / total) * 100).toFixed(1) : '0.0'; return `${context.label}: €${value.toLocaleString()} (${percentage}%)`; }"
+            }
+          }
+        }
+      }
+    },
+    "liabilitiesAnalysis": {
+      "title": "Analisi Passività Correnti (€529.214, -20,2%):",
+      "items": [
+        {
+          "icon": "fas fa-building",
+          "iconClass": "text-info",
+          "text": "Debiti Fornitori: €388.221 (73,4% delle passività correnti)."
+        },
+        {
+          "icon": "fas fa-file-invoice",
+          "iconClass": "text-warning",
+          "text": "Altri Debiti: €140.993 (26,6%), inclusi debiti tributari e ratei."
+        },
+        {
+          "icon": "fas fa-shield-alt",
+          "iconClass": "text-warning",
+          "text": "Fondi TFR: €78.839 (+29,6%)."
+        },
+        {
+          "icon": "fas fa-exclamation-triangle",
+          "iconClass": "text-danger",
+          "html": "<strong>Elevati debiti finanziari</strong> <span class=\"status-badge bg-danger\">Critico</span>."
+        }
+      ]
+    }
+  },
+  "section4": {
+    "intro": "La Posizione Finanziaria Netta (PFN), calcolata come differenza tra i debiti finanziari e le disponibilità liquide, presenta la seguente evoluzione nel triennio.",
+    "table2": {
+      "title": "Tabella 4.1: Analisi PFN 2022-2024 (€)",
+      "headers": ["Componente", "12/2022", "12/2023", "12/2024", "Var% 23-24"],
+      "rows": [
+        {"componente": "Debiti finanziari a breve", "2022": 556141, "2023": 575034, "2024": 658692, "var": "+14,5%"},
+        {"componente": "Debiti finanziari a M/L termine", "2022": 584221, "2023": 588742, "2024": 616361, "var": "+4,7%"},
+        {"componente": "Totale Debiti Finanziari", "2022": 1140362, "2023": 1163776, "2024": 1275053, "var": "+9,6%", "highlight": true, "highlightClass": "table-secondary"},
+        {"componente": "(-) Liquidità", "2022": 331275, "2023": 424881, "2024": 355443, "var": "-16,3%", "varClass": "text-danger"},
+        {"componente": "Posizione Finanziaria Netta (PFN)", "2022": 809087, "2023": 738895, "2024": 919610, "var": "+24,5%", "varClass": "text-danger", "highlight": true, "highlightClass": "table-danger fw-bold"},
+        {"componente": "EBITDA", "2022": 162467, "2023": 193166, "2024": -43535, "var": "-122,5%", "varClass": "text-danger", "separator": true},
+        {"componente": "PFN/EBITDA (x)", "2022": "4,98", "2023": "3,82", "2024": "N/A", "var": "N/A", "varClass": "text-danger"},
+        {"componente": "PFN/PN (x)", "2022": "1,39", "2023": "1,14", "2024": "1,92", "var": "+68,4%", "varClass": "text-danger"}
+      ]
+    },
+    "chart6": {
+      "title": "Grafico 4.1: Evoluzione PFN e Liquidità (€)",
+      "canvasId": "pfnTrendChart",
+      "type": "line",
+      "data": {
+        "labels": ["2022", "2023", "2024"],
+        "datasets": [
+          {
+            "label": "Liquidità",
+            "data": [331275, 424881, 355443],
+            "borderColor": "#28a745",
+            "backgroundColor": "#28a745",
+            "fill": false
+          },
+          {
+            "label": "Debiti Finanziari",
+            "data": [1140362, 1163776, 1275053],
+            "borderColor": "#dc3545",
+            "backgroundColor": "#dc3545",
+            "fill": false
+          }
+        ]
+      },
+      "options": {
+        "responsive": true,
+        "maintainAspectRatio": false,
+        "scales": {
+          "y": {"beginAtZero": true}
+        }
+      }
+    },
+    "analysis": {
+      "title": "Analisi PFN (VAROLI GUIDO E FIGLIO S.R.L.):",
+      "items": [
+        {
+          "icon": "fas fa-exclamation-triangle",
+          "iconClass": "text-danger",
+          "text": "PFN positiva: <strong>elevato indebitamento</strong> (€919.610)."
+        },
+        {
+          "icon": "fas fa-exclamation-triangle",
+          "iconClass": "text-danger",
+          "text": "Peggioramento PFN (+24,5%) dovuto all'incremento dei debiti finanziari e riduzione liquidità."
+        },
+        {
+          "icon": "fas fa-exclamation-triangle",
+          "iconClass": "text-danger",
+          "text": "PFN/EBITDA non calcolabile per EBITDA negativo."
+        },
+        {
+          "icon": "fas fa-exclamation-triangle",
+          "iconClass": "text-danger",
+          "text": "Elevato rischio finanziario (PFN/PN: 1,92)."
+        }
+      ]
+    }
+  },
+  "section5": {
+    "intro": "L'analisi degli indici di solidità patrimoniale fornisce ulteriori elementi per valutare l'equilibrio della struttura finanziaria dell'azienda nel medio-lungo termine.",
+    "table3": {
+      "title": "Tabella 5.1: Principali Indici di Solidità 2022-2024 (VAROLI GUIDO E FIGLIO S.R.L.)",
+      "headers": ["Indice", "2022", "2023", "2024", "Valutazione 2024"],
+      "rows": [
+        {"indice": "Copertura Immobilizzazioni", "2022": "1,04", "2023": "1,20", "2024": "0,56", "badge": "Insufficiente", "badgeClass": "bg-danger"},
+        {"indice": "Indice Autonomia Finanziaria", "2022": "24,0%", "2023": "25,6%", "2024": "17,5%", "badge": "Insufficiente", "badgeClass": "bg-danger"},
+        {"indice": "Leva Finanziaria (D/E)", "2022": "1,95", "2023": "1,79", "2024": "2,66", "badge": "Critico", "badgeClass": "bg-danger"},
+        {"indice": "Turnover (Ricavi/CIN)", "2022": "1,89", "2023": "1,92", "2024": "2,04", "badge": "Ottimo", "badgeClass": "bg-success"},
+        {"indice": "Indice Struttura Secondario", "2022": "2,17", "2023": "2,40", "2024": "1,37", "badge": "Sufficiente", "badgeClass": "bg-warning"},
+        {"indice": "PFN/EBITDA", "2022": "4,98", "2023": "3,82", "2024": "N/A", "badge": "Critico", "badgeClass": "bg-danger"}
+      ]
+    },
+    "notes": [
+      {
+        "icon": "fas fa-exclamation-triangle",
+        "iconClass": "text-danger",
+        "text": "<strong>Copertura Immob. (0,56):</strong> Immobilizzazioni non adeguatamente finanziate da capitale proprio."
+      },
+      {
+        "icon": "fas fa-exclamation-triangle",
+        "iconClass": "text-danger",
+        "text": "<strong>Autonomia Fin. (17,5%):</strong> Insufficiente patrimonializzazione."
+      },
+      {
+        "icon": "fas fa-check-circle",
+        "iconClass": "text-success",
+        "text": "<strong>Efficienza Investimenti:</strong> Turnover (2,04x) ottimo, ma elevato indebitamento."
+      },
+      {
+        "icon": "fas fa-exclamation-triangle",
+        "iconClass": "text-danger",
+        "text": "<strong>PFN/EBITDA (N/A):</strong> Critica situazione finanziaria."
+      }
+    ]
+  },
+  "summary": {
+    "title": "6. Conclusioni Analisi Patrimoniale (VAROLI GUIDO E FIGLIO S.R.L.)",
+    "paragraphs": [
+      "L'analisi patrimoniale di VAROLI GUIDO E FIGLIO S.R.L. evidenzia una <strong>struttura significativamente deteriorata</strong>, caratterizzata da una scarsa patrimonializzazione (17,5%) e da un elevato ricorso al capitale di debito.",
+      "La società presenta una preoccupante posizione finanziaria netta con <strong>debito netto di €919.610</strong>, in peggioramento del 24,5% rispetto al 2023, e un rapporto PFN/PN pari a 1,92.",
+      "<strong>Punti di debolezza principali:</strong> Insufficiente copertura delle immobilizzazioni (0,56), elevato indebitamento finanziario (D/E 2,66), EBITDA negativo che compromette la sostenibilità del debito e <strong>IRP preoccupante (51,42/100)</strong>.",
+      "<strong>Raccomandazioni:</strong> Ricapitalizzazione urgente, ristrutturazione operativa per ripristinare la marginalità, ottimizzazione della gestione del magazzino (194 giorni di rotazione) e rimodulazione del debito finanziario per migliorarne la sostenibilità."
+    ]
+  }
+}

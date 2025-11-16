@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisi Patrimoniale - SCAN V9</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/components.css" rel="stylesheet">
+    <link href="../css/modern.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar no-print">
+        <div class="sidebar-header">
+            <img src="../assets/img/logo_scan.png" alt="SCAN Logo" id="sidebarLogo">
+            <h5 id="sidebarCompanyName"></h5>
+        </div>
+        <ul class="sidebar-nav flex-grow-1" id="sidebarNav">
+            <!-- Populated by JS -->
+        </ul>
+        <div class="sidebar-footer">
+            <small>SCAN360 © <span id="currentYearSidebar"></span> Kitzanos</small>
+        </div>
+    </aside>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+        <!-- Header -->
+        <header class="dashboard-header no-print">
+            <div class="header-title">
+                <h5 class="mb-0" id="headerTitle"></h5>
+                <p class="mb-0" id="headerSubtitle"></p>
+            </div>
+            <div class="header-controls d-flex align-items-center">
+                <span id="irp-header-badge" class="badge me-3"></span>
+                <button class="btn btn-sm btn-outline-secondary me-2 print-button" id="printBtn">
+                    <i class="fas fa-print"></i> Stampa
+                </button>
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-light border dropdown-toggle" type="button" id="userMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user-circle me-1"></i> <span id="userMenuName"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenuButton">
+                        <li><button class="dropdown-item" type="button" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i>Logout</button></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <div class="container d-none d-print-block mt-4 mb-4">
+            <h1 class="text-center mb-0"><span class="company-name" id="printCompanyName"></span></h1>
+            <p class="text-center mb-0" id="printSubtitle"></p>
+            <hr>
+        </div>
+
+        <!-- Content -->
+        <div class="dashboard-container">
+            <h2 class="section-title" id="patrimonial-analysis">
+                <i class="fas fa-landmark me-2"></i>ANALISI PATRIMONIALE
+            </h2>
+
+            <!-- Section 1: Stato Patrimoniale Riclassificato -->
+            <div class="card mb-4 report-section">
+                <div class="card-header">
+                    <h5 class="mb-0">1. Stato Patrimoniale Riclassificato (triennio)</h5>
+                </div>
+                <div class="card-body">
+                    <p id="section1Intro"></p>
+
+                    <!-- Charts Row -->
+                    <div class="row mt-4">
+                        <div class="col-lg-6 mb-3 mb-lg-0">
+                            <h6 class="text-center small" id="chart1Title"></h6>
+                            <div class="chart-container" style="height: 300px;">
+                                <canvas id="assetsChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="text-center small" id="chart2Title"></h6>
+                            <div class="chart-container" style="height: 300px;">
+                                <canvas id="liabilitiesChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h6 class="mt-4" id="table1Title"></h6>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped table-hover">
+                            <thead class="table-light" id="balanceSheetTableHead">
+                                <!-- Populated by JS -->
+                            </thead>
+                            <tbody id="balanceSheetTableBody">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Struttura degli Investimenti -->
+            <div class="card mb-4 report-section">
+                <div class="card-header">
+                    <h5 class="mb-0">2. Struttura degli Investimenti</h5>
+                </div>
+                <div class="card-body">
+                    <p id="section2Intro"></p>
+                    <div class="row">
+                        <div class="col-lg-7 mb-3 mb-lg-0">
+                            <h6 class="text-center small" id="chart3Title"></h6>
+                            <div class="chart-container" style="height: 350px;">
+                                <canvas id="investmentsStructureChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <h6 class="mt-1" id="investmentsAnalysisTitle"></h6>
+                            <ul class="small list-unstyled" id="investmentsAnalysisList">
+                                <!-- Populated by JS -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Struttura delle Fonti -->
+            <div class="card mb-4 report-section">
+                <div class="card-header">
+                    <h5 class="mb-0">3. Struttura delle Fonti</h5>
+                </div>
+                <div class="card-body">
+                    <p id="section3Intro"></p>
+                    <div class="row">
+                        <div class="col-lg-6 mb-3 mb-lg-0">
+                            <h6 class="text-center small" id="chart4Title"></h6>
+                            <div class="chart-container" style="height: 300px;">
+                                <canvas id="equityCompositionChart"></canvas>
+                            </div>
+                            <h6 class="mt-3" id="equityAnalysisTitle"></h6>
+                            <ul class="small list-unstyled" id="equityAnalysisList">
+                                <!-- Populated by JS -->
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="text-center small" id="chart5Title"></h6>
+                            <div class="chart-container" style="height: 300px;">
+                                <canvas id="currentLiabilitiesChart"></canvas>
+                            </div>
+                            <h6 class="mt-3" id="liabilitiesAnalysisTitle"></h6>
+                            <ul class="small list-unstyled" id="liabilitiesAnalysisList">
+                                <!-- Populated by JS -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Posizione Finanziaria Netta -->
+            <div class="card mb-4 report-section">
+                <div class="card-header">
+                    <h5 class="mb-0">4. Posizione Finanziaria Netta (PFN)</h5>
+                </div>
+                <div class="card-body">
+                    <p id="section4Intro"></p>
+                    <div class="row">
+                        <div class="col-lg-7 mb-3 mb-lg-0">
+                            <h6 class="mt-1" id="table2Title"></h6>
+                            <div class="table-responsive">
+                                <table class="table table-sm table-striped table-hover">
+                                    <thead id="pfnTableHead">
+                                        <!-- Populated by JS -->
+                                    </thead>
+                                    <tbody id="pfnTableBody">
+                                        <!-- Populated by JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <h6 class="text-center small" id="chart6Title"></h6>
+                            <div class="chart-container" style="height: 300px;">
+                                <canvas id="pfnTrendChart"></canvas>
+                            </div>
+                            <h6 class="mt-3" id="pfnAnalysisTitle"></h6>
+                            <ul class="small list-unstyled" id="pfnAnalysisList">
+                                <!-- Populated by JS -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5: Indici di Solidità -->
+            <div class="card mb-4 report-section">
+                <div class="card-header">
+                    <h5 class="mb-0">5. Indici di Solidità Patrimoniale</h5>
+                </div>
+                <div class="card-body">
+                    <p id="section5Intro"></p>
+                    <h6 class="mt-4" id="table3Title"></h6>
+                    <div class="table-responsive">
+                        <table class="table table-sm table-striped table-hover">
+                            <thead class="table-light" id="solidityTableHead">
+                                <!-- Populated by JS -->
+                            </thead>
+                            <tbody id="solidityTableBody">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row mt-3 small" id="solidityNotesList">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 6: Conclusioni -->
+            <div class="card summary-card mb-4 report-section">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <i class="fas fa-exclamation-triangle text-danger me-2"></i><span id="summaryTitle"></span>
+                    </h5>
+                    <div id="summaryContent">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer no-print">
+            <div class="container-fluid px-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                        SCAN360 © <span id="currentYearFooterReport"></span>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        Powered by <a href="http://www.kitzanos.com" target="_blank" class="text-white fw-bold">Kitzanos Lab</a>
+                        <img src="../assets/img/logo_kitzanos.png" alt="Kitzanos Logo" class="ms-2">
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/pages/patrimoniale.js"></script>
+</body>
+</html>
